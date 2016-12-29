@@ -140,7 +140,7 @@ namespace SPAPracticeManagement.InventoryMaster
         {
             try
             {
-                objItemDAL.BindList(grdSearch);
+                //objItemDAL.BindList(grdSearch);
 
                 txtSearchText.Width = 1050;
 
