@@ -22,7 +22,7 @@ namespace SPAPracticeManagement.Custom_Controls.Register
         UserDAL objUserDAL = new UserDAL();
         UserEL objUserEL = new UserEL();
         Common objCommon = new Common();
-
+        BranchDAL objBranchDAL = new BranchDAL();
         private int _UpdateUserId;
         public int UpdateUserId
         {
@@ -39,6 +39,7 @@ namespace SPAPracticeManagement.Custom_Controls.Register
         {
             InitializeComponent();
             BindUserDropDown(UpdateUserId);
+            BindBranch();
             var query = objUserDAL.GetUserList(branchID).UserList.ToList();
             if (query.Count > 0)
             {
@@ -68,6 +69,10 @@ namespace SPAPracticeManagement.Custom_Controls.Register
                     comboRole_.ValueMember = "Id";
                 }
             }
+        }
+        protected void BindBranch()
+        {
+            objBranchDAL.BindBranch(chkBranch);
         }
         protected bool ValidateForm()
         {
@@ -309,6 +314,11 @@ namespace SPAPracticeManagement.Custom_Controls.Register
         #endregion
 
         private void AddUser_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }

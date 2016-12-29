@@ -57,6 +57,8 @@
             this.lblMobile = new System.Windows.Forms.Label();
             this.txtMobile = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.chkBranch = new System.Windows.Forms.CheckedListBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgUserList)).BeginInit();
             this.panel6.SuspendLayout();
@@ -68,7 +70,7 @@
             this.txtRole.Enabled = false;
             this.txtRole.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRole.Location = new System.Drawing.Point(175, 192);
-            this.txtRole.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtRole.Margin = new System.Windows.Forms.Padding(4);
             this.txtRole.MaxLength = 150;
             this.txtRole.Name = "txtRole";
             this.txtRole.Size = new System.Drawing.Size(239, 27);
@@ -90,7 +92,7 @@
             // 
             this.txtName.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Location = new System.Drawing.Point(172, 46);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.MaxLength = 150;
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(285, 27);
@@ -105,8 +107,8 @@
             this.btnSave.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(175, 240);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSave.Location = new System.Drawing.Point(175, 425);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(95, 32);
             this.btnSave.TabIndex = 6;
@@ -123,8 +125,8 @@
             this.btnClear.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
             this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClear.Location = new System.Drawing.Point(277, 240);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClear.Location = new System.Drawing.Point(277, 425);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(4);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(100, 32);
             this.btnClear.TabIndex = 7;
@@ -139,9 +141,9 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(20)))), ((int)(((byte)(58)))));
             this.panel2.Controls.Add(this.label5);
             this.panel2.Location = new System.Drawing.Point(-17, 9);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(829, 27);
+            this.panel2.Size = new System.Drawing.Size(934, 27);
             this.panel2.TabIndex = 101;
             // 
             // label5
@@ -172,7 +174,7 @@
             // 
             this.txtPassword.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(173, 117);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.MaxLength = 8;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
@@ -194,7 +196,7 @@
             // 
             this.txtEmail.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(172, 81);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.MaxLength = 150;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(285, 27);
@@ -218,7 +220,7 @@
             this.comboRole_.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboRole_.FormattingEnabled = true;
             this.comboRole_.Location = new System.Drawing.Point(173, 192);
-            this.comboRole_.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboRole_.Margin = new System.Windows.Forms.Padding(4);
             this.comboRole_.Name = "comboRole_";
             this.comboRole_.Size = new System.Drawing.Size(283, 27);
             this.comboRole_.TabIndex = 5;
@@ -227,7 +229,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(289, 303);
+            this.label7.Location = new System.Drawing.Point(289, 327);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(16, 21);
@@ -257,13 +259,13 @@
             this.Delete});
             this.dgUserList.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgUserList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgUserList.Location = new System.Drawing.Point(0, 330);
-            this.dgUserList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgUserList.Location = new System.Drawing.Point(4, 507);
+            this.dgUserList.Margin = new System.Windows.Forms.Padding(4);
             this.dgUserList.MultiSelect = false;
             this.dgUserList.Name = "dgUserList";
             this.dgUserList.RowHeadersVisible = false;
             this.dgUserList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgUserList.Size = new System.Drawing.Size(812, 112);
+            this.dgUserList.Size = new System.Drawing.Size(917, 134);
             this.dgUserList.TabIndex = 140;
             this.dgUserList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgUserList_CellContentClick);
             // 
@@ -335,10 +337,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(20)))), ((int)(((byte)(58)))));
             this.panel6.Controls.Add(this.label10);
-            this.panel6.Location = new System.Drawing.Point(-23, 294);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel6.Location = new System.Drawing.Point(-23, 465);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(835, 28);
+            this.panel6.Size = new System.Drawing.Size(940, 34);
             this.panel6.TabIndex = 141;
             // 
             // label10
@@ -368,7 +370,7 @@
             // 
             this.txtMobile.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMobile.Location = new System.Drawing.Point(173, 155);
-            this.txtMobile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMobile.Margin = new System.Windows.Forms.Padding(4);
             this.txtMobile.MaxLength = 10;
             this.txtMobile.Name = "txtMobile";
             this.txtMobile.Size = new System.Drawing.Size(284, 27);
@@ -381,6 +383,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.chkBranch);
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtMobile);
             this.panel1.Controls.Add(this.lblMobile);
             this.panel1.Controls.Add(this.panel6);
@@ -399,19 +403,39 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.txtRole);
             this.panel1.Location = new System.Drawing.Point(9, 5);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(816, 446);
+            this.panel1.Size = new System.Drawing.Size(921, 665);
             this.panel1.TabIndex = 113;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(60, 230);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(86, 21);
+            this.label2.TabIndex = 145;
+            this.label2.Text = "* Branch :";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // chkBranch
+            // 
+            this.chkBranch.FormattingEnabled = true;
+            this.chkBranch.Location = new System.Drawing.Point(175, 230);
+            this.chkBranch.Name = "chkBranch";
+            this.chkBranch.Size = new System.Drawing.Size(291, 106);
+            this.chkBranch.TabIndex = 146;
             // 
             // AddUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddUser";
-            this.Size = new System.Drawing.Size(829, 455);
+            this.Size = new System.Drawing.Size(934, 674);
             this.Load += new System.EventHandler(this.AddUser_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -454,6 +478,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckedListBox chkBranch;
 
 
     }
