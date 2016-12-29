@@ -1,0 +1,721 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B8F2B4FC-9381-465F-AA93-756E052D1258}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SPAPracticeManagement</RootNamespace>
+    <AssemblyName>SPAPracticeManagement</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.8.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DoctorPractice\DoctorPracticeManagement\bin\Debug\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>..\..\TrustMedi_DoctorPractice\DoctorPracticeManagement\DoctorPracticeManagement\bin\Debug\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.11.0.0\lib\net20\Microsoft.SqlServer.Types.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DoctorPractice\DoctorPracticeManagement\bin\Debug\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Fabric.Plugin, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DoctorPractice\DataAccessLayer\bin\Debug\MySql.Fabric.Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Web, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DoctorPractice\DoctorPracticeManagement\bin\Debug\MySql.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppConstants\AppsPropertise.cs" />
+    <Compile Include="AppConstants\Common.cs" />
+    <Compile Include="Appointments\AppointmentList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Appointments\AppointmentList.designer.cs">
+      <DependentUpon>AppointmentList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Appointments\AppointmentPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Appointments\AppointmentPayment.designer.cs">
+      <DependentUpon>AppointmentPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Appointments\BookAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Appointments\BookAppointment.designer.cs">
+      <DependentUpon>BookAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Appointments\Booking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Appointments\Booking.designer.cs">
+      <DependentUpon>Booking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Appointments\ClientPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Appointments\ClientPopUp.Designer.cs">
+      <DependentUpon>ClientPopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePassword.designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client\AddClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Client\AddClient.Designer.cs">
+      <DependentUpon>AddClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client\ClientList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Client\ClientList.Designer.cs">
+      <DependentUpon>ClientList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonCL.cs" />
+    <Compile Include="CustomControls\Appointment\ClienttPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomControls\Appointment\ClienttPopUp.Designer.cs">
+      <DependentUpon>ClienttPopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\Client\AddClientTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\Client\AddClientTab.designer.cs">
+      <DependentUpon>AddClientTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\Client\ClientDocument.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\Client\ClientDocument.Designer.cs">
+      <DependentUpon>ClientDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\Client\ClientInvoiceTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\Client\ClientInvoiceTab.Designer.cs">
+      <DependentUpon>ClientInvoiceTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\InventoryMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\InventoryMenu.designer.cs">
+      <DependentUpon>InventoryMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\menu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\menu.Designer.cs">
+      <DependentUpon>menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\PanelControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\PanelControl.designer.cs">
+      <DependentUpon>PanelControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\Register\AddUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\Register\AddUser.designer.cs">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\VarticalMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\VarticalMenu.designer.cs">
+      <DependentUpon>VarticalMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ForgotPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ForgotPassword.Designer.cs">
+      <DependentUpon>ForgotPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalCL.cs" />
+    <Compile Include="Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryDashboard.designer.cs">
+      <DependentUpon>InventoryDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryMaster\frmBatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryMaster\frmBatch.Designer.cs">
+      <DependentUpon>frmBatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryMaster\frmBOM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryMaster\frmBOM.Designer.cs">
+      <DependentUpon>frmBOM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryMaster\frmBrand.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryMaster\frmBrand.Designer.cs">
+      <DependentUpon>frmBrand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryMaster\frmGodown.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryMaster\frmGodown.Designer.cs">
+      <DependentUpon>frmGodown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryMaster\frmItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryMaster\frmItem.Designer.cs">
+      <DependentUpon>frmItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryMaster\frmItemMainGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryMaster\frmItemMainGroup.designer.cs">
+      <DependentUpon>frmItemMainGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryMaster\frmItemSubGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryMaster\frmItemSubGroup.Designer.cs">
+      <DependentUpon>frmItemSubGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryMaster\frmSupplior.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryMaster\frmSupplior.Designer.cs">
+      <DependentUpon>frmSupplior.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryMaster\frmTaxControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryMaster\frmTaxControl.Designer.cs">
+      <DependentUpon>frmTaxControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryMaster\frmUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryMaster\frmUnit.Designer.cs">
+      <DependentUpon>frmUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryMaster\frnTemplates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryMaster\frnTemplates.designer.cs">
+      <DependentUpon>frnTemplates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryMaster\test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryMaster\test.Designer.cs">
+      <DependentUpon>test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageBookings\PackageBooking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageBookings\PackageBooking.designer.cs">
+      <DependentUpon>PackageBooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registration\UserRegistration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registration\UserRegistration.designer.cs">
+      <DependentUpon>UserRegistration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\AppointmentReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\AppointmentReport.designer.cs">
+      <DependentUpon>AppointmentReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CollectionReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\CollectionReport.Designer.cs">
+      <DependentUpon>CollectionReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DailySalesReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\DailySalesReport.Designer.cs">
+      <DependentUpon>DailySalesReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MyCalender.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\MyCalender.Designer.cs">
+      <DependentUpon>MyCalender.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ClientReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ClientReport.Designer.cs">
+      <DependentUpon>ClientReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ClientReportUpload.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ClientReportUpload.Designer.cs">
+      <DependentUpon>ClientReportUpload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TherapistReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\TherapistReport.Designer.cs">
+      <DependentUpon>TherapistReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalesDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SalesDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\AddInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\AddInventory.designer.cs">
+      <DependentUpon>AddInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\AddRate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\AddRate.Designer.cs">
+      <DependentUpon>AddRate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\AddTherapist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\AddTherapist.Designer.cs">
+      <DependentUpon>AddTherapist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\BirthDayReminder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\BirthDayReminder.designer.cs">
+      <DependentUpon>BirthDayReminder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\CompanyDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\CompanyDetails.Designer.cs">
+      <DependentUpon>CompanyDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\frmBranch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmBranch.designer.cs">
+      <DependentUpon>frmBranch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\GiftCoupon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\GiftCoupon.designer.cs">
+      <DependentUpon>GiftCoupon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\ImportService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\ImportService.Designer.cs">
+      <DependentUpon>ImportService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\Packages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\Packages.Designer.cs">
+      <DependentUpon>Packages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\PrintSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\PrintSetup.Designer.cs">
+      <DependentUpon>PrintSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\TaxConfiguration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\TaxConfiguration.designer.cs">
+      <DependentUpon>TaxConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="spamanagementDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>spamanagementDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="spamanagementDataSet1.cs">
+      <DependentUpon>spamanagementDataSet1.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="spamanagementDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>spamanagementDataSet1.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Appointments\AppointmentList.resx">
+      <DependentUpon>AppointmentList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Appointments\AppointmentPayment.resx">
+      <DependentUpon>AppointmentPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Appointments\BookAppointment.resx">
+      <DependentUpon>BookAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Appointments\Booking.resx">
+      <DependentUpon>Booking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Appointments\ClientPopUp.resx">
+      <DependentUpon>ClientPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client\AddClient.resx">
+      <DependentUpon>AddClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client\ClientList.resx">
+      <DependentUpon>ClientList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\Appointment\ClienttPopUp.resx">
+      <DependentUpon>ClienttPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\Client\AddClientTab.resx">
+      <DependentUpon>AddClientTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\Client\ClientDocument.resx">
+      <DependentUpon>ClientDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\Client\ClientInvoiceTab.resx">
+      <DependentUpon>ClientInvoiceTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\InventoryMenu.resx">
+      <DependentUpon>InventoryMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\menu.resx">
+      <DependentUpon>menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\PanelControl.resx">
+      <DependentUpon>PanelControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\Register\AddUser.resx">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\VarticalMenu.resx">
+      <DependentUpon>VarticalMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ForgotPassword.resx">
+      <DependentUpon>ForgotPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryDashboard.resx">
+      <DependentUpon>InventoryDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryMaster\frmBatch.resx">
+      <DependentUpon>frmBatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryMaster\frmBOM.resx">
+      <DependentUpon>frmBOM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryMaster\frmBrand.resx">
+      <DependentUpon>frmBrand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryMaster\frmGodown.resx">
+      <DependentUpon>frmGodown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryMaster\frmItem.resx">
+      <DependentUpon>frmItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryMaster\frmItemMainGroup.resx">
+      <DependentUpon>frmItemMainGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryMaster\frmItemSubGroup.resx">
+      <DependentUpon>frmItemSubGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryMaster\frmSupplior.resx">
+      <DependentUpon>frmSupplior.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryMaster\frmUnit.resx">
+      <DependentUpon>frmUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryMaster\frnTemplates.resx">
+      <DependentUpon>frnTemplates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryMaster\test.resx">
+      <DependentUpon>test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageBookings\PackageBooking.resx">
+      <DependentUpon>PackageBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Registration\UserRegistration.resx">
+      <DependentUpon>UserRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\AppointmentReport.resx">
+      <DependentUpon>AppointmentReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CollectionReport.resx">
+      <DependentUpon>CollectionReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\DailySalesReport.resx">
+      <DependentUpon>DailySalesReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MyCalender.resx">
+      <DependentUpon>MyCalender.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ClientReport.resx">
+      <DependentUpon>ClientReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ClientReportUpload.resx">
+      <DependentUpon>ClientReportUpload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Report1.rdlc" />
+    <EmbeddedResource Include="Reports\TherapistReport.resx">
+      <DependentUpon>TherapistReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalesRpt.rdlc" />
+    <EmbeddedResource Include="Settings\AddInventory.resx">
+      <DependentUpon>AddInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\AddRate.resx">
+      <DependentUpon>AddRate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\AddTherapist.resx">
+      <DependentUpon>AddTherapist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\BirthDayReminder.resx">
+      <DependentUpon>BirthDayReminder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\CompanyDetails.resx">
+      <DependentUpon>CompanyDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmBranch.resx">
+      <DependentUpon>frmBranch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\GiftCoupon.resx">
+      <DependentUpon>GiftCoupon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\ImportService.resx">
+      <DependentUpon>ImportService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\Packages.resx">
+      <DependentUpon>Packages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\PrintSetup.resx">
+      <DependentUpon>PrintSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\TaxConfiguration.resx">
+      <DependentUpon>TaxConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="SalesDS.xsc">
+      <DependentUpon>SalesDS.xsd</DependentUpon>
+    </None>
+    <None Include="SalesDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SalesDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SalesDS.xss">
+      <DependentUpon>SalesDS.xsd</DependentUpon>
+    </None>
+    <None Include="spamanagementDataSet.xsc">
+      <DependentUpon>spamanagementDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="spamanagementDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>spamanagementDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="spamanagementDataSet.xss">
+      <DependentUpon>spamanagementDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="spamanagementDataSet1.xsc">
+      <DependentUpon>spamanagementDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="spamanagementDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>spamanagementDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="spamanagementDataSet1.xss">
+      <DependentUpon>spamanagementDataSet1.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Images\add.jpg" />
+    <Content Include="Images\addIcon.jpg" />
+    <Content Include="Images\calendar-icon.png" />
+    <Content Include="Images\CalendarIcon.jpg" />
+    <Content Include="Images\delet-btn.jpg" />
+    <Content Include="Images\delete.jpg" />
+    <Content Include="Images\dropdownBullet.png" />
+    <Content Include="Images\edit-btn.jpg" />
+    <Content Include="Images\edit.jpg" />
+    <Content Include="Images\homeIcon.jpg" />
+    <Content Include="Images\login-btn.jpg" />
+    <Content Include="Images\Login-transparent-bg.png" />
+    <Content Include="Images\Login.png" />
+    <Content Include="Images\LoginManager.png" />
+    <Content Include="Images\LoginPanel-bg.jpg" />
+    <Content Include="Images\Logo.jpg" />
+    <Content Include="Images\logout-icon.jpg" />
+    <Content Include="Images\PeopleIcon.jpg" />
+    <Content Include="Images\spa-icon.png" />
+    <Content Include="Images\tab1.jpg" />
+    <Content Include="Images\tab2.jpg" />
+    <Content Include="Images\tab3.jpg" />
+    <Content Include="Images\tab4.jpg" />
+    <Content Include="Images\tab5.jpg" />
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial110.dll" />
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial110.dll" />
+    <None Include="Resources\right_panel_bg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{68051feb-435e-4f44-b53d-53856e1fd4dd}</Project>
+      <Name>DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntityLayer\EntityLayer.csproj">
+      <Project>{088ebdde-553f-4b3f-9aea-3b56db54d8ba}</Project>
+      <Name>EntityLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

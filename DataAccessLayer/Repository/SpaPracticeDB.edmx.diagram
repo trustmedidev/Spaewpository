@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="262c874a2c4a496bb8a29aa648195369" Name="Diagram1" ZoomLevel="94">
+        <EntityTypeShape EntityType="SpaPracticeModel.tblappointment" Width="1.5" PointX="12.5" PointY="57.75" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblappointmentpackagepping" Width="1.5" PointX="3" PointY="92.75" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblappointmentservicemapping" Width="1.5" PointX="17.75" PointY="50.125" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblappointmentsetting" Width="1.5" PointX="3" PointY="95.5" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblappointmenttaxmapping" Width="1.5" PointX="14.75" PointY="48.625" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblavailablity" Width="1.5" PointX="7.5" PointY="42.875" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblbranch" Width="1.5" PointX="0.75" PointY="41.125" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblclient" Width="1.5" PointX="10.25" PointY="41.375" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblcompdetail" Width="1.5" PointX="3" PointY="26.375" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblcoupanmaster" Width="1.5" PointX="3" PointY="80.875" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tbldocument" Width="1.5" PointX="12.5" PointY="42.625" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblinventory" Width="1.5" PointX="3" PointY="85" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblmapservice" Width="1.5" PointX="7.5" PointY="35" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblmaptax" Width="1.5" PointX="8.25" PointY="38.25" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblpackage" Width="1.5" PointX="3" PointY="99" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblpackagebooking" Width="1.5" PointX="15.5" PointY="42.75" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblpackagedtl" Width="1.5" PointX="7.5" PointY="50.375" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblpaymentdtl" Width="1.5" PointX="14.75" PointY="55" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblprintsetup" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblreport" Width="1.5" PointX="3" PointY="88.5" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblrole" Width="1.5" PointX="0.75" PointY="38.25" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblservice" Width="1.5" PointX="5.25" PointY="42" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblservicelog" Width="1.5" PointX="7.5" PointY="46.875" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tbltaxlog" Width="1.5" PointX="5.25" PointY="38" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tbltaxmaster" Width="1.5" PointX="3" PointY="31.625" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tbltherapist" Width="1.5" PointX="3" PointY="59.25" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tbluser" Width="1.5" PointX="3" PointY="42.125" />
+        <AssociationConnector Association="SpaPracticeModel.FK_Appointment_tblappointmenttaxmapping" />
+        <AssociationConnector Association="SpaPracticeModel.FK_Appointment_tblpaymentdtl" />
+        <AssociationConnector Association="SpaPracticeModel.FK_Clientid_tblappointment" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tblappointment" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tblappointment_tbl_coupanmaster" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tblappointment_tblBranch" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tblappointment_tblService" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tblappointment_tblUser" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tblappointmentservicemapping_appointment" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tblappointmentpackagepping_tbl_branch" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tblappointmentservicemapping" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tblappointmentservicemapping_tblBranch" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tblappointmentsetting_tblBranch" />
+        <AssociationConnector Association="SpaPracticeModel.FK_Tax_tblappointmenttaxmapping" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tblavailablity" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tblavailablity_tblBranch" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tblavailablity1" />
+        <AssociationConnector Association="SpaPracticeModel.FK_branch_tblpaymentdtl" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tbl_inventory_tbl_branch" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tblclient_tblBranch" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tblcompdetails_tbl_branch" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tblcoupanmaster_tbl_branch" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tbldocument_tblBranch" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tblmaptax_tbl_branch" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tblpackage_tbl_branch" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tblpackagebooking" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tblreport_tbl_branch" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tblservice_tblBranch" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tbltaxlog_tbl_branch" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tbltaxmaster_tbl_branch" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tbltherapist_tbl_branch" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tbluser_tblBranch" />
+        <AssociationConnector Association="SpaPracticeModel.FK_Clientid_tblpackagebooking" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tblclient" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tbldocument_tbl_client" />
+        <AssociationConnector Association="SpaPracticeModel.FK_coupon_tblpaymentdtl" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tblmapservice_tbl_service" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tblmaptax_tbltaxmaster" />
+        <AssociationConnector Association="SpaPracticeModel.FK_serviceid_tblpackagedtl" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tax_tblpaymentdtl" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tbluser" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tblservice" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tblservicelog_tbl_service" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tbltaxlog_tbl_taxmaster" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblgodown" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblbranchright" Width="1.5" PointX="5.375" PointY="0.875" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblcompanyright" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblmoduledetail" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblmoduleright" Width="1.5" PointX="4.75" PointY="3.75" />
+        <AssociationConnector Association="SpaPracticeModel.FK_tblgodown" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblbrand" Width="1.5" PointX="7.5" PointY="1" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblitemmaingroup" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblitemsubgroup" Width="1.5" PointX="7.375" PointY="3.75" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblsupplior" Width="1.5" PointX="5.375" PointY="7.75" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblunit" Width="1.5" PointX="7.375" PointY="6.75" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblitem" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblbatch" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblbomdetail" Width="1.5" PointX="9.375" PointY="6.75" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblbomheader" Width="1.5" PointX="7.375" PointY="10.75" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblfinancialyear" Width="1.5" PointX="9.375" PointY="10.75" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblparameter" Width="1.5" PointX="11.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
