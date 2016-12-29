@@ -13,7 +13,7 @@ using System.Data.Entity.Core.Objects;
 namespace DataAccessLayer
 {
     public class AppointmentDAL : SpaPracticeEntities
-    {
+    {//
         public List<string> GetAppointmentScheduleTime()
         {
             int CalenderInterval = default(int);
