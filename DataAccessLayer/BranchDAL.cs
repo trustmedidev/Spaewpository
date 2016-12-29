@@ -162,6 +162,44 @@ namespace DataAccessLayer
         }
         #endregion
 
+
+        #region === Bind bBranch in checkboxlist
+        public void BindBranch(ListBox chkBranch)
+        {
+            try
+            {
+                //List<tblbranch> servicelist = new List<tblbranch>();
+                var data = (from p in tblbranches
+                            select new
+                            {
+                                BranchCode = p.BranchID,
+                                BranchName = p.BranchName
+
+
+                            });
+                var servicelist = data.ToList();
+                if (servicelist != null)
+                {
+                    chkBranch.Items.Clear();
+
+                    chkBranch.ValueMember = "BranchID";
+                    chkBranch.DisplayMember = "BranchName";
+                    chkBranch.DataSource = servicelist;
+                    chkBranch.SelectedIndex = -1;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+
+        #endregion
+
+
+
         
 
     }
