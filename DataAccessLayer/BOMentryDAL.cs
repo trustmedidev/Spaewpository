@@ -159,10 +159,11 @@ namespace DataAccessLayer
 
         // item bind
 
-        public BOMEL BindDtlList(DataGridView grd, int Code)
+        public List<BOMEL> BindDtlList(DataGridView grd, int Code)
         {
             try
             {
+                List<BOMEL> objBOMEL=new List<BOMEL>();
                 var data = (from p in tblbomheaders
                             join bomDtl in tblbomdetails on p.Code equals bomDtl.BOM_Cd
                             join Serv in tblservices on p.ServiceCd equals Serv.ServiceId
@@ -187,10 +188,10 @@ namespace DataAccessLayer
                                 //HActiveYN = p.ActiveYN,
                                 //DActiveYN = bomDtl.ActiveYN,
                             }
-                            ).FirstOrDefault();
+                            );
+                objBOMEL = data.ToList();
 
-
-                return data;
+                return objBOMEL;
             }
             catch (Exception ex)
             {
