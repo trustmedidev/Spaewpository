@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using DataAccessLayer.Repository;
 using System.Data.Entity;
 using System.Windows.Forms;
+using EntityLayer;
+
 namespace DataAccessLayer
 {
     public class BOMentryDAL : SpaPracticeEntities
@@ -110,6 +112,95 @@ namespace DataAccessLayer
             }
 
         }
+        #endregion
+
+        #region === bind Item in DataGridView
+
+        // item bind
+
+        public void BindList(DataGridView grd)
+        {
+            try
+            {
+                var data = (from p in tblbomheaders
+                            //join bomDtl in tblbomdetails on p.Code equals bomDtl.BOM_Cd
+                            
+                            join Serv in tblservices on p.ServiceCd equals Serv.ServiceId
+                            into s1
+                            from Serv in s1.DefaultIfEmpty()
+                            orderby Serv.ServiceName
+                            select new
+                            {
+                                code = p.Code,
+                                ServiceName = Serv.ServiceName,
+                                PackageDescription=p.PackageDescription,
+                                HActiveYN = p.ActiveYN,
+                            }
+                            );
+                var result = data.ToList();
+
+                if (result != null)
+                {
+                    grd.DataSource = null;
+                    grd.DataSource = result;
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+    
+
+        #endregion
+
+        #region === bind Item in DataGridView
+
+        // item bind
+
+        public BOMEL BindDtlList(DataGridView grd, int Code)
+        {
+            try
+            {
+                var data = (from p in tblbomheaders
+                            join bomDtl in tblbomdetails on p.Code equals bomDtl.BOM_Cd
+                            join Serv in tblservices on p.ServiceCd equals Serv.ServiceId
+                            into s1
+                            from Serv in s1.DefaultIfEmpty()
+                            join It in tblitems on bomDtl.ItemCd equals It.Code
+                            into t1
+                            from It in t1.DefaultIfEmpty()
+                            join Unt in tblunits on bomDtl.UnitCd equals Unt.Code
+                            into t2
+                            from Unt in t2.DefaultIfEmpty()
+                            where p.Code == Code
+                            orderby Serv.ServiceName, It.Description
+                            select new BOMEL()
+                            {
+                                ItemCd = bomDtl.ItemCd,
+                                Item = (It.Description ?? string.Empty),
+                                UnitCd = bomDtl.UnitCd,
+                                Unit = (Unt.Description ?? string.Empty),
+                                //Qty = bomDtl.Qty,
+                                //Rate = bomDtl.Rate,
+                                //HActiveYN = p.ActiveYN,
+                                //DActiveYN = bomDtl.ActiveYN,
+                            }
+                            ).FirstOrDefault();
+
+
+                return data;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
+
+
+
         #endregion
     }
 }
