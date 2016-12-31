@@ -667,5 +667,10 @@ namespace SPAPracticeManagement.Appointments
                 MessageBox.Show("An error occoured.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void AppointmentList_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

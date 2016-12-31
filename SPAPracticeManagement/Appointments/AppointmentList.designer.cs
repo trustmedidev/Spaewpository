@@ -88,18 +88,20 @@
             this.pnlTab.Controls.Add(this.txtClientName);
             this.pnlTab.Controls.Add(this.label4);
             this.pnlTab.Controls.Add(this.grdClientAccount);
-            this.pnlTab.Location = new System.Drawing.Point(159, 138);
+            this.pnlTab.Location = new System.Drawing.Point(212, 170);
+            this.pnlTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlTab.Name = "pnlTab";
-            this.pnlTab.Size = new System.Drawing.Size(622, 372);
+            this.pnlTab.Size = new System.Drawing.Size(829, 458);
             this.pnlTab.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.label3.Location = new System.Drawing.Point(5, 48);
+            this.label3.Location = new System.Drawing.Point(7, 59);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 16);
+            this.label3.Size = new System.Drawing.Size(129, 21);
             this.label3.TabIndex = 137;
             this.label3.Text = "Selection Type :";
             // 
@@ -108,9 +110,11 @@
             this.group_purpose.Controls.Add(this.radio_all);
             this.group_purpose.Controls.Add(this.radio_service);
             this.group_purpose.Controls.Add(this.radio_package);
-            this.group_purpose.Location = new System.Drawing.Point(121, 39);
+            this.group_purpose.Location = new System.Drawing.Point(161, 48);
+            this.group_purpose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.group_purpose.Name = "group_purpose";
-            this.group_purpose.Size = new System.Drawing.Size(270, 33);
+            this.group_purpose.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.group_purpose.Size = new System.Drawing.Size(360, 41);
             this.group_purpose.TabIndex = 138;
             this.group_purpose.TabStop = false;
             // 
@@ -118,9 +122,10 @@
             // 
             this.radio_all.AutoSize = true;
             this.radio_all.Checked = true;
-            this.radio_all.Location = new System.Drawing.Point(8, 9);
+            this.radio_all.Location = new System.Drawing.Point(11, 11);
+            this.radio_all.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radio_all.Name = "radio_all";
-            this.radio_all.Size = new System.Drawing.Size(57, 17);
+            this.radio_all.Size = new System.Drawing.Size(72, 21);
             this.radio_all.TabIndex = 124;
             this.radio_all.TabStop = true;
             this.radio_all.Text = "By All :";
@@ -130,9 +135,10 @@
             // radio_service
             // 
             this.radio_service.AutoSize = true;
-            this.radio_service.Location = new System.Drawing.Point(81, 9);
+            this.radio_service.Location = new System.Drawing.Point(108, 11);
+            this.radio_service.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radio_service.Name = "radio_service";
-            this.radio_service.Size = new System.Drawing.Size(79, 17);
+            this.radio_service.Size = new System.Drawing.Size(100, 21);
             this.radio_service.TabIndex = 123;
             this.radio_service.Text = "By Service:";
             this.radio_service.UseVisualStyleBackColor = true;
@@ -141,9 +147,10 @@
             // radio_package
             // 
             this.radio_package.AutoSize = true;
-            this.radio_package.Location = new System.Drawing.Point(177, 9);
+            this.radio_package.Location = new System.Drawing.Point(236, 11);
+            this.radio_package.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radio_package.Name = "radio_package";
-            this.radio_package.Size = new System.Drawing.Size(86, 17);
+            this.radio_package.Size = new System.Drawing.Size(108, 21);
             this.radio_package.TabIndex = 122;
             this.radio_package.Text = "By Package:";
             this.radio_package.UseVisualStyleBackColor = true;
@@ -155,9 +162,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(20)))), ((int)(((byte)(58)))));
             this.panel7.Controls.Add(this.label9);
-            this.panel7.Location = new System.Drawing.Point(6, 3);
+            this.panel7.Location = new System.Drawing.Point(8, 4);
+            this.panel7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(610, 29);
+            this.panel7.Size = new System.Drawing.Size(813, 36);
             this.panel7.TabIndex = 123;
             // 
             // label9
@@ -165,9 +173,10 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(23, 5);
+            this.label9.Location = new System.Drawing.Point(31, 6);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(149, 18);
+            this.label9.Size = new System.Drawing.Size(186, 23);
             this.label9.TabIndex = 4;
             this.label9.Text = "Search Appointment";
             // 
@@ -176,9 +185,10 @@
             this.ddlServiceType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlServiceType.DropDownWidth = 151;
             this.ddlServiceType.FormattingEnabled = true;
-            this.ddlServiceType.Location = new System.Drawing.Point(121, 80);
+            this.ddlServiceType.Location = new System.Drawing.Point(161, 98);
+            this.ddlServiceType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ddlServiceType.Name = "ddlServiceType";
-            this.ddlServiceType.Size = new System.Drawing.Size(268, 21);
+            this.ddlServiceType.Size = new System.Drawing.Size(356, 24);
             this.ddlServiceType.TabIndex = 122;
             // 
             // label7
@@ -186,9 +196,10 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.label7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(15, 80);
+            this.label7.Location = new System.Drawing.Point(20, 98);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(91, 16);
+            this.label7.Size = new System.Drawing.Size(115, 21);
             this.label7.TabIndex = 121;
             this.label7.Text = "Service Type :";
             // 
@@ -200,9 +211,10 @@
             this.btnCancelAppointment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelAppointment.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelAppointment.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnCancelAppointment.Location = new System.Drawing.Point(465, 136);
+            this.btnCancelAppointment.Location = new System.Drawing.Point(620, 167);
+            this.btnCancelAppointment.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancelAppointment.Name = "btnCancelAppointment";
-            this.btnCancelAppointment.Size = new System.Drawing.Size(147, 26);
+            this.btnCancelAppointment.Size = new System.Drawing.Size(196, 32);
             this.btnCancelAppointment.TabIndex = 120;
             this.btnCancelAppointment.Text = "Cancel Appointment";
             this.btnCancelAppointment.UseVisualStyleBackColor = false;
@@ -214,10 +226,11 @@
             this.txtToDate.CustomFormat = "dd/MMM/yyyy";
             this.txtToDate.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtToDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtToDate.Location = new System.Drawing.Point(495, 75);
+            this.txtToDate.Location = new System.Drawing.Point(660, 92);
+            this.txtToDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtToDate.Name = "txtToDate";
             this.txtToDate.ShowCheckBox = true;
-            this.txtToDate.Size = new System.Drawing.Size(117, 23);
+            this.txtToDate.Size = new System.Drawing.Size(155, 27);
             this.txtToDate.TabIndex = 119;
             // 
             // txtFromDate
@@ -226,10 +239,11 @@
             this.txtFromDate.CustomFormat = "dd/MMM/yyyy";
             this.txtFromDate.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFromDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtFromDate.Location = new System.Drawing.Point(495, 44);
+            this.txtFromDate.Location = new System.Drawing.Point(660, 54);
+            this.txtFromDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtFromDate.Name = "txtFromDate";
             this.txtFromDate.ShowCheckBox = true;
-            this.txtFromDate.Size = new System.Drawing.Size(117, 23);
+            this.txtFromDate.Size = new System.Drawing.Size(155, 27);
             this.txtFromDate.TabIndex = 118;
             // 
             // btnClear
@@ -239,9 +253,10 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnClear.Location = new System.Drawing.Point(203, 136);
+            this.btnClear.Location = new System.Drawing.Point(271, 167);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(70, 26);
+            this.btnClear.Size = new System.Drawing.Size(93, 32);
             this.btnClear.TabIndex = 117;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
@@ -254,9 +269,10 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnSearch.Location = new System.Drawing.Point(121, 136);
+            this.btnSearch.Location = new System.Drawing.Point(161, 167);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 26);
+            this.btnSearch.Size = new System.Drawing.Size(100, 32);
             this.btnSearch.TabIndex = 116;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -267,9 +283,10 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.label5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(427, 78);
+            this.label5.Location = new System.Drawing.Point(569, 96);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(62, 16);
+            this.label5.Size = new System.Drawing.Size(81, 21);
             this.label5.TabIndex = 115;
             this.label5.Text = "To Date :";
             // 
@@ -278,19 +295,21 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.label6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(412, 49);
+            this.label6.Location = new System.Drawing.Point(549, 60);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(77, 16);
+            this.label6.Size = new System.Drawing.Size(100, 21);
             this.label6.TabIndex = 114;
             this.label6.Text = "From Date :";
             // 
             // txtClientName
             // 
             this.txtClientName.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtClientName.Location = new System.Drawing.Point(121, 107);
+            this.txtClientName.Location = new System.Drawing.Point(161, 132);
+            this.txtClientName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtClientName.MaxLength = 50;
             this.txtClientName.Name = "txtClientName";
-            this.txtClientName.Size = new System.Drawing.Size(268, 23);
+            this.txtClientName.Size = new System.Drawing.Size(356, 27);
             this.txtClientName.TabIndex = 113;
             // 
             // label4
@@ -298,9 +317,10 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.label4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(20, 110);
+            this.label4.Location = new System.Drawing.Point(27, 135);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 16);
+            this.label4.Size = new System.Drawing.Size(111, 21);
             this.label4.TabIndex = 112;
             this.label4.Text = "Client Name :";
             // 
@@ -330,12 +350,13 @@
             this.Status,
             this.Print});
             this.grdClientAccount.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
-            this.grdClientAccount.Location = new System.Drawing.Point(3, 202);
+            this.grdClientAccount.Location = new System.Drawing.Point(4, 249);
+            this.grdClientAccount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.grdClientAccount.MultiSelect = false;
             this.grdClientAccount.Name = "grdClientAccount";
             this.grdClientAccount.RowHeadersVisible = false;
             this.grdClientAccount.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdClientAccount.Size = new System.Drawing.Size(616, 166);
+            this.grdClientAccount.Size = new System.Drawing.Size(821, 204);
             this.grdClientAccount.TabIndex = 111;
             this.grdClientAccount.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdClientAccount_CellContentClick);
             // 
@@ -358,7 +379,7 @@
             this.Select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.Select.HeaderText = "Select";
             this.Select.Name = "Select";
-            this.Select.Width = 43;
+            this.Select.Width = 53;
             // 
             // AppointmentId
             // 
@@ -427,16 +448,18 @@
             this.Print.HeaderText = "Print";
             this.Print.Image = ((System.Drawing.Image)(resources.GetObject("Print.Image")));
             this.Print.Name = "Print";
-            this.Print.Width = 34;
+            this.Print.Width = 43;
             // 
             // AppointmentList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 512);
+            this.ClientSize = new System.Drawing.Size(1045, 630);
             this.Controls.Add(this.pnlTab);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "AppointmentList";
             this.Text = "Appointment List";
+            this.Load += new System.EventHandler(this.AppointmentList_Load);
             this.Controls.SetChildIndex(this.pnlTab, 0);
             this.pnlTab.ResumeLayout(false);
             this.pnlTab.PerformLayout();
