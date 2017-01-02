@@ -76,6 +76,7 @@ namespace SPAPracticeManagement.InventoryMaster
 
         public void formCtrlActiveY()
         {
+            this.ddlBranch.Enabled = true;
             this.txtName.Enabled = true;
             this.txtActive.Enabled = true;
             this.txtIsMainGodown.Enabled = true;
@@ -84,12 +85,14 @@ namespace SPAPracticeManagement.InventoryMaster
 
         public void formCtrlClear()
         {
+            this.ddlBranch.Text = "";
             this.txtName.Text = "";
             this.txtActive.Text = "Y";
             this.txtIsMainGodown.Text = "Y";
         }
         public void formCtrlActiveN()
         {
+            this.ddlBranch.Enabled = false;
             this.txtName.Enabled = false;
             this.txtActive.Enabled = false;
             this.txtIsMainGodown.Enabled = false;
@@ -108,8 +111,8 @@ namespace SPAPracticeManagement.InventoryMaster
                 grdSearch.Height = 550;
                 CommonCL.PanelControlGotFocus(pnlTabControlSearch, pnlTabControlAdd);
 
-                //grdSearch.Columns[0].Visible = false;
-
+                grdSearch.Columns[0].Visible = false;
+                grdSearch.Columns[2].Visible = false;
 
                 //grdSearch.Columns[1].Width = 100;
                 //grdSearch.Columns[2].Width = 150;
