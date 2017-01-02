@@ -9,7 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataAccessLayer;
 using DataAccessLayer.Repository;
+
 using System.Data.Entity;
+using EntityLayer;
 namespace SPAPracticeManagement.InventoryMaster
 {
 
@@ -19,9 +21,7 @@ namespace SPAPracticeManagement.InventoryMaster
         Boolean falag = true;
         BOMentryDAL objBOMentryDAL = new BOMentryDAL();
         ItemDAL objItemDAL = new ItemDAL();
-        //ItemMainGrpDAL objItemMainGrpDAL = new ItemMainGrpDAL();
         ServiceDAL objServiceDAL = new ServiceDAL();
-        //ItemSubGrpDAL objItemSubGrpDAL = new ItemSubGrpDAL();
         UnitDAL objUnitDAL = new UnitDAL();
         SuppliorDAL objSuppliorDAL = new SuppliorDAL();
 
@@ -36,7 +36,6 @@ namespace SPAPracticeManagement.InventoryMaster
 
         private void frmBOM_Load(object sender, EventArgs e)
         {
-            //  new
             CommonCL.PanelControlGotFocus(pnlTabControlSearch, pnlTabControlAdd);
 
             objItemDAL.BindDdlItem(ddlItem);
@@ -100,6 +99,7 @@ namespace SPAPracticeManagement.InventoryMaster
             this.txtQty.Enabled = true;
             this.txtRate.Enabled = true;
             this.txtActive.Enabled = true;
+            this.grdDtl.Enabled = true;
 
             ActiveControl = ddlService;
         }
@@ -131,7 +131,7 @@ namespace SPAPracticeManagement.InventoryMaster
             this.ddlIssUnit.Enabled = false;
             this.txtQty.Enabled = false;
             this.txtRate.Enabled = false;
-
+            this.grdDtl.Enabled = false;
             this.txtActive.Enabled = false;
 
         }
@@ -140,7 +140,7 @@ namespace SPAPracticeManagement.InventoryMaster
         {
             try
             {
-                //objItemDAL.BindList(grdSearch);
+                objBOMentryDAL.BindList(grdSearch);
 
                 txtSearchText.Width = 1050;
 
@@ -166,11 +166,7 @@ namespace SPAPracticeManagement.InventoryMaster
 
 
         }
-        #endregion
-
-
-
-       
+        #endregion       
 
         private void btnClear_Click(object sender, EventArgs e)
         {
@@ -185,6 +181,11 @@ namespace SPAPracticeManagement.InventoryMaster
         }
 
         private void txtPkgDisc_KeyUp(object sender, KeyEventArgs e)
+        {
+            CommonCL.TextBoxGotFocus(txtHdActiveYN, e);
+        }
+
+        private void txtHdActiveYN_KeyUp(object sender, KeyEventArgs e)
         {
             CommonCL.ButtonGotFocus(btnSubAdd, e);
         }
@@ -232,6 +233,7 @@ namespace SPAPracticeManagement.InventoryMaster
         #region GridFunctions
         private void btnSave_Click(object sender, EventArgs e)
         {
+
             int i = InsertUpdateDelete();
 
             if (i > 0)
@@ -424,9 +426,16 @@ namespace SPAPracticeManagement.InventoryMaster
         {
             var senderGrid = (DataGridView)sender;
 
-            if (e.ColumnIndex == 5 )
+            if (e.ColumnIndex == 7 )
             {
                 txtGrdRowIndex.Text = e.RowIndex.ToString();
+                int row = e.RowIndex;
+
+                ddlItem.SelectedValue = Convert.ToInt32(grdDtl["ItemCd", row].Value) ;
+                txtQty.Text = grdDtl["Qty", row].Value.ToString();
+                ddlIssUnit.SelectedValue=Convert.ToInt32(grdDtl["UnitCd", row].Value );
+                txtRate.Text = grdDtl["Rate", row].Value.ToString();
+                
             }
         }
 
@@ -437,8 +446,119 @@ namespace SPAPracticeManagement.InventoryMaster
 
         }
 
-        
-        
+        #region Search Effect
+        public void XGridValueJump()
+        {
+            try
+            {
+                int index5 = grdSearch.SelectedCells[0].RowIndex;
+                txtHidCode.Text = (String)grdSearch["Code", index5].Value.ToString();
+                int Rcode = Convert.ToInt32 (grdSearch["Code", index5].Value.ToString());
+                //=======================Header data bind==========================
+                string ActYN = "N";
+                if ((bool)grdSearch["HActiveYN", index5].Value == true)
+                {
+                    ActYN = "Y";
+                }
+                txtHdActiveYN.Text = ActYN;
+                this.txtPkgDisc.Text = (String)grdSearch["PackageDescription", index5].Value.ToString();
+                this.ddlService.SelectedValue = grdSearch["ServiceCd", index5].Value;
+                //=================================================================
+                //=======================Detail data bind==========================
+                
+                List<BOMEL> objBOMEL = new List<BOMEL>();
+                objBOMEL = objBOMentryDAL.BindDtlList(grdDtl, Rcode);
+                if (txtHidCode.Text == "")
+                {
+                    MessageBox.Show("Please Select Valid date.. !!");
+                    return;
+                }
+                else
+                {
+
+                    txtHidCode.Text = (String)grdSearch["Code", index5].Value.ToString();
+
+                    grdDtl.DataSource = objBOMEL.ToList();
+                    grdDtl.Columns["ItemCd"].DataPropertyName = "ItemCd";
+                    grdDtl.Columns["UnitCd"].DataPropertyName = "UnitCd";
+                    grdDtl.Columns["Item"].DataPropertyName = "Item";
+                    grdDtl.Columns["Unit"].DataPropertyName = "Unit";
+                    grdDtl.Columns["Qty"].DataPropertyName = "Qty";
+                    grdDtl.Columns["Rate"].DataPropertyName = "Rate";
+                    grdDtl.Columns["DActiveYN"].DataPropertyName = "DActiveYN";
+
+                    //=================================================================
+                    
+                }
+
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.Message);
+            }
+        }
+        private void grdSearch_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            CommonCL.PanelControlGotFocus(pnlTabControlAdd, pnlTabControlSearch);
+            XGridValueJump();
+            EditFormatActiveN();
+        }
+        #endregion
+
+        #region Validation
+        private void ddlService_Validated(object sender, EventArgs e)
+        {
+            CommonCL.cmbValidated(ddlService, falag);
+        }
+
+        private void ddlItem_Validated(object sender, EventArgs e)
+        {
+            CommonCL.cmbValidated(ddlItem, falag);
+        }
+
+        private void ddlService_Enter(object sender, EventArgs e)
+        {
+            falag = true;
+        }
+
+        private void ddlItem_Enter(object sender, EventArgs e)
+        {
+            falag = true;
+        }
+
+        private void ddlIssUnit_Enter(object sender, EventArgs e)
+        {
+            falag = true;
+        }
+
+        private void ddlIssUnit_Validated(object sender, EventArgs e)
+        {
+            CommonCL.cmbValidated(ddlIssUnit, falag);
+        }
+
+        private void txtRate_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtHdActiveYN_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //CommonCL.textBoxYNValidation(txtHdActiveYN, false);
+        }
+
+        private void txtActive_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //CommonCL.textBoxYNValidation(txtActive ,false);
+        }
+
+        private void txtQty_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //CommonCL.OnlyNumeric(txtRate, falag);
+        }
+
+        #endregion
+
+
 
     }     
 }

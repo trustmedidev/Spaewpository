@@ -284,7 +284,7 @@ namespace SPAPracticeManagement.InventoryMaster
             try
             {
                 int index5 = grdSearch.SelectedCells[0].RowIndex;
-                txtHidCode.Text = (String)grdSearch["Code", index5].Value.ToString();
+                txtHidCode.Text = (String)grdSearch["GodownCd", index5].Value.ToString();
                 string ActYN = "N";
                 if ((bool)grdSearch["ActiveYN", index5].Value == true)
                 {
@@ -298,8 +298,9 @@ namespace SPAPracticeManagement.InventoryMaster
                 }
                 else
                 {
-                    txtHidCode.Text = (String)grdSearch["Code", index5].Value.ToString();
-                    txtName.Text = (String)grdSearch["Name", index5].Value.ToString();
+                    this.ddlBranch.SelectedValue = (Int32)grdSearch["BranchCd", index5].Value;
+                    txtHidCode.Text = (String)grdSearch["GodownCd", index5].Value.ToString();
+                    txtName.Text = (String)grdSearch["GodownNm", index5].Value.ToString();
                     txtActive.Text = ActYN;
                     EditFormatActiveN();
                     txtName.Focus();
@@ -314,6 +315,7 @@ namespace SPAPracticeManagement.InventoryMaster
         private void grdSearch_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             CommonCL.PanelControlGotFocus(pnlTabControlAdd, pnlTabControlSearch);
+            objGodownDAL.BindBranch(ddlBranch);
             XGridValueJump();
             EditFormatActiveN();
         }

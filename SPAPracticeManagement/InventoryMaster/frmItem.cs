@@ -269,16 +269,24 @@ namespace SPAPracticeManagement.InventoryMaster
                 int bId = 0;
 
                 bId = Convert.ToInt32(txtHidCode.Text.ToString());
-                int x = objItemDAL.Update(bId, txtName.Text.ToString(), txtShName.Text.ToString(), Convert.ToInt32(ddlItemMainGrp.SelectedIndex.ToString()),
-                    Convert.ToInt32(ddlItemSubGrp.SelectedIndex.ToString()), Convert.ToInt32(ddlPurUnit.SelectedIndex.ToString()),
-                    Convert.ToInt32(ddlIssUnit.SelectedIndex.ToString()), Convert.ToDecimal(txtFactor.Text.ToString()),
-                    Convert.ToDecimal(txtReorder.Text.ToString()), Convert.ToDecimal(txtVatPer.Text.ToString()),
-                    Convert.ToDecimal(txtVatVal.Text.ToString()), Convert.ToDecimal(txtDiscPer.Text.ToString()),
-                    Convert.ToDecimal(txtDiscVal.Text.ToString()), Convert.ToDecimal(txtLastPerRate.Text.ToString()),
-                    Convert.ToInt32(ddlSupplior.SelectedValue.ToString()), PerishableYN, SaleableYN, IsActiveYN);
-                if (x > 0)
+                int i = objItemDAL.ChkItemInBOM(bId);
+                if (i == 1)
                 {
-                    MessageBox.Show("Updated");
+                    int x = objItemDAL.Update(bId, txtName.Text.ToString(), txtShName.Text.ToString(), Convert.ToInt32(ddlItemMainGrp.SelectedIndex.ToString()),
+                        Convert.ToInt32(ddlItemSubGrp.SelectedIndex.ToString()), Convert.ToInt32(ddlPurUnit.SelectedIndex.ToString()),
+                        Convert.ToInt32(ddlIssUnit.SelectedIndex.ToString()), Convert.ToDecimal(txtFactor.Text.ToString()),
+                        Convert.ToDecimal(txtReorder.Text.ToString()), Convert.ToDecimal(txtVatPer.Text.ToString()),
+                        Convert.ToDecimal(txtVatVal.Text.ToString()), Convert.ToDecimal(txtDiscPer.Text.ToString()),
+                        Convert.ToDecimal(txtDiscVal.Text.ToString()), Convert.ToDecimal(txtLastPerRate.Text.ToString()),
+                        Convert.ToInt32(ddlSupplior.SelectedValue.ToString()), PerishableYN, SaleableYN, IsActiveYN);
+                    if (x > 0)
+                    {
+                        MessageBox.Show("Updated");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("This Item tagged with Bill Of Material. So delete not possible."); 
                 }
             }
         }
@@ -526,9 +534,10 @@ namespace SPAPracticeManagement.InventoryMaster
 
         #endregion
 
-        
 
-        
+
+
+
 
 
 
