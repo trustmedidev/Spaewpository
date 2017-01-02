@@ -44,6 +44,7 @@
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DActiveYN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSubAdd = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -123,6 +124,8 @@
             this.txtHdActiveYN.Size = new System.Drawing.Size(39, 27);
             this.txtHdActiveYN.TabIndex = 137;
             this.txtHdActiveYN.Text = "Y";
+            this.txtHdActiveYN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHdActiveYN_KeyPress);
+            this.txtHdActiveYN.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtHdActiveYN_KeyUp);
             // 
             // label8
             // 
@@ -166,7 +169,8 @@
             this.Rate,
             this.Edit,
             this.Delete,
-            this.code});
+            this.code,
+            this.DActiveYN});
             this.grdDtl.Location = new System.Drawing.Point(8, 298);
             this.grdDtl.Name = "grdDtl";
             this.grdDtl.RowTemplate.Height = 24;
@@ -240,6 +244,12 @@
             this.code.Name = "code";
             this.code.Visible = false;
             // 
+            // DActiveYN
+            // 
+            this.DActiveYN.HeaderText = "DActiveYN";
+            this.DActiveYN.Name = "DActiveYN";
+            this.DActiveYN.Visible = false;
+            // 
             // btnSubAdd
             // 
             this.btnSubAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(34)))), ((int)(((byte)(94)))));
@@ -283,7 +293,9 @@
             this.ddlIssUnit.Name = "ddlIssUnit";
             this.ddlIssUnit.Size = new System.Drawing.Size(164, 27);
             this.ddlIssUnit.TabIndex = 3;
+            this.ddlIssUnit.Enter += new System.EventHandler(this.ddlIssUnit_Enter);
             this.ddlIssUnit.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ddlIssUnit_KeyUp);
+            this.ddlIssUnit.Validated += new System.EventHandler(this.ddlIssUnit_Validated);
             // 
             // txtRate
             // 
@@ -294,6 +306,7 @@
             this.txtRate.Name = "txtRate";
             this.txtRate.Size = new System.Drawing.Size(128, 27);
             this.txtRate.TabIndex = 5;
+            this.txtRate.TextChanged += new System.EventHandler(this.txtRate_TextChanged);
             this.txtRate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtRate_KeyUp);
             // 
             // txtQty
@@ -305,6 +318,7 @@
             this.txtQty.Name = "txtQty";
             this.txtQty.Size = new System.Drawing.Size(144, 27);
             this.txtQty.TabIndex = 4;
+            this.txtQty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQty_KeyPress);
             this.txtQty.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtQty_KeyUp);
             // 
             // txtPkgDisc
@@ -376,7 +390,9 @@
             this.ddlItem.Name = "ddlItem";
             this.ddlItem.Size = new System.Drawing.Size(397, 27);
             this.ddlItem.TabIndex = 2;
+            this.ddlItem.Enter += new System.EventHandler(this.ddlItem_Enter);
             this.ddlItem.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ddlItem_KeyUp);
+            this.ddlItem.Validated += new System.EventHandler(this.ddlItem_Validated);
             // 
             // label3
             // 
@@ -399,7 +415,9 @@
             this.ddlService.Name = "ddlService";
             this.ddlService.Size = new System.Drawing.Size(397, 27);
             this.ddlService.TabIndex = 0;
+            this.ddlService.Enter += new System.EventHandler(this.ddlService_Enter);
             this.ddlService.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ddlService_KeyUp);
+            this.ddlService.Validated += new System.EventHandler(this.ddlService_Validated);
             // 
             // btnUpdate
             // 
@@ -458,6 +476,7 @@
             this.txtActive.Size = new System.Drawing.Size(39, 27);
             this.txtActive.TabIndex = 6;
             this.txtActive.Text = "Y";
+            this.txtActive.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtActive_KeyPress);
             this.txtActive.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtActive_KeyUp);
             // 
             // label7
@@ -610,6 +629,8 @@
         private System.Windows.Forms.Label lblTag;
         private System.Windows.Forms.Button btnSubSave;
         private System.Windows.Forms.TextBox txtGrdRowIndex;
+        private System.Windows.Forms.TextBox txtHdActiveYN;
+        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sl;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemCd;
         private System.Windows.Forms.DataGridViewTextBoxColumn Item;
@@ -620,7 +641,6 @@
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
         private System.Windows.Forms.DataGridViewTextBoxColumn code;
-        private System.Windows.Forms.TextBox txtHdActiveYN;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DActiveYN;
     }
 }

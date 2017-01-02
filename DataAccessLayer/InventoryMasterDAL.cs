@@ -35,9 +35,9 @@ namespace DataAccessLayer
                 var servicelist = data.ToList();
                 if (servicelist != null  )
                 {
-                    ddlBranch.Items.Clear();
-                    
-                    ddlBranch.ValueMember = "BranchID";
+                    //ddlBranch.Items.Clear();
+                    ddlBranch.DataSource = null;
+                    ddlBranch.ValueMember = "BranchCode";
                     ddlBranch.DisplayMember = "BranchName";
                     ddlBranch.DataSource = servicelist;
                     ddlBranch.SelectedIndex = -1;
@@ -160,12 +160,16 @@ namespace DataAccessLayer
             try
             {
                 var data = (from p in tblgodowns
-
-                            orderby p.Description
+                            join Bn in tblbranches on p.BranchCd equals Bn.BranchID
+                            into B1
+                            from Bn in B1.DefaultIfEmpty()
+                            orderby Bn.BranchName,p.Description
                             select new
                             {
                                 GodownCd = p.Code,
                                 GodownNm = p.Description,
+                                BranchCd=p.BranchCd,
+                                BranchNm=Bn.BranchName,
                                 ActiveYN = p.ACTIVEYN
 
                             }

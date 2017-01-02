@@ -249,5 +249,30 @@ namespace DataAccessLayer
 
         
         #endregion
+
+        #region ===Item exists down the line
+        public int ChkItemInBOM(int ID)
+        {
+            try
+            {
+                var data = (from p in tblbomdetails
+                            where p.ItemCd == ID && p.ActiveYN == true
+                            select p).ToList();
+                if (data != null || data.Count > 0)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
+        #endregion
     }
 }

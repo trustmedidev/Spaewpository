@@ -201,10 +201,16 @@ namespace SPAPracticeManagement.InventoryMaster
                 int bId = 0;
 
                 bId = Convert.ToInt32(txtHidCode.Text.ToString());
-                int x = objItemMainGrpDAL.Update(bId, txtName.Text.ToString(), IsActiveYN);
-                if (x > 0)
+                ItemMainGrpDAL objItemMainGrpDAL = new ItemMainGrpDAL();
+
+                int i = objItemMainGrpDAL.ChkMaingrp(bId);
+                if (i == 1)
                 {
-                    MessageBox.Show("Updated");
+                    int x = objItemMainGrpDAL.Update(bId, txtName.Text.ToString(), IsActiveYN);
+                    if (x > 0)
+                    {
+                        MessageBox.Show("Updated");
+                    }
                 }
             }
         }

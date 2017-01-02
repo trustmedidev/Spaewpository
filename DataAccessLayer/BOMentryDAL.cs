@@ -132,6 +132,7 @@ namespace DataAccessLayer
                             select new
                             {
                                 code = p.Code,
+                                ServiceCd = p.ServiceCd,
                                 ServiceName = Serv.ServiceName,
                                 PackageDescription=p.PackageDescription,
                                 HActiveYN = p.ActiveYN,
@@ -164,32 +165,28 @@ namespace DataAccessLayer
             try
             {
                 List<BOMEL> objBOMEL=new List<BOMEL>();
-                var data = (from p in tblbomheaders
-                            join bomDtl in tblbomdetails on p.Code equals bomDtl.BOM_Cd
-                            join Serv in tblservices on p.ServiceCd equals Serv.ServiceId
-                            into s1
-                            from Serv in s1.DefaultIfEmpty()
+                objBOMEL = (from bomDtl in tblbomdetails
                             join It in tblitems on bomDtl.ItemCd equals It.Code
                             into t1
                             from It in t1.DefaultIfEmpty()
                             join Unt in tblunits on bomDtl.UnitCd equals Unt.Code
                             into t2
                             from Unt in t2.DefaultIfEmpty()
-                            where p.Code == Code
-                            orderby Serv.ServiceName, It.Description
+                            where bomDtl.BOM_Cd == Code
+                            orderby It.Description
                             select new BOMEL()
                             {
                                 ItemCd = bomDtl.ItemCd,
                                 Item = (It.Description ?? string.Empty),
                                 UnitCd = bomDtl.UnitCd,
                                 Unit = (Unt.Description ?? string.Empty),
-                                //Qty = bomDtl.Qty,
-                                //Rate = bomDtl.Rate,
+                                Qty = (bomDtl.Qty ?? 0),
+                                Rate = (bomDtl.Rate ?? 0),
                                 //HActiveYN = p.ActiveYN,
-                                //DActiveYN = bomDtl.ActiveYN,
+                                DActiveYN = (bomDtl.ActiveYN ?? false),
                             }
-                            );
-                objBOMEL = data.ToList();
+                            ).ToList();
+                //objBOMEL = data.ToList();
 
                 return objBOMEL;
             }

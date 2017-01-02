@@ -13,5 +13,10 @@ namespace EntityLayer
        public string Item { get; set; }
        public string Unit { get; set; }
 
+       public decimal Qty { get; set; }
+       public decimal Rate { get; set; }
+       public bool DActiveYN { get; set; }
+
+
     }
 }

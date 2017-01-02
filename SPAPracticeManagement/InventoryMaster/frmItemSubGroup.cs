@@ -237,11 +237,19 @@ namespace SPAPracticeManagement.InventoryMaster
                 int bId = 0;
 
                 bId = Convert.ToInt32(txtHidCode.Text.ToString());
-                int x = objItemSubGrpDAL.Update(bId, Convert.ToInt32(ddlMainGrp.SelectedValue.ToString()), txtName.Text.ToString(), IsActiveYN);
-                if (x > 0)
+
+                ItemSubGrpDAL objItemSubGrpDAL = new ItemSubGrpDAL();
+
+                int i=objItemSubGrpDAL.ChkSubgrp(bId);
+                if (i == 1)
                 {
-                    MessageBox.Show("Updated");
+                    int x = objItemSubGrpDAL.Update(bId, Convert.ToInt32(ddlMainGrp.SelectedValue.ToString()), txtName.Text.ToString(), IsActiveYN);
+                    if (x > 0)
+                    {
+                        MessageBox.Show("Updated");
+                    }
                 }
+                else { MessageBox.Show("This sub group tagged with item. So delete not possible."); }
             }
         }
         #endregion 

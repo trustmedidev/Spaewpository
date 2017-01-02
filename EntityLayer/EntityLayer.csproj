@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppointmentEL.cs" />
+    <Compile Include="BOMEL.cs" />
     <Compile Include="ClientEL.cs" />
     <Compile Include="DashboardEL.cs" />
     <Compile Include="InventoryEL.cs" />

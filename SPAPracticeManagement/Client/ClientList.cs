@@ -232,6 +232,7 @@ namespace SPAPracticeManagement.Client
                 //{
 
                 //}
+                
                 List<ClientEL> objClientEL = new List<ClientEL>();
                 objClientEL = clientlist.GetClientListBySearchCriteriaNewForGrid(clientname,mobile, Convert.ToInt32(ddlServiceType.SelectedValue), fdt, tdt, branchID, byselection);
                 //objClientEL = clientlist.GetClientListBySearchCriteria(clientname, Convert.ToInt32(ddlServiceType.SelectedValue), fdt, tdt, branchID, byselection);
