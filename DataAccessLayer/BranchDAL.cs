@@ -180,12 +180,13 @@ namespace DataAccessLayer
                 var servicelist = data.ToList();
                 if (servicelist != null)
                 {
-                    chkBranch.Items.Clear();
-
-                    chkBranch.ValueMember = "BranchID";
-                    chkBranch.DisplayMember = "BranchName";
+                    //chkBranch.Items.Clear();
                     chkBranch.DataSource = servicelist;
-                    chkBranch.SelectedIndex = -1;
+                    chkBranch.DisplayMember = "BranchName";
+                    chkBranch.ValueMember = "BranchCode";
+                   
+                   
+                   // chkBranch.SelectedIndex = -1;
                 }
             }
             catch (Exception ex)
