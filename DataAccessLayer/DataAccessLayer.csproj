@@ -94,7 +94,7 @@
     <Compile Include="InventoryMasterDAL.cs" />
     <Compile Include="ItemDAL.cs" />
     <Compile Include="ItemMainGrpDAL.cs" />
-    <Compile Include="ItemOpeningStockcs.cs" />
+    <Compile Include="ItemOpeningstock.cs" />
     <Compile Include="ItemSubGrpDAL.cs" />
     <Compile Include="PackageBookingDAL.cs" />
     <Compile Include="PackageDAL.cs" />
