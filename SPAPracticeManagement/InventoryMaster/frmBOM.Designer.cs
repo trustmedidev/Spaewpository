@@ -34,6 +34,17 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnSubSave = new System.Windows.Forms.Button();
             this.grdDtl = new System.Windows.Forms.DataGridView();
+            this.Sl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemCd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitCd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DActiveYN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSubAdd = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -60,17 +71,6 @@
             this.txtHidCode = new System.Windows.Forms.TextBox();
             this.lblTag = new System.Windows.Forms.Label();
             this.txtGrdRowIndex = new System.Windows.Forms.TextBox();
-            this.Sl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemCd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitCd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DActiveYN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlTabControlAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdDtl)).BeginInit();
             this.pnlTabControlSearch.SuspendLayout();
@@ -177,6 +177,85 @@
             this.grdDtl.Size = new System.Drawing.Size(1055, 312);
             this.grdDtl.TabIndex = 135;
             this.grdDtl.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdDtl_CellContentClick);
+            this.grdDtl.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdDtl_CellDoubleClick);
+            // 
+            // Sl
+            // 
+            this.Sl.HeaderText = "Sl.";
+            this.Sl.Name = "Sl";
+            this.Sl.Visible = false;
+            this.Sl.Width = 40;
+            // 
+            // ItemCd
+            // 
+            this.ItemCd.HeaderText = "ItemCd";
+            this.ItemCd.Name = "ItemCd";
+            this.ItemCd.Visible = false;
+            // 
+            // Item
+            // 
+            this.Item.HeaderText = "Item";
+            this.Item.Name = "Item";
+            this.Item.ReadOnly = true;
+            this.Item.Width = 300;
+            // 
+            // Qty
+            // 
+            this.Qty.HeaderText = "Qty";
+            this.Qty.Name = "Qty";
+            this.Qty.ReadOnly = true;
+            this.Qty.Width = 80;
+            // 
+            // UnitCd
+            // 
+            this.UnitCd.HeaderText = "UnitCd";
+            this.UnitCd.Name = "UnitCd";
+            this.UnitCd.Visible = false;
+            this.UnitCd.Width = 50;
+            // 
+            // Unit
+            // 
+            this.Unit.HeaderText = "Unit";
+            this.Unit.Name = "Unit";
+            this.Unit.ReadOnly = true;
+            this.Unit.Width = 150;
+            // 
+            // Rate
+            // 
+            this.Rate.HeaderText = "Rate";
+            this.Rate.Name = "Rate";
+            this.Rate.ReadOnly = true;
+            this.Rate.Width = 120;
+            // 
+            // Edit
+            // 
+            this.Edit.HeaderText = "Edit";
+            this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
+            this.Edit.Name = "Edit";
+            this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Edit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Edit.Width = 50;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
+            this.Delete.Name = "Delete";
+            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Delete.Width = 50;
+            // 
+            // code
+            // 
+            this.code.HeaderText = "code";
+            this.code.Name = "code";
+            this.code.Visible = false;
+            // 
+            // DActiveYN
+            // 
+            this.DActiveYN.HeaderText = "DActiveYN";
+            this.DActiveYN.Name = "DActiveYN";
+            this.DActiveYN.Visible = false;
             // 
             // btnSubAdd
             // 
@@ -496,84 +575,6 @@
             this.txtGrdRowIndex.Size = new System.Drawing.Size(239, 27);
             this.txtGrdRowIndex.TabIndex = 136;
             this.txtGrdRowIndex.Visible = false;
-            // 
-            // Sl
-            // 
-            this.Sl.HeaderText = "Sl.";
-            this.Sl.Name = "Sl";
-            this.Sl.Visible = false;
-            this.Sl.Width = 40;
-            // 
-            // ItemCd
-            // 
-            this.ItemCd.HeaderText = "ItemCd";
-            this.ItemCd.Name = "ItemCd";
-            this.ItemCd.Visible = false;
-            // 
-            // Item
-            // 
-            this.Item.HeaderText = "Item";
-            this.Item.Name = "Item";
-            this.Item.ReadOnly = true;
-            this.Item.Width = 300;
-            // 
-            // Qty
-            // 
-            this.Qty.HeaderText = "Qty";
-            this.Qty.Name = "Qty";
-            this.Qty.ReadOnly = true;
-            this.Qty.Width = 80;
-            // 
-            // UnitCd
-            // 
-            this.UnitCd.HeaderText = "UnitCd";
-            this.UnitCd.Name = "UnitCd";
-            this.UnitCd.Visible = false;
-            this.UnitCd.Width = 50;
-            // 
-            // Unit
-            // 
-            this.Unit.HeaderText = "Unit";
-            this.Unit.Name = "Unit";
-            this.Unit.ReadOnly = true;
-            this.Unit.Width = 150;
-            // 
-            // Rate
-            // 
-            this.Rate.HeaderText = "Rate";
-            this.Rate.Name = "Rate";
-            this.Rate.ReadOnly = true;
-            this.Rate.Width = 120;
-            // 
-            // Edit
-            // 
-            this.Edit.HeaderText = "Edit";
-            this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
-            this.Edit.Name = "Edit";
-            this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Edit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Edit.Width = 50;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
-            this.Delete.Name = "Delete";
-            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Delete.Width = 50;
-            // 
-            // code
-            // 
-            this.code.HeaderText = "code";
-            this.code.Name = "code";
-            this.code.Visible = false;
-            // 
-            // DActiveYN
-            // 
-            this.DActiveYN.HeaderText = "DActiveYN";
-            this.DActiveYN.Name = "DActiveYN";
-            this.DActiveYN.Visible = false;
             // 
             // frmBOM
             // 
