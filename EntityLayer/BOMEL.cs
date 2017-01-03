@@ -16,7 +16,7 @@ namespace EntityLayer
        public decimal Qty { get; set; }
        public decimal Rate { get; set; }
        public bool DActiveYN { get; set; }
-
+       public int DCode { get; set; }
 
     }
 }

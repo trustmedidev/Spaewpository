@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataAccessLayer;
 using DataAccessLayer.Repository;
+
 using System.Data.Entity;
 using EntityLayer;
 namespace SPAPracticeManagement.InventoryMaster
@@ -65,12 +66,14 @@ namespace SPAPracticeManagement.InventoryMaster
         public override void EditFormatActiveY()
         {
             lblTag.Text = "Edit " + objFrmName.ToString() + " Detail";
-            btnUpdate.Top = 500;
-            btnUpdate.Left = 445;
+            //btnUpdate.Top = 500;
+            //btnUpdate.Left = 445;
+            btnSave.Top = 500;
+            btnSave.Left = 445;
             btnClear.Top = 500;
             btnClear.Left = 520;
-            btnUpdate.Visible = true;
-            btnSave.Visible = false;
+            btnUpdate.Visible = false;
+            btnSave.Visible = true;
             btnClear.Visible = true;
 
             CommonCL.PanelControlGotFocus(pnlTabControlAdd, pnlTabControlSearch);
@@ -112,8 +115,6 @@ namespace SPAPracticeManagement.InventoryMaster
             this.txtQty.Text = "";
             this.txtRate.Text = "";
             this.txtActive.Text = "Y";
-
-            grdDtl.Rows.Clear();
 
         }
         public void SubCtrlClear()
@@ -245,6 +246,7 @@ namespace SPAPracticeManagement.InventoryMaster
                     for (int j = 0; j < grdDtl.Rows.Count; j++)
                     {
                         tblbomdetail objtblbomdetail = new tblbomdetail();
+
                         objtblbomdetail.BOM_Cd = Convert.ToInt32(i.ToString());
                         objtblbomdetail.Code = Convert.ToInt32(grdDtl.Rows[j].Cells["code"].Value.ToString());
                         objtblbomdetail.ItemCd = Convert.ToInt32(grdDtl.Rows[j].Cells["ItemCd"].Value.ToString());
@@ -294,10 +296,9 @@ namespace SPAPracticeManagement.InventoryMaster
             {
                 try
                 {
-                    if (txtGrdRowIndex.Text == "")
+                    if (txtGrdRowIndex.Text.ToString() == "" || txtGrdRowIndex.Text == null)
                     {
                         int row = 0;
-
                         grdDtl.Rows.Add();
                         row = grdDtl.Rows.Count-1;
                         grdDtl["code", row].Value = "0";
@@ -355,9 +356,9 @@ namespace SPAPracticeManagement.InventoryMaster
                 txtHidCode.Text  ="0";
             }
 
-            if (ddlItem.SelectedValue == null || ddlItem.SelectedValue.ToString() == "")
+            if (ddlService.SelectedValue == null || ddlService.SelectedValue.ToString() == "")
             {
-                MessageBox.Show("Please enter Item.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please enter Service.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (txtPkgDisc.Text.Trim() == "")
@@ -366,16 +367,16 @@ namespace SPAPracticeManagement.InventoryMaster
                 return false;
             }
             
-            if (txtActive.Text.Trim() == "")
-            {
-                MessageBox.Show("Please enter activeYN", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-            if (txtHdActiveYN.Text.Trim() == "")
-            {
-                MessageBox.Show("Please enter activeYN", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
+            //if (txtActive.Text.Trim() == "")
+            //{
+            //    MessageBox.Show("Please enter activeYN", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return false;
+            //}
+            //if (txtHdActiveYN.Text.Trim() == "")
+            //{
+            //    MessageBox.Show("Please enter activeYN", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return false;
+            //}
 
 
             else
@@ -405,6 +406,7 @@ namespace SPAPracticeManagement.InventoryMaster
                     objtblbomheader.ActiveYN = true;
                     objtblbomheader.EntryDate = DateTime.Now;
                     objtblbomheader.UserCode = GlobalCL.UserCD;
+                    objtblbomdetail.ActiveYN = false;
 
                     //objtblbomdetail.ActiveYN = false;
 
@@ -468,8 +470,7 @@ namespace SPAPracticeManagement.InventoryMaster
                 //=================================================================
                 //=======================Detail data bind==========================
                 
-                List<BOMEL> objBOMEL = new List<BOMEL>();
-                objBOMEL = objBOMentryDAL.BindDtlList(grdDtl, Rcode);
+                
                 if (txtHidCode.Text == "")
                 {
                     MessageBox.Show("Please Select Valid date.. !!");
@@ -479,16 +480,32 @@ namespace SPAPracticeManagement.InventoryMaster
                 {
 
                     txtHidCode.Text = (String)grdSearch["Code", index5].Value.ToString();
-                    
-                    grdDtl.DataSource = objBOMEL.ToList();
 
-                    grdDtl.Columns["ItemCd"].DataPropertyName = "ItemCd";
-                    grdDtl.Columns["UnitCd"].DataPropertyName = "UnitCd";
-                    grdDtl.Columns["Item"].DataPropertyName = "Item";
-                    grdDtl.Columns["Unit"].DataPropertyName = "Unit";
-                    grdDtl.Columns["Qty"].DataPropertyName = "Qty";
-                    grdDtl.Columns["Rate"].DataPropertyName = "Rate";
-                    grdDtl.Columns["DActiveYN"].DataPropertyName = "DActiveYN";
+                    List<BOMEL> objBOMEL = new List<BOMEL>();
+
+                    objBOMEL = objBOMentryDAL.BindDtlList(grdDtl, Rcode);
+                    for (var i = 0; i < objBOMEL.Count; i++)
+                    {
+                        grdDtl.Rows.Add();
+                        grdDtl.Rows[i].Cells["code"].Value = objBOMEL[i].DCode.ToString();
+                        grdDtl.Rows[i].Cells["ItemCd"].Value = objBOMEL[i].ItemCd;
+                        grdDtl.Rows[i].Cells["Item"].Value = objBOMEL[i].Item;
+                        grdDtl.Rows[i].Cells["Qty"].Value = objBOMEL[i].Qty;
+                        grdDtl.Rows[i].Cells["UnitCd"].Value = objBOMEL[i].UnitCd;
+                        grdDtl.Rows[i].Cells["Unit"].Value = objBOMEL[i].Unit;
+                        grdDtl.Rows[i].Cells["Rate"].Value = objBOMEL[i].Rate;
+                        grdDtl.Rows[i].Cells["DActiveYN"].Value = objBOMEL[i].DActiveYN;
+                    }
+
+                    //grdDtl.DataSource = objBOMEL.ToList();
+                    //grdDtl.Columns["code"].DataPropertyName = "DCode";
+                    //grdDtl.Columns["ItemCd"].DataPropertyName = "ItemCd";
+                    //grdDtl.Columns["UnitCd"].DataPropertyName = "UnitCd";
+                    //grdDtl.Columns["Item"].DataPropertyName = "Item";
+                    //grdDtl.Columns["Unit"].DataPropertyName = "Unit";
+                    //grdDtl.Columns["Qty"].DataPropertyName = "Qty";
+                    //grdDtl.Columns["Rate"].DataPropertyName = "Rate";
+                    //grdDtl.Columns["DActiveYN"].DataPropertyName = "DActiveYN";
 
                     //=================================================================
                     

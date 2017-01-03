@@ -43,9 +43,13 @@ namespace DataAccessLayer
                         var appOrg = tblbomheaders.Find(objBOMheader.Code);
                         Entry(appOrg).CurrentValues.SetValues(objBOMheader);
                         SaveChanges();
-                        
-                        var appOrgDtl = tblbomdetails.Find(objBOMdetai.BOM_Cd);
-                        Entry(appOrgDtl).CurrentValues.SetValues(objBOMdetai);
+                        //cannot be used if the entire model is empty
+                        //var appOrgDtl = tblbomdetails.Find(objBOMdetai.BOM_Cd);
+                        //Entry(appOrgDtl).CurrentValues.SetValues(objBOMdetai);
+                        //SaveChanges();
+                        // updatwe tblBOmdtl & set activeyn to tblbomdetail
+                        var objBOMdtl = tblbomdetails.Where(p => p.BOM_Cd == objBOMheader.Code).ToList();
+                        objBOMdtl.ForEach(a => a.ActiveYN = false);
                         SaveChanges();
                         dbTran.Commit();
 
@@ -176,15 +180,19 @@ namespace DataAccessLayer
                             orderby It.Description
                             select new BOMEL()
                             {
+                                DCode=bomDtl.Code,
                                 ItemCd = bomDtl.ItemCd,
                                 Item = (It.Description ?? string.Empty),
                                 UnitCd = bomDtl.UnitCd,
                                 Unit = (Unt.Description ?? string.Empty),
                                 Qty = (bomDtl.Qty ?? 0),
                                 Rate = (bomDtl.Rate ?? 0),
+                                //HActiveYN = p.ActiveYN,
                                 DActiveYN = (bomDtl.ActiveYN ?? false),
                             }
                             ).ToList();
+                    
+                //objBOMEL = data.ToList();
 
                 return objBOMEL;
             }
