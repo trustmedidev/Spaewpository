@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataAccessLayer;
 using DataAccessLayer.Repository;
-
 using System.Data.Entity;
 using EntityLayer;
 namespace SPAPracticeManagement.InventoryMaster
@@ -113,6 +112,8 @@ namespace SPAPracticeManagement.InventoryMaster
             this.txtQty.Text = "";
             this.txtRate.Text = "";
             this.txtActive.Text = "Y";
+
+            grdDtl.Rows.Clear();
 
         }
         public void SubCtrlClear()
@@ -296,6 +297,7 @@ namespace SPAPracticeManagement.InventoryMaster
                     if (txtGrdRowIndex.Text == "")
                     {
                         int row = 0;
+
                         grdDtl.Rows.Add();
                         row = grdDtl.Rows.Count-1;
                         grdDtl["code", row].Value = "0";
@@ -477,8 +479,9 @@ namespace SPAPracticeManagement.InventoryMaster
                 {
 
                     txtHidCode.Text = (String)grdSearch["Code", index5].Value.ToString();
-
+                    
                     grdDtl.DataSource = objBOMEL.ToList();
+
                     grdDtl.Columns["ItemCd"].DataPropertyName = "ItemCd";
                     grdDtl.Columns["UnitCd"].DataPropertyName = "UnitCd";
                     grdDtl.Columns["Item"].DataPropertyName = "Item";

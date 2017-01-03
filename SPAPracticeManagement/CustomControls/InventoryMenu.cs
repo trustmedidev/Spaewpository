@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SPAPracticeManagement.InventoryMaster;
+using SPAPracticeManagement.InventoryTransaction;
 using SPAPracticeManagement.Settings;
 namespace SPAPracticeManagement.CustomControls
 {
@@ -77,6 +78,13 @@ namespace SPAPracticeManagement.CustomControls
         private void billOfMaterialPackageWiseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmBOM objfrm = new frmBOM();
+            objfrm.Show();
+            this.Parent.FindForm().Hide();
+        }
+
+        private void itemOpeningBalanceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmOpeningStock objfrm = new frmOpeningStock();
             objfrm.Show();
             this.Parent.FindForm().Hide();
         }

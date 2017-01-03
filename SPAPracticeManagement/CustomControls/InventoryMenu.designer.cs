@@ -181,14 +181,15 @@
             this.interGodownStockTraunsferToolStripMenuItem});
             this.transuctionToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.transuctionToolStripMenuItem.Name = "transuctionToolStripMenuItem";
-            this.transuctionToolStripMenuItem.Size = new System.Drawing.Size(120, 36);
-            this.transuctionToolStripMenuItem.Text = "Transuction";
+            this.transuctionToolStripMenuItem.Size = new System.Drawing.Size(119, 36);
+            this.transuctionToolStripMenuItem.Text = "Transaction";
             // 
             // itemOpeningBalanceToolStripMenuItem
             // 
             this.itemOpeningBalanceToolStripMenuItem.Name = "itemOpeningBalanceToolStripMenuItem";
             this.itemOpeningBalanceToolStripMenuItem.Size = new System.Drawing.Size(407, 28);
             this.itemOpeningBalanceToolStripMenuItem.Text = "Item opening balance";
+            this.itemOpeningBalanceToolStripMenuItem.Click += new System.EventHandler(this.itemOpeningBalanceToolStripMenuItem_Click);
             // 
             // stockAdjustmentToolStripMenuItem
             // 

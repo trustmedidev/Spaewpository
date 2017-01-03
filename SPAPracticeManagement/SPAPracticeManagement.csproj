@@ -303,6 +303,12 @@
     <Compile Include="InventoryMaster\test.Designer.cs">
       <DependentUpon>test.cs</DependentUpon>
     </Compile>
+    <Compile Include="InventoryTransaction\frmOpeningStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryTransaction\frmOpeningStock.Designer.cs">
+      <DependentUpon>frmOpeningStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -545,6 +551,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InventoryMaster\test.resx">
       <DependentUpon>test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryTransaction\frmOpeningStock.resx">
+      <DependentUpon>frmOpeningStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

@@ -110,7 +110,7 @@
             this.pnlTabControlAdd.Location = new System.Drawing.Point(229, 210);
             this.pnlTabControlAdd.Margin = new System.Windows.Forms.Padding(4);
             this.pnlTabControlAdd.Name = "pnlTabControlAdd";
-            this.pnlTabControlAdd.Size = new System.Drawing.Size(834, 663);
+            this.pnlTabControlAdd.Size = new System.Drawing.Size(853, 663);
             this.pnlTabControlAdd.TabIndex = 130;
             // 
             // txtHdActiveYN
@@ -174,7 +174,7 @@
             this.grdDtl.Location = new System.Drawing.Point(8, 298);
             this.grdDtl.Name = "grdDtl";
             this.grdDtl.RowTemplate.Height = 24;
-            this.grdDtl.Size = new System.Drawing.Size(821, 312);
+            this.grdDtl.Size = new System.Drawing.Size(1055, 312);
             this.grdDtl.TabIndex = 135;
             this.grdDtl.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdDtl_CellContentClick);
             // 
@@ -510,7 +510,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlTabControlSearch.Controls.Add(this.txtSearchText);
             this.pnlTabControlSearch.Controls.Add(this.grdSearch);
-            this.pnlTabControlSearch.Location = new System.Drawing.Point(1082, 284);
+            this.pnlTabControlSearch.Location = new System.Drawing.Point(1098, 284);
             this.pnlTabControlSearch.Margin = new System.Windows.Forms.Padding(4);
             this.pnlTabControlSearch.Name = "pnlTabControlSearch";
             this.pnlTabControlSearch.Size = new System.Drawing.Size(363, 669);
