@@ -189,7 +189,40 @@ namespace DataAccessLayer
         }
         
         #endregion
+        #region === bind Item Main Grp
+        public void BindDdlGodown(ComboBox ddl)
+        {
+            try
+            {
 
+                var data = (from p in tblgodowns 
+                            where p.ACTIVEYN == true
+                            select new
+                            {
+                                Code = p.Code,
+                                Name = p.Description
+
+
+                            });
+                var servicelist = data.ToList();
+                if (servicelist != null)
+                {
+                    ddl.DataSource = null;
+                    ddl.Items.Clear();
+
+                    ddl.ValueMember = "Code";
+                    ddl.DisplayMember = "Name";
+                    ddl.DataSource = servicelist;
+                    ddl.SelectedIndex = -1;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+        #endregion
 
     }
 }
