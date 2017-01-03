@@ -94,6 +94,7 @@
     <Compile Include="InventoryMasterDAL.cs" />
     <Compile Include="ItemDAL.cs" />
     <Compile Include="ItemMainGrpDAL.cs" />
+    <Compile Include="ItemOpeningStockcs.cs" />
     <Compile Include="ItemSubGrpDAL.cs" />
     <Compile Include="PackageBookingDAL.cs" />
     <Compile Include="PackageDAL.cs" />
@@ -188,6 +189,12 @@
       <DependentUpon>SpaPracticeDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Repository\tblitemmaingroup.cs">
+      <DependentUpon>SpaPracticeDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\tblitemopeningdetail.cs">
+      <DependentUpon>SpaPracticeDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\tblitemopeningheader.cs">
       <DependentUpon>SpaPracticeDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Repository\tblitemsubgroup.cs">
