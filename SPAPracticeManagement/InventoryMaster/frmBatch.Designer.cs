@@ -229,6 +229,7 @@
             this.txtActive.Size = new System.Drawing.Size(39, 27);
             this.txtActive.TabIndex = 5;
             this.txtActive.Text = "Y";
+            this.txtActive.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtActive_KeyPress);
             this.txtActive.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtActive_KeyUp);
             // 
             // label7

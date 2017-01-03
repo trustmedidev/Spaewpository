@@ -102,7 +102,7 @@ namespace SPAPracticeManagement.InventoryMaster
             this.txtRate.Enabled = true;
             this.txtActive.Enabled = true;
             this.grdDtl.Enabled = true;
-
+            this.txtHdActiveYN.Enabled = true;
             ActiveControl = ddlService;
         }
 
@@ -115,6 +115,7 @@ namespace SPAPracticeManagement.InventoryMaster
             this.txtQty.Text = "";
             this.txtRate.Text = "";
             this.txtActive.Text = "Y";
+            this.txtHdActiveYN.Text = "Y";
 
         }
         public void SubCtrlClear()
@@ -134,6 +135,7 @@ namespace SPAPracticeManagement.InventoryMaster
             this.txtQty.Enabled = false;
             this.txtRate.Enabled = false;
             this.grdDtl.Enabled = false;
+            this.txtHdActiveYN.Enabled = false;
             this.txtActive.Enabled = false;
 
         }
@@ -247,7 +249,7 @@ namespace SPAPracticeManagement.InventoryMaster
                     {
                         tblbomdetail objtblbomdetail = new tblbomdetail();
 
-                        objtblbomdetail.BOM_Cd = Convert.ToInt32(i.ToString());
+                        objtblbomdetail.BOM_Cd = Convert.ToInt32(txtHidCode.Text.ToString());
                         objtblbomdetail.Code = Convert.ToInt32(grdDtl.Rows[j].Cells["code"].Value.ToString());
                         objtblbomdetail.ItemCd = Convert.ToInt32(grdDtl.Rows[j].Cells["ItemCd"].Value.ToString());
                         objtblbomdetail.UnitCd = Convert.ToInt32(grdDtl.Rows[j].Cells["UnitCd"].Value.ToString());
@@ -280,7 +282,7 @@ namespace SPAPracticeManagement.InventoryMaster
                     grdDtl["Rate", p].Value = txtRate.Text.ToString();
                     grdDtl["Item", p].Value = ddlItem.Text .ToString();
                     grdDtl["Unit", p].Value = ddlIssUnit.Text.ToString();
-
+                    txtGrdRowIndex.Text = "";
                     SubCtrlClear();
                     grdDtl.Refresh();
                     btnSubAdd.Focus();
@@ -296,7 +298,7 @@ namespace SPAPracticeManagement.InventoryMaster
             {
                 try
                 {
-                    if (txtGrdRowIndex.Text.ToString() == "" || txtGrdRowIndex.Text == null)
+                    if (txtGrdRowIndex.Text.ToString() == "" || txtGrdRowIndex.Text == null )
                     {
                         int row = 0;
                         grdDtl.Rows.Add();
@@ -324,7 +326,7 @@ namespace SPAPracticeManagement.InventoryMaster
                         grdDtl["Rate", row].Value = txtRate.Text.ToString();
                         grdDtl["Item", row].Value = ddlItem.Text.ToString();
                         grdDtl["Unit", row].Value = ddlIssUnit.Text.ToString();
-
+                        txtGrdRowIndex.Text = "";
                         SubCtrlClear();
                         grdDtl.Refresh();
                         btnSubAdd.Focus();
@@ -342,7 +344,17 @@ namespace SPAPracticeManagement.InventoryMaster
 
         private void btnSubSave_Click(object sender, EventArgs e)
         {
-            SubSaveUpdate();
+            try
+            {
+                if (ValidateSubForm())
+                {
+                    SubSaveUpdate();
+                }
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.Message);
+            }
         }
 
         #endregion
@@ -372,11 +384,53 @@ namespace SPAPracticeManagement.InventoryMaster
             //    MessageBox.Show("Please enter activeYN", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             //    return false;
             //}
-            //if (txtHdActiveYN.Text.Trim() == "")
-            //{
-            //    MessageBox.Show("Please enter activeYN", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    return false;
-            //}
+            if (txtHdActiveYN.Text.Trim() == "")
+            {
+                MessageBox.Show("Please enter activeYN", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+
+            else
+            {
+                return true;
+            }
+        }
+
+        private bool ValidateSubForm()
+        {
+
+            if (txtHidCode.Text == "")
+            {
+                txtHidCode.Text = "0";
+            }
+
+            if (ddlItem.SelectedValue == null || ddlItem.SelectedValue.ToString() == "")
+            {
+                MessageBox.Show("Please enter Item.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (ddlIssUnit.SelectedValue == null || ddlIssUnit.SelectedValue.ToString() == "")
+            {
+                MessageBox.Show("Please enter Unit.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (txtQty.Text.Trim() == "")
+            {
+                MessageBox.Show("Please enter Qty.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (txtRate.Text.Trim() == "")
+            {
+                MessageBox.Show("Please enter Rate.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            
+            if (txtHdActiveYN.Text.Trim() == "")
+            {
+                MessageBox.Show("Please enter activeYN", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
 
 
             else
@@ -436,8 +490,10 @@ namespace SPAPracticeManagement.InventoryMaster
                 int row = e.RowIndex;
 
                 ddlItem.SelectedValue = Convert.ToInt32(grdDtl["ItemCd", row].Value) ;
+                ddlItem.Text = grdDtl["Item", row].Value.ToString();
                 txtQty.Text = grdDtl["Qty", row].Value.ToString();
                 ddlIssUnit.SelectedValue=Convert.ToInt32(grdDtl["UnitCd", row].Value );
+                ddlIssUnit.Text = grdDtl["Unit", row].Value.ToString();
                 txtRate.Text = grdDtl["Rate", row].Value.ToString();
                 
             }
@@ -480,7 +536,7 @@ namespace SPAPracticeManagement.InventoryMaster
                 {
 
                     txtHidCode.Text = (String)grdSearch["Code", index5].Value.ToString();
-
+                    grdDtl.Rows.Clear();
                     List<BOMEL> objBOMEL = new List<BOMEL>();
 
                     objBOMEL = objBOMentryDAL.BindDtlList(grdDtl, Rcode);
@@ -563,12 +619,12 @@ namespace SPAPracticeManagement.InventoryMaster
 
         private void txtHdActiveYN_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //CommonCL.textBoxYNValidation(txtHdActiveYN, false);
+            CommonCL.textBoxYNValidation(txtHdActiveYN, e);
         }
 
         private void txtActive_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //CommonCL.textBoxYNValidation(txtActive ,false);
+            CommonCL.textBoxYNValidation(txtActive, e);
         }
 
         private void txtQty_KeyPress(object sender, KeyPressEventArgs e)
