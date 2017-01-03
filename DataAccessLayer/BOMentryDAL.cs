@@ -182,11 +182,9 @@ namespace DataAccessLayer
                                 Unit = (Unt.Description ?? string.Empty),
                                 Qty = (bomDtl.Qty ?? 0),
                                 Rate = (bomDtl.Rate ?? 0),
-                                //HActiveYN = p.ActiveYN,
                                 DActiveYN = (bomDtl.ActiveYN ?? false),
                             }
                             ).ToList();
-                //objBOMEL = data.ToList();
 
                 return objBOMEL;
             }
