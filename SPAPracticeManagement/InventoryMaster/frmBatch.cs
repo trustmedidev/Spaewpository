@@ -321,5 +321,10 @@ namespace SPAPracticeManagement.InventoryMaster
         }
 
         #endregion
+
+        private void txtActive_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CommonCL.textBoxYNValidation(txtActive, e);
+        }
     }
 }
