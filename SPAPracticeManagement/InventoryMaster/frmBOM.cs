@@ -497,6 +497,20 @@ namespace SPAPracticeManagement.InventoryMaster
                 txtRate.Text = grdDtl["Rate", row].Value.ToString();
                 
             }
+            if (e.ColumnIndex == 8)
+            {
+                removeRecordFormGrid();
+                //txtGrdRowIndex.Text = e.RowIndex.ToString();
+                //int row = e.RowIndex;
+
+                //ddlItem.SelectedValue = Convert.ToInt32(grdDtl["ItemCd", row].Value);
+                //ddlItem.Text = grdDtl["Item", row].Value.ToString();
+                //txtQty.Text = grdDtl["Qty", row].Value.ToString();
+                //ddlIssUnit.SelectedValue = Convert.ToInt32(grdDtl["UnitCd", row].Value);
+                //ddlIssUnit.Text = grdDtl["Unit", row].Value.ToString();
+                //txtRate.Text = grdDtl["Rate", row].Value.ToString();
+
+            }
         }
 
         
@@ -634,6 +648,47 @@ namespace SPAPracticeManagement.InventoryMaster
 
         #endregion
 
+        private void grdDtl_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //removeRecordFormGrid();
+        }
+
+        public void removeRecordFormGrid()
+        {
+            try
+            {
+                //if (opMode == "")
+                //{
+                //    MessageBox.Show("Please Press EDIT Button...");
+                //    cmbRawItem.Text = "";
+                //    txtQty.Text = "";
+                //    txtRowIndex.Text = "";
+                //    return;
+                //}
+                DialogResult reg = MessageBox.Show("Do You want to Remove record...", "info", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (DialogResult.Yes == reg)
+                {
+                    grdDtl.Rows.RemoveAt(grdDtl.CurrentRow.Index);
+
+                    ////for (int i = 0; i < dpGridLoad.Rows.Count; i++)
+                    ////{
+                    ////    decimal totQty = 0;
+                    ////    decimal totAmt = 0;
+                    ////    totQty = totQty + Convert.ToDecimal(dpGridLoad.Rows[i].Cells["Quantity"].Value);
+                    ////    totAmt = totAmt + Convert.ToDecimal(dpGridLoad.Rows[i].Cells["Amount"].Value);
+                    ////    label7.Text = totQty.ToString();
+                    ////    label10.Text = totAmt.ToString();
+                    ////}
+                    //cmbRawItem.Text = "";
+                    //txtQty.Text = "";
+                    //txtRowIndex.Text = "";
+                }
+            }
+            catch (Exception exceptionObj)
+            {
+                MessageBox.Show(exceptionObj.Message.ToString());
+            }
+        }
 
 
     }     
