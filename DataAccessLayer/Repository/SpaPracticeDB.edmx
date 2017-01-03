@@ -318,6 +318,33 @@
           <Property Name="EntryDate" Type="datetime" Precision="0" Nullable="false" />
           <Property Name="UserCode" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="tblitemopeningdetail">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="ItemOpeningCd" />
+          </Key>
+          <Property Name="Code" Type="int" Nullable="false" />
+          <Property Name="ItemOpeningCd" Type="int" Nullable="false" />
+          <Property Name="itemcd" Type="int" Nullable="false" />
+          <Property Name="UnitCd" Type="int" Nullable="false" />
+          <Property Name="Qty" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="value" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="ActiveYN" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblitemopeningheader">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="int" Nullable="false" />
+          <Property Name="ItemOpeningTranId" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="TranDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="GodownCd" Type="int" Nullable="false" />
+          <Property Name="TotValue" Type="decimal" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="ActiveYN" Type="bit" Nullable="false" />
+          <Property Name="EntryDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="UserCode" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="tblitemsubgroup">
           <Key>
             <PropertyRef Name="Code" />
@@ -1158,6 +1185,8 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <EntitySet Name="tblinventory" EntityType="Self.tblinventory" Schema="spamanagement" store:Type="Tables" />
           <EntitySet Name="tblitem" EntityType="Self.tblitem" Schema="spamanagement" store:Type="Tables" />
           <EntitySet Name="tblitemmaingroup" EntityType="Self.tblitemmaingroup" Schema="spamanagement" store:Type="Tables" />
+          <EntitySet Name="tblitemopeningdetail" EntityType="Self.tblitemopeningdetail" Schema="spamanagement" store:Type="Tables" />
+          <EntitySet Name="tblitemopeningheader" EntityType="Self.tblitemopeningheader" Schema="spamanagement" store:Type="Tables" />
           <EntitySet Name="tblitemsubgroup" EntityType="Self.tblitemsubgroup" Schema="spamanagement" store:Type="Tables" />
           <EntitySet Name="tblmapservice" EntityType="Self.tblmapservice" Schema="spamanagement" store:Type="Tables" />
           <EntitySet Name="tblmaptax" EntityType="Self.tblmaptax" Schema="spamanagement" store:Type="Tables" />
@@ -1593,6 +1622,8 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <EntitySet Name="tblbomheaders" EntityType="SpaPracticeModel.tblbomheader" />
           <EntitySet Name="tblfinancialyears" EntityType="SpaPracticeModel.tblfinancialyear" />
           <EntitySet Name="tblparameters" EntityType="SpaPracticeModel.tblparameter" />
+          <EntitySet Name="tblitemopeningdetails" EntityType="SpaPracticeModel.tblitemopeningdetail" />
+          <EntitySet Name="tblitemopeningheaders" EntityType="SpaPracticeModel.tblitemopeningheader" />
           </EntityContainer>
         <ComplexType Name="GetReportData_Result" />
         <ComplexType Name="GetReportDataByReportId_Result" />
@@ -2809,6 +2840,33 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <Property Name="TranPrefixType" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="TranPrefix" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="tblitemopeningdetail">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="ItemOpeningCd" />
+          </Key>
+          <Property Name="Code" Type="Int32" Nullable="false" />
+          <Property Name="ItemOpeningCd" Type="Int32" Nullable="false" />
+          <Property Name="itemcd" Type="Int32" Nullable="false" />
+          <Property Name="UnitCd" Type="Int32" Nullable="false" />
+          <Property Name="Qty" Type="Decimal" Nullable="false" />
+          <Property Name="value" Type="Decimal" Nullable="false" />
+          <Property Name="ActiveYN" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblitemopeningheader">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="Int32" Nullable="false" />
+          <Property Name="ItemOpeningTranId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TranDate" Type="DateTime" Nullable="false" />
+          <Property Name="GodownCd" Type="Int32" Nullable="false" />
+          <Property Name="TotValue" Type="Decimal" Nullable="false" />
+          <Property Name="ActiveYN" Type="Boolean" Nullable="false" />
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" />
+          <Property Name="UserCode" Type="Int32" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3452,6 +3510,34 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
                 <ScalarProperty Name="AllowYN" ColumnName="AllowYN" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblitemopeningdetails">
+            <EntityTypeMapping TypeName="SpaPracticeModel.tblitemopeningdetail">
+              <MappingFragment StoreEntitySet="tblitemopeningdetail">
+                <ScalarProperty Name="ActiveYN" ColumnName="ActiveYN" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="UnitCd" ColumnName="UnitCd" />
+                <ScalarProperty Name="itemcd" ColumnName="itemcd" />
+                <ScalarProperty Name="ItemOpeningCd" ColumnName="ItemOpeningCd" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblitemopeningheaders">
+            <EntityTypeMapping TypeName="SpaPracticeModel.tblitemopeningheader">
+              <MappingFragment StoreEntitySet="tblitemopeningheader">
+                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="ActiveYN" ColumnName="ActiveYN" />
+                <ScalarProperty Name="TotValue" ColumnName="TotValue" />
+                <ScalarProperty Name="GodownCd" ColumnName="GodownCd" />
+                <ScalarProperty Name="TranDate" ColumnName="TranDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ItemOpeningTranId" ColumnName="ItemOpeningTranId" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
