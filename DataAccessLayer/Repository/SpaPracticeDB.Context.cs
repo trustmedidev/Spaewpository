@@ -72,6 +72,7 @@ namespace DataAccessLayer.Repository
         public virtual DbSet<tblitemopeningdetail> tblitemopeningdetails { get; set; }
         public virtual DbSet<tblitemopeningheader> tblitemopeningheaders { get; set; }
         public virtual DbSet<tblparameter> tblparameters { get; set; }
+        public virtual DbSet<tblstock> tblstocks { get; set; }
     
         public virtual int DeleteReportData()
         {

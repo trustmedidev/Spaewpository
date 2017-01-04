@@ -345,6 +345,7 @@
           <Property Name="EntryDate" Type="datetime" Precision="0" Nullable="false" />
           <Property Name="UserCode" Type="int" Nullable="false" />
           <Property Name="BranchCd" Type="int" Nullable="false" />
+          <Property Name="Finyr" Type="int" />
         </EntityType>
         <EntityType Name="tblitemsubgroup">
           <Key>
@@ -533,6 +534,27 @@
           <Property Name="CreatedBy" Type="int" />
           <Property Name="ModifiedOn" Type="datetime" Precision="0" />
           <Property Name="ModifiedBy" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6005: The data type 'udecimal' is currently not supported for the target Entity Framework version; the column 'Qty' in the table 'spamanagement.tblstock' was excluded.-->
+        <EntityType Name="tblstock">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="int" Nullable="false" />
+          <Property Name="TransuctionCd" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="StockDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="ItemCd" Type="int" Nullable="false" />
+          <Property Name="UnitCd" Type="int" Nullable="false" />
+          <Property Name="StockQty" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="StockUnitCd" Type="int" Nullable="false" />
+          <Property Name="ExpiryDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="StockType" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="ReferenceID" Type="int" Nullable="false" />
+          <Property Name="BranchCD" Type="int" />
+          <Property Name="GodownCD" Type="int" />
+          <Property Name="EntryDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="UserCode" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tblsupplior">
           <Key>
@@ -1203,6 +1225,7 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <EntitySet Name="tblrole" EntityType="Self.tblrole" Schema="spamanagement" store:Type="Tables" />
           <EntitySet Name="tblservice" EntityType="Self.tblservice" Schema="spamanagement" store:Type="Tables" />
           <EntitySet Name="tblservicelog" EntityType="Self.tblservicelog" Schema="spamanagement" store:Type="Tables" />
+          <EntitySet Name="tblstock" EntityType="Self.tblstock" Schema="spamanagement" store:Type="Tables" />
           <EntitySet Name="tblsupplior" EntityType="Self.tblsupplior" Schema="spamanagement" store:Type="Tables" />
           <EntitySet Name="tbltaxlog" EntityType="Self.tbltaxlog" Schema="spamanagement" store:Type="Tables" />
           <EntitySet Name="tbltaxmaster" EntityType="Self.tbltaxmaster" Schema="spamanagement" store:Type="Tables" />
@@ -1625,6 +1648,7 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <EntitySet Name="tblitemopeningdetails" EntityType="SpaPracticeModel.tblitemopeningdetail" />
           <EntitySet Name="tblitemopeningheaders" EntityType="SpaPracticeModel.tblitemopeningheader" />
           <EntitySet Name="tblparameters" EntityType="SpaPracticeModel.tblparameter" />
+          <EntitySet Name="tblstocks" EntityType="SpaPracticeModel.tblstock" />
           </EntityContainer>
         <ComplexType Name="GetReportData_Result" />
         <ComplexType Name="GetReportDataByReportId_Result" />
@@ -2858,6 +2882,7 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <Property Name="EntryDate" Type="DateTime" Nullable="false" />
           <Property Name="UserCode" Type="Int32" Nullable="false" />
           <Property Name="BranchCd" Type="Int32" Nullable="false" />
+          <Property Name="Finyr" Type="Int32" />
         </EntityType>
         <EntityType Name="tblparameter">
           <Key>
@@ -2868,6 +2893,25 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <Property Name="AllowYN" Type="Boolean" />
           <Property Name="TranPrefixType" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="TranPrefix" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblstock">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="Int32" Nullable="false" />
+          <Property Name="TransuctionCd" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StockDate" Type="DateTime" Nullable="false" />
+          <Property Name="ItemCd" Type="Int32" Nullable="false" />
+          <Property Name="UnitCd" Type="Int32" Nullable="false" />
+          <Property Name="StockQty" Type="Decimal" Nullable="false" />
+          <Property Name="StockUnitCd" Type="Int32" Nullable="false" />
+          <Property Name="ExpiryDate" Type="DateTime" Nullable="false" />
+          <Property Name="StockType" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="ReferenceID" Type="Int32" Nullable="false" />
+          <Property Name="BranchCD" Type="Int32" />
+          <Property Name="GodownCD" Type="Int32" />
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" />
+          <Property Name="UserCode" Type="Int32" Nullable="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -3520,6 +3564,7 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <EntitySetMapping Name="tblitemopeningheaders">
             <EntityTypeMapping TypeName="SpaPracticeModel.tblitemopeningheader">
               <MappingFragment StoreEntitySet="tblitemopeningheader">
+                <ScalarProperty Name="Finyr" ColumnName="Finyr" />
                 <ScalarProperty Name="BranchCd" ColumnName="BranchCd" />
                 <ScalarProperty Name="UserCode" ColumnName="UserCode" />
                 <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
@@ -3541,6 +3586,26 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
                 <ScalarProperty Name="AllowYN" ColumnName="AllowYN" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblstocks">
+            <EntityTypeMapping TypeName="SpaPracticeModel.tblstock">
+              <MappingFragment StoreEntitySet="tblstock">
+                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="GodownCD" ColumnName="GodownCD" />
+                <ScalarProperty Name="BranchCD" ColumnName="BranchCD" />
+                <ScalarProperty Name="ReferenceID" ColumnName="ReferenceID" />
+                <ScalarProperty Name="StockType" ColumnName="StockType" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="StockUnitCd" ColumnName="StockUnitCd" />
+                <ScalarProperty Name="StockQty" ColumnName="StockQty" />
+                <ScalarProperty Name="UnitCd" ColumnName="UnitCd" />
+                <ScalarProperty Name="ItemCd" ColumnName="ItemCd" />
+                <ScalarProperty Name="StockDate" ColumnName="StockDate" />
+                <ScalarProperty Name="TransuctionCd" ColumnName="TransuctionCd" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
