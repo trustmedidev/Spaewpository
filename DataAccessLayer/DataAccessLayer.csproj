@@ -243,6 +243,9 @@
     <Compile Include="Repository\tblservicelog.cs">
       <DependentUpon>SpaPracticeDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Repository\tblstock.cs">
+      <DependentUpon>SpaPracticeDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Repository\tblsupplior.cs">
       <DependentUpon>SpaPracticeDB.tt</DependentUpon>
     </Compile>
@@ -263,6 +266,7 @@
     </Compile>
     <Compile Include="ServiceDAL.cs" />
     <Compile Include="SettingDAL.cs" />
+    <Compile Include="StockDAL.cs" />
     <Compile Include="SuppliorDAL.cs" />
     <Compile Include="TaxConfigurationDAL.cs" />
     <Compile Include="UnitDAL.cs" />
