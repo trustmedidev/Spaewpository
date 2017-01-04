@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPurchaseRequsition));
             this.pnlTabControlAdd = new System.Windows.Forms.Panel();
+            this.txtTotQty = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.ddlUser = new System.Windows.Forms.ComboBox();
@@ -83,6 +84,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlTabControlAdd.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlTabControlAdd.Controls.Add(this.txtTotQty);
             this.pnlTabControlAdd.Controls.Add(this.btnSave);
             this.pnlTabControlAdd.Controls.Add(this.label11);
             this.pnlTabControlAdd.Controls.Add(this.ddlUser);
@@ -115,6 +117,16 @@
             this.pnlTabControlAdd.Size = new System.Drawing.Size(1092, 938);
             this.pnlTabControlAdd.TabIndex = 132;
             // 
+            // txtTotQty
+            // 
+            this.txtTotQty.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotQty.Location = new System.Drawing.Point(666, 606);
+            this.txtTotQty.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTotQty.MaxLength = 50;
+            this.txtTotQty.Name = "txtTotQty";
+            this.txtTotQty.Size = new System.Drawing.Size(199, 27);
+            this.txtTotQty.TabIndex = 145;
+            // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(34)))), ((int)(((byte)(94)))));
@@ -128,6 +140,7 @@
             this.btnSave.TabIndex = 17;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             this.btnSave.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnSave_KeyUp);
             // 
             // label11
@@ -225,12 +238,13 @@
             this.btnSubSave.TabIndex = 11;
             this.btnSubSave.Text = "Save";
             this.btnSubSave.UseVisualStyleBackColor = false;
+            this.btnSubSave.Click += new System.EventHandler(this.btnSubSave_Click);
             this.btnSubSave.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnSubSave_KeyUp);
             // 
             // grdDtl
             // 
             this.grdDtl.AllowUserToAddRows = false;
-            this.grdDtl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdDtl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.grdDtl.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ItemCd,
             this.Item,
@@ -244,25 +258,35 @@
             this.grdDtl.Location = new System.Drawing.Point(8, 164);
             this.grdDtl.Name = "grdDtl";
             this.grdDtl.RowTemplate.Height = 24;
-            this.grdDtl.Size = new System.Drawing.Size(1060, 466);
+            this.grdDtl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.grdDtl.Size = new System.Drawing.Size(1060, 431);
             this.grdDtl.TabIndex = 135;
+            this.grdDtl.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdDtl_CellContentClick);
             // 
             // ItemCd
             // 
+            this.ItemCd.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.ItemCd.HeaderText = "ItemCd";
             this.ItemCd.Name = "ItemCd";
+            this.ItemCd.ReadOnly = true;
+            this.ItemCd.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.ItemCd.Visible = false;
             // 
             // Item
             // 
+            this.Item.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.Item.HeaderText = "Item";
             this.Item.Name = "Item";
+            this.Item.ReadOnly = true;
+            this.Item.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Item.Width = 415;
             // 
             // UnitCd
             // 
             this.UnitCd.HeaderText = "UnitCd";
             this.UnitCd.Name = "UnitCd";
+            this.UnitCd.ReadOnly = true;
+            this.UnitCd.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.UnitCd.Visible = false;
             this.UnitCd.Width = 50;
             // 
@@ -270,25 +294,31 @@
             // 
             this.Unit.HeaderText = "Unit";
             this.Unit.Name = "Unit";
+            this.Unit.ReadOnly = true;
+            this.Unit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Unit.Width = 200;
             // 
             // Qty
             // 
             this.Qty.HeaderText = "Qty";
             this.Qty.Name = "Qty";
+            this.Qty.ReadOnly = true;
+            this.Qty.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Qty.Width = 200;
             // 
             // DActiveYN
             // 
             this.DActiveYN.HeaderText = "ActiveYN";
             this.DActiveYN.Name = "DActiveYN";
+            this.DActiveYN.ReadOnly = true;
+            this.DActiveYN.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // Edit
             // 
             this.Edit.HeaderText = "Edit";
             this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
             this.Edit.Name = "Edit";
-            this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Edit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Edit.Width = 50;
             // 
@@ -297,7 +327,7 @@
             this.Delete.HeaderText = "Delete";
             this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
             this.Delete.Name = "Delete";
-            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Delete.Width = 50;
             // 
@@ -305,6 +335,8 @@
             // 
             this.code.HeaderText = "code";
             this.code.Name = "code";
+            this.code.ReadOnly = true;
+            this.code.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.code.Visible = false;
             // 
             // btnSubAdd
@@ -627,6 +659,13 @@
         private System.Windows.Forms.TextBox txtActive;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtGrdRowIndex;
+        public System.Windows.Forms.Panel pnlTabControlSearch;
+        private System.Windows.Forms.TextBox txtSearchText;
+        private System.Windows.Forms.DataGridView grdSearch;
+        private System.Windows.Forms.TextBox txtHidCode;
+        private System.Windows.Forms.Label lblTag;
+        private System.Windows.Forms.TextBox txtTotQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemCd;
         private System.Windows.Forms.DataGridViewTextBoxColumn Item;
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitCd;
@@ -636,11 +675,5 @@
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
         private System.Windows.Forms.DataGridViewTextBoxColumn code;
-        private System.Windows.Forms.TextBox txtGrdRowIndex;
-        public System.Windows.Forms.Panel pnlTabControlSearch;
-        private System.Windows.Forms.TextBox txtSearchText;
-        private System.Windows.Forms.DataGridView grdSearch;
-        private System.Windows.Forms.TextBox txtHidCode;
-        private System.Windows.Forms.Label lblTag;
     }
 }
