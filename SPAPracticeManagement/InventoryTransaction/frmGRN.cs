@@ -1,0 +1,34 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+using DataAccessLayer;
+using DataAccessLayer.Repository;
+using System.Data.Entity;
+using EntityLayer;
+
+namespace SPAPracticeManagement.InventoryTransaction
+{
+    public partial class frmGRN : InventoryDashboard
+    {
+        public frmGRN()
+        {
+            InitializeComponent();
+        }
+
+        private void frmGRN_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
