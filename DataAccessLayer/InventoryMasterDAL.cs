@@ -190,16 +190,18 @@ namespace DataAccessLayer
         
         #endregion
         #region === bind Item Main Grp
-        public void BindDdlGodown(ComboBox ddl)
+        public void BindDdlGodown(int BranchCode, ComboBox ddl)
         {
             try
             {
 
                 var data = (from p in tblgodowns 
-                            where p.ACTIVEYN == true
+                            where p.ACTIVEYN == true && p.BranchCd==BranchCode
+                            orderby p.Description
                             select new
                             {
                                 Code = p.Code,
+                                
                                 Name = p.Description
 
 
