@@ -38,7 +38,9 @@ namespace SPAPracticeManagement.InventoryTransaction
         {
             objItemDAL.BindDdlItem(ddlItem);
             objUnitDAL.BindDdlUnitGrp(ddlUnit);
-            objInventoryMasterDAL.BindDdlGodown(ddlGodown);
+
+            //for branch
+            objInventoryMasterDAL.BindDdlGodown(1,ddlGodown);
             objInventoryMasterDAL.BindBranch(ddlBranch);
             objFrmName = "Opening Stock";
             SirchGridFormat();
