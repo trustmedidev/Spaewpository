@@ -8,15 +8,12 @@ using DataAccessLayer.Repository;
 using System.Data.Entity;
 using System.Security.Cryptography;
 using System.IO;
-
+using System.Windows.Forms;
 namespace DataAccessLayer
 {
     //
     public class UserDAL :SpaPracticeEntities
     {
-
-
-
 
         SpaPracticeEntities dbcontext = new SpaPracticeEntities();
         //SpaPracticeDB dbcontext = new SpaPracticeDB();
@@ -188,7 +185,72 @@ namespace DataAccessLayer
             return objavailability.AvailableId;
         }
 
+        #region === bind Item Main Grp (by SOMA)
+        public void BindDdlUser(ComboBox ddl, int? branchID)
+        {
+            try
+            {
 
+                var data = (from p in tblusers
+                            where p.IsActive == true && p.FK_BranchID == branchID
+                            select new
+                            {
+                                Code = p.UserId,
+                                Name = p.UserName
+
+
+                            });
+                var servicelist = data.ToList();
+                if (servicelist != null)
+                {
+                    ddl.DataSource = null;
+                    ddl.Items.Clear();
+
+                    ddl.ValueMember = "Code";
+                    ddl.DisplayMember = "Name";
+                    ddl.DataSource = servicelist;
+                    ddl.SelectedIndex = -1;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+        public void BindDdlAllUser(ComboBox ddl)
+        {
+            try
+            {
+                
+                var data = (from p in tblusers
+                            where p.IsActive == true 
+                            select new
+                            {
+                                Code = p.UserId,
+                                Name = p.UserName
+
+
+                            });
+                var servicelist = data.ToList();
+                if (servicelist != null)
+                {
+                    ddl.DataSource = null;
+                    ddl.Items.Clear();
+
+                    ddl.ValueMember = "Code";
+                    ddl.DisplayMember = "Name";
+                    ddl.DataSource = servicelist;
+                    ddl.SelectedIndex = -1;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+        #endregion
         public List<UserEL> GetAllUser(int? branchID)
         {
 
