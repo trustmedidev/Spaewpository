@@ -23,5 +23,6 @@ namespace DataAccessLayer.Repository
         public bool ActiveYN { get; set; }
         public System.DateTime EntryDate { get; set; }
         public int UserCode { get; set; }
+        public int BranchCd { get; set; }
     }
 }

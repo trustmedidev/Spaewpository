@@ -344,6 +344,7 @@
           <Property Name="ActiveYN" Type="bit" Nullable="false" />
           <Property Name="EntryDate" Type="datetime" Precision="0" Nullable="false" />
           <Property Name="UserCode" Type="int" Nullable="false" />
+          <Property Name="BranchCd" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tblitemsubgroup">
           <Key>
@@ -2866,6 +2867,7 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <Property Name="ActiveYN" Type="Boolean" Nullable="false" />
           <Property Name="EntryDate" Type="DateTime" Nullable="false" />
           <Property Name="UserCode" Type="Int32" Nullable="false" />
+          <Property Name="BranchCd" Type="Int32" Nullable="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -3529,6 +3531,7 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <EntitySetMapping Name="tblitemopeningheaders">
             <EntityTypeMapping TypeName="SpaPracticeModel.tblitemopeningheader">
               <MappingFragment StoreEntitySet="tblitemopeningheader">
+                <ScalarProperty Name="BranchCd" ColumnName="BranchCd" />
                 <ScalarProperty Name="UserCode" ColumnName="UserCode" />
                 <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
                 <ScalarProperty Name="ActiveYN" ColumnName="ActiveYN" />
