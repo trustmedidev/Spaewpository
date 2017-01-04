@@ -12,18 +12,21 @@ namespace DataAccessLayer.Repository
     using System;
     using System.Collections.Generic;
     
-    public partial class tblitemopeningheader
+    public partial class tblstock
     {
         public int Code { get; set; }
-        public string ItemOpeningTranId { get; set; }
-        public string Description { get; set; }
-        public System.DateTime TranDate { get; set; }
-        public int GodownCd { get; set; }
-        public decimal TotValue { get; set; }
-        public bool ActiveYN { get; set; }
+        public string TransuctionCd { get; set; }
+        public System.DateTime StockDate { get; set; }
+        public int ItemCd { get; set; }
+        public int UnitCd { get; set; }
+        public decimal StockQty { get; set; }
+        public int StockUnitCd { get; set; }
+        public System.DateTime ExpiryDate { get; set; }
+        public string StockType { get; set; }
+        public int ReferenceID { get; set; }
+        public Nullable<int> BranchCD { get; set; }
+        public Nullable<int> GodownCD { get; set; }
         public System.DateTime EntryDate { get; set; }
         public int UserCode { get; set; }
-        public int BranchCd { get; set; }
-        public Nullable<int> Finyr { get; set; }
     }
 }
