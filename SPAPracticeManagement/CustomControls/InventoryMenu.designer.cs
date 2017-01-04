@@ -208,6 +208,7 @@
             this.purchaseOrderRequisitionToolStripMenuItem.Name = "purchaseOrderRequisitionToolStripMenuItem";
             this.purchaseOrderRequisitionToolStripMenuItem.Size = new System.Drawing.Size(407, 28);
             this.purchaseOrderRequisitionToolStripMenuItem.Text = "Purchase order requisition";
+            this.purchaseOrderRequisitionToolStripMenuItem.Click += new System.EventHandler(this.purchaseOrderRequisitionToolStripMenuItem_Click);
             // 
             // purchaseOrderToolStripMenuItem
             // 
