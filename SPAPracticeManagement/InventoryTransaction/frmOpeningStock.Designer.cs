@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOpeningStock));
             this.pnlTabControlAdd = new System.Windows.Forms.Panel();
+            this.txtTotQty = new System.Windows.Forms.TextBox();
+            this.txtTotAmount = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.ddlGodown = new System.Windows.Forms.ComboBox();
@@ -40,16 +42,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnSubSave = new System.Windows.Forms.Button();
             this.grdDtl = new System.Windows.Forms.DataGridView();
-            this.ItemCd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitCd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DActiveYN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSubAdd = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -74,6 +66,16 @@
             this.txtHidCode = new System.Windows.Forms.TextBox();
             this.lblTag = new System.Windows.Forms.Label();
             this.txtGrdRowIndex = new System.Windows.Forms.TextBox();
+            this.ItemCd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitCd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DActiveYN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlTabControlAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdDtl)).BeginInit();
             this.pnlTabControlSearch.SuspendLayout();
@@ -86,6 +88,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlTabControlAdd.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlTabControlAdd.Controls.Add(this.txtTotQty);
+            this.pnlTabControlAdd.Controls.Add(this.txtTotAmount);
             this.pnlTabControlAdd.Controls.Add(this.btnSave);
             this.pnlTabControlAdd.Controls.Add(this.label11);
             this.pnlTabControlAdd.Controls.Add(this.ddlGodown);
@@ -119,6 +123,26 @@
             this.pnlTabControlAdd.Name = "pnlTabControlAdd";
             this.pnlTabControlAdd.Size = new System.Drawing.Size(1096, 813);
             this.pnlTabControlAdd.TabIndex = 131;
+            // 
+            // txtTotQty
+            // 
+            this.txtTotQty.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotQty.Location = new System.Drawing.Point(564, 612);
+            this.txtTotQty.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTotQty.MaxLength = 50;
+            this.txtTotQty.Name = "txtTotQty";
+            this.txtTotQty.Size = new System.Drawing.Size(150, 27);
+            this.txtTotQty.TabIndex = 144;
+            // 
+            // txtTotAmount
+            // 
+            this.txtTotAmount.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotAmount.Location = new System.Drawing.Point(714, 612);
+            this.txtTotAmount.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTotAmount.MaxLength = 50;
+            this.txtTotAmount.Name = "txtTotAmount";
+            this.txtTotAmount.Size = new System.Drawing.Size(149, 27);
+            this.txtTotAmount.TabIndex = 143;
             // 
             // btnSave
             // 
@@ -252,75 +276,9 @@
             this.grdDtl.Location = new System.Drawing.Point(8, 164);
             this.grdDtl.Name = "grdDtl";
             this.grdDtl.RowTemplate.Height = 24;
-            this.grdDtl.Size = new System.Drawing.Size(1060, 466);
+            this.grdDtl.Size = new System.Drawing.Size(1060, 438);
             this.grdDtl.TabIndex = 135;
             this.grdDtl.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdDtl_CellContentClick);
-            // 
-            // ItemCd
-            // 
-            this.ItemCd.HeaderText = "ItemCd";
-            this.ItemCd.Name = "ItemCd";
-            this.ItemCd.Visible = false;
-            // 
-            // Item
-            // 
-            this.Item.HeaderText = "Item";
-            this.Item.Name = "Item";
-            this.Item.Width = 365;
-            // 
-            // UnitCd
-            // 
-            this.UnitCd.HeaderText = "UnitCd";
-            this.UnitCd.Name = "UnitCd";
-            this.UnitCd.Visible = false;
-            this.UnitCd.Width = 50;
-            // 
-            // Unit
-            // 
-            this.Unit.HeaderText = "Unit";
-            this.Unit.Name = "Unit";
-            this.Unit.Width = 150;
-            // 
-            // Qty
-            // 
-            this.Qty.HeaderText = "Qty";
-            this.Qty.Name = "Qty";
-            this.Qty.Width = 150;
-            // 
-            // Amount
-            // 
-            this.Amount.HeaderText = "Amount";
-            this.Amount.Name = "Amount";
-            this.Amount.Width = 150;
-            // 
-            // DActiveYN
-            // 
-            this.DActiveYN.HeaderText = "ActiveYN";
-            this.DActiveYN.Name = "DActiveYN";
-            // 
-            // Edit
-            // 
-            this.Edit.HeaderText = "Edit";
-            this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
-            this.Edit.Name = "Edit";
-            this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Edit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Edit.Width = 50;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
-            this.Delete.Name = "Delete";
-            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Delete.Width = 50;
-            // 
-            // code
-            // 
-            this.code.HeaderText = "code";
-            this.code.Name = "code";
-            this.code.Visible = false;
             // 
             // btnSubAdd
             // 
@@ -579,7 +537,7 @@
             // txtHidCode
             // 
             this.txtHidCode.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHidCode.Location = new System.Drawing.Point(1705, 256);
+            this.txtHidCode.Location = new System.Drawing.Point(1608, 215);
             this.txtHidCode.Margin = new System.Windows.Forms.Padding(4);
             this.txtHidCode.MaxLength = 20;
             this.txtHidCode.Name = "txtHidCode";
@@ -607,6 +565,80 @@
             this.txtGrdRowIndex.Size = new System.Drawing.Size(239, 27);
             this.txtGrdRowIndex.TabIndex = 137;
             this.txtGrdRowIndex.Visible = false;
+            // 
+            // ItemCd
+            // 
+            this.ItemCd.HeaderText = "ItemCd";
+            this.ItemCd.Name = "ItemCd";
+            this.ItemCd.ReadOnly = true;
+            this.ItemCd.Visible = false;
+            // 
+            // Item
+            // 
+            this.Item.HeaderText = "Item";
+            this.Item.Name = "Item";
+            this.Item.ReadOnly = true;
+            this.Item.Width = 365;
+            // 
+            // UnitCd
+            // 
+            this.UnitCd.HeaderText = "UnitCd";
+            this.UnitCd.Name = "UnitCd";
+            this.UnitCd.ReadOnly = true;
+            this.UnitCd.Visible = false;
+            this.UnitCd.Width = 50;
+            // 
+            // Unit
+            // 
+            this.Unit.HeaderText = "Unit";
+            this.Unit.Name = "Unit";
+            this.Unit.ReadOnly = true;
+            this.Unit.Width = 150;
+            // 
+            // Qty
+            // 
+            this.Qty.HeaderText = "Qty";
+            this.Qty.Name = "Qty";
+            this.Qty.ReadOnly = true;
+            this.Qty.Width = 150;
+            // 
+            // Amount
+            // 
+            this.Amount.HeaderText = "Amount";
+            this.Amount.Name = "Amount";
+            this.Amount.ReadOnly = true;
+            this.Amount.Width = 150;
+            // 
+            // DActiveYN
+            // 
+            this.DActiveYN.HeaderText = "ActiveYN";
+            this.DActiveYN.Name = "DActiveYN";
+            this.DActiveYN.ReadOnly = true;
+            // 
+            // Edit
+            // 
+            this.Edit.HeaderText = "Edit";
+            this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
+            this.Edit.Name = "Edit";
+            this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Edit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Edit.Width = 50;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
+            this.Delete.Name = "Delete";
+            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Delete.Width = 50;
+            // 
+            // code
+            // 
+            this.code.HeaderText = "code";
+            this.code.Name = "code";
+            this.code.ReadOnly = true;
+            this.code.Visible = false;
             // 
             // frmOpeningStock
             // 
@@ -673,6 +705,9 @@
         private System.Windows.Forms.DataGridView grdSearch;
         private System.Windows.Forms.TextBox txtHidCode;
         private System.Windows.Forms.Label lblTag;
+        private System.Windows.Forms.TextBox txtGrdRowIndex;
+        private System.Windows.Forms.TextBox txtTotQty;
+        private System.Windows.Forms.TextBox txtTotAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemCd;
         private System.Windows.Forms.DataGridViewTextBoxColumn Item;
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitCd;
@@ -683,6 +718,5 @@
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
         private System.Windows.Forms.DataGridViewTextBoxColumn code;
-        private System.Windows.Forms.TextBox txtGrdRowIndex;
     }
 }
