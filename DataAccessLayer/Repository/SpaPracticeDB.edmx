@@ -438,7 +438,7 @@
           <Property Name="Package_Id" Type="int" Nullable="false" />
           <Property Name="ServiceId" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="tblparameters">
+        <EntityType Name="tblparameter">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -1196,7 +1196,7 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <EntitySet Name="tblpackage" EntityType="Self.tblpackage" Schema="spamanagement" store:Type="Tables" />
           <EntitySet Name="tblpackagebooking" EntityType="Self.tblpackagebooking" Schema="spamanagement" store:Type="Tables" />
           <EntitySet Name="tblpackagedtl" EntityType="Self.tblpackagedtl" Schema="spamanagement" store:Type="Tables" />
-          <EntitySet Name="tblparameters" EntityType="Self.tblparameters" Schema="spamanagement" store:Type="Tables" />
+          <EntitySet Name="tblparameter" EntityType="Self.tblparameter" Schema="spamanagement" store:Type="Tables" />
           <EntitySet Name="tblpaymentdtl" EntityType="Self.tblpaymentdtl" Schema="spamanagement" store:Type="Tables" />
           <EntitySet Name="tblprintsetup" EntityType="Self.tblprintsetup" Schema="spamanagement" store:Type="Tables" />
           <EntitySet Name="tblreport" EntityType="Self.tblreport" Schema="spamanagement" store:Type="Tables" />
@@ -1622,9 +1622,9 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <EntitySet Name="tblbomdetails" EntityType="SpaPracticeModel.tblbomdetail" />
           <EntitySet Name="tblbomheaders" EntityType="SpaPracticeModel.tblbomheader" />
           <EntitySet Name="tblfinancialyears" EntityType="SpaPracticeModel.tblfinancialyear" />
-          <EntitySet Name="tblparameters" EntityType="SpaPracticeModel.tblparameter" />
           <EntitySet Name="tblitemopeningdetails" EntityType="SpaPracticeModel.tblitemopeningdetail" />
           <EntitySet Name="tblitemopeningheaders" EntityType="SpaPracticeModel.tblitemopeningheader" />
+          <EntitySet Name="tblparameters" EntityType="SpaPracticeModel.tblparameter" />
           </EntityContainer>
         <ComplexType Name="GetReportData_Result" />
         <ComplexType Name="GetReportDataByReportId_Result" />
@@ -2831,16 +2831,6 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <Property Name="YearSrl" Type="Int32" Nullable="false" />
           <Property Name="YearLock" Type="Boolean" Nullable="false" />
         </EntityType>
-        <EntityType Name="tblparameter">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="AllowYN" Type="Boolean" />
-          <Property Name="TranPrefixType" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="TranPrefix" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="tblitemopeningdetail">
           <Key>
             <PropertyRef Name="Code" />
@@ -2868,6 +2858,16 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <Property Name="EntryDate" Type="DateTime" Nullable="false" />
           <Property Name="UserCode" Type="Int32" Nullable="false" />
           <Property Name="BranchCd" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblparameter">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="AllowYN" Type="Boolean" />
+          <Property Name="TranPrefixType" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="TranPrefix" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -3504,17 +3504,6 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tblparameters">
-            <EntityTypeMapping TypeName="SpaPracticeModel.tblparameter">
-              <MappingFragment StoreEntitySet="tblparameters">
-                <ScalarProperty Name="TranPrefix" ColumnName="TranPrefix" />
-                <ScalarProperty Name="TranPrefixType" ColumnName="TranPrefixType" />
-                <ScalarProperty Name="AllowYN" ColumnName="AllowYN" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tblitemopeningdetails">
             <EntityTypeMapping TypeName="SpaPracticeModel.tblitemopeningdetail">
               <MappingFragment StoreEntitySet="tblitemopeningdetail">
@@ -3541,6 +3530,17 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="ItemOpeningTranId" ColumnName="ItemOpeningTranId" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblparameters">
+            <EntityTypeMapping TypeName="SpaPracticeModel.tblparameter">
+              <MappingFragment StoreEntitySet="tblparameter">
+                <ScalarProperty Name="TranPrefix" ColumnName="TranPrefix" />
+                <ScalarProperty Name="TranPrefixType" ColumnName="TranPrefixType" />
+                <ScalarProperty Name="AllowYN" ColumnName="AllowYN" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
