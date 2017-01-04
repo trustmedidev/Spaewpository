@@ -90,6 +90,7 @@
     </Compile>
     <Compile Include="CouponDAL.cs" />
     <Compile Include="DashboardDAL.cs" />
+    <Compile Include="Globalmethods.cs" />
     <Compile Include="InventoryDAL.cs" />
     <Compile Include="InventoryMasterDAL.cs" />
     <Compile Include="ItemDAL.cs" />
