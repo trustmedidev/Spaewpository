@@ -11,9 +11,47 @@ namespace DataAccessLayer
 {
   public  class StockDAL : SpaPracticeEntities
     {
-        public void InsertStock()
-        {
+       
+                public int InsertUpdateStock(int TranHdrCd,int TranDtlCd, tblstock objStock )
+           {
+               try
+               {
+                   int code;
+                   var BNValue = tblstocks.Max(i => (int?)i.Code).GetValueOrDefault();
+                   if (BNValue == 0)
+                   {
+                       code = 1;
 
-        }
+                   }
+                   else
+                   {
+                       code = Int32.Parse(BNValue.ToString());
+                       code = code + 1;
+                   }
+                   if (objStock.Code == 0)
+                   {
+                       objStock.Code = code;
+
+                       tblstocks.Add(objStock);
+                       SaveChanges();
+                       return 1;
+                   }
+                   else
+                   {
+                       var appOrg = tblstocks.SingleOrDefault(p => p.TransuctionHdCd==TranHdrCd && p.TransuctionDtlCd==TranDtlCd);
+                       Entry(appOrg).CurrentValues.SetValues(tblstocks);
+                       SaveChanges();
+                       return 1;
+                       
+                   }
+
+               }
+               catch (Exception ex)
+               {
+                   return 0;
+               }
+
+                
+            }
     }
 }
