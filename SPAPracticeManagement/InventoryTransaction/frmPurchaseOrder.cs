@@ -50,9 +50,9 @@ namespace SPAPracticeManagement.InventoryTransaction
         {
             lblTag.Text = "Add " + objFrmName.ToString() + " Detail";
             btnSave.Top = 520;
-            btnSave.Left = 845;
+            btnSave.Left = 1000;
             btnClear.Top = 520;
-            btnClear.Left = 920;
+            btnClear.Left = 1120;
             btnUpdate.Visible = false;
             btnSave.Visible = true;
             btnClear.Visible = true;
