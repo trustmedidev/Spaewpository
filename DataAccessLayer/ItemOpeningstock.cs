@@ -88,7 +88,7 @@ namespace DataAccessLayer
                 else
                 {
                     Tempid = TranId.ToString();
-                    Tempid = Tempid.Substring(11, 5);
+                    Tempid = Tempid.Substring(12, 5);
                     int code = Int32.Parse(Tempid);
                     code = code + 1;
                     Outputvalue = String.Format("{0:D5}", code);
