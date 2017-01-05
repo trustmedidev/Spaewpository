@@ -108,7 +108,7 @@ namespace SPAPracticeManagement.InventoryTransaction
         {
             this.StockDt.Value = Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy"));
             this.ddlBranch.Text = "";
-            this.ddlUser.Text = "";
+            this.ddlSupplier.Text = "";
             this.ddlItem.Text = "";
             this.ddlUnit.Text = "";
             this.txtQty.Text = "";
