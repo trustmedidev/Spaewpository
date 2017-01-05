@@ -12,7 +12,7 @@ namespace DataAccessLayer
     public static class Globalmethods 
     {
         public static int UserCD = 0;
-        public static int BranchCD = 0;
+        public static int BranchCD = 1;
         public static bool IsAdmin = true;
         public static int FinYr=20162017;
         public static int rollid = 1;
@@ -24,8 +24,12 @@ namespace DataAccessLayer
            try
            {
                SpaPracticeEntities db = new SpaPracticeEntities();
-               var BNValue = db.tblparameters.Where(p => p.ID == id).Select(i => i.TranPrefixType).ToList(); ;
-           prefix = BNValue.ToString();
+               var BNValue = db.tblparameters.Where(p => p.ID == id).ToList(); ;
+         //  prefix = BNValue.ToString();
+           foreach (var pr in BNValue)
+           {
+               prefix = pr.TranPrefixType.ToString();
+           }
            }
            catch(Exception ex)
            {
