@@ -158,6 +158,9 @@ namespace DataAccessLayer
                                   Item = (It.Description ?? string.Empty),
                                   UnitCd = OpDtl.UnitCd,
                                   Unit = (Unt.Description ?? string.Empty),
+                                  ExpiryDt=OpDtl.ExpiryDt,
+                                  SubUnitCd=(OpDtl.SubUnitCd ??0),
+                                  SubQty=OpDtl.SubQty ,
                                   Quantity = OpDtl.Qty,
                                   Rate = OpDtl.value ,
                                   DActiveYN = OpDtl.ActiveYN 
@@ -175,7 +178,7 @@ namespace DataAccessLayer
             
            #endregion
            #region Insert  Update detail grid
-           public int InsertUpdateBOMdetai(tblitemopeningdetail objItemopeningDtl)
+           public int InsertUpdateBOMdetai( tblitemopeningdetail objItemopeningDtl,tblstock obkStockEntry)
            {
                using (var dbTran = Database.BeginTransaction())
                {
@@ -201,7 +204,7 @@ namespace DataAccessLayer
 
                            objItemopeningDtl.Code = code;
                            tblitemopeningdetails.Add(objItemopeningDtl);
-
+                            ObjStock.InsertUpdateStock(objItemopeningDtl.ItemOpeningCd, code, obkStockEntry);
                            SaveChanges();
                            dbTran.Commit();
                        }
@@ -211,6 +214,7 @@ namespace DataAccessLayer
                            var appOrg = tblitemopeningdetails.Find(objItemopeningDtl.Code);
                            Entry(appOrg).CurrentValues.SetValues(objItemopeningDtl);
                            SaveChanges();
+                            ObjStock.InsertUpdateStock(objItemopeningDtl.ItemOpeningCd, objItemopeningDtl.Code, obkStockEntry);
                            dbTran.Commit();
                        }
                        return code;
