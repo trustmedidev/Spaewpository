@@ -53,6 +53,7 @@
     <Compile Include="ClientEL.cs" />
     <Compile Include="DashboardEL.cs" />
     <Compile Include="InventoryEL.cs" />
+    <Compile Include="ItemOpeningStockEL.cs" />
     <Compile Include="PackageBookingEL.cs" />
     <Compile Include="PackageEL.cs" />
     <Compile Include="PaymentDtlEL.cs" />
