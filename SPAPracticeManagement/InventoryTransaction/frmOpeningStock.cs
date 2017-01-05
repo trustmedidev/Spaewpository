@@ -427,6 +427,7 @@ namespace SPAPracticeManagement.InventoryTransaction
                     for (int j = 0; j < grdDtl.Rows.Count; j++)
                     {
                         tblitemopeningdetail objtblitemopeningdetail = new tblitemopeningdetail();
+                        tblstock objtblstock = new tblstock();
                         objtblitemopeningdetail.ItemOpeningCd = Convert.ToInt32(i.ToString());
                         objtblitemopeningdetail.Code = Convert.ToInt32(grdDtl.Rows[j].Cells["code"].Value.ToString());
                         objtblitemopeningdetail.itemcd = Convert.ToInt32(grdDtl.Rows[j].Cells["ItemCd"].Value.ToString());
@@ -439,7 +440,7 @@ namespace SPAPracticeManagement.InventoryTransaction
                         objtblitemopeningdetail.ExpiryDt = Convert.ToDateTime(grdDtl.Rows[j].Cells["ExpiryDt"].Value.ToString());
                         //objtblitemopeningdetail.UserCode = GlobalCL.UserCD;
 
-                        //objBOMentryDAL.InsertUpdateBOMdetai(objtblbomdetail);
+                        objItemOpeningstock.InsertUpdateBOMdetai(objtblitemopeningdetail, objtblstock);
                     }
 
                 }
