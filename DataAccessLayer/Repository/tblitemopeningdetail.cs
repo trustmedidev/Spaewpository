@@ -23,5 +23,6 @@ namespace DataAccessLayer.Repository
         public bool ActiveYN { get; set; }
         public Nullable<System.DateTime> ExpiryDt { get; set; }
         public Nullable<int> SubUnitCd { get; set; }
+        public decimal SubQty { get; set; }
     }
 }

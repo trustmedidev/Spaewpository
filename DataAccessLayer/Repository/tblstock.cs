@@ -24,7 +24,8 @@ namespace DataAccessLayer.Repository
         public int StockUnitCd { get; set; }
         public System.DateTime ExpiryDate { get; set; }
         public string StockType { get; set; }
-        public int ReferenceID { get; set; }
+        public Nullable<int> ReferenceHdID { get; set; }
+        public Nullable<int> ReferenceDtlID { get; set; }
         public Nullable<int> BranchCD { get; set; }
         public Nullable<int> GodownCD { get; set; }
         public System.DateTime EntryDate { get; set; }

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="262c874a2c4a496bb8a29aa648195369" Name="Diagram1" ZoomLevel="94">
+      <Diagram DiagramId="262c874a2c4a496bb8a29aa648195369" Name="Diagram1" ZoomLevel="109">
         <EntityTypeShape EntityType="SpaPracticeModel.tblappointment" Width="1.5" PointX="12.5" PointY="57.75" />
         <EntityTypeShape EntityType="SpaPracticeModel.tblappointmentpackagepping" Width="1.5" PointX="3" PointY="92.75" />
         <EntityTypeShape EntityType="SpaPracticeModel.tblappointmentservicemapping" Width="1.5" PointX="17.75" PointY="50.125" />
@@ -83,7 +83,7 @@
         <EntityTypeShape EntityType="SpaPracticeModel.tblmoduleright" Width="1.5" PointX="4.75" PointY="3.75" />
         <AssociationConnector Association="SpaPracticeModel.FK_tblgodown" />
         <EntityTypeShape EntityType="SpaPracticeModel.tblbrand" Width="1.5" PointX="7.5" PointY="1" />
-        <EntityTypeShape EntityType="SpaPracticeModel.tblitemmaingroup" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblitemmaingroup" Width="2.5" PointX="2.875" PointY="6.75" />
         <EntityTypeShape EntityType="SpaPracticeModel.tblitemsubgroup" Width="1.5" PointX="7.375" PointY="3.75" />
         <EntityTypeShape EntityType="SpaPracticeModel.tblsupplior" Width="1.5" PointX="5.375" PointY="7.75" />
         <EntityTypeShape EntityType="SpaPracticeModel.tblunit" Width="1.5" PointX="7.375" PointY="6.75" />
