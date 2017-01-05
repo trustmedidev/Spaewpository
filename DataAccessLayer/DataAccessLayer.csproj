@@ -231,6 +231,12 @@
     <Compile Include="Repository\tblprintsetup.cs">
       <DependentUpon>SpaPracticeDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Repository\tblpurchasedtl.cs">
+      <DependentUpon>SpaPracticeDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\tblpurchasehdr.cs">
+      <DependentUpon>SpaPracticeDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Repository\tblreport.cs">
       <DependentUpon>SpaPracticeDB.tt</DependentUpon>
     </Compile>
