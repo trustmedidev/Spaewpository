@@ -14,6 +14,7 @@ namespace DataAccessLayer
 {
     class ItemOpeningstock : SpaPracticeEntities
     {
+        StockDAL ObjStock = new StockDAL();
            public int InsertUpdateOpeningstockHdr(tblitemopeningheader objOpeningstockHdr, tblitemopeningdetail obopeningStockDtlj)
            {
               
@@ -173,7 +174,7 @@ namespace DataAccessLayer
            }
             
            #endregion
-           #region Update detail grid
+           #region Insert  Update detail grid
            public int InsertUpdateBOMdetai(tblitemopeningdetail objItemopeningDtl)
            {
                using (var dbTran = Database.BeginTransaction())
@@ -200,6 +201,7 @@ namespace DataAccessLayer
 
                            objItemopeningDtl.Code = code;
                            tblitemopeningdetails.Add(objItemopeningDtl);
+
                            SaveChanges();
                            dbTran.Commit();
                        }
