@@ -340,7 +340,7 @@
           </Key>
           <Property Name="Code" Type="int" Nullable="false" />
           <Property Name="ItemOpeningTranId" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Description" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="200" />
           <Property Name="TranDate" Type="datetime" Precision="0" Nullable="false" />
           <Property Name="GodownCd" Type="int" Nullable="false" />
           <Property Name="TotValue" Type="decimal" Precision="12" Scale="2" Nullable="false" />
@@ -485,6 +485,48 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PageSize" Type="varchar" MaxLength="20" />
           <Property Name="IsLetterHead" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblpurchasedtl">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="PurchaseCd" />
+          </Key>
+          <Property Name="Code" Type="int" Nullable="false" />
+          <Property Name="PurchaseCd" Type="int" Nullable="false" />
+          <Property Name="ItemCd" Type="int" Nullable="false" />
+          <Property Name="BatchCd" Type="int" Nullable="false" />
+          <Property Name="Qty" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="UnitCd" Type="int" Nullable="false" />
+          <Property Name="Rate" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="VatPer" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="VatVal" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="DiscPer" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="DiscVal" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Value" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="ExpiryDt" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="ActiveYN" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblpurchasehdr">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="int" Nullable="false" />
+          <Property Name="PurchaseTranID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="BranchCd" Type="int" Nullable="false" />
+          <Property Name="GodownCd" Type="int" Nullable="false" />
+          <Property Name="OrderYN" Type="bit" />
+          <Property Name="OrderCd" Type="int" Nullable="false" />
+          <Property Name="SupplierCd" Type="int" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="250" />
+          <Property Name="TranDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="TotVal" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="TotDisc" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="TotBasicValue" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="TotValue" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="FinYr" Type="int" Nullable="false" />
+          <Property Name="AcgtiveYN" Type="bit" Nullable="false" />
+          <Property Name="EntryDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="UserCode" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tblreport">
           <Key>
@@ -1226,6 +1268,8 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <EntitySet Name="tblparameter" EntityType="Self.tblparameter" Schema="spamanagement" store:Type="Tables" />
           <EntitySet Name="tblpaymentdtl" EntityType="Self.tblpaymentdtl" Schema="spamanagement" store:Type="Tables" />
           <EntitySet Name="tblprintsetup" EntityType="Self.tblprintsetup" Schema="spamanagement" store:Type="Tables" />
+          <EntitySet Name="tblpurchasedtl" EntityType="Self.tblpurchasedtl" Schema="spamanagement" store:Type="Tables" />
+          <EntitySet Name="tblpurchasehdr" EntityType="Self.tblpurchasehdr" Schema="spamanagement" store:Type="Tables" />
           <EntitySet Name="tblreport" EntityType="Self.tblreport" Schema="spamanagement" store:Type="Tables" />
           <EntitySet Name="tblrole" EntityType="Self.tblrole" Schema="spamanagement" store:Type="Tables" />
           <EntitySet Name="tblservice" EntityType="Self.tblservice" Schema="spamanagement" store:Type="Tables" />
@@ -1654,6 +1698,8 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <EntitySet Name="tblitemopeningheaders" EntityType="SpaPracticeModel.tblitemopeningheader" />
           <EntitySet Name="tblparameters" EntityType="SpaPracticeModel.tblparameter" />
           <EntitySet Name="tblstocks" EntityType="SpaPracticeModel.tblstock" />
+          <EntitySet Name="tblpurchasedtls" EntityType="SpaPracticeModel.tblpurchasedtl" />
+          <EntitySet Name="tblpurchasehdrs" EntityType="SpaPracticeModel.tblpurchasehdr" />
           </EntityContainer>
         <ComplexType Name="GetReportData_Result" />
         <ComplexType Name="GetReportDataByReportId_Result" />
@@ -2923,6 +2969,48 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <Property Name="EntryDate" Type="DateTime" Nullable="false" />
           <Property Name="UserCode" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="tblpurchasedtl">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="PurchaseCd" />
+          </Key>
+          <Property Name="Code" Type="Int32" Nullable="false" />
+          <Property Name="PurchaseCd" Type="Int32" Nullable="false" />
+          <Property Name="ItemCd" Type="Int32" Nullable="false" />
+          <Property Name="BatchCd" Type="Int32" Nullable="false" />
+          <Property Name="Qty" Type="Decimal" Nullable="false" />
+          <Property Name="UnitCd" Type="Int32" Nullable="false" />
+          <Property Name="Rate" Type="Decimal" Nullable="false" />
+          <Property Name="VatPer" Type="Decimal" Nullable="false" />
+          <Property Name="VatVal" Type="Decimal" Nullable="false" />
+          <Property Name="DiscPer" Type="Decimal" Nullable="false" />
+          <Property Name="DiscVal" Type="Decimal" Nullable="false" />
+          <Property Name="Value" Type="Decimal" Nullable="false" />
+          <Property Name="ExpiryDt" Type="DateTime" Nullable="false" />
+          <Property Name="ActiveYN" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblpurchasehdr">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="Int32" Nullable="false" />
+          <Property Name="PurchaseTranID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BranchCd" Type="Int32" Nullable="false" />
+          <Property Name="GodownCd" Type="Int32" Nullable="false" />
+          <Property Name="OrderYN" Type="Boolean" />
+          <Property Name="OrderCd" Type="Int32" Nullable="false" />
+          <Property Name="SupplierCd" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="TranDate" Type="DateTime" Nullable="false" />
+          <Property Name="TotVal" Type="Decimal" Nullable="false" />
+          <Property Name="TotDisc" Type="Decimal" Nullable="false" />
+          <Property Name="TotBasicValue" Type="Decimal" Nullable="false" />
+          <Property Name="TotValue" Type="Decimal" Nullable="false" />
+          <Property Name="FinYr" Type="Int32" Nullable="false" />
+          <Property Name="AcgtiveYN" Type="Boolean" Nullable="false" />
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" />
+          <Property Name="UserCode" Type="Int32" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3620,6 +3708,49 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
                 <ScalarProperty Name="StockDate" ColumnName="StockDate" />
                 <ScalarProperty Name="TransuctionDtlCd" ColumnName="TransuctionDtlCd" />
                 <ScalarProperty Name="TransuctionHdCd" ColumnName="TransuctionHdCd" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblpurchasedtls">
+            <EntityTypeMapping TypeName="SpaPracticeModel.tblpurchasedtl">
+              <MappingFragment StoreEntitySet="tblpurchasedtl">
+                <ScalarProperty Name="ActiveYN" ColumnName="ActiveYN" />
+                <ScalarProperty Name="ExpiryDt" ColumnName="ExpiryDt" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="DiscVal" ColumnName="DiscVal" />
+                <ScalarProperty Name="DiscPer" ColumnName="DiscPer" />
+                <ScalarProperty Name="VatVal" ColumnName="VatVal" />
+                <ScalarProperty Name="VatPer" ColumnName="VatPer" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="UnitCd" ColumnName="UnitCd" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="BatchCd" ColumnName="BatchCd" />
+                <ScalarProperty Name="ItemCd" ColumnName="ItemCd" />
+                <ScalarProperty Name="PurchaseCd" ColumnName="PurchaseCd" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblpurchasehdrs">
+            <EntityTypeMapping TypeName="SpaPracticeModel.tblpurchasehdr">
+              <MappingFragment StoreEntitySet="tblpurchasehdr">
+                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="AcgtiveYN" ColumnName="AcgtiveYN" />
+                <ScalarProperty Name="FinYr" ColumnName="FinYr" />
+                <ScalarProperty Name="TotValue" ColumnName="TotValue" />
+                <ScalarProperty Name="TotBasicValue" ColumnName="TotBasicValue" />
+                <ScalarProperty Name="TotDisc" ColumnName="TotDisc" />
+                <ScalarProperty Name="TotVal" ColumnName="TotVal" />
+                <ScalarProperty Name="TranDate" ColumnName="TranDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SupplierCd" ColumnName="SupplierCd" />
+                <ScalarProperty Name="OrderCd" ColumnName="OrderCd" />
+                <ScalarProperty Name="OrderYN" ColumnName="OrderYN" />
+                <ScalarProperty Name="GodownCd" ColumnName="GodownCd" />
+                <ScalarProperty Name="BranchCd" ColumnName="BranchCd" />
+                <ScalarProperty Name="PurchaseTranID" ColumnName="PurchaseTranID" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
               </MappingFragment>
             </EntityTypeMapping>
