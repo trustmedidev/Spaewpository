@@ -51,14 +51,17 @@ namespace DataAccessLayer
                        var objOpeningDtl = tblitemopeningdetails.Where(p => p.ItemOpeningCd == objOpeningstockHdr.Code).ToList();
                        objOpeningDtl.ForEach(a => a.ActiveYN = false);
                        SaveChanges();
+
                    }
+                   return objOpeningstockHdr.Code;
                }
                catch (Exception ex)
                {
-
+                   MessageBox.Show(ex.Message);
+                   return 0;
                }
                
-               return 0;
+               
            }
 
 
