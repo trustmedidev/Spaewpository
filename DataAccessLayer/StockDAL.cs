@@ -12,7 +12,7 @@ namespace DataAccessLayer
   public  class StockDAL : SpaPracticeEntities
     {
        
-                public int InsertUpdateStock(int TranHdrCd,int TranDtlCd, tblstock objStock )
+                public void   InsertUpdateStock(int TranHdrCd,int TranDtlCd, tblstock objStock )
            {
                try
                {
@@ -34,21 +34,21 @@ namespace DataAccessLayer
 
                        tblstocks.Add(objStock);
                        SaveChanges();
-                       return 1;
+                       
                    }
                    else
                    {
                        var appOrg = tblstocks.SingleOrDefault(p => p.TransuctionHdCd==TranHdrCd && p.TransuctionDtlCd==TranDtlCd);
                        Entry(appOrg).CurrentValues.SetValues(tblstocks);
                        SaveChanges();
-                       return 1;
+                       
                        
                    }
 
                }
                catch (Exception ex)
                {
-                   return 0;
+                   
                }
 
                 
