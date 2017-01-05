@@ -173,7 +173,7 @@ namespace DataAccessLayer
         #endregion
         #region Bind detail grid
 
-        public List<ItemOpeningStockEL> BindDtlList(DataGridView grd, int Code)
+        public List<ItemOpeningStockEL> BindDtlList( int Code)
         {
             //  var Dtl=null;
             try
@@ -205,11 +205,11 @@ namespace DataAccessLayer
                          ).ToList();
 
 
-
+                return objOpeningStkEL;
             }
             catch (Exception ex)
             {
-
+                return null;
             }
         }
 
