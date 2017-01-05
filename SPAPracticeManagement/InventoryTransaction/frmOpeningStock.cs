@@ -22,7 +22,7 @@ namespace SPAPracticeManagement.InventoryTransaction
         Boolean falag = true;
         InventoryMasterDAL objInventoryMasterDAL = new InventoryMasterDAL();
         ItemDAL objItemDAL = new ItemDAL();
-        //ServiceDAL objServiceDAL = new ServiceDAL();
+        ItemOpeningstock objItemOpeningstock = new ItemOpeningstock();
         UnitDAL objUnitDAL = new UnitDAL();
 
         DataView dv;
@@ -38,8 +38,7 @@ namespace SPAPracticeManagement.InventoryTransaction
         {
             objItemDAL.BindDdlItem(ddlItem);
             objUnitDAL.BindDdlUnitGrp(ddlUnit);
-
-            //for branch
+            objUnitDAL.BindDdlUnitGrp(ddlSecoUnit);
             objInventoryMasterDAL.BindDdlGodown(1,ddlGodown);
             objInventoryMasterDAL.BindBranch(ddlBranch);
             objFrmName = "Opening Stock";
@@ -123,9 +122,12 @@ namespace SPAPracticeManagement.InventoryTransaction
         public void SubCtrlClear()
         {
             ddlItem.Text = "";
-            //ddlIssUnit.Text = "";
+            ddlSecoUnit.Text = "";
+            txtSecoQty.Text = "";
+            DtExp.Text = "";
+            txtAmount.Text = "";
             txtQty.Text = "";
-            //txtRate.Text = "";
+            txtActive.Text = "";
         }
 
         public void formCtrlActiveN()
@@ -147,7 +149,7 @@ namespace SPAPracticeManagement.InventoryTransaction
         {
             try
             {
-                ////objBOMentryDAL.BindList(grdSearch);
+                objItemOpeningstock.BindList(0,grdSearch);
 
                 txtSearchText.Width = 1050;
 
@@ -156,15 +158,17 @@ namespace SPAPracticeManagement.InventoryTransaction
                 grdSearch.Height = 550;
                 CommonCL.PanelControlGotFocus(pnlTabControlSearch, pnlTabControlAdd);
 
-                //grdSearch.Columns[0].Visible = false;
+                grdSearch.Columns[0].Visible = false;
+                grdSearch.Columns[1].Visible = false;
+                grdSearch.Columns[2].Visible = false;
 
 
-                //grdSearch.Columns[1].Width = 100;
-                //grdSearch.Columns[2].Width = 150;
-                //grdSearch.Columns[3].Width = 270;
-                //grdSearch.Columns[4].Width = 150;
-                //grdSearch.Columns[5].Width = 150;
-                //grdSearch.Columns[6].Width = 150;
+                grdSearch.Columns[3].Width = 270;
+                grdSearch.Columns[4].Width = 150;
+                grdSearch.Columns[5].Width = 150;
+                grdSearch.Columns[6].Width = 150;
+                grdSearch.Columns[7].Width = 100;
+                grdSearch.Columns[8].Width = 100;
             }
             catch (Exception e1)
             {
@@ -213,9 +217,18 @@ namespace SPAPracticeManagement.InventoryTransaction
 
         private void txtQty_KeyUp(object sender, KeyEventArgs e)
         {
-            CommonCL.TextBoxGotFocus(txtAmount, e);
+            CommonCL.ComboBoxGotFocus(ddlSecoUnit, e);
         }
 
+        private void ddlSecoUnit_KeyUp(object sender, KeyEventArgs e)
+        {
+            CommonCL.TextBoxGotFocus(txtSecoQty, e);
+        }
+
+        private void txtSecoQty_KeyUp(object sender, KeyEventArgs e)
+        {
+            CommonCL.TextBoxGotFocus(txtAmount, e);
+        }
         private void txtAmount_KeyUp(object sender, KeyEventArgs e)
         {
             CommonCL.TextBoxGotFocus(txtActive, e);
@@ -379,13 +392,16 @@ namespace SPAPracticeManagement.InventoryTransaction
                     objtblitemopeningheader.Code = Convert.ToInt32(txtHidCode.Text.ToString());
                     objtblitemopeningheader.TranDate = StockDt.Value;
                     objtblitemopeningheader.BranchCd = Convert.ToInt32(ddlBranch.SelectedValue.ToString());
-                    objtblitemopeningheader.ItemOpeningTranId = txtIndentNo.Text .ToString();
-                    objtblitemopeningheader.TotValue = Convert.ToDecimal(txtTotAmount.Text.ToString());
+                    objtblitemopeningheader.GodownCd = Convert.ToInt32(ddlGodown.SelectedValue.ToString());
+                    objtblitemopeningheader.ItemOpeningTranId = txtIndentNo.Text.ToString();
+                    //objtblitemopeningheader.TotValue = Convert.ToDecimal(txtTotAmount.Text.ToString());
+                    objtblitemopeningheader.TotValue = 0;
+                    objtblitemopeningheader.Finyr = Globalmethods.FinYr;
                     objtblitemopeningheader.ActiveYN = true;
                     objtblitemopeningheader.EntryDate = DateTime.Now;
                     objtblitemopeningheader.UserCode = GlobalCL.UserCD;
 
-                    //r = objBOMentryDAL.InsertUpdateBOMheader(objtblbomheader, objtblbomdetail);
+                    r = objItemOpeningstock.InsertUpdateOpeningstockHdr(objtblitemopeningheader, objtblitemopeningdetail);
 
                 }
                 return r;
@@ -411,18 +427,21 @@ namespace SPAPracticeManagement.InventoryTransaction
 
                     for (int j = 0; j < grdDtl.Rows.Count; j++)
                     {
-                        tblbomdetail objtblbomdetail = new tblbomdetail();
-                        objtblbomdetail.BOM_Cd = Convert.ToInt32(i.ToString());
-                        objtblbomdetail.Code = Convert.ToInt32(grdDtl.Rows[j].Cells["code"].Value.ToString());
-                        objtblbomdetail.ItemCd = Convert.ToInt32(grdDtl.Rows[j].Cells["ItemCd"].Value.ToString());
-                        objtblbomdetail.UnitCd = Convert.ToInt32(grdDtl.Rows[j].Cells["UnitCd"].Value.ToString());
-                        objtblbomdetail.Qty = Convert.ToDecimal(grdDtl.Rows[j].Cells["Qty"].Value.ToString());
-                        objtblbomdetail.Rate = Convert.ToDecimal(grdDtl.Rows[j].Cells["Rate"].Value.ToString());
-                        objtblbomdetail.ActiveYN = true;
-                        objtblbomdetail.EntryDate = DateTime.Now;
-                        objtblbomdetail.UserCode = GlobalCL.UserCD;
+                        tblitemopeningdetail objtblitemopeningdetail = new tblitemopeningdetail();
+                        tblstock objtblstock = new tblstock();
+                        objtblitemopeningdetail.ItemOpeningCd = Convert.ToInt32(i.ToString());
+                        objtblitemopeningdetail.Code = Convert.ToInt32(grdDtl.Rows[j].Cells["code"].Value.ToString());
+                        objtblitemopeningdetail.itemcd = Convert.ToInt32(grdDtl.Rows[j].Cells["ItemCd"].Value.ToString());
+                        objtblitemopeningdetail.UnitCd = Convert.ToInt32(grdDtl.Rows[j].Cells["UnitCd"].Value.ToString());
+                        objtblitemopeningdetail.Qty = Convert.ToDecimal(grdDtl.Rows[j].Cells["Qty"].Value.ToString());
+                        objtblitemopeningdetail.SubUnitCd = Convert.ToInt32(grdDtl.Rows[j].Cells["SecondUnitCd"].Value.ToString());
+                        objtblitemopeningdetail.SubQty = Convert.ToDecimal(grdDtl.Rows[j].Cells["SecondQty"].Value.ToString());
+                        objtblitemopeningdetail.value = Convert.ToDecimal(grdDtl.Rows[j].Cells["Amount"].Value.ToString());
+                        objtblitemopeningdetail.ActiveYN = Convert.ToBoolean(grdDtl.Rows[j].Cells["DActiveYN"].Value.ToString());
+                        objtblitemopeningdetail.ExpiryDt = Convert.ToDateTime(grdDtl.Rows[j].Cells["ExpiryDt"].Value.ToString());
+                        //objtblitemopeningdetail.UserCode = GlobalCL.UserCD;
 
-                        //objBOMentryDAL.InsertUpdateBOMdetai(objtblbomdetail);
+                        objItemOpeningstock.InsertUpdateBOMdetai(objtblitemopeningdetail, objtblstock);
                     }
 
                 }
@@ -443,9 +462,15 @@ namespace SPAPracticeManagement.InventoryTransaction
                     grdDtl["ItemCd", p].Value = ddlItem.SelectedValue.ToString();
                     grdDtl["Qty", p].Value = txtQty.Text.ToString();
                     grdDtl["UnitCd", p].Value = ddlUnit.SelectedValue.ToString();
-                    grdDtl["Amount", p].Value = txtAmount.Text.ToString();
-                    grdDtl["Item", p].Value = ddlItem.Text.ToString();
                     grdDtl["Unit", p].Value = ddlUnit.Text.ToString();
+
+                    grdDtl["SecondUnitCd", p].Value = ddlSecoUnit.SelectedValue.ToString();
+                    grdDtl["SecondUnit", p].Value = ddlSecoUnit.Text.ToString();
+                    grdDtl["SecondQty", p].Value = txtSecoQty.Text.ToString();
+                    grdDtl["ExpiryDt", p].Value = DtExp.Value;
+
+                    grdDtl["Amount", p].Value = txtAmount.Text.ToString();
+                    grdDtl["DActiveYN", p].Value = txtActive.Text.ToString();
 
                     SubCtrlClear();
                     grdDtl.Refresh();
@@ -469,12 +494,20 @@ namespace SPAPracticeManagement.InventoryTransaction
                         grdDtl.Rows.Add();
                         row = grdDtl.Rows.Count - 1;
                         grdDtl["code", row].Value = "0";
+
                         grdDtl["ItemCd", row].Value = ddlItem.SelectedValue.ToString();
                         grdDtl["Qty", row].Value = txtQty.Text.ToString();
                         grdDtl["UnitCd", row].Value = ddlUnit.SelectedValue.ToString();
-                        grdDtl["Amount", row].Value = txtAmount.Text.ToString();
-                        grdDtl["Item", row].Value = ddlItem.Text.ToString();
                         grdDtl["Unit", row].Value = ddlUnit.Text.ToString();
+
+                        grdDtl["SecondUnitCd", row].Value = ddlSecoUnit.SelectedValue.ToString();
+                        grdDtl["SecondUnit", row].Value = ddlSecoUnit.Text.ToString();
+                        grdDtl["SecondQty", row].Value = txtSecoQty.Text.ToString();
+                        grdDtl["ExpiryDt", row].Value = DtExp.Value;
+
+                        grdDtl["Amount", row].Value = txtAmount.Text.ToString();
+                        grdDtl["DActiveYN", row].Value = txtActive.Text.ToString();
+                       
 
                         SubCtrlClear();
                         grdDtl.Refresh();
@@ -488,9 +521,22 @@ namespace SPAPracticeManagement.InventoryTransaction
                         grdDtl["ItemCd", row].Value = ddlItem.SelectedValue.ToString();
                         grdDtl["Qty", row].Value = txtQty.Text.ToString();
                         grdDtl["UnitCd", row].Value = ddlUnit.SelectedValue.ToString();
-                        grdDtl["Amount", row].Value = txtAmount.Text.ToString();
-                        grdDtl["Item", row].Value = ddlItem.Text.ToString();
                         grdDtl["Unit", row].Value = ddlUnit.Text.ToString();
+
+                        grdDtl["SecondUnitCd", row].Value = ddlSecoUnit.SelectedValue.ToString();
+                        grdDtl["SecondUnit", row].Value = ddlSecoUnit.Text.ToString();
+                        grdDtl["SecondQty", row].Value = txtSecoQty.Text.ToString();
+                        grdDtl["ExpiryDt", row].Value = DtExp.Value;
+
+                        grdDtl["Amount", row].Value = txtAmount.Text.ToString();
+                        grdDtl["DActiveYN", row].Value = txtActive.Text.ToString();
+
+                        //grdDtl["ItemCd", row].Value = ddlItem.SelectedValue.ToString();
+                        //grdDtl["Qty", row].Value = txtQty.Text.ToString();
+                        //grdDtl["UnitCd", row].Value = ddlUnit.SelectedValue.ToString();
+                        //grdDtl["Amount", row].Value = txtAmount.Text.ToString();
+                        //grdDtl["Item", row].Value = ddlItem.Text.ToString();
+                        //grdDtl["Unit", row].Value = ddlUnit.Text.ToString();
 
                         SubCtrlClear();
                         grdDtl.Refresh();
@@ -575,6 +621,9 @@ namespace SPAPracticeManagement.InventoryTransaction
         }
 
         #endregion
+
+        
+       
 
     }
 }
