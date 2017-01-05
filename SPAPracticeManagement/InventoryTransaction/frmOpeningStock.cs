@@ -293,22 +293,18 @@ namespace SPAPracticeManagement.InventoryTransaction
                 txtHidCode.Text = "0";
             }
 
-            if (ddlItem.SelectedValue == null || ddlItem.SelectedValue.ToString() == "")
+            if (ddlBranch.SelectedValue == null || ddlBranch.SelectedValue.ToString() == "")
             {
-                MessageBox.Show("Please enter Item.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please enter Branch.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-            //if (txtPkgDisc.Text.Trim() == "")
-            //{
-            //    MessageBox.Show("Please enter package description.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    return false;
-            //}
 
-            if (txtActive.Text.Trim() == "")
+            if (ddlGodown.SelectedValue == null || ddlGodown.SelectedValue.ToString() == "")
             {
-                MessageBox.Show("Please enter activeYN", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please enter Godown.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
+
             if (txtHdActiveYN.Text.Trim() == "")
             {
                 MessageBox.Show("Please enter activeYN", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -321,6 +317,49 @@ namespace SPAPracticeManagement.InventoryTransaction
                 return true;
             }
         }
+
+        private bool ValidateSubForm()
+        {
+
+            if (txtHidCode.Text == "")
+            {
+                txtHidCode.Text = "0";
+            }
+
+            if (ddlItem.SelectedValue == null || ddlItem.SelectedValue.ToString() == "")
+            {
+                MessageBox.Show("Please enter Item.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (ddlUnit.SelectedValue == null || ddlUnit.SelectedValue.ToString() == "")
+            {
+                MessageBox.Show("Please enter Unit.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (txtQty.Text.Trim() == "")
+            {
+                MessageBox.Show("Please enter Qty.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (txtAmount .Text.Trim() == "")
+            {
+                MessageBox.Show("Please enter Amount.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (txtHdActiveYN.Text.Trim() == "")
+            {
+                MessageBox.Show("Please enter activeYN", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+
+            else
+            {
+                return true;
+            }
+        }
+
         public int InsertUpdateDelete()
         {
             int r = 0;
@@ -330,19 +369,21 @@ namespace SPAPracticeManagement.InventoryTransaction
                 //int i = default(int);
                 //bool IsValid = false;
 
-                tblbomheader objtblbomheader = new tblbomheader();
-                tblbomdetail objtblbomdetail = new tblbomdetail();
+                tblitemopeningheader objtblitemopeningheader = new tblitemopeningheader();
+                tblitemopeningdetail objtblitemopeningdetail = new tblitemopeningdetail();
 
                 if (ValidateForm())
                 {
 
 
-                    objtblbomheader.Code = Convert.ToInt32(txtHidCode.Text.ToString());
-                    //objtblbomheader.ServiceCd = Convert.ToInt32(ddlService.SelectedValue.ToString());
-                    //objtblbomheader.PackageDescription = txtPkgDisc.Text.ToString();
-                    objtblbomheader.ActiveYN = true;
-                    objtblbomheader.EntryDate = DateTime.Now;
-                    objtblbomheader.UserCode = GlobalCL.UserCD;
+                    objtblitemopeningheader.Code = Convert.ToInt32(txtHidCode.Text.ToString());
+                    objtblitemopeningheader.TranDate = StockDt.Value;
+                    objtblitemopeningheader.BranchCd = Convert.ToInt32(ddlBranch.SelectedValue.ToString());
+                    objtblitemopeningheader.ItemOpeningTranId = txtIndentNo.Text .ToString();
+                    objtblitemopeningheader.TotValue = Convert.ToDecimal(txtTotAmount.Text.ToString());
+                    objtblitemopeningheader.ActiveYN = true;
+                    objtblitemopeningheader.EntryDate = DateTime.Now;
+                    objtblitemopeningheader.UserCode = GlobalCL.UserCD;
 
                     //r = objBOMentryDAL.InsertUpdateBOMheader(objtblbomheader, objtblbomdetail);
 
@@ -387,6 +428,7 @@ namespace SPAPracticeManagement.InventoryTransaction
                 }
             }
         }
+
 
         public void SubSaveUpdate()
         {
@@ -455,6 +497,8 @@ namespace SPAPracticeManagement.InventoryTransaction
                         btnSubAdd.Focus();
                         return;
                     }
+
+                   
                 }
                 catch (Exception e1)
                 {
@@ -463,14 +507,23 @@ namespace SPAPracticeManagement.InventoryTransaction
 
 
             }
+            decimal totQty = 0;
+            decimal totAmt = 0;
+            for (int i = 0; i < grdDtl.Rows.Count; i++)
+            {
+
+                totQty = totQty + Convert.ToDecimal(grdDtl.Rows[i].Cells["Qty"].Value);
+                totAmt = totAmt + Convert.ToDecimal(grdDtl.Rows[i].Cells["Amount"].Value);
+
+            }
+            txtTotQty.Text = totQty.ToString();
+            txtTotAmount.Text = totAmt.ToString();
         }
 
         private void btnSubSave_Click(object sender, EventArgs e)
         {
             SubSaveUpdate();
         }
-
-        #endregion
 
         private void grdDtl_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -487,9 +540,41 @@ namespace SPAPracticeManagement.InventoryTransaction
                 txtAmount.Text = grdDtl["Rate", row].Value.ToString();
 
             }
+            if (e.ColumnIndex == 8)
+            {
+                removeRecordFormGrid();
+
+            }
+        }
+        public void removeRecordFormGrid()
+        {
+            try
+            {
+               
+                DialogResult reg = MessageBox.Show("Do You want to Remove record...", "info", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (DialogResult.Yes == reg)
+                {
+                    grdDtl.Rows.RemoveAt(grdDtl.CurrentRow.Index);
+                    decimal totQty = 0;
+                    decimal totAmt = 0;
+                    for (int i = 0; i < grdDtl .Rows.Count; i++)
+                    {
+                        
+                        totQty = totQty + Convert.ToDecimal(grdDtl.Rows[i].Cells["Qty"].Value);
+                        totAmt = totAmt + Convert.ToDecimal(grdDtl.Rows[i].Cells["Amount"].Value);
+                        
+                    }
+                    txtTotQty.Text = totQty.ToString();
+                    txtTotAmount.Text = totAmt.ToString();
+                }
+            }
+            catch (Exception exceptionObj)
+            {
+                MessageBox.Show(exceptionObj.Message.ToString());
+            }
         }
 
-
+        #endregion
 
     }
 }

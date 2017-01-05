@@ -1,6 +1,6 @@
 ﻿namespace SPAPracticeManagement.InventoryTransaction
 {
-    partial class frmPurchaseRequsition
+    partial class frmGRN
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPurchaseRequsition));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGRN));
+            this.lblTag = new System.Windows.Forms.Label();
             this.pnlTabControlAdd = new System.Windows.Forms.Panel();
             this.txtTotQty = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
@@ -66,17 +67,26 @@
             this.txtActive = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtHidCode = new System.Windows.Forms.TextBox();
             this.txtGrdRowIndex = new System.Windows.Forms.TextBox();
             this.pnlTabControlSearch = new System.Windows.Forms.Panel();
             this.txtSearchText = new System.Windows.Forms.TextBox();
             this.grdSearch = new System.Windows.Forms.DataGridView();
-            this.txtHidCode = new System.Windows.Forms.TextBox();
-            this.lblTag = new System.Windows.Forms.Label();
             this.pnlTabControlAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdDtl)).BeginInit();
             this.pnlTabControlSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdSearch)).BeginInit();
             this.SuspendLayout();
+            // 
+            // lblTag
+            // 
+            this.lblTag.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(34)))), ((int)(((byte)(94)))));
+            this.lblTag.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTag.ForeColor = System.Drawing.Color.White;
+            this.lblTag.Location = new System.Drawing.Point(204, 156);
+            this.lblTag.Name = "lblTag";
+            this.lblTag.Size = new System.Drawing.Size(1853, 32);
+            this.lblTag.TabIndex = 151;
             // 
             // pnlTabControlAdd
             // 
@@ -111,11 +121,11 @@
             this.pnlTabControlAdd.Controls.Add(this.txtActive);
             this.pnlTabControlAdd.Controls.Add(this.label7);
             this.pnlTabControlAdd.Controls.Add(this.label4);
-            this.pnlTabControlAdd.Location = new System.Drawing.Point(211, 235);
+            this.pnlTabControlAdd.Location = new System.Drawing.Point(216, 201);
             this.pnlTabControlAdd.Margin = new System.Windows.Forms.Padding(4);
             this.pnlTabControlAdd.Name = "pnlTabControlAdd";
-            this.pnlTabControlAdd.Size = new System.Drawing.Size(1092, 938);
-            this.pnlTabControlAdd.TabIndex = 132;
+            this.pnlTabControlAdd.Size = new System.Drawing.Size(1092, 1072);
+            this.pnlTabControlAdd.TabIndex = 152;
             // 
             // txtTotQty
             // 
@@ -140,8 +150,6 @@
             this.btnSave.TabIndex = 17;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            this.btnSave.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnSave_KeyUp);
             // 
             // label11
             // 
@@ -164,9 +172,6 @@
             this.ddlUser.Name = "ddlUser";
             this.ddlUser.Size = new System.Drawing.Size(397, 27);
             this.ddlUser.TabIndex = 3;
-            this.ddlUser.Enter += new System.EventHandler(this.ddlUser_Enter);
-            this.ddlUser.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ddlUser_KeyUp);
-            this.ddlUser.Validated += new System.EventHandler(this.ddlUser_Validated);
             // 
             // txtIndentNo
             // 
@@ -186,7 +191,6 @@
             this.StockDt.Name = "StockDt";
             this.StockDt.Size = new System.Drawing.Size(129, 22);
             this.StockDt.TabIndex = 0;
-            this.StockDt.KeyUp += new System.Windows.Forms.KeyEventHandler(this.StockDt_KeyUp);
             // 
             // label10
             // 
@@ -211,7 +215,6 @@
             this.txtHdActiveYN.Size = new System.Drawing.Size(23, 27);
             this.txtHdActiveYN.TabIndex = 4;
             this.txtHdActiveYN.Text = "Y";
-            this.txtHdActiveYN.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtHdActiveYN_KeyUp);
             // 
             // label8
             // 
@@ -238,8 +241,6 @@
             this.btnSubSave.TabIndex = 11;
             this.btnSubSave.Text = "Save";
             this.btnSubSave.UseVisualStyleBackColor = false;
-            this.btnSubSave.Click += new System.EventHandler(this.btnSubSave_Click);
-            this.btnSubSave.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnSubSave_KeyUp);
             // 
             // grdDtl
             // 
@@ -261,7 +262,6 @@
             this.grdDtl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.grdDtl.Size = new System.Drawing.Size(1060, 431);
             this.grdDtl.TabIndex = 135;
-            this.grdDtl.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdDtl_CellContentClick);
             // 
             // ItemCd
             // 
@@ -352,7 +352,6 @@
             this.btnSubAdd.TabIndex = 5;
             this.btnSubAdd.Text = "Add";
             this.btnSubAdd.UseVisualStyleBackColor = false;
-            this.btnSubAdd.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnSubAdd_KeyUp);
             // 
             // label6
             // 
@@ -381,9 +380,6 @@
             this.ddlUnit.Name = "ddlUnit";
             this.ddlUnit.Size = new System.Drawing.Size(199, 27);
             this.ddlUnit.TabIndex = 7;
-            this.ddlUnit.Enter += new System.EventHandler(this.ddlUnit_Enter);
-            this.ddlUnit.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ddlUnit_KeyUp);
-            this.ddlUnit.Validated += new System.EventHandler(this.ddlUnit_Validated);
             // 
             // txtQty
             // 
@@ -394,7 +390,6 @@
             this.txtQty.Name = "txtQty";
             this.txtQty.Size = new System.Drawing.Size(198, 27);
             this.txtQty.TabIndex = 8;
-            this.txtQty.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtQty_KeyUp);
             // 
             // label15
             // 
@@ -441,9 +436,6 @@
             this.ddlItem.Name = "ddlItem";
             this.ddlItem.Size = new System.Drawing.Size(455, 27);
             this.ddlItem.TabIndex = 6;
-            this.ddlItem.Enter += new System.EventHandler(this.ddlItem_Enter);
-            this.ddlItem.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ddlItem_KeyUp);
-            this.ddlItem.Validated += new System.EventHandler(this.ddlItem_Validated);
             // 
             // label3
             // 
@@ -466,9 +458,6 @@
             this.ddlBranch.Name = "ddlBranch";
             this.ddlBranch.Size = new System.Drawing.Size(397, 27);
             this.ddlBranch.TabIndex = 1;
-            this.ddlBranch.Enter += new System.EventHandler(this.ddlBranch_Enter);
-            this.ddlBranch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ddlBranch_KeyUp);
-            this.ddlBranch.Validated += new System.EventHandler(this.ddlBranch_Validated);
             // 
             // btnUpdate
             // 
@@ -510,7 +499,6 @@
             this.txtActive.Size = new System.Drawing.Size(100, 27);
             this.txtActive.TabIndex = 10;
             this.txtActive.Text = "Y";
-            this.txtActive.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtActive_KeyUp);
             // 
             // label7
             // 
@@ -536,15 +524,26 @@
             this.label4.TabIndex = 109;
             this.label4.Text = "Date :";
             // 
+            // txtHidCode
+            // 
+            this.txtHidCode.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHidCode.Location = new System.Drawing.Point(1369, 236);
+            this.txtHidCode.Margin = new System.Windows.Forms.Padding(4);
+            this.txtHidCode.MaxLength = 20;
+            this.txtHidCode.Name = "txtHidCode";
+            this.txtHidCode.Size = new System.Drawing.Size(238, 27);
+            this.txtHidCode.TabIndex = 155;
+            this.txtHidCode.Visible = false;
+            // 
             // txtGrdRowIndex
             // 
             this.txtGrdRowIndex.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGrdRowIndex.Location = new System.Drawing.Point(1348, 235);
+            this.txtGrdRowIndex.Location = new System.Drawing.Point(1369, 201);
             this.txtGrdRowIndex.Margin = new System.Windows.Forms.Padding(4);
             this.txtGrdRowIndex.MaxLength = 20;
             this.txtGrdRowIndex.Name = "txtGrdRowIndex";
             this.txtGrdRowIndex.Size = new System.Drawing.Size(239, 27);
-            this.txtGrdRowIndex.TabIndex = 148;
+            this.txtGrdRowIndex.TabIndex = 154;
             this.txtGrdRowIndex.Visible = false;
             // 
             // pnlTabControlSearch
@@ -554,11 +553,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlTabControlSearch.Controls.Add(this.txtSearchText);
             this.pnlTabControlSearch.Controls.Add(this.grdSearch);
-            this.pnlTabControlSearch.Location = new System.Drawing.Point(1319, 307);
+            this.pnlTabControlSearch.Location = new System.Drawing.Point(1340, 273);
             this.pnlTabControlSearch.Margin = new System.Windows.Forms.Padding(4);
             this.pnlTabControlSearch.Name = "pnlTabControlSearch";
-            this.pnlTabControlSearch.Size = new System.Drawing.Size(284, 801);
-            this.pnlTabControlSearch.TabIndex = 147;
+            this.pnlTabControlSearch.Size = new System.Drawing.Size(284, 935);
+            this.pnlTabControlSearch.TabIndex = 153;
             // 
             // txtSearchText
             // 
@@ -580,45 +579,24 @@
             this.grdSearch.Size = new System.Drawing.Size(597, 322);
             this.grdSearch.TabIndex = 0;
             // 
-            // txtHidCode
-            // 
-            this.txtHidCode.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHidCode.Location = new System.Drawing.Point(1348, 270);
-            this.txtHidCode.Margin = new System.Windows.Forms.Padding(4);
-            this.txtHidCode.MaxLength = 20;
-            this.txtHidCode.Name = "txtHidCode";
-            this.txtHidCode.Size = new System.Drawing.Size(238, 27);
-            this.txtHidCode.TabIndex = 149;
-            this.txtHidCode.Visible = false;
-            // 
-            // lblTag
-            // 
-            this.lblTag.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(34)))), ((int)(((byte)(94)))));
-            this.lblTag.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTag.ForeColor = System.Drawing.Color.White;
-            this.lblTag.Location = new System.Drawing.Point(204, 156);
-            this.lblTag.Name = "lblTag";
-            this.lblTag.Size = new System.Drawing.Size(1853, 32);
-            this.lblTag.TabIndex = 150;
-            // 
-            // frmPurchaseRequsition
+            // frmGRN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1914, 936);
-            this.Controls.Add(this.lblTag);
+            this.ClientSize = new System.Drawing.Size(1914, 906);
             this.Controls.Add(this.txtHidCode);
             this.Controls.Add(this.txtGrdRowIndex);
             this.Controls.Add(this.pnlTabControlSearch);
             this.Controls.Add(this.pnlTabControlAdd);
-            this.Name = "frmPurchaseRequsition";
-            this.Text = "frmPurchaseRequsition";
-            this.Load += new System.EventHandler(this.frmPurchaseRequsition_Load);
+            this.Controls.Add(this.lblTag);
+            this.Name = "frmGRN";
+            this.Text = "GRN";
+            this.Load += new System.EventHandler(this.frmGRN_Load);
+            this.Controls.SetChildIndex(this.lblTag, 0);
             this.Controls.SetChildIndex(this.pnlTabControlAdd, 0);
             this.Controls.SetChildIndex(this.pnlTabControlSearch, 0);
             this.Controls.SetChildIndex(this.txtGrdRowIndex, 0);
             this.Controls.SetChildIndex(this.txtHidCode, 0);
-            this.Controls.SetChildIndex(this.lblTag, 0);
             this.pnlTabControlAdd.ResumeLayout(false);
             this.pnlTabControlAdd.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdDtl)).EndInit();
@@ -632,7 +610,9 @@
 
         #endregion
 
+        private System.Windows.Forms.Label lblTag;
         public System.Windows.Forms.Panel pnlTabControlAdd;
+        private System.Windows.Forms.TextBox txtTotQty;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox ddlUser;
@@ -643,6 +623,15 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnSubSave;
         private System.Windows.Forms.DataGridView grdDtl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemCd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Item;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UnitCd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DActiveYN;
+        private System.Windows.Forms.DataGridViewImageColumn Edit;
+        private System.Windows.Forms.DataGridViewImageColumn Delete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn code;
         private System.Windows.Forms.Button btnSubAdd;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
@@ -659,21 +648,10 @@
         private System.Windows.Forms.TextBox txtActive;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtHidCode;
         private System.Windows.Forms.TextBox txtGrdRowIndex;
         public System.Windows.Forms.Panel pnlTabControlSearch;
         private System.Windows.Forms.TextBox txtSearchText;
         private System.Windows.Forms.DataGridView grdSearch;
-        private System.Windows.Forms.TextBox txtHidCode;
-        private System.Windows.Forms.Label lblTag;
-        private System.Windows.Forms.TextBox txtTotQty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ItemCd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Item;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UnitCd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DActiveYN;
-        private System.Windows.Forms.DataGridViewImageColumn Edit;
-        private System.Windows.Forms.DataGridViewImageColumn Delete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn code;
     }
 }

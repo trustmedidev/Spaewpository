@@ -1,6 +1,6 @@
 ﻿namespace SPAPracticeManagement.InventoryTransaction
 {
-    partial class frmPurchaseRequsition
+    partial class frmPurchaseOrder
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPurchaseRequsition));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPurchaseOrder));
             this.pnlTabControlAdd = new System.Windows.Forms.Panel();
             this.txtTotQty = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
@@ -66,12 +66,24 @@
             this.txtActive = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtHidCode = new System.Windows.Forms.TextBox();
             this.txtGrdRowIndex = new System.Windows.Forms.TextBox();
             this.pnlTabControlSearch = new System.Windows.Forms.Panel();
             this.txtSearchText = new System.Windows.Forms.TextBox();
             this.grdSearch = new System.Windows.Forms.DataGridView();
-            this.txtHidCode = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.ddlTaxTerm = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.ddlSupplier = new System.Windows.Forms.ComboBox();
             this.lblTag = new System.Windows.Forms.Label();
+            this.txtAmount = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.pnlTabControlAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdDtl)).BeginInit();
             this.pnlTabControlSearch.SuspendLayout();
@@ -84,6 +96,18 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlTabControlAdd.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlTabControlAdd.Controls.Add(this.textBox3);
+            this.pnlTabControlAdd.Controls.Add(this.label18);
+            this.pnlTabControlAdd.Controls.Add(this.textBox2);
+            this.pnlTabControlAdd.Controls.Add(this.label17);
+            this.pnlTabControlAdd.Controls.Add(this.textBox1);
+            this.pnlTabControlAdd.Controls.Add(this.label16);
+            this.pnlTabControlAdd.Controls.Add(this.txtAmount);
+            this.pnlTabControlAdd.Controls.Add(this.label14);
+            this.pnlTabControlAdd.Controls.Add(this.label12);
+            this.pnlTabControlAdd.Controls.Add(this.ddlTaxTerm);
+            this.pnlTabControlAdd.Controls.Add(this.label13);
+            this.pnlTabControlAdd.Controls.Add(this.ddlSupplier);
             this.pnlTabControlAdd.Controls.Add(this.txtTotQty);
             this.pnlTabControlAdd.Controls.Add(this.btnSave);
             this.pnlTabControlAdd.Controls.Add(this.label11);
@@ -111,11 +135,11 @@
             this.pnlTabControlAdd.Controls.Add(this.txtActive);
             this.pnlTabControlAdd.Controls.Add(this.label7);
             this.pnlTabControlAdd.Controls.Add(this.label4);
-            this.pnlTabControlAdd.Location = new System.Drawing.Point(211, 235);
+            this.pnlTabControlAdd.Location = new System.Drawing.Point(222, 242);
             this.pnlTabControlAdd.Margin = new System.Windows.Forms.Padding(4);
             this.pnlTabControlAdd.Name = "pnlTabControlAdd";
-            this.pnlTabControlAdd.Size = new System.Drawing.Size(1092, 938);
-            this.pnlTabControlAdd.TabIndex = 132;
+            this.pnlTabControlAdd.Size = new System.Drawing.Size(1660, 1156);
+            this.pnlTabControlAdd.TabIndex = 153;
             // 
             // txtTotQty
             // 
@@ -140,38 +164,33 @@
             this.btnSave.TabIndex = 17;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            this.btnSave.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnSave_KeyUp);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(351, 41);
+            this.label11.Location = new System.Drawing.Point(331, 41);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(191, 21);
+            this.label11.Size = new System.Drawing.Size(81, 21);
             this.label11.TabIndex = 142;
-            this.label11.Text = "Requsition from (User) :";
+            this.label11.Text = "Godown :";
             // 
             // ddlUser
             // 
             this.ddlUser.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ddlUser.FormattingEnabled = true;
-            this.ddlUser.Location = new System.Drawing.Point(569, 41);
+            this.ddlUser.Location = new System.Drawing.Point(412, 41);
             this.ddlUser.Margin = new System.Windows.Forms.Padding(4);
             this.ddlUser.Name = "ddlUser";
-            this.ddlUser.Size = new System.Drawing.Size(397, 27);
+            this.ddlUser.Size = new System.Drawing.Size(292, 27);
             this.ddlUser.TabIndex = 3;
-            this.ddlUser.Enter += new System.EventHandler(this.ddlUser_Enter);
-            this.ddlUser.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ddlUser_KeyUp);
-            this.ddlUser.Validated += new System.EventHandler(this.ddlUser_Validated);
             // 
             // txtIndentNo
             // 
             this.txtIndentNo.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIndentNo.Location = new System.Drawing.Point(106, 34);
+            this.txtIndentNo.Location = new System.Drawing.Point(99, 34);
             this.txtIndentNo.Margin = new System.Windows.Forms.Padding(4);
             this.txtIndentNo.MaxLength = 50;
             this.txtIndentNo.Name = "txtIndentNo";
@@ -182,18 +201,17 @@
             // 
             this.StockDt.CustomFormat = "dd/MM/yyyy";
             this.StockDt.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.StockDt.Location = new System.Drawing.Point(106, 7);
+            this.StockDt.Location = new System.Drawing.Point(99, 7);
             this.StockDt.Name = "StockDt";
             this.StockDt.Size = new System.Drawing.Size(129, 22);
             this.StockDt.TabIndex = 0;
-            this.StockDt.KeyUp += new System.Windows.Forms.KeyEventHandler(this.StockDt_KeyUp);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(973, 43);
+            this.label10.Location = new System.Drawing.Point(1038, 8);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(67, 21);
@@ -211,19 +229,18 @@
             this.txtHdActiveYN.Size = new System.Drawing.Size(23, 27);
             this.txtHdActiveYN.TabIndex = 4;
             this.txtHdActiveYN.Text = "Y";
-            this.txtHdActiveYN.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtHdActiveYN_KeyUp);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(351, 9);
+            this.label8.Location = new System.Drawing.Point(331, 9);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(208, 21);
+            this.label8.Size = new System.Drawing.Size(72, 21);
             this.label8.TabIndex = 136;
-            this.label8.Text = "Requsition from (Branch ):";
+            this.label8.Text = "Branch :";
             // 
             // btnSubSave
             // 
@@ -231,15 +248,13 @@
             this.btnSubSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubSave.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubSave.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnSubSave.Location = new System.Drawing.Point(968, 114);
+            this.btnSubSave.Location = new System.Drawing.Point(1528, 122);
             this.btnSubSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubSave.Name = "btnSubSave";
             this.btnSubSave.Size = new System.Drawing.Size(100, 32);
             this.btnSubSave.TabIndex = 11;
             this.btnSubSave.Text = "Save";
             this.btnSubSave.UseVisualStyleBackColor = false;
-            this.btnSubSave.Click += new System.EventHandler(this.btnSubSave_Click);
-            this.btnSubSave.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnSubSave_KeyUp);
             // 
             // grdDtl
             // 
@@ -259,9 +274,8 @@
             this.grdDtl.Name = "grdDtl";
             this.grdDtl.RowTemplate.Height = 24;
             this.grdDtl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.grdDtl.Size = new System.Drawing.Size(1060, 431);
+            this.grdDtl.Size = new System.Drawing.Size(1621, 431);
             this.grdDtl.TabIndex = 135;
-            this.grdDtl.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdDtl_CellContentClick);
             // 
             // ItemCd
             // 
@@ -345,30 +359,29 @@
             this.btnSubAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubAdd.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubAdd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnSubAdd.Location = new System.Drawing.Point(968, 83);
+            this.btnSubAdd.Location = new System.Drawing.Point(1528, 83);
             this.btnSubAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubAdd.Name = "btnSubAdd";
             this.btnSubAdd.Size = new System.Drawing.Size(100, 32);
             this.btnSubAdd.TabIndex = 5;
             this.btnSubAdd.Text = "Add";
             this.btnSubAdd.UseVisualStyleBackColor = false;
-            this.btnSubAdd.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnSubAdd_KeyUp);
             // 
             // label6
             // 
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(34)))), ((int)(((byte)(94)))));
-            this.label6.Location = new System.Drawing.Point(0, 152);
+            this.label6.Location = new System.Drawing.Point(0, 156);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(1079, 5);
+            this.label6.Size = new System.Drawing.Size(1639, 5);
             this.label6.TabIndex = 133;
             this.label6.Text = "label6";
             // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(34)))), ((int)(((byte)(94)))));
-            this.label2.Location = new System.Drawing.Point(0, 74);
+            this.label2.Location = new System.Drawing.Point(0, 72);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(1081, 5);
+            this.label2.Size = new System.Drawing.Size(1640, 5);
             this.label2.TabIndex = 132;
             this.label2.Text = "label2";
             // 
@@ -376,32 +389,28 @@
             // 
             this.ddlUnit.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ddlUnit.FormattingEnabled = true;
-            this.ddlUnit.Location = new System.Drawing.Point(467, 117);
+            this.ddlUnit.Location = new System.Drawing.Point(559, 125);
             this.ddlUnit.Margin = new System.Windows.Forms.Padding(4);
             this.ddlUnit.Name = "ddlUnit";
-            this.ddlUnit.Size = new System.Drawing.Size(199, 27);
+            this.ddlUnit.Size = new System.Drawing.Size(169, 27);
             this.ddlUnit.TabIndex = 7;
-            this.ddlUnit.Enter += new System.EventHandler(this.ddlUnit_Enter);
-            this.ddlUnit.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ddlUnit_KeyUp);
-            this.ddlUnit.Validated += new System.EventHandler(this.ddlUnit_Validated);
             // 
             // txtQty
             // 
             this.txtQty.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQty.Location = new System.Drawing.Point(666, 117);
+            this.txtQty.Location = new System.Drawing.Point(728, 125);
             this.txtQty.Margin = new System.Windows.Forms.Padding(4);
             this.txtQty.MaxLength = 50;
             this.txtQty.Name = "txtQty";
-            this.txtQty.Size = new System.Drawing.Size(198, 27);
+            this.txtQty.Size = new System.Drawing.Size(141, 27);
             this.txtQty.TabIndex = 8;
-            this.txtQty.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtQty_KeyUp);
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(665, 89);
+            this.label15.Location = new System.Drawing.Point(727, 101);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(47, 21);
@@ -413,7 +422,7 @@
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(465, 89);
+            this.label9.Location = new System.Drawing.Point(557, 101);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(51, 21);
@@ -436,21 +445,18 @@
             // 
             this.ddlItem.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ddlItem.FormattingEnabled = true;
-            this.ddlItem.Location = new System.Drawing.Point(12, 117);
+            this.ddlItem.Location = new System.Drawing.Point(11, 125);
             this.ddlItem.Margin = new System.Windows.Forms.Padding(4);
             this.ddlItem.Name = "ddlItem";
-            this.ddlItem.Size = new System.Drawing.Size(455, 27);
+            this.ddlItem.Size = new System.Drawing.Size(548, 27);
             this.ddlItem.TabIndex = 6;
-            this.ddlItem.Enter += new System.EventHandler(this.ddlItem_Enter);
-            this.ddlItem.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ddlItem_KeyUp);
-            this.ddlItem.Validated += new System.EventHandler(this.ddlItem_Validated);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(7, 89);
+            this.label3.Location = new System.Drawing.Point(6, 101);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 21);
@@ -461,14 +467,11 @@
             // 
             this.ddlBranch.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ddlBranch.FormattingEnabled = true;
-            this.ddlBranch.Location = new System.Drawing.Point(569, 9);
+            this.ddlBranch.Location = new System.Drawing.Point(412, 9);
             this.ddlBranch.Margin = new System.Windows.Forms.Padding(4);
             this.ddlBranch.Name = "ddlBranch";
-            this.ddlBranch.Size = new System.Drawing.Size(397, 27);
+            this.ddlBranch.Size = new System.Drawing.Size(292, 27);
             this.ddlBranch.TabIndex = 1;
-            this.ddlBranch.Enter += new System.EventHandler(this.ddlBranch_Enter);
-            this.ddlBranch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ddlBranch_KeyUp);
-            this.ddlBranch.Validated += new System.EventHandler(this.ddlBranch_Validated);
             // 
             // btnUpdate
             // 
@@ -503,21 +506,20 @@
             // 
             this.txtActive.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtActive.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtActive.Location = new System.Drawing.Point(864, 117);
+            this.txtActive.Location = new System.Drawing.Point(1424, 125);
             this.txtActive.Margin = new System.Windows.Forms.Padding(4);
             this.txtActive.MaxLength = 1;
             this.txtActive.Name = "txtActive";
             this.txtActive.Size = new System.Drawing.Size(100, 27);
             this.txtActive.TabIndex = 10;
             this.txtActive.Text = "Y";
-            this.txtActive.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtActive_KeyUp);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(861, 89);
+            this.label7.Location = new System.Drawing.Point(1421, 101);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 21);
@@ -536,15 +538,26 @@
             this.label4.TabIndex = 109;
             this.label4.Text = "Date :";
             // 
+            // txtHidCode
+            // 
+            this.txtHidCode.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHidCode.Location = new System.Drawing.Point(1371, 211);
+            this.txtHidCode.Margin = new System.Windows.Forms.Padding(4);
+            this.txtHidCode.MaxLength = 20;
+            this.txtHidCode.Name = "txtHidCode";
+            this.txtHidCode.Size = new System.Drawing.Size(238, 27);
+            this.txtHidCode.TabIndex = 158;
+            this.txtHidCode.Visible = false;
+            // 
             // txtGrdRowIndex
             // 
             this.txtGrdRowIndex.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGrdRowIndex.Location = new System.Drawing.Point(1348, 235);
+            this.txtGrdRowIndex.Location = new System.Drawing.Point(1371, 176);
             this.txtGrdRowIndex.Margin = new System.Windows.Forms.Padding(4);
             this.txtGrdRowIndex.MaxLength = 20;
             this.txtGrdRowIndex.Name = "txtGrdRowIndex";
             this.txtGrdRowIndex.Size = new System.Drawing.Size(239, 27);
-            this.txtGrdRowIndex.TabIndex = 148;
+            this.txtGrdRowIndex.TabIndex = 157;
             this.txtGrdRowIndex.Visible = false;
             // 
             // pnlTabControlSearch
@@ -554,11 +567,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlTabControlSearch.Controls.Add(this.txtSearchText);
             this.pnlTabControlSearch.Controls.Add(this.grdSearch);
-            this.pnlTabControlSearch.Location = new System.Drawing.Point(1319, 307);
+            this.pnlTabControlSearch.Location = new System.Drawing.Point(1620, 170);
             this.pnlTabControlSearch.Margin = new System.Windows.Forms.Padding(4);
             this.pnlTabControlSearch.Name = "pnlTabControlSearch";
-            this.pnlTabControlSearch.Size = new System.Drawing.Size(284, 801);
-            this.pnlTabControlSearch.TabIndex = 147;
+            this.pnlTabControlSearch.Size = new System.Drawing.Size(284, 58);
+            this.pnlTabControlSearch.TabIndex = 156;
             // 
             // txtSearchText
             // 
@@ -580,16 +593,49 @@
             this.grdSearch.Size = new System.Drawing.Size(597, 322);
             this.grdSearch.TabIndex = 0;
             // 
-            // txtHidCode
+            // label12
             // 
-            this.txtHidCode.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHidCode.Location = new System.Drawing.Point(1348, 270);
-            this.txtHidCode.Margin = new System.Windows.Forms.Padding(4);
-            this.txtHidCode.MaxLength = 20;
-            this.txtHidCode.Name = "txtHidCode";
-            this.txtHidCode.Size = new System.Drawing.Size(238, 27);
-            this.txtHidCode.TabIndex = 149;
-            this.txtHidCode.Visible = false;
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(706, 44);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(92, 21);
+            this.label12.TabIndex = 149;
+            this.label12.Text = "Tax Term :";
+            // 
+            // ddlTaxTerm
+            // 
+            this.ddlTaxTerm.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ddlTaxTerm.FormattingEnabled = true;
+            this.ddlTaxTerm.Location = new System.Drawing.Point(797, 41);
+            this.ddlTaxTerm.Margin = new System.Windows.Forms.Padding(4);
+            this.ddlTaxTerm.Name = "ddlTaxTerm";
+            this.ddlTaxTerm.Size = new System.Drawing.Size(209, 27);
+            this.ddlTaxTerm.TabIndex = 147;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(706, 12);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(80, 21);
+            this.label13.TabIndex = 148;
+            this.label13.Text = "Supplier :";
+            // 
+            // ddlSupplier
+            // 
+            this.ddlSupplier.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ddlSupplier.FormattingEnabled = true;
+            this.ddlSupplier.Location = new System.Drawing.Point(796, 9);
+            this.ddlSupplier.Margin = new System.Windows.Forms.Padding(4);
+            this.ddlSupplier.Name = "ddlSupplier";
+            this.ddlSupplier.Size = new System.Drawing.Size(240, 27);
+            this.ddlSupplier.TabIndex = 146;
             // 
             // lblTag
             // 
@@ -599,21 +645,107 @@
             this.lblTag.Location = new System.Drawing.Point(204, 156);
             this.lblTag.Name = "lblTag";
             this.lblTag.Size = new System.Drawing.Size(1853, 32);
-            this.lblTag.TabIndex = 150;
+            this.lblTag.TabIndex = 159;
             // 
-            // frmPurchaseRequsition
+            // txtAmount
+            // 
+            this.txtAmount.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAmount.Location = new System.Drawing.Point(869, 125);
+            this.txtAmount.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAmount.MaxLength = 50;
+            this.txtAmount.Name = "txtAmount";
+            this.txtAmount.Size = new System.Drawing.Size(149, 27);
+            this.txtAmount.TabIndex = 150;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(866, 101);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(56, 21);
+            this.label14.TabIndex = 151;
+            this.label14.Text = "Rate :";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(1018, 125);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.MaxLength = 50;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(180, 27);
+            this.textBox1.TabIndex = 152;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label16.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(1012, 101);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(79, 21);
+            this.label16.TabIndex = 153;
+            this.label16.Text = "Amount :";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(1273, 125);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox2.MaxLength = 50;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(149, 27);
+            this.textBox2.TabIndex = 154;
+            // 
+            // label17
+            // 
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(1271, 77);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(76, 45);
+            this.label17.TabIndex = 155;
+            this.label17.Text = "Item Tax val:";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(1198, 125);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox3.MaxLength = 50;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(77, 27);
+            this.textBox3.TabIndex = 156;
+            // 
+            // label18
+            // 
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(1196, 77);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(76, 45);
+            this.label18.TabIndex = 157;
+            this.label18.Text = "Item Tax(%) :";
+            // 
+            // frmPurchaseOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1914, 936);
+            this.ClientSize = new System.Drawing.Size(1914, 876);
             this.Controls.Add(this.lblTag);
             this.Controls.Add(this.txtHidCode);
             this.Controls.Add(this.txtGrdRowIndex);
             this.Controls.Add(this.pnlTabControlSearch);
             this.Controls.Add(this.pnlTabControlAdd);
-            this.Name = "frmPurchaseRequsition";
-            this.Text = "frmPurchaseRequsition";
-            this.Load += new System.EventHandler(this.frmPurchaseRequsition_Load);
+            this.Name = "frmPurchaseOrder";
+            this.Text = "Purchase Order";
+            this.Load += new System.EventHandler(this.frmPurchaseOrder_Load);
             this.Controls.SetChildIndex(this.pnlTabControlAdd, 0);
             this.Controls.SetChildIndex(this.pnlTabControlSearch, 0);
             this.Controls.SetChildIndex(this.txtGrdRowIndex, 0);
@@ -633,6 +765,7 @@
         #endregion
 
         public System.Windows.Forms.Panel pnlTabControlAdd;
+        private System.Windows.Forms.TextBox txtTotQty;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox ddlUser;
@@ -643,6 +776,15 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnSubSave;
         private System.Windows.Forms.DataGridView grdDtl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemCd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Item;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UnitCd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DActiveYN;
+        private System.Windows.Forms.DataGridViewImageColumn Edit;
+        private System.Windows.Forms.DataGridViewImageColumn Delete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn code;
         private System.Windows.Forms.Button btnSubAdd;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
@@ -659,21 +801,23 @@
         private System.Windows.Forms.TextBox txtActive;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtHidCode;
         private System.Windows.Forms.TextBox txtGrdRowIndex;
         public System.Windows.Forms.Panel pnlTabControlSearch;
         private System.Windows.Forms.TextBox txtSearchText;
         private System.Windows.Forms.DataGridView grdSearch;
-        private System.Windows.Forms.TextBox txtHidCode;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox ddlTaxTerm;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox ddlSupplier;
         private System.Windows.Forms.Label lblTag;
-        private System.Windows.Forms.TextBox txtTotQty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ItemCd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Item;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UnitCd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DActiveYN;
-        private System.Windows.Forms.DataGridViewImageColumn Edit;
-        private System.Windows.Forms.DataGridViewImageColumn Delete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn code;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txtAmount;
+        private System.Windows.Forms.Label label14;
     }
 }
