@@ -51,6 +51,7 @@
             this.interGodownStockTransferRequsitionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.interGodownStockTraunsferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.goodReseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -176,6 +177,7 @@
             this.physicalStockEntryToolStripMenuItem,
             this.purchaseOrderRequisitionToolStripMenuItem,
             this.purchaseOrderToolStripMenuItem,
+            this.goodReseToolStripMenuItem,
             this.purchaseToolStripMenuItem,
             this.interGodownStockTransferRequsitionToolStripMenuItem,
             this.interGodownStockTraunsferToolStripMenuItem});
@@ -215,12 +217,13 @@
             this.purchaseOrderToolStripMenuItem.Name = "purchaseOrderToolStripMenuItem";
             this.purchaseOrderToolStripMenuItem.Size = new System.Drawing.Size(407, 28);
             this.purchaseOrderToolStripMenuItem.Text = "Purchase order";
+            this.purchaseOrderToolStripMenuItem.Click += new System.EventHandler(this.purchaseOrderToolStripMenuItem_Click);
             // 
             // purchaseToolStripMenuItem
             // 
             this.purchaseToolStripMenuItem.Name = "purchaseToolStripMenuItem";
             this.purchaseToolStripMenuItem.Size = new System.Drawing.Size(407, 28);
-            this.purchaseToolStripMenuItem.Text = "Purchase";
+            this.purchaseToolStripMenuItem.Text = "Purchase Bill";
             // 
             // interGodownStockTransferRequsitionToolStripMenuItem
             // 
@@ -241,6 +244,13 @@
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(86, 36);
             this.reportsToolStripMenuItem.Text = "Reports";
+            // 
+            // goodReseToolStripMenuItem
+            // 
+            this.goodReseToolStripMenuItem.Name = "goodReseToolStripMenuItem";
+            this.goodReseToolStripMenuItem.Size = new System.Drawing.Size(407, 28);
+            this.goodReseToolStripMenuItem.Text = "Good Receipt Note";
+            this.goodReseToolStripMenuItem.Click += new System.EventHandler(this.goodReseToolStripMenuItem_Click);
             // 
             // InventoryMenu
             // 
@@ -281,5 +291,6 @@
         private System.Windows.Forms.ToolStripMenuItem purchaseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem interGodownStockTransferRequsitionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem interGodownStockTraunsferToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem goodReseToolStripMenuItem;
     }
 }
