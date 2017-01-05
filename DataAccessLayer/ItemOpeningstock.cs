@@ -173,12 +173,13 @@ namespace DataAccessLayer
         #endregion
         #region Bind detail grid
 
-        public void BindDtlList(DataGridView grd, int Code)
+        public List<ItemOpeningStockEL> BindDtlList(DataGridView grd, int Code)
         {
             //  var Dtl=null;
             try
             {
-                var Dtl = (from OpDtl in tblitemopeningdetails
+                List<ItemOpeningStockEL> objOpeningStkEL = new List<ItemOpeningStockEL>();
+                objOpeningStkEL = (from OpDtl in tblitemopeningdetails
                            join It in tblitems on OpDtl.itemcd equals It.Code
                               into t1
                            from It in t1.DefaultIfEmpty()
@@ -187,19 +188,19 @@ namespace DataAccessLayer
                            from Unt in t2.DefaultIfEmpty()
                            where OpDtl.ItemOpeningCd == Code
                            orderby It.Description
-                           select new
+                           select new ItemOpeningStockEL()
                            {
                                DCode = OpDtl.Code,
                                ItemCd = OpDtl.itemcd,
                                Item = (It.Description ?? string.Empty),
                                UnitCd = OpDtl.UnitCd,
                                Unit = (Unt.Description ?? string.Empty),
-                               ExpiryDt = OpDtl.ExpiryDt,
+                               ExpiryDt = OpDtl.ExpiryDt.Value, 
                                SubUnitCd = (OpDtl.SubUnitCd ?? 0),
                                SubQty = OpDtl.SubQty,
                                Quantity = OpDtl.Qty,
                                Rate = OpDtl.value,
-                               DActiveYN = OpDtl.ActiveYN
+                               ActiveYN = OpDtl.ActiveYN
                            }
                          ).ToList();
 
