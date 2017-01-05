@@ -15,6 +15,8 @@ namespace DataAccessLayer
         public static int BranchCD = 0;
         public static bool IsAdmin = true;
         public static int FinYr=20162017;
+        public static int rollid = 1;
+        
  
        public static string GetPrefixforTransaction(int id)
        {
