@@ -12,7 +12,7 @@ using EntityLayer;
 namespace DataAccessLayer
     
 {
-    class ItemOpeningstock : SpaPracticeEntities
+    public class ItemOpeningstock : SpaPracticeEntities
     {
         StockDAL ObjStock = new StockDAL();
            public int InsertUpdateOpeningstockHdr(tblitemopeningheader objOpeningstockHdr, tblitemopeningdetail obopeningStockDtlj)
