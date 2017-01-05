@@ -15,7 +15,8 @@ namespace DataAccessLayer.Repository
     public partial class tblstock
     {
         public int Code { get; set; }
-        public string TransuctionCd { get; set; }
+        public int TransuctionHdCd { get; set; }
+        public int TransuctionDtlCd { get; set; }
         public System.DateTime StockDate { get; set; }
         public int ItemCd { get; set; }
         public int UnitCd { get; set; }

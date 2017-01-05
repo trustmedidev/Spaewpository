@@ -318,6 +318,8 @@
           <Property Name="EntryDate" Type="datetime" Precision="0" Nullable="false" />
           <Property Name="UserCode" Type="int" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6005: The data type 'udecimal' is currently not supported for the target Entity Framework version; the column 'SubQty' in the table 'spamanagement.tblitemopeningdetail' was excluded.-->
         <EntityType Name="tblitemopeningdetail">
           <Key>
             <PropertyRef Name="Code" />
@@ -326,10 +328,12 @@
           <Property Name="Code" Type="int" Nullable="false" />
           <Property Name="ItemOpeningCd" Type="int" Nullable="false" />
           <Property Name="itemcd" Type="int" Nullable="false" />
+          <Property Name="ExpiryDt" Type="datetime" Precision="0" />
           <Property Name="UnitCd" Type="int" Nullable="false" />
-          <Property Name="Qty" Type="decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="value" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Qty" Type="decimal" Precision="18" Scale="6" Nullable="false" />
+          <Property Name="value" Type="decimal" Precision="18" Scale="6" Nullable="false" />
           <Property Name="ActiveYN" Type="bit" Nullable="false" />
+          <Property Name="SubUnitCd" Type="int" />
         </EntityType>
         <EntityType Name="tblitemopeningheader">
           <Key>
@@ -542,7 +546,8 @@ warning 6005: The data type 'udecimal' is currently not supported for the target
             <PropertyRef Name="Code" />
           </Key>
           <Property Name="Code" Type="int" Nullable="false" />
-          <Property Name="TransuctionCd" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TransuctionHdCd" Type="int" Nullable="false" />
+          <Property Name="TransuctionDtlCd" Type="int" Nullable="false" />
           <Property Name="StockDate" Type="datetime" Precision="0" Nullable="false" />
           <Property Name="ItemCd" Type="int" Nullable="false" />
           <Property Name="UnitCd" Type="int" Nullable="false" />
@@ -2867,6 +2872,8 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <Property Name="Qty" Type="Decimal" Nullable="false" />
           <Property Name="value" Type="Decimal" Nullable="false" />
           <Property Name="ActiveYN" Type="Boolean" Nullable="false" />
+          <Property Name="ExpiryDt" Type="DateTime" />
+          <Property Name="SubUnitCd" Type="Int32" />
         </EntityType>
         <EntityType Name="tblitemopeningheader">
           <Key>
@@ -2899,7 +2906,8 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
             <PropertyRef Name="Code" />
           </Key>
           <Property Name="Code" Type="Int32" Nullable="false" />
-          <Property Name="TransuctionCd" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TransuctionHdCd" Type="Int32" Nullable="false" />
+          <Property Name="TransuctionDtlCd" Type="Int32" Nullable="false" />
           <Property Name="StockDate" Type="DateTime" Nullable="false" />
           <Property Name="ItemCd" Type="Int32" Nullable="false" />
           <Property Name="UnitCd" Type="Int32" Nullable="false" />
@@ -3551,6 +3559,8 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <EntitySetMapping Name="tblitemopeningdetails">
             <EntityTypeMapping TypeName="SpaPracticeModel.tblitemopeningdetail">
               <MappingFragment StoreEntitySet="tblitemopeningdetail">
+                <ScalarProperty Name="SubUnitCd" ColumnName="SubUnitCd" />
+                <ScalarProperty Name="ExpiryDt" ColumnName="ExpiryDt" />
                 <ScalarProperty Name="ActiveYN" ColumnName="ActiveYN" />
                 <ScalarProperty Name="value" ColumnName="value" />
                 <ScalarProperty Name="Qty" ColumnName="Qty" />
@@ -3604,7 +3614,8 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
                 <ScalarProperty Name="UnitCd" ColumnName="UnitCd" />
                 <ScalarProperty Name="ItemCd" ColumnName="ItemCd" />
                 <ScalarProperty Name="StockDate" ColumnName="StockDate" />
-                <ScalarProperty Name="TransuctionCd" ColumnName="TransuctionCd" />
+                <ScalarProperty Name="TransuctionDtlCd" ColumnName="TransuctionDtlCd" />
+                <ScalarProperty Name="TransuctionHdCd" ColumnName="TransuctionHdCd" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -49,10 +49,10 @@ namespace SPAPracticeManagement.InventoryTransaction
         public override void AddFormat()
         {
             lblTag.Text = "Add " + objFrmName.ToString() + " Detail";
-            btnSave.Top = 520;
+            btnSave.Top = 540;
             btnSave.Left = 1000;
-            btnClear.Top = 520;
-            btnClear.Left = 1120;
+            btnClear.Top = 540;
+            btnClear.Left = 1080;
             btnUpdate.Visible = false;
             btnSave.Visible = true;
             btnClear.Visible = true;
