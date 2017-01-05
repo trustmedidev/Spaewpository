@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using EntityLayer;
 namespace DataAccessLayer
 {
-  public  public class StockDAL : SpaPracticeEntities
+    public class StockDAL : SpaPracticeEntities
     {
        
                 public void   InsertUpdateStock(int TranHdrCd,int TranDtlCd, tblstock objStock )
