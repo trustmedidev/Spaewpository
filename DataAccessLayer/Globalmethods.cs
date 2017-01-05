@@ -24,7 +24,7 @@ namespace DataAccessLayer
            try
            {
                SpaPracticeEntities db = new SpaPracticeEntities();
-           var BNValue =db.tblparameters.Where(p => p.ID ==id).ToList();
+               var BNValue = db.tblparameters.Where(p => p.ID == id).Select(i => i.ID == id).ToList(); ;
            prefix = BNValue.ToString();
            }
            catch(Exception ex)
