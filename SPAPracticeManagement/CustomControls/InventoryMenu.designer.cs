@@ -161,6 +161,7 @@
             this.taxChargesConfigurationToolStripMenuItem.Name = "taxChargesConfigurationToolStripMenuItem";
             this.taxChargesConfigurationToolStripMenuItem.Size = new System.Drawing.Size(340, 28);
             this.taxChargesConfigurationToolStripMenuItem.Text = "Tax / Charges configuration";
+            this.taxChargesConfigurationToolStripMenuItem.Click += new System.EventHandler(this.taxChargesConfigurationToolStripMenuItem_Click);
             // 
             // suppliorToolStripMenuItem
             // 
