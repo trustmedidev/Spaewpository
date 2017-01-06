@@ -15,6 +15,8 @@ namespace DataAccessLayer
         public static int BranchCD = 0;
         public static bool IsAdmin = true;
         public static int FinYr=20162017;
+        public static int rollid = 1;
+        
  
        public static string GetPrefixforTransaction(int id)
        {
@@ -22,7 +24,7 @@ namespace DataAccessLayer
            try
            {
                SpaPracticeEntities db = new SpaPracticeEntities();
-           var BNValue =db.tblparameters.Where(p => p.ID ==id).ToList();
+               var BNValue = db.tblparameters.Where(p => p.ID == id).Select(i => i.TranPrefixType).ToList(); ;
            prefix = BNValue.ToString();
            }
            catch(Exception ex)

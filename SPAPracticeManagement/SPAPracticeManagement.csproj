@@ -315,6 +315,12 @@
     <Compile Include="InventoryTransaction\frmOpeningStock.Designer.cs">
       <DependentUpon>frmOpeningStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="InventoryTransaction\frmPurchaseBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryTransaction\frmPurchaseBill.Designer.cs">
+      <DependentUpon>frmPurchaseBill.cs</DependentUpon>
+    </Compile>
     <Compile Include="InventoryTransaction\frmPurchaseOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -575,6 +581,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InventoryTransaction\frmOpeningStock.resx">
       <DependentUpon>frmOpeningStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryTransaction\frmPurchaseBill.resx">
+      <DependentUpon>frmPurchaseBill.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InventoryTransaction\frmPurchaseOrder.resx">
       <DependentUpon>frmPurchaseOrder.cs</DependentUpon>
