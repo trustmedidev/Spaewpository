@@ -47,11 +47,11 @@
             this.physicalStockEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.purchaseOrderRequisitionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.purchaseOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.goodReseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.purchaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.interGodownStockTransferRequsitionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.interGodownStockTraunsferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.goodReseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -219,11 +219,19 @@
             this.purchaseOrderToolStripMenuItem.Text = "Purchase order";
             this.purchaseOrderToolStripMenuItem.Click += new System.EventHandler(this.purchaseOrderToolStripMenuItem_Click);
             // 
+            // goodReseToolStripMenuItem
+            // 
+            this.goodReseToolStripMenuItem.Name = "goodReseToolStripMenuItem";
+            this.goodReseToolStripMenuItem.Size = new System.Drawing.Size(407, 28);
+            this.goodReseToolStripMenuItem.Text = "Good Receipt Note";
+            this.goodReseToolStripMenuItem.Click += new System.EventHandler(this.goodReseToolStripMenuItem_Click);
+            // 
             // purchaseToolStripMenuItem
             // 
             this.purchaseToolStripMenuItem.Name = "purchaseToolStripMenuItem";
             this.purchaseToolStripMenuItem.Size = new System.Drawing.Size(407, 28);
             this.purchaseToolStripMenuItem.Text = "Purchase Bill";
+            this.purchaseToolStripMenuItem.Click += new System.EventHandler(this.purchaseToolStripMenuItem_Click);
             // 
             // interGodownStockTransferRequsitionToolStripMenuItem
             // 
@@ -244,13 +252,6 @@
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(86, 36);
             this.reportsToolStripMenuItem.Text = "Reports";
-            // 
-            // goodReseToolStripMenuItem
-            // 
-            this.goodReseToolStripMenuItem.Name = "goodReseToolStripMenuItem";
-            this.goodReseToolStripMenuItem.Size = new System.Drawing.Size(407, 28);
-            this.goodReseToolStripMenuItem.Text = "Good Receipt Note";
-            this.goodReseToolStripMenuItem.Click += new System.EventHandler(this.goodReseToolStripMenuItem_Click);
             // 
             // InventoryMenu
             // 

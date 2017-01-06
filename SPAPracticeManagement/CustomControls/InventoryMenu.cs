@@ -109,5 +109,12 @@ namespace SPAPracticeManagement.CustomControls
             objfrm.Show();
             this.Parent.FindForm().Hide();
         }
+
+        private void purchaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPurchaseBill objfrm = new frmPurchaseBill();
+            objfrm.Show();
+            this.Parent.FindForm().Hide();
+        }
     }
 }
