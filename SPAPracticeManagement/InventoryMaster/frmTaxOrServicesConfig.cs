@@ -35,7 +35,9 @@ namespace SPAPracticeManagement.InventoryMaster
 
         private void frmTaxOrServicesConfig_Load(object sender, EventArgs e)
         {
-
+            CommonCL.PanelControlGotFocus(pnlTabControlSearch, chkLsFormula);
+            objFrmName = "Tax / Charges configuration";
+            SirchGridFormat();
         }
 
         #region Form Format
@@ -52,7 +54,7 @@ namespace SPAPracticeManagement.InventoryMaster
             btnClear.Visible = true;
             formCtrlClear();
 
-            CommonCL.PanelControlGotFocus(pnlTabControlAdd, pnlTabControlSearch);
+            CommonCL.PanelControlGotFocus(chkLsFormula, pnlTabControlSearch);
             formCtrlActiveY();
 
         }
@@ -69,7 +71,7 @@ namespace SPAPracticeManagement.InventoryMaster
             btnSave.Visible = true;
             btnClear.Visible = true;
 
-            CommonCL.PanelControlGotFocus(pnlTabControlAdd, pnlTabControlSearch);
+            CommonCL.PanelControlGotFocus(chkLsFormula, pnlTabControlSearch);
             formCtrlActiveY();
         }
         public void EditFormatActiveN()
@@ -90,10 +92,10 @@ namespace SPAPracticeManagement.InventoryMaster
             txtConfigNm.Enabled = true;
             txtHdActiveYN.Enabled = true;
 
-            ddlName.Enabled = true;
+            //TnSname.Enabled = true;
             ddlSTax.Enabled = true;
             ddladdSub.Enabled = true;
-            ddlFormula.Enabled = true;
+            //ddlFormula.Enabled = true;
             txtPer.Enabled = true;
             txtVal.Enabled = true;
             ddlType.Enabled = true;
@@ -116,10 +118,10 @@ namespace SPAPracticeManagement.InventoryMaster
             txtConfigNm.Text = "";
             txtHdActiveYN.Text = "Y";
 
-            ddlName.Text = "";
+            //TnSname.Text = "";
             ddlSTax.Text = "";
             ddladdSub.Text = "";
-            ddlFormula.Text = "";
+            //ddlFormula.Text = "";
             txtPer.Text = "";
             txtVal.Text = "";
             ddlType.Text = "";
@@ -128,10 +130,10 @@ namespace SPAPracticeManagement.InventoryMaster
         }
         public void SubCtrlClear()
         {
-            ddlName.Text = "";
+            //TnSname.Text = "";
             ddlSTax.Text = "";
             ddladdSub.Text = "";
-            ddlFormula.Text = "";
+            //ddlFormula.Text = "";
             txtPer.Text = "";
             txtVal.Text = "";
             ddlType.Text = "";
@@ -143,10 +145,10 @@ namespace SPAPracticeManagement.InventoryMaster
             txtConfigNm.Enabled = true;
             txtHdActiveYN.Enabled = true;
 
-            ddlName.Enabled = true;
+            //TnSname.Enabled = true;
             ddlSTax.Enabled = true;
             ddladdSub.Enabled = true;
-            ddlFormula.Enabled = true;
+            //ddlFormula.Enabled = true;
             txtPer.Enabled = true;
             txtVal.Enabled = true;
             ddlType.Enabled = true;
@@ -175,7 +177,7 @@ namespace SPAPracticeManagement.InventoryMaster
                 lblTag.Text = "All " + objFrmName.ToString() + "";
                 grdSearch.Width = 1100;
                 grdSearch.Height = 550;
-                CommonCL.PanelControlGotFocus(pnlTabControlSearch, pnlTabControlAdd);
+                CommonCL.PanelControlGotFocus(pnlTabControlSearch, chkLsFormula);
 
                 //grdSearch.Columns[0].Visible = false;
 
@@ -194,6 +196,178 @@ namespace SPAPracticeManagement.InventoryMaster
 
 
         }
-        #endregion       
+        #endregion  
+     
+        #region KeybordControl
+        private void txtConfigNm_KeyUp(object sender, KeyEventArgs e)
+        {
+            CommonCL.TextBoxGotFocus(txtHdActiveYN, e);
+        }
+
+        private void txtHdActiveYN_KeyUp(object sender, KeyEventArgs e)
+        {
+            CommonCL.ButtonGotFocus(btnSubAdd, e);
+        }
+
+        private void btnSubAdd_KeyUp(object sender, KeyEventArgs e)
+        {
+            CommonCL.TextBoxGotFocus(txtTnSname, e);
+        }
+        private void txtTnSname_KeyUp(object sender, KeyEventArgs e)
+        {
+            CommonCL.ComboBoxGotFocus(ddlSTax, e);
+        }
+        //private void ddlName_KeyUp(object sender, KeyEventArgs e)
+        //{
+            
+        //}
+
+        private void ddlSTax_KeyUp(object sender, KeyEventArgs e)
+        {
+            CommonCL.ComboBoxGotFocus(ddladdSub, e);
+        }
+
+        private void ddladdSub_KeyUp(object ddladdSub, KeyEventArgs e)
+        {
+            CommonCL.TextBoxGotFocus(txtTnSname, e);
+        }
+        //private void txtTnSname_KeyUp(object sender, KeyEventArgs e)
+        //{
+        //    CommonCL.TextBoxGotFocus(txtPer, e);
+        //}
+       
+
+        private void txtPer_KeyUp(object sender, KeyEventArgs e)
+        {
+            CommonCL.TextBoxGotFocus(txtVal, e);
+        }
+
+        private void txtVal_KeyUp(object sender, KeyEventArgs e)
+        {
+            CommonCL.ComboBoxGotFocus(ddlType, e);
+        }
+
+        private void ddlType_KeyUp(object sender, KeyEventArgs e)
+        {
+            CommonCL.TextBoxGotFocus(txtActive, e);
+        }
+
+        private void txtActive_KeyUp(object sender, KeyEventArgs e)
+        {
+            CommonCL.ButtonGotFocus(btnSubSave, e);
+        }
+
+        private void btnSubSave_KeyUp(object sender, KeyEventArgs e)
+        {
+            //CommonCL.ComboBoxGotFocus(TnSname , e);
+        }
+
+        #endregion
+
+        private void btnSubSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ValidateSubForm())
+                {
+                    //SubSaveUpdate();
+                }
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.Message);
+            }
+        }
+        private bool ValidateSubForm()
+        {
+
+            if (txtHidCode.Text == "")
+            {
+                txtHidCode.Text = "0";
+            }
+
+            //if (TnSname.SelectedValue == null || TnSname.SelectedValue.ToString() == "")
+            //{
+            //    MessageBox.Show("Please enter Name.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return false;
+            //}
+            if (ddlSTax.SelectedValue == null || ddlSTax.SelectedValue.ToString() == "")
+            {
+                MessageBox.Show("Please enter S. Tax.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (ddladdSub.Text .ToString ()=="")
+            {
+                MessageBox.Show("Please enter S. Tax.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            //if (ddlFormula.Text.ToString() == "")
+            //{
+            //    MessageBox.Show("Please enter Formula.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return false;
+            //}
+            //if (txtPer.Text.Trim() == "")
+            //{
+            //    MessageBox.Show("Please enter Qty.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return false;
+            //}
+            //if (txtVal.Text.Trim() == "")
+            //{
+            //    MessageBox.Show("Please enter Rate.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return false;
+            //}
+
+            if (txtHdActiveYN.Text.Trim() == "")
+            {
+                MessageBox.Show("Please enter activeYN", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+
+            else
+            {
+                return true;
+            }
+        }
+
+        private void grdDtl_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        public void ChkListLoad()
+        {
+            int iRowCnt = 0;
+
+            chkListFormula.Items.Clear();
+
+            //foreach (DataRow row_1 in ds.Tables["BookName"].Rows)
+            //{
+            //    row = row_1;
+            //    chkLsFormula.Items.Add(ds.Tables["BookName"].Rows[iRowCnt][1]);
+            //    iRowCnt = iRowCnt + 1;
+            //}
+
+            //chkLsFormula.l
+            //DtGridChkList.Rows.Clear();
+            //DtGridChkList.Rows.Add();
+            //DtGridChkList["Chk", 0].Value = true;
+            //DtGridChkList["slno2", 0].Value = "0e";
+            //DtGridChkList["Earnings2", 0].Value = "None";
+            //DtGridChkList["ShortName2", 0].Value = "None";
+
+
+            for (int i = 0; i < grdDtl.Rows.Count; i++)
+            {
+                //DtGridChkList.Rows.Add();
+
+                //DtGridChkList["slno2", (i + 1)].Value = grdDtl["SlNo", i].Value.ToString();
+                //DtGridChkList["Earnings2", (i + 1)].Value = grdDtl["Earnings", i].Value.ToString();
+                ////DtGridChkList["ShortName2", (i + 1)].Value = grdDtl["ShortName", i].Value.ToString();
+            }
+        }
+
+
+
     }
 }

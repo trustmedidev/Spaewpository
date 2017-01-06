@@ -285,6 +285,12 @@
     <Compile Include="InventoryMaster\frmTaxControl.Designer.cs">
       <DependentUpon>frmTaxControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="InventoryMaster\frmTaxOrServicesConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryMaster\frmTaxOrServicesConfig.Designer.cs">
+      <DependentUpon>frmTaxOrServicesConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="InventoryMaster\frmUnit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -566,6 +572,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InventoryMaster\frmSupplior.resx">
       <DependentUpon>frmSupplior.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryMaster\frmTaxOrServicesConfig.resx">
+      <DependentUpon>frmTaxOrServicesConfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InventoryMaster\frmUnit.resx">
       <DependentUpon>frmUnit.cs</DependentUpon>
