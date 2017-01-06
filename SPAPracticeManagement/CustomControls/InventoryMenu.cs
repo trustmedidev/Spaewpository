@@ -119,7 +119,7 @@ namespace SPAPracticeManagement.CustomControls
 
         private void taxChargesConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmTaxControl objfrm = new frmTaxControl();
+            frmTaxOrServicesConfig objfrm = new frmTaxOrServicesConfig();
             objfrm.Show();
             this.Parent.FindForm().Hide();
         }
