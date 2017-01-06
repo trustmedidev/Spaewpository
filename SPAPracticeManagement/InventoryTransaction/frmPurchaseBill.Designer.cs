@@ -31,6 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPurchaseBill));
             this.lblTag = new System.Windows.Forms.Label();
             this.pnlTabControlAdd = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label23 = new System.Windows.Forms.Label();
+            this.ddlBillType = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -105,9 +108,6 @@
             this.pnlTabControlSearch = new System.Windows.Forms.Panel();
             this.txtSearchText = new System.Windows.Forms.TextBox();
             this.grdSearch = new System.Windows.Forms.DataGridView();
-            this.label23 = new System.Windows.Forms.Label();
-            this.ddlBillType = new System.Windows.Forms.ComboBox();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.pnlTabControlAdd.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdTaxTerm)).BeginInit();
@@ -188,6 +188,39 @@
             this.pnlTabControlAdd.Name = "pnlTabControlAdd";
             this.pnlTabControlAdd.Size = new System.Drawing.Size(1378, 934);
             this.pnlTabControlAdd.TabIndex = 161;
+            // 
+            // panel4
+            // 
+            this.panel4.Location = new System.Drawing.Point(629, 568);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(340, 140);
+            this.panel4.TabIndex = 169;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.BackColor = System.Drawing.Color.Transparent;
+            this.label23.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(623, 508);
+            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(84, 21);
+            this.label23.TabIndex = 168;
+            this.label23.Text = "Bill Type :";
+            // 
+            // ddlBillType
+            // 
+            this.ddlBillType.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ddlBillType.FormattingEnabled = true;
+            this.ddlBillType.Items.AddRange(new object[] {
+            "Cash",
+            "Cerid",
+            "Bank"});
+            this.ddlBillType.Location = new System.Drawing.Point(627, 533);
+            this.ddlBillType.Margin = new System.Windows.Forms.Padding(4);
+            this.ddlBillType.Name = "ddlBillType";
+            this.ddlBillType.Size = new System.Drawing.Size(345, 27);
+            this.ddlBillType.TabIndex = 167;
             // 
             // label22
             // 
@@ -521,7 +554,7 @@
             // 
             this.ddlUser.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ddlUser.FormattingEnabled = true;
-            this.ddlUser.Location = new System.Drawing.Point(414, 41);
+            this.ddlUser.Location = new System.Drawing.Point(415, 41);
             this.ddlUser.Margin = new System.Windows.Forms.Padding(4);
             this.ddlUser.Name = "ddlUser";
             this.ddlUser.Size = new System.Drawing.Size(345, 27);
@@ -833,7 +866,7 @@
             // 
             this.ddlBranch.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ddlBranch.FormattingEnabled = true;
-            this.ddlBranch.Location = new System.Drawing.Point(414, 9);
+            this.ddlBranch.Location = new System.Drawing.Point(415, 9);
             this.ddlBranch.Margin = new System.Windows.Forms.Padding(4);
             this.ddlBranch.Name = "ddlBranch";
             this.ddlBranch.Size = new System.Drawing.Size(345, 27);
@@ -958,39 +991,6 @@
             this.grdSearch.RowTemplate.Height = 24;
             this.grdSearch.Size = new System.Drawing.Size(597, 322);
             this.grdSearch.TabIndex = 0;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.BackColor = System.Drawing.Color.Transparent;
-            this.label23.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(623, 508);
-            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(84, 21);
-            this.label23.TabIndex = 168;
-            this.label23.Text = "Bill Type :";
-            // 
-            // ddlBillType
-            // 
-            this.ddlBillType.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ddlBillType.FormattingEnabled = true;
-            this.ddlBillType.Items.AddRange(new object[] {
-            "Cash",
-            "Cerid",
-            "Bank"});
-            this.ddlBillType.Location = new System.Drawing.Point(627, 533);
-            this.ddlBillType.Margin = new System.Windows.Forms.Padding(4);
-            this.ddlBillType.Name = "ddlBillType";
-            this.ddlBillType.Size = new System.Drawing.Size(345, 27);
-            this.ddlBillType.TabIndex = 167;
-            // 
-            // panel4
-            // 
-            this.panel4.Location = new System.Drawing.Point(629, 568);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(340, 140);
-            this.panel4.TabIndex = 169;
             // 
             // frmPurchaseBill
             // 
