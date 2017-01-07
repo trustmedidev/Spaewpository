@@ -11,7 +11,7 @@ using EntityLayer;
 
 namespace DataAccessLayer
 {
-    public class ItemOpeningstock : SpaPracticeEntities
+ public   class ItemOpeningstock : SpaPracticeEntities
     {
         StockDAL ObjStock = new StockDAL();
         public int InsertUpdateOpeningstockHdr(tblitemopeningheader objOpeningstockHdr, tblitemopeningdetail obopeningStockDtlj)
@@ -107,30 +107,30 @@ namespace DataAccessLayer
         {
             try
             {
-                var data = (dynamic)null;
+                var data = (dynamic)null; 
                 if (Globalmethods.IsAdmin == true)
                 {
+                    
+                     data = (from p in tblitemopeningheaders
+                                //join bomDtl in tblbomdetails on p.Code equals bomDtl.BOM_Cd
 
-                    data = (from p in tblitemopeningheaders
-                            //join bomDtl in tblbomdetails on p.Code equals bomDtl.BOM_Cd
+                                join gd in tblgodowns on p.GodownCd equals gd.Code
+                                join br in tblbranches on p.BranchCd equals br.BranchID
+                                orderby br.BranchName, gd.Description
+                                select new
+                                {
+                                    code = p.Code,
+                                    Brabchcd = p.BranchCd,
+                                    Godowncd = p.GodownCd,
+                                    BranchName = br.BranchName,
+                                    GodownName = gd.Description,
+                                    Description = p.Description,
+                                    TranDate = p.TranDate,
+                                    TotalValue = p.TotValue,
+                                    ActiveYN = p.ActiveYN
 
-                            join gd in tblgodowns on p.GodownCd equals gd.Code
-                            join br in tblbranches on p.BranchCd equals br.BranchID
-                            orderby br.BranchName, gd.Description
-                            select new
-                            {
-                                code = p.Code,
-                                Brabchcd = p.BranchCd,
-                                Godowncd = p.GodownCd,
-                                BranchName = br.BranchName,
-                                GodownName = gd.Description,
-                                Description = p.Description,
-                                TranDate = p.TranDate,
-                                TotalValue = p.TotValue,
-                                ActiveYN = p.ActiveYN
-
-                            }
-                               ).ToList();
+                                }
+                                ).ToList();
                 }
 
                 else
@@ -140,7 +140,7 @@ namespace DataAccessLayer
 
                             join gd in tblgodowns on p.GodownCd equals gd.Code
                             join br in tblbranches on p.BranchCd equals br.BranchID
-                            where p.BranchCd == Globalmethods.BranchCD
+                            where p.BranchCd==Globalmethods.BranchCD
                             orderby br.BranchName, gd.Description
                             select new
                             {
@@ -157,7 +157,7 @@ namespace DataAccessLayer
                             }
                                ).ToList();
                 }
-                // var result = data.ToList();
+               // var result = data.ToList();
 
                 if (data != null)
                 {
@@ -173,35 +173,35 @@ namespace DataAccessLayer
         #endregion
         #region Bind detail grid
 
-        public List<ItemOpeningStockEL> BindDtlList(int Code)
+        public List<ItemOpeningStockEL> BindDtlList( int Code)
         {
             //  var Dtl=null;
             try
             {
                 List<ItemOpeningStockEL> objOpeningStkEL = new List<ItemOpeningStockEL>();
                 objOpeningStkEL = (from OpDtl in tblitemopeningdetails
-                                   join It in tblitems on OpDtl.itemcd equals It.Code
-                                      into t1
-                                   from It in t1.DefaultIfEmpty()
-                                   join Unt in tblunits on OpDtl.UnitCd equals Unt.Code
-                                      into t2
-                                   from Unt in t2.DefaultIfEmpty()
-                                   where OpDtl.ItemOpeningCd == Code
-                                   orderby It.Description
-                                   select new ItemOpeningStockEL()
-                                   {
-                                       DCode = OpDtl.Code,
-                                       ItemCd = OpDtl.itemcd,
-                                       Item = (It.Description ?? string.Empty),
-                                       UnitCd = OpDtl.UnitCd,
-                                       Unit = (Unt.Description ?? string.Empty),
-                                       ExpiryDt = OpDtl.ExpiryDt.Value,
-                                       SubUnitCd = (OpDtl.SubUnitCd ?? 0),
-                                       SubQty = OpDtl.SubQty,
-                                       Quantity = OpDtl.Qty,
-                                       Rate = OpDtl.value,
-                                       ActiveYN = OpDtl.ActiveYN
-                                   }
+                           join It in tblitems on OpDtl.itemcd equals It.Code
+                              into t1
+                           from It in t1.DefaultIfEmpty()
+                           join Unt in tblunits on OpDtl.UnitCd equals Unt.Code
+                              into t2
+                           from Unt in t2.DefaultIfEmpty()
+                           where OpDtl.ItemOpeningCd == Code
+                           orderby It.Description
+                           select new ItemOpeningStockEL()
+                           {
+                               DCode = OpDtl.Code,
+                               ItemCd = OpDtl.itemcd,
+                               Item = (It.Description ?? string.Empty),
+                               UnitCd = OpDtl.UnitCd,
+                               Unit = (Unt.Description ?? string.Empty),
+                               ExpiryDt = OpDtl.ExpiryDt.Value, 
+                               SubUnitCd = (OpDtl.SubUnitCd ?? 0),
+                               SubQty = OpDtl.SubQty,
+                               Quantity = OpDtl.Qty,
+                               Rate = OpDtl.value,
+                               ActiveYN = OpDtl.ActiveYN
+                           }
                          ).ToList();
 
 
