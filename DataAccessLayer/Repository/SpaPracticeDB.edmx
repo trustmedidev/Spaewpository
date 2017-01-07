@@ -581,34 +581,6 @@
           <Property Name="ModifiedBy" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'spamanagement.tblspaparameter' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="tblspaparameter">
-          <Property Name="MultipleBranch" Type="bit" />
-          <Property Name="LocalorWeb" Type="char" MaxLength="1" />
-          <Property Name="Reorderlevel" Type="bit" />
-          <Property Name="StopMovementonReorder" Type="bit" />
-          <Property Name="ItemWithBatch" Type="bit" />
-          <Property Name="PurchaseRequisition" Type="bit" />
-          <Property Name="IndentonRequisition" Type="bit" />
-          <Property Name="MovementfromMainGodown" Type="bit" />
-          <Property Name="MainGodownCd" Type="int" />
-          <Property Name="IntergodownRequisition" Type="bit" />
-          <Property Name="OPeningstockTranType" Type="char" MaxLength="1" />
-          <Property Name="PurchaseRequisitionTranType" Type="char" MaxLength="1" />
-          <Property Name="PurchaseRequixitionPrefix" Type="char" MaxLength="3" />
-          <Property Name="PurchaseOrderTranType" Type="char" MaxLength="1" />
-          <Property Name="PurchaseOrderPrefix" Type="char" MaxLength="3" />
-          <Property Name="PurchaseBillTranType" Type="char" MaxLength="1" />
-          <Property Name="PurchaseBillTranPrefix" Type="char" MaxLength="3" />
-          <Property Name="IntergodownTranType" Type="char" MaxLength="1" />
-          <Property Name="InterGodownTranPrefix" Type="char" MaxLength="3" />
-          <Property Name="GRN" Type="bit" />
-          <Property Name="GRNTRanType" Type="char" MaxLength="1" />
-          <Property Name="GRNTranPrefix" Type="char" MaxLength="3" />
-          <Property Name="AllowBackDateEntry" Type="bit" />
-          <Property Name="DayCloser" Type="bit" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6005: The data type 'udecimal' is currently not supported for the target Entity Framework version; the column 'Qty' in the table 'spamanagement.tblstock' was excluded.-->
         <EntityType Name="tblstock">
           <Key>
@@ -1724,10 +1696,11 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <EntitySet Name="tblfinancialyears" EntityType="SpaPracticeModel.tblfinancialyear" />
           <EntitySet Name="tblitemopeningdetails" EntityType="SpaPracticeModel.tblitemopeningdetail" />
           <EntitySet Name="tblitemopeningheaders" EntityType="SpaPracticeModel.tblitemopeningheader" />
-          <EntitySet Name="tblparameters" EntityType="SpaPracticeModel.tblparameter" />
           <EntitySet Name="tblstocks" EntityType="SpaPracticeModel.tblstock" />
           <EntitySet Name="tblpurchasedtls" EntityType="SpaPracticeModel.tblpurchasedtl" />
           <EntitySet Name="tblpurchasehdrs" EntityType="SpaPracticeModel.tblpurchasehdr" />
+          <EntitySet Name="Entity1" EntityType="SpaPracticeModel.Entity1" />
+          <EntitySet Name="tblparameters" EntityType="SpaPracticeModel.tblparameter" />
           </EntityContainer>
         <ComplexType Name="GetReportData_Result" />
         <ComplexType Name="GetReportDataByReportId_Result" />
@@ -2966,16 +2939,6 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <Property Name="BranchCd" Type="Int32" Nullable="false" />
           <Property Name="Finyr" Type="Int32" />
         </EntityType>
-        <EntityType Name="tblparameter">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="AllowYN" Type="Boolean" />
-          <Property Name="TranPrefixType" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="TranPrefix" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="tblstock">
           <Key>
             <PropertyRef Name="Code" />
@@ -3038,6 +3001,22 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <Property Name="AcgtiveYN" Type="Boolean" Nullable="false" />
           <Property Name="EntryDate" Type="DateTime" Nullable="false" />
           <Property Name="UserCode" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Entity1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="tblparameter">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="AllowYN" Type="Boolean" />
+          <Property Name="TranPrefixType" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="TranPrefix" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -3707,17 +3686,6 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tblparameters">
-            <EntityTypeMapping TypeName="SpaPracticeModel.tblparameter">
-              <MappingFragment StoreEntitySet="tblparameter">
-                <ScalarProperty Name="TranPrefix" ColumnName="TranPrefix" />
-                <ScalarProperty Name="TranPrefixType" ColumnName="TranPrefixType" />
-                <ScalarProperty Name="AllowYN" ColumnName="AllowYN" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tblstocks">
             <EntityTypeMapping TypeName="SpaPracticeModel.tblstock">
               <MappingFragment StoreEntitySet="tblstock">
@@ -3780,6 +3748,17 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
                 <ScalarProperty Name="BranchCd" ColumnName="BranchCd" />
                 <ScalarProperty Name="PurchaseTranID" ColumnName="PurchaseTranID" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblparameters">
+            <EntityTypeMapping TypeName="SpaPracticeModel.tblparameter">
+              <MappingFragment StoreEntitySet="tblparameter">
+                <ScalarProperty Name="TranPrefix" ColumnName="TranPrefix" />
+                <ScalarProperty Name="TranPrefixType" ColumnName="TranPrefixType" />
+                <ScalarProperty Name="AllowYN" ColumnName="AllowYN" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

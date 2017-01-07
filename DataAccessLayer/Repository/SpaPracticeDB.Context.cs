@@ -71,10 +71,11 @@ namespace DataAccessLayer.Repository
         public virtual DbSet<tblfinancialyear> tblfinancialyears { get; set; }
         public virtual DbSet<tblitemopeningdetail> tblitemopeningdetails { get; set; }
         public virtual DbSet<tblitemopeningheader> tblitemopeningheaders { get; set; }
-        public virtual DbSet<tblparameter> tblparameters { get; set; }
         public virtual DbSet<tblstock> tblstocks { get; set; }
         public virtual DbSet<tblpurchasedtl> tblpurchasedtls { get; set; }
         public virtual DbSet<tblpurchasehdr> tblpurchasehdrs { get; set; }
+        public virtual DbSet<Entity1> Entity1 { get; set; }
+        public virtual DbSet<tblparameter> tblparameters { get; set; }
     
         public virtual int DeleteReportData()
         {
