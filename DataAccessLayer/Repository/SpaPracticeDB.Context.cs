@@ -76,6 +76,7 @@ namespace DataAccessLayer.Repository
         public virtual DbSet<tblpurchasehdr> tblpurchasehdrs { get; set; }
         public virtual DbSet<Entity1> Entity1 { get; set; }
         public virtual DbSet<tblparameter> tblparameters { get; set; }
+        public virtual DbSet<tblspaparameter> tblspaparameters { get; set; }
     
         public virtual int DeleteReportData()
         {
