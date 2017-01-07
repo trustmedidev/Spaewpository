@@ -682,7 +682,7 @@
             this.Controls.Add(this.pnlTabControlSearch);
             this.Controls.Add(this.lblTag);
             this.Controls.Add(this.chkLsFormula);
-            this.Name = "frmTaxOrServicesConfig";
+            //this.Name = "frmTaxOrServicesConfig";
             this.Load += new System.EventHandler(this.frmTaxOrServicesConfig_Load);
             this.Controls.SetChildIndex(this.chkLsFormula, 0);
             this.Controls.SetChildIndex(this.lblTag, 0);
