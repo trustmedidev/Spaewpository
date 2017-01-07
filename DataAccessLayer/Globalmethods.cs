@@ -29,6 +29,7 @@ namespace DataAccessLayer
            foreach (var pr in BNValue)
            {
                prefix = pr.TranPrefixType.ToString();
+
            }
            }
            catch(Exception ex)
