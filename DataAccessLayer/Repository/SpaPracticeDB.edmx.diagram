@@ -96,6 +96,8 @@
         <EntityTypeShape EntityType="SpaPracticeModel.tblitemopeningheader" Width="1.5" PointX="3.375" PointY="11.75" />
         <EntityTypeShape EntityType="SpaPracticeModel.tblparameter" Width="1.5" PointX="11.375" PointY="0.75" />
         <EntityTypeShape EntityType="SpaPracticeModel.tblstock" Width="1.5" PointX="11.375" PointY="7.75" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblpurchasedtl" Width="1.5" PointX="11.375" PointY="12.75" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tblpurchasehdr" Width="1.5" PointX="13.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
