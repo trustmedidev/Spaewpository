@@ -396,6 +396,7 @@ namespace SPAPracticeManagement.InventoryTransaction
                     objtblitemopeningheader.ItemOpeningTranId = txtIndentNo.Text.ToString();
                     //objtblitemopeningheader.TotValue = Convert.ToDecimal(txtTotAmount.Text.ToString());
                     objtblitemopeningheader.TotValue = 0;
+                    objtblitemopeningheader.Finyr = Globalmethods.FinYr;
                     objtblitemopeningheader.ActiveYN = true;
                     objtblitemopeningheader.EntryDate = DateTime.Now;
                     objtblitemopeningheader.UserCode = GlobalCL.UserCD;
