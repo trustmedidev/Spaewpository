@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTaxOrServicesConfig));
             this.chkLsFormula = new System.Windows.Forms.Panel();
+            this.chkListFormula = new System.Windows.Forms.CheckedListBox();
+            this.txtTnSname = new System.Windows.Forms.TextBox();
             this.txtFormula = new System.Windows.Forms.TextBox();
             this.txtConfigNm = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -77,8 +79,6 @@
             this.grdSearch = new System.Windows.Forms.DataGridView();
             this.txtHidCode = new System.Windows.Forms.TextBox();
             this.txtGrdRowIndex = new System.Windows.Forms.TextBox();
-            this.txtTnSname = new System.Windows.Forms.TextBox();
-            this.chkListFormula = new System.Windows.Forms.CheckedListBox();
             this.chkLsFormula.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdDtl)).BeginInit();
             this.pnlTabControlSearch.SuspendLayout();
@@ -125,6 +125,25 @@
             this.chkLsFormula.Name = "chkLsFormula";
             this.chkLsFormula.Size = new System.Drawing.Size(1281, 663);
             this.chkLsFormula.TabIndex = 131;
+            // 
+            // chkListFormula
+            // 
+            this.chkListFormula.FormattingEnabled = true;
+            this.chkListFormula.Location = new System.Drawing.Point(482, 123);
+            this.chkListFormula.Name = "chkListFormula";
+            this.chkListFormula.Size = new System.Drawing.Size(146, 38);
+            this.chkListFormula.TabIndex = 150;
+            // 
+            // txtTnSname
+            // 
+            this.txtTnSname.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTnSname.Location = new System.Drawing.Point(3, 124);
+            this.txtTnSname.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTnSname.MaxLength = 50;
+            this.txtTnSname.Name = "txtTnSname";
+            this.txtTnSname.Size = new System.Drawing.Size(346, 27);
+            this.txtTnSname.TabIndex = 149;
+            this.txtTnSname.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTnSname_KeyUp);
             // 
             // txtFormula
             // 
@@ -653,25 +672,6 @@
             this.txtGrdRowIndex.TabIndex = 142;
             this.txtGrdRowIndex.Visible = false;
             // 
-            // txtTnSname
-            // 
-            this.txtTnSname.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTnSname.Location = new System.Drawing.Point(3, 124);
-            this.txtTnSname.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTnSname.MaxLength = 50;
-            this.txtTnSname.Name = "txtTnSname";
-            this.txtTnSname.Size = new System.Drawing.Size(346, 27);
-            this.txtTnSname.TabIndex = 149;
-            this.txtTnSname.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTnSname_KeyUp);
-            // 
-            // chkListFormula
-            // 
-            this.chkListFormula.FormattingEnabled = true;
-            this.chkListFormula.Location = new System.Drawing.Point(483, 123);
-            this.chkListFormula.Name = "chkListFormula";
-            this.chkListFormula.Size = new System.Drawing.Size(146, 38);
-            this.chkListFormula.TabIndex = 150;
-            // 
             // frmTaxOrServicesConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -682,7 +682,7 @@
             this.Controls.Add(this.pnlTabControlSearch);
             this.Controls.Add(this.lblTag);
             this.Controls.Add(this.chkLsFormula);
-            //this.Name = "frmTaxOrServicesConfig";
+            this.Name = "frmTaxOrServicesConfig";
             this.Load += new System.EventHandler(this.frmTaxOrServicesConfig_Load);
             this.Controls.SetChildIndex(this.chkLsFormula, 0);
             this.Controls.SetChildIndex(this.lblTag, 0);
