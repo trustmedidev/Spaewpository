@@ -91,9 +91,9 @@ namespace SPAPracticeManagement.CustomControls
 
         private void purchaseOrderRequisitionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmPurchaseRequsition objfrm = new frmPurchaseRequsition();
-            objfrm.Show();
-            this.Parent.FindForm().Hide();
+            //frmPurchaseRequsition objfrm = new frmPurchaseRequsition();
+            //objfrm.Show();
+            //this.Parent.FindForm().Hide();
         }
 
         private void purchaseOrderToolStripMenuItem_Click(object sender, EventArgs e)
@@ -105,9 +105,9 @@ namespace SPAPracticeManagement.CustomControls
 
         private void goodReseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmGRN objfrm = new frmGRN();
-            objfrm.Show();
-            this.Parent.FindForm().Hide();
+            //frmGRN objfrm = new frmGRN();
+            //objfrm.Show();
+            //this.Parent.FindForm().Hide();
         }
 
         private void purchaseToolStripMenuItem_Click(object sender, EventArgs e)
