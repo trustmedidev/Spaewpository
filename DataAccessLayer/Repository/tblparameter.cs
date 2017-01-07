@@ -14,10 +14,30 @@ namespace DataAccessLayer.Repository
     
     public partial class tblparameter
     {
+        public bool MultipleBranch { get; set; }
+        public string LocalorWeb { get; set; }
+        public bool Reorderlevel { get; set; }
+        public bool StopMovementonReorder { get; set; }
+        public bool ItemWithBatch { get; set; }
+        public bool PurchaseRequisition { get; set; }
+        public bool IndentonRequisition { get; set; }
+        public bool MovementfromMainGodown { get; set; }
+        public int MainGodownCd { get; set; }
+        public bool IntergodownRequisition { get; set; }
+        public string OPeningstockTranType { get; set; }
+        public string PurchaseRequisitionTranType { get; set; }
+        public string PurchaseRequixitionPrefix { get; set; }
+        public string PurchaseOrderTranType { get; set; }
+        public string PurchaseOrderPrefix { get; set; }
+        public string PurchaseBillTranType { get; set; }
+        public string PurchaseBillTranPrefix { get; set; }
+        public string IntergodownTranType { get; set; }
+        public string InterGodownTranPrefix { get; set; }
+        public bool GRN { get; set; }
+        public string GRNTRanType { get; set; }
+        public string GRNTranPrefix { get; set; }
+        public bool AllowBackDateEntry { get; set; }
+        public bool DayCloser { get; set; }
         public int ID { get; set; }
-        public string Description { get; set; }
-        public Nullable<bool> AllowYN { get; set; }
-        public string TranPrefixType { get; set; }
-        public string TranPrefix { get; set; }
     }
 }
