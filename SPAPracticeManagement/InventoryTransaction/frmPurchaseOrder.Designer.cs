@@ -167,10 +167,10 @@
             this.pnlTabControlAdd.Controls.Add(this.txtActive);
             this.pnlTabControlAdd.Controls.Add(this.label7);
             this.pnlTabControlAdd.Controls.Add(this.label4);
-            this.pnlTabControlAdd.Location = new System.Drawing.Point(216, 246);
+            this.pnlTabControlAdd.Location = new System.Drawing.Point(222, 242);
             this.pnlTabControlAdd.Margin = new System.Windows.Forms.Padding(4);
             this.pnlTabControlAdd.Name = "pnlTabControlAdd";
-            this.pnlTabControlAdd.Size = new System.Drawing.Size(1435, 1252);
+            this.pnlTabControlAdd.Size = new System.Drawing.Size(1660, 1252);
             this.pnlTabControlAdd.TabIndex = 153;
             // 
             // label22
