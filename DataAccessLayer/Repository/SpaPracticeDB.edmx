@@ -339,8 +339,8 @@
             <PropertyRef Name="Code" />
           </Key>
           <Property Name="Code" Type="int" Nullable="false" />
-          <Property Name="ItemOpeningTranId" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Description" Type="varchar" MaxLength="200" />
+          <Property Name="ItemOpeningTranId" Type="varchar" MaxLength="20" />
+          <Property Name="Description" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="TranDate" Type="datetime" Precision="0" Nullable="false" />
           <Property Name="GodownCd" Type="int" Nullable="false" />
           <Property Name="TotValue" Type="decimal" Precision="12" Scale="2" Nullable="false" />
@@ -580,6 +580,34 @@
           <Property Name="ModifiedOn" Type="datetime" Precision="0" />
           <Property Name="ModifiedBy" Type="int" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'spamanagement.tblspaparameter' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblspaparameter">
+          <Property Name="MultipleBranch" Type="bit" />
+          <Property Name="LocalorWeb" Type="char" MaxLength="1" />
+          <Property Name="Reorderlevel" Type="bit" />
+          <Property Name="StopMovementonReorder" Type="bit" />
+          <Property Name="ItemWithBatch" Type="bit" />
+          <Property Name="PurchaseRequisition" Type="bit" />
+          <Property Name="IndentonRequisition" Type="bit" />
+          <Property Name="MovementfromMainGodown" Type="bit" />
+          <Property Name="MainGodownCd" Type="int" />
+          <Property Name="IntergodownRequisition" Type="bit" />
+          <Property Name="OPeningstockTranType" Type="char" MaxLength="1" />
+          <Property Name="PurchaseRequisitionTranType" Type="char" MaxLength="1" />
+          <Property Name="PurchaseRequixitionPrefix" Type="char" MaxLength="3" />
+          <Property Name="PurchaseOrderTranType" Type="char" MaxLength="1" />
+          <Property Name="PurchaseOrderPrefix" Type="char" MaxLength="3" />
+          <Property Name="PurchaseBillTranType" Type="char" MaxLength="1" />
+          <Property Name="PurchaseBillTranPrefix" Type="char" MaxLength="3" />
+          <Property Name="IntergodownTranType" Type="char" MaxLength="1" />
+          <Property Name="InterGodownTranPrefix" Type="char" MaxLength="3" />
+          <Property Name="GRN" Type="bit" />
+          <Property Name="GRNTRanType" Type="char" MaxLength="1" />
+          <Property Name="GRNTranPrefix" Type="char" MaxLength="3" />
+          <Property Name="AllowBackDateEntry" Type="bit" />
+          <Property Name="DayCloser" Type="bit" />
+        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6005: The data type 'udecimal' is currently not supported for the target Entity Framework version; the column 'Qty' in the table 'spamanagement.tblstock' was excluded.-->
         <EntityType Name="tblstock">
