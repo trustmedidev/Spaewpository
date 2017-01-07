@@ -40,6 +40,29 @@ namespace DataAccessLayer
            return prefix;
 
        }
+
+       public static string GetParameterValues()
+       {
+           string prefix = "Y";
+           try
+           {
+               SpaPracticeEntities db = new SpaPracticeEntities();
+              // var BNValue =db.tblspa;
+               //  prefix = BNValue.ToString();
+               foreach (var pr in BNValue)
+               {
+                   prefix = pr.TranPrefixType.ToString();
+
+
+               }
+           }
+           catch (Exception ex)
+           {
+           }
+
+           return prefix;
+
+       }
         
 
     }
