@@ -340,7 +340,7 @@
           </Key>
           <Property Name="Code" Type="int" Nullable="false" />
           <Property Name="ItemOpeningTranId" Type="varchar" MaxLength="20" />
-          <Property Name="Description" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="200" />
           <Property Name="TranDate" Type="datetime" Precision="0" Nullable="false" />
           <Property Name="GodownCd" Type="int" Nullable="false" />
           <Property Name="TotValue" Type="decimal" Precision="12" Scale="2" Nullable="false" />
@@ -446,11 +446,31 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
+          <Property Name="MultipleBranch" Type="bit" Nullable="false" />
+          <Property Name="LocalorWeb" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Reorderlevel" Type="bit" Nullable="false" />
+          <Property Name="StopMovementonReorder" Type="bit" Nullable="false" />
+          <Property Name="ItemWithBatch" Type="bit" Nullable="false" />
+          <Property Name="PurchaseRequisition" Type="bit" Nullable="false" />
+          <Property Name="IndentonRequisition" Type="bit" Nullable="false" />
+          <Property Name="MovementfromMainGodown" Type="bit" Nullable="false" />
+          <Property Name="MainGodownCd" Type="int" Nullable="false" />
+          <Property Name="IntergodownRequisition" Type="bit" Nullable="false" />
+          <Property Name="OPeningstockTranType" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="PurchaseRequisitionTranType" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="PurchaseRequixitionPrefix" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="PurchaseOrderTranType" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="PurchaseOrderPrefix" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="PurchaseBillTranType" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="PurchaseBillTranPrefix" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="IntergodownTranType" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="InterGodownTranPrefix" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="GRN" Type="bit" Nullable="false" />
+          <Property Name="GRNTRanType" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="GRNTranPrefix" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="AllowBackDateEntry" Type="bit" Nullable="false" />
+          <Property Name="DayCloser" Type="bit" Nullable="false" />
           <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="Description" Type="varchar" MaxLength="200" />
-          <Property Name="AllowYN" Type="bit" />
-          <Property Name="TranPrefixType" Type="char" MaxLength="1" />
-          <Property Name="TranPrefix" Type="char" MaxLength="4" />
         </EntityType>
         <EntityType Name="tblpaymentdtl">
           <Key>
@@ -581,34 +601,6 @@
           <Property Name="ModifiedBy" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'spamanagement.tblspaparameter' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="tblspaparameter">
-          <Property Name="MultipleBranch" Type="bit" />
-          <Property Name="LocalorWeb" Type="char" MaxLength="1" />
-          <Property Name="Reorderlevel" Type="bit" />
-          <Property Name="StopMovementonReorder" Type="bit" />
-          <Property Name="ItemWithBatch" Type="bit" />
-          <Property Name="PurchaseRequisition" Type="bit" />
-          <Property Name="IndentonRequisition" Type="bit" />
-          <Property Name="MovementfromMainGodown" Type="bit" />
-          <Property Name="MainGodownCd" Type="int" />
-          <Property Name="IntergodownRequisition" Type="bit" />
-          <Property Name="OPeningstockTranType" Type="char" MaxLength="1" />
-          <Property Name="PurchaseRequisitionTranType" Type="char" MaxLength="1" />
-          <Property Name="PurchaseRequixitionPrefix" Type="char" MaxLength="3" />
-          <Property Name="PurchaseOrderTranType" Type="char" MaxLength="1" />
-          <Property Name="PurchaseOrderPrefix" Type="char" MaxLength="3" />
-          <Property Name="PurchaseBillTranType" Type="char" MaxLength="1" />
-          <Property Name="PurchaseBillTranPrefix" Type="char" MaxLength="3" />
-          <Property Name="IntergodownTranType" Type="char" MaxLength="1" />
-          <Property Name="InterGodownTranPrefix" Type="char" MaxLength="3" />
-          <Property Name="GRN" Type="bit" />
-          <Property Name="GRNTRanType" Type="char" MaxLength="1" />
-          <Property Name="GRNTranPrefix" Type="char" MaxLength="3" />
-          <Property Name="AllowBackDateEntry" Type="bit" />
-          <Property Name="DayCloser" Type="bit" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6005: The data type 'udecimal' is currently not supported for the target Entity Framework version; the column 'Qty' in the table 'spamanagement.tblstock' was excluded.-->
         <EntityType Name="tblstock">
           <Key>
@@ -644,6 +636,37 @@ warning 6005: The data type 'udecimal' is currently not supported for the target
           <Property Name="ACTIVEYN" Type="bit" Nullable="false" />
           <Property Name="EntryDate" Type="timestamp" Precision="0" Nullable="false" />
           <Property Name="UserCode" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbltaxcofigdetail">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="TaxConfigHdCd" />
+          </Key>
+          <Property Name="Code" Type="int" Nullable="false" />
+          <Property Name="TaxConfigHdCd" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TaxYN" Type="bit" Nullable="false" />
+          <Property Name="AddSub" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="CalOn" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CalPer" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="CalVal" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="TermsType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ActiveYN" Type="bit" Nullable="false" />
+          <Property Name="EntryDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="UserCode" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbltaxconfigheader">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="int" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+          <Property Name="RoundOffYN" Type="bit" Nullable="false" />
+          <Property Name="ActiveYN" Type="bit" Nullable="false" />
+          <Property Name="EntryDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="UserCode" Type="int" Nullable="false" />
+          <Property Name="BranchCd" Type="int" Nullable="false" />
+          <Property Name="Finyr" Type="int" />
         </EntityType>
         <EntityType Name="tbltaxlog">
           <Key>
@@ -1304,6 +1327,8 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <EntitySet Name="tblservicelog" EntityType="Self.tblservicelog" Schema="spamanagement" store:Type="Tables" />
           <EntitySet Name="tblstock" EntityType="Self.tblstock" Schema="spamanagement" store:Type="Tables" />
           <EntitySet Name="tblsupplior" EntityType="Self.tblsupplior" Schema="spamanagement" store:Type="Tables" />
+          <EntitySet Name="tbltaxcofigdetail" EntityType="Self.tbltaxcofigdetail" Schema="spamanagement" store:Type="Tables" />
+          <EntitySet Name="tbltaxconfigheader" EntityType="Self.tbltaxconfigheader" Schema="spamanagement" store:Type="Tables" />
           <EntitySet Name="tbltaxlog" EntityType="Self.tbltaxlog" Schema="spamanagement" store:Type="Tables" />
           <EntitySet Name="tbltaxmaster" EntityType="Self.tbltaxmaster" Schema="spamanagement" store:Type="Tables" />
           <EntitySet Name="tbltherapist" EntityType="Self.tbltherapist" Schema="spamanagement" store:Type="Tables" />
@@ -1724,10 +1749,12 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <EntitySet Name="tblfinancialyears" EntityType="SpaPracticeModel.tblfinancialyear" />
           <EntitySet Name="tblitemopeningdetails" EntityType="SpaPracticeModel.tblitemopeningdetail" />
           <EntitySet Name="tblitemopeningheaders" EntityType="SpaPracticeModel.tblitemopeningheader" />
-          <EntitySet Name="tblparameters" EntityType="SpaPracticeModel.tblparameter" />
           <EntitySet Name="tblstocks" EntityType="SpaPracticeModel.tblstock" />
           <EntitySet Name="tblpurchasedtls" EntityType="SpaPracticeModel.tblpurchasedtl" />
           <EntitySet Name="tblpurchasehdrs" EntityType="SpaPracticeModel.tblpurchasehdr" />
+          <EntitySet Name="tblparameters" EntityType="SpaPracticeModel.tblparameter" />
+          <EntitySet Name="tbltaxcofigdetails" EntityType="SpaPracticeModel.tbltaxcofigdetail" />
+          <EntitySet Name="tbltaxconfigheaders" EntityType="SpaPracticeModel.tbltaxconfigheader" />
           </EntityContainer>
         <ComplexType Name="GetReportData_Result" />
         <ComplexType Name="GetReportDataByReportId_Result" />
@@ -2966,16 +2993,6 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <Property Name="BranchCd" Type="Int32" Nullable="false" />
           <Property Name="Finyr" Type="Int32" />
         </EntityType>
-        <EntityType Name="tblparameter">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="AllowYN" Type="Boolean" />
-          <Property Name="TranPrefixType" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="TranPrefix" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="tblstock">
           <Key>
             <PropertyRef Name="Code" />
@@ -3038,6 +3055,67 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <Property Name="AcgtiveYN" Type="Boolean" Nullable="false" />
           <Property Name="EntryDate" Type="DateTime" Nullable="false" />
           <Property Name="UserCode" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblparameter">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="MultipleBranch" Type="Boolean" Nullable="false" />
+          <Property Name="LocalorWeb" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Reorderlevel" Type="Boolean" Nullable="false" />
+          <Property Name="StopMovementonReorder" Type="Boolean" Nullable="false" />
+          <Property Name="ItemWithBatch" Type="Boolean" Nullable="false" />
+          <Property Name="PurchaseRequisition" Type="Boolean" Nullable="false" />
+          <Property Name="IndentonRequisition" Type="Boolean" Nullable="false" />
+          <Property Name="MovementfromMainGodown" Type="Boolean" Nullable="false" />
+          <Property Name="MainGodownCd" Type="Int32" Nullable="false" />
+          <Property Name="IntergodownRequisition" Type="Boolean" Nullable="false" />
+          <Property Name="OPeningstockTranType" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PurchaseRequisitionTranType" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PurchaseRequixitionPrefix" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="PurchaseOrderTranType" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PurchaseOrderPrefix" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="PurchaseBillTranType" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PurchaseBillTranPrefix" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="IntergodownTranType" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="InterGodownTranPrefix" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="GRN" Type="Boolean" Nullable="false" />
+          <Property Name="GRNTRanType" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="GRNTranPrefix" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="AllowBackDateEntry" Type="Boolean" Nullable="false" />
+          <Property Name="DayCloser" Type="Boolean" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbltaxcofigdetail">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="TaxConfigHdCd" />
+          </Key>
+          <Property Name="Code" Type="Int32" Nullable="false" />
+          <Property Name="TaxConfigHdCd" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TaxYN" Type="Boolean" Nullable="false" />
+          <Property Name="AddSub" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CalOn" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CalPer" Type="Decimal" />
+          <Property Name="CalVal" Type="Decimal" />
+          <Property Name="TermsType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ActiveYN" Type="Boolean" Nullable="false" />
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" />
+          <Property Name="UserCode" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbltaxconfigheader">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RoundOffYN" Type="Boolean" Nullable="false" />
+          <Property Name="ActiveYN" Type="Boolean" Nullable="false" />
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" />
+          <Property Name="UserCode" Type="Int32" Nullable="false" />
+          <Property Name="BranchCd" Type="Int32" Nullable="false" />
+          <Property Name="Finyr" Type="Int32" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -3707,17 +3785,6 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tblparameters">
-            <EntityTypeMapping TypeName="SpaPracticeModel.tblparameter">
-              <MappingFragment StoreEntitySet="tblparameter">
-                <ScalarProperty Name="TranPrefix" ColumnName="TranPrefix" />
-                <ScalarProperty Name="TranPrefixType" ColumnName="TranPrefixType" />
-                <ScalarProperty Name="AllowYN" ColumnName="AllowYN" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tblstocks">
             <EntityTypeMapping TypeName="SpaPracticeModel.tblstock">
               <MappingFragment StoreEntitySet="tblstock">
@@ -3779,6 +3846,69 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
                 <ScalarProperty Name="GodownCd" ColumnName="GodownCd" />
                 <ScalarProperty Name="BranchCd" ColumnName="BranchCd" />
                 <ScalarProperty Name="PurchaseTranID" ColumnName="PurchaseTranID" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblparameters">
+            <EntityTypeMapping TypeName="SpaPracticeModel.tblparameter">
+              <MappingFragment StoreEntitySet="tblparameter">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DayCloser" ColumnName="DayCloser" />
+                <ScalarProperty Name="AllowBackDateEntry" ColumnName="AllowBackDateEntry" />
+                <ScalarProperty Name="GRNTranPrefix" ColumnName="GRNTranPrefix" />
+                <ScalarProperty Name="GRNTRanType" ColumnName="GRNTRanType" />
+                <ScalarProperty Name="GRN" ColumnName="GRN" />
+                <ScalarProperty Name="InterGodownTranPrefix" ColumnName="InterGodownTranPrefix" />
+                <ScalarProperty Name="IntergodownTranType" ColumnName="IntergodownTranType" />
+                <ScalarProperty Name="PurchaseBillTranPrefix" ColumnName="PurchaseBillTranPrefix" />
+                <ScalarProperty Name="PurchaseBillTranType" ColumnName="PurchaseBillTranType" />
+                <ScalarProperty Name="PurchaseOrderPrefix" ColumnName="PurchaseOrderPrefix" />
+                <ScalarProperty Name="PurchaseOrderTranType" ColumnName="PurchaseOrderTranType" />
+                <ScalarProperty Name="PurchaseRequixitionPrefix" ColumnName="PurchaseRequixitionPrefix" />
+                <ScalarProperty Name="PurchaseRequisitionTranType" ColumnName="PurchaseRequisitionTranType" />
+                <ScalarProperty Name="OPeningstockTranType" ColumnName="OPeningstockTranType" />
+                <ScalarProperty Name="IntergodownRequisition" ColumnName="IntergodownRequisition" />
+                <ScalarProperty Name="MainGodownCd" ColumnName="MainGodownCd" />
+                <ScalarProperty Name="MovementfromMainGodown" ColumnName="MovementfromMainGodown" />
+                <ScalarProperty Name="IndentonRequisition" ColumnName="IndentonRequisition" />
+                <ScalarProperty Name="PurchaseRequisition" ColumnName="PurchaseRequisition" />
+                <ScalarProperty Name="ItemWithBatch" ColumnName="ItemWithBatch" />
+                <ScalarProperty Name="StopMovementonReorder" ColumnName="StopMovementonReorder" />
+                <ScalarProperty Name="Reorderlevel" ColumnName="Reorderlevel" />
+                <ScalarProperty Name="LocalorWeb" ColumnName="LocalorWeb" />
+                <ScalarProperty Name="MultipleBranch" ColumnName="MultipleBranch" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbltaxcofigdetails">
+            <EntityTypeMapping TypeName="SpaPracticeModel.tbltaxcofigdetail">
+              <MappingFragment StoreEntitySet="tbltaxcofigdetail">
+                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="ActiveYN" ColumnName="ActiveYN" />
+                <ScalarProperty Name="TermsType" ColumnName="TermsType" />
+                <ScalarProperty Name="CalVal" ColumnName="CalVal" />
+                <ScalarProperty Name="CalPer" ColumnName="CalPer" />
+                <ScalarProperty Name="CalOn" ColumnName="CalOn" />
+                <ScalarProperty Name="AddSub" ColumnName="AddSub" />
+                <ScalarProperty Name="TaxYN" ColumnName="TaxYN" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TaxConfigHdCd" ColumnName="TaxConfigHdCd" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbltaxconfigheaders">
+            <EntityTypeMapping TypeName="SpaPracticeModel.tbltaxconfigheader">
+              <MappingFragment StoreEntitySet="tbltaxconfigheader">
+                <ScalarProperty Name="Finyr" ColumnName="Finyr" />
+                <ScalarProperty Name="BranchCd" ColumnName="BranchCd" />
+                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="ActiveYN" ColumnName="ActiveYN" />
+                <ScalarProperty Name="RoundOffYN" ColumnName="RoundOffYN" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
               </MappingFragment>
             </EntityTypeMapping>
