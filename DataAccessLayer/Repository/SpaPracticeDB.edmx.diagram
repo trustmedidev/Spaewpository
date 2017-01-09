@@ -98,6 +98,8 @@
         <EntityTypeShape EntityType="SpaPracticeModel.tblpurchasedtl" Width="1.5" PointX="11.375" PointY="12.75" />
         <EntityTypeShape EntityType="SpaPracticeModel.tblpurchasehdr" Width="1.5" PointX="13.375" PointY="0.75" />
         <EntityTypeShape EntityType="SpaPracticeModel.tblparameter" Width="1.5" PointX="5.375" PointY="13.75" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tbltaxcofigdetail" Width="1.5" PointX="0.75" PointY="13.75" />
+        <EntityTypeShape EntityType="SpaPracticeModel.tbltaxconfigheader" Width="1.5" PointX="13.75" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
