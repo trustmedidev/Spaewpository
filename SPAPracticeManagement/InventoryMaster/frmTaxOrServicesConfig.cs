@@ -38,6 +38,8 @@ namespace SPAPracticeManagement.InventoryMaster
             CommonCL.PanelControlGotFocus(pnlTabControlSearch, chkLsFormula);
             objFrmName = "Tax / Charges configuration";
             SirchGridFormat();
+            chkListFormula.Items.Clear();
+            chkListFormula.Items.Add("Basic");
         }
 
         #region Form Format
@@ -130,6 +132,16 @@ namespace SPAPracticeManagement.InventoryMaster
         }
         public void SubCtrlClear()
         {
+            txtTnSname.Text = "";
+            ddlSTax.Text = "";
+            ddladdSub.Text = "";
+            txtPer.Text = "";
+            txtVal.Text = "";
+            ddlType.Text = "";
+            //txtcode.Text = "";
+            txtHdActiveYN.Text = "Y";
+
+
             //TnSname.Text = "";
             ddlSTax.Text = "";
             ddladdSub.Text = "";
@@ -262,6 +274,9 @@ namespace SPAPracticeManagement.InventoryMaster
             //CommonCL.ComboBoxGotFocus(TnSname , e);
         }
 
+
+       
+
         #endregion
 
         private void btnSubSave_Click(object sender, EventArgs e)
@@ -270,7 +285,17 @@ namespace SPAPracticeManagement.InventoryMaster
             {
                 if (ValidateSubForm())
                 {
-                    //SubSaveUpdate();
+                    SubSaveUpdate();
+
+                    chkListFormula.Items.Clear();
+                    chkListFormula.Items.Add("Basic");
+
+                    for (int i = 0; i < grdDtl.Rows.Count; i++)
+                    {
+                        chkListFormula.Items.Add(grdDtl.Rows[i].Cells["Name"].Value.ToString());
+                    }
+
+                    //int a=chkListFormula.Items.Count;
                 }
             }
             catch (Exception e1)
@@ -291,11 +316,11 @@ namespace SPAPracticeManagement.InventoryMaster
             //    MessageBox.Show("Please enter Name.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             //    return false;
             //}
-            if (ddlSTax.SelectedValue == null || ddlSTax.SelectedValue.ToString() == "")
-            {
-                MessageBox.Show("Please enter S. Tax.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
+            //if (ddlSTax.SelectedValue == null || ddlSTax.SelectedValue.ToString() == "")
+            //{
+            //    MessageBox.Show("Please enter S. Tax.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return false;
+            //}
             if (ddladdSub.Text .ToString ()=="")
             {
                 MessageBox.Show("Please enter S. Tax.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -332,7 +357,56 @@ namespace SPAPracticeManagement.InventoryMaster
 
         private void grdDtl_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            var senderGrid = (DataGridView)sender;
 
+            if (e.ColumnIndex == 10)
+            {
+                txtGrdRowIndex.Text = e.RowIndex.ToString();
+                int row = e.RowIndex;
+
+                txtTnSname.Text = grdDtl["Name", row].Value.ToString();
+                ddlSTax.Text = grdDtl["STax", row].Value.ToString();
+                ddladdSub.Text = grdDtl["AddSub", row].Value.ToString();
+                txtFormula.Text = grdDtl["Formula", row].Value.ToString();
+                txtPer.Text = grdDtl["TaxPer", row].Value.ToString();
+                txtVal.Text = grdDtl["Val", row].Value.ToString();
+                ddlType.Text = grdDtl["Type", row].Value.ToString();
+                //txtGrdRowIndex.Text = grdDtl["code", row].Value.ToString();
+                txtActive.Text = grdDtl["DActiveYN", row].Value.ToString();
+
+            }
+            if (e.ColumnIndex == 8)
+            {
+                removeRecordFormGrid();
+
+            }
+        }
+        public void removeRecordFormGrid()
+        {
+            try
+            {
+
+                DialogResult reg = MessageBox.Show("Do You want to Remove record...", "info", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (DialogResult.Yes == reg)
+                {
+                    grdDtl.Rows.RemoveAt(grdDtl.CurrentRow.Index);
+                    //decimal totQty = 0;
+                    //decimal totAmt = 0;
+                    ////for (int i = 0; i < grdDtl.Rows.Count; i++)
+                    ////{
+
+                    ////    totQty = totQty + Convert.ToDecimal(grdDtl.Rows[i].Cells["Qty"].Value);
+                    ////    totAmt = totAmt + Convert.ToDecimal(grdDtl.Rows[i].Cells["Amount"].Value);
+
+                    ////}
+                    ////txtTotQty.Text = totQty.ToString();
+                    ////txtTotAmount.Text = totAmt.ToString();
+                }
+            }
+            catch (Exception exceptionObj)
+            {
+                MessageBox.Show(exceptionObj.Message.ToString());
+            }
         }
 
         public void ChkListLoad()
@@ -367,7 +441,220 @@ namespace SPAPracticeManagement.InventoryMaster
             }
         }
 
+        public void SubSaveUpdate()
+        {
+            Boolean check_gd = false;
+            for (int p = 0; p < grdDtl.Rows.Count; p++)
+            {
+                string V_Sl = grdDtl["Sl", p].Value.ToString();
+                if (txtGrdRowIndex.Text.ToString() == p.ToString())
+                {
+                    check_gd = true;
+                    grdDtl["Sl", p].Value = Convert.ToString(p+1);
+                    grdDtl["Name", p].Value = txtTnSname.Text.ToString();
+                    grdDtl["STax", p].Value = ddlSTax .Text .ToString();
+                    grdDtl["AddSub", p].Value = ddladdSub .Text .ToString();
+                    string test=chkListFormula.Text.ToString();
+                    grdDtl["Formula", p].Value = "B";
 
+                    grdDtl["TaxPer", p].Value = txtPer.Text .ToString();
+                    grdDtl["Val", p].Value = txtVal.Text.ToString();
+                    grdDtl["Type", p].Value = ddlType.Text.ToString();
+                    grdDtl["code", p].Value = "";
+                    grdDtl["DActiveYN", p].Value = txtActive.Text.ToString();
+
+                    SubCtrlClear();
+                    grdDtl.Refresh();
+                    btnSubAdd.Focus();
+                    return;
+                }
+                else
+                {
+                    check_gd = false;
+                }
+            }
+            //==============================================================================================
+            if (check_gd == false)
+            {
+                try
+                {
+                    if (txtGrdRowIndex.Text == "")
+                    {
+                        int row = 0;
+
+                        grdDtl.Rows.Add();
+                        row = grdDtl.Rows.Count - 1;
+                        grdDtl["code", row].Value = "0";
+
+                        //==========================================
+                        string ch;
+                        txtFormula.Text = "";
+                        
+                        int a = chkListFormula.Items.Count;
+                        
+                        for (int i = 0; i < a; i++)
+                        {
+                            if (i == 0)
+                            { txtFormula.Text = "B"; }
+                            else
+                            {
+                                if (chkListFormula.GetItemChecked(i))
+                                {
+
+                                    ch = i.ToString();
+                                    if (txtFormula.Text.ToString() != "")
+                                    {
+                                        txtFormula.Text = txtFormula.Text.ToString() + "+" + ch;
+                                    }
+                                    else
+                                    {
+                                        txtFormula.Text = txtFormula.Text.ToString() + ch;
+                                    }
+
+                                }
+                                else
+                                {
+
+                                }
+                            }
+                        }
+                        //==========================================
+                        grdDtl["Sl", row].Value = Convert.ToString(row + 1);
+                        grdDtl["Name", row].Value = txtTnSname.Text.ToString();
+                        grdDtl["STax", row].Value = ddlSTax.Text.ToString();
+                        grdDtl["AddSub", row].Value = ddladdSub.Text.ToString();
+                        string test = chkListFormula.Text.ToString();
+                        grdDtl["Formula", row].Value = txtFormula.Text.ToString();//"B";
+
+                        grdDtl["TaxPer", row].Value = txtPer.Text.ToString();
+                        grdDtl["Val", row].Value = txtVal.Text.ToString();
+                        grdDtl["Type", row].Value = ddlType.Text.ToString();
+                        grdDtl["code", row].Value = "";
+                        grdDtl["DActiveYN", row].Value = txtActive.Text.ToString();
+
+                        //grdDtl["ItemCd", row].Value = ddlItem.SelectedValue.ToString();
+                        //grdDtl["Qty", row].Value = txtQty.Text.ToString();
+                        //grdDtl["UnitCd", row].Value = ddlUnit.SelectedValue.ToString();
+                        //grdDtl["Unit", row].Value = ddlUnit.Text.ToString();
+
+                        //grdDtl["SecondUnitCd", row].Value = ddlSecoUnit.SelectedValue.ToString();
+                        //grdDtl["SecondUnit", row].Value = ddlSecoUnit.Text.ToString();
+                        //grdDtl["SecondQty", row].Value = txtSecoQty.Text.ToString();
+                        //grdDtl["ExpiryDt", row].Value = DtExp.Value;
+
+                        //grdDtl["Amount", row].Value = txtAmount.Text.ToString();
+                        //grdDtl["DActiveYN", row].Value = txtActive.Text.ToString();
+
+
+                        SubCtrlClear();
+                        grdDtl.Refresh();
+                        btnSubAdd.Focus();
+                        return;
+                    }
+                    else
+                    {
+                        int row = Convert.ToInt32(txtGrdRowIndex.Text.ToString());
+
+                        //==========================================
+                        string ch;
+                        txtFormula.Text = "";
+
+                        int a = chkListFormula.Items.Count;
+
+                        for (int i = 0; i < a; i++)
+                        {
+                            if (i == 0)
+                            { txtFormula.Text = "B"; }
+                            else
+                            {
+                                if (chkListFormula.GetItemChecked(i))
+                                {
+
+                                    ch = i.ToString();
+                                    if (txtFormula.Text.ToString() != "")
+                                    {
+                                        txtFormula.Text = txtFormula.Text.ToString() + "+" + ch;
+                                    }
+                                    else
+                                    {
+                                        txtFormula.Text = txtFormula.Text.ToString() + ch;
+                                    }
+
+                                }
+                                else
+                                {
+
+                                }
+                            }
+                        }
+                        //==========================================
+                        grdDtl["Sl", row].Value = Convert.ToString(row + 1);
+                        grdDtl["Name", row].Value = txtTnSname.Text.ToString();
+                        grdDtl["STax", row].Value = ddlSTax.Text.ToString();
+                        grdDtl["AddSub", row].Value = ddladdSub.Text.ToString();
+                        string test = chkListFormula.Text.ToString();
+                        grdDtl["Formula", row].Value = txtFormula.Text.ToString();
+
+                        grdDtl["TaxPer", row].Value = txtPer.Text.ToString();
+                        grdDtl["Val", row].Value = txtVal.Text.ToString();
+                        grdDtl["Type", row].Value = ddlType.Text.ToString();
+                        grdDtl["code", row].Value = "";
+                        grdDtl["DActiveYN", row].Value = txtActive.Text.ToString();
+
+                        //grdDtl["Name", row].Value = txtTnSname.Text.ToString();
+                        //grdDtl["STax", row].Value = ddlSTax.Text.ToString();
+                        //grdDtl["AddSub", row].Value = ddladdSub.Text.ToString();
+                        //string test = chkListFormula.Text.ToString();
+                        //grdDtl["Formula", row].Value = "B";
+
+                        //grdDtl["TaxPer", row].Value = txtPer.Text.ToString();
+                        //grdDtl["Val", row].Value = txtVal.Text.ToString();
+                        //grdDtl["Type", row].Value = ddlType.Text.ToString();
+                        //grdDtl["code", row].Value = "";
+                        //grdDtl["DActiveYN", row].Value = txtActive.Text.ToString();
+
+                        ////grdDtl["ItemCd", row].Value = ddlItem.SelectedValue.ToString();
+                        ////grdDtl["Qty", row].Value = txtQty.Text.ToString();
+                        ////grdDtl["UnitCd", row].Value = ddlUnit.SelectedValue.ToString();
+                        ////grdDtl["Unit", row].Value = ddlUnit.Text.ToString();
+
+                        ////grdDtl["SecondUnitCd", row].Value = ddlSecoUnit.SelectedValue.ToString();
+                        ////grdDtl["SecondUnit", row].Value = ddlSecoUnit.Text.ToString();
+                        ////grdDtl["SecondQty", row].Value = txtSecoQty.Text.ToString();
+                        ////grdDtl["ExpiryDt", row].Value = DtExp.Value;
+
+                        ////grdDtl["Amount", row].Value = txtAmount.Text.ToString();
+                        ////grdDtl["DActiveYN", row].Value = txtActive.Text.ToString();
+
+                        
+
+                        SubCtrlClear();
+                        grdDtl.Refresh();
+                        btnSubAdd.Focus();
+                        return;
+                    }
+
+
+                }
+                catch (Exception e1)
+                {
+                    MessageBox.Show(e1.Message);
+                }
+
+
+            }
+            //decimal totQty = 0;
+            //decimal totAmt = 0;
+            //for (int i = 0; i < grdDtl.Rows.Count; i++)
+            //{
+
+            //    totQty = totQty + Convert.ToDecimal(grdDtl.Rows[i].Cells["Qty"].Value);
+            //    totAmt = totAmt + Convert.ToDecimal(grdDtl.Rows[i].Cells["Amount"].Value);
+
+            //}
+            //txtTotQty.Text = totQty.ToString();
+            //txtTotAmount.Text = totAmt.ToString();
+        }
 
     }
 }

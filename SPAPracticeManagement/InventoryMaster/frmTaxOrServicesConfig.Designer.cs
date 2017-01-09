@@ -206,6 +206,13 @@
             // 
             this.ddlType.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ddlType.FormattingEnabled = true;
+            this.ddlType.Items.AddRange(new object[] {
+            "Vat",
+            "CESS",
+            "H-CESS",
+            "Discount",
+            "Round Off",
+            "Others"});
             this.ddlType.Location = new System.Drawing.Point(902, 124);
             this.ddlType.Margin = new System.Windows.Forms.Padding(4);
             this.ddlType.Name = "ddlType";
@@ -239,6 +246,9 @@
             // 
             this.ddladdSub.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ddladdSub.FormattingEnabled = true;
+            this.ddladdSub.Items.AddRange(new object[] {
+            "+",
+            "-"});
             this.ddladdSub.Location = new System.Drawing.Point(428, 124);
             this.ddladdSub.Margin = new System.Windows.Forms.Padding(4);
             this.ddladdSub.Name = "ddladdSub";
@@ -250,6 +260,9 @@
             // 
             this.ddlSTax.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ddlSTax.FormattingEnabled = true;
+            this.ddlSTax.Items.AddRange(new object[] {
+            "No",
+            "Yes"});
             this.ddlSTax.Location = new System.Drawing.Point(349, 124);
             this.ddlSTax.Margin = new System.Windows.Forms.Padding(4);
             this.ddlSTax.Name = "ddlSTax";
@@ -337,7 +350,6 @@
             this.Sl.Name = "Sl";
             this.Sl.ReadOnly = true;
             this.Sl.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Sl.Visible = false;
             this.Sl.Width = 40;
             // 
             // NameCd
@@ -625,7 +637,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlTabControlSearch.Controls.Add(this.txtSearchText);
             this.pnlTabControlSearch.Controls.Add(this.grdSearch);
-            this.pnlTabControlSearch.Location = new System.Drawing.Point(1543, 321);
+            this.pnlTabControlSearch.Location = new System.Drawing.Point(1543, 306);
             this.pnlTabControlSearch.Margin = new System.Windows.Forms.Padding(4);
             this.pnlTabControlSearch.Name = "pnlTabControlSearch";
             this.pnlTabControlSearch.Size = new System.Drawing.Size(362, 216);
@@ -653,7 +665,7 @@
             // txtHidCode
             // 
             this.txtHidCode.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHidCode.Location = new System.Drawing.Point(1543, 230);
+            this.txtHidCode.Location = new System.Drawing.Point(1543, 229);
             this.txtHidCode.Margin = new System.Windows.Forms.Padding(4);
             this.txtHidCode.MaxLength = 20;
             this.txtHidCode.Name = "txtHidCode";
@@ -664,7 +676,7 @@
             // txtGrdRowIndex
             // 
             this.txtGrdRowIndex.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGrdRowIndex.Location = new System.Drawing.Point(1543, 270);
+            this.txtGrdRowIndex.Location = new System.Drawing.Point(1543, 263);
             this.txtGrdRowIndex.Margin = new System.Windows.Forms.Padding(4);
             this.txtGrdRowIndex.MaxLength = 20;
             this.txtGrdRowIndex.Name = "txtGrdRowIndex";
@@ -682,7 +694,6 @@
             this.Controls.Add(this.pnlTabControlSearch);
             this.Controls.Add(this.lblTag);
             this.Controls.Add(this.chkLsFormula);
-            this.Name = "frmTaxOrServicesConfig";
             this.Load += new System.EventHandler(this.frmTaxOrServicesConfig_Load);
             this.Controls.SetChildIndex(this.chkLsFormula, 0);
             this.Controls.SetChildIndex(this.lblTag, 0);
@@ -730,6 +741,14 @@
         private System.Windows.Forms.ComboBox ddlSTax;
         private System.Windows.Forms.Label lblTag;
         private System.Windows.Forms.TextBox txtConfigNm;
+        public System.Windows.Forms.Panel pnlTabControlSearch;
+        private System.Windows.Forms.TextBox txtSearchText;
+        private System.Windows.Forms.DataGridView grdSearch;
+        private System.Windows.Forms.TextBox txtHidCode;
+        private System.Windows.Forms.TextBox txtGrdRowIndex;
+        private System.Windows.Forms.TextBox txtFormula;
+        private System.Windows.Forms.TextBox txtTnSname;
+        private System.Windows.Forms.CheckedListBox chkListFormula;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sl;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameCd;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name;
@@ -744,13 +763,5 @@
         private System.Windows.Forms.DataGridViewImageColumn Delete;
         private System.Windows.Forms.DataGridViewTextBoxColumn code;
         private System.Windows.Forms.DataGridViewTextBoxColumn DActiveYN;
-        public System.Windows.Forms.Panel pnlTabControlSearch;
-        private System.Windows.Forms.TextBox txtSearchText;
-        private System.Windows.Forms.DataGridView grdSearch;
-        private System.Windows.Forms.TextBox txtHidCode;
-        private System.Windows.Forms.TextBox txtGrdRowIndex;
-        private System.Windows.Forms.TextBox txtFormula;
-        private System.Windows.Forms.TextBox txtTnSname;
-        private System.Windows.Forms.CheckedListBox chkListFormula;
     }
 }
