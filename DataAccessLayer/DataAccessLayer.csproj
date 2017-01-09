@@ -162,6 +162,7 @@
     <Compile Include="Repository\tblbrand.cs">
       <DependentUpon>SpaPracticeDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Repository\tblbtchcode.cs" />
     <Compile Include="Repository\tblclient.cs">
       <DependentUpon>SpaPracticeDB.tt</DependentUpon>
     </Compile>
