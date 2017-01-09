@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="262c874a2c4a496bb8a29aa648195369" Name="Diagram1" ZoomLevel="109">
+      <Diagram DiagramId="262c874a2c4a496bb8a29aa648195369" Name="Diagram1" ZoomLevel="93">
         <EntityTypeShape EntityType="SpaPracticeModel.tblappointment" Width="1.5" PointX="12.5" PointY="57.75" />
         <EntityTypeShape EntityType="SpaPracticeModel.tblappointmentpackagepping" Width="1.5" PointX="3" PointY="92.75" />
         <EntityTypeShape EntityType="SpaPracticeModel.tblappointmentservicemapping" Width="1.5" PointX="17.75" PointY="50.125" />
