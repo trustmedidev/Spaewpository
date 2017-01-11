@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 using EntityLayer;
 using DataAccessLayer.Repository;
 using System.Data.Entity;
+using System.Windows.Forms;
+
 namespace DataAccessLayer
+
 {
     public class TaxConfigurationDAL : SpaPracticeEntities
     {
@@ -189,6 +192,41 @@ namespace DataAccessLayer
         }
 
         #endregion Check Function End
+
+        #region === bind ddl
+        public void BindDdl(ComboBox ddl)
+        {
+            try
+            {
+
+                var data = (from p in tbltaxconfigheaders
+                            where p.ActiveYN == true
+                            select new
+                            {
+                                Code = p.Code,
+                                Name = p.Description
+
+
+                            });
+                var servicelist = data.ToList();
+                if (servicelist != null)
+                {
+                    ddl.DataSource = null;
+                    ddl.Items.Clear();
+
+                    ddl.ValueMember = "Code";
+                    ddl.DisplayMember = "Name";
+                    ddl.DataSource = servicelist;
+                    ddl.SelectedIndex = -1;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+        #endregion
 
     }
 }

@@ -25,7 +25,6 @@ namespace DataAccessLayer
                 if (BNValue == 0)
                 {
                     code = 1;
-
                 }
                 else
                 {
@@ -40,21 +39,25 @@ namespace DataAccessLayer
                     objOpeningstockHdr.ItemOpeningTranId = GetOpeningTran();
                     tblitemopeningheaders.Add(objOpeningstockHdr);
                     SaveChanges();
+                    return code;
                 }
                 else
                 {
                     var appOrg = tblitemopeningheaders.Find(objOpeningstockHdr.Code);
                     Entry(appOrg).CurrentValues.SetValues(objOpeningstockHdr);
                     SaveChanges();
+
                     //make all inactive in detail
                     var objOpeningDtl = tblitemopeningdetails.Where(p => p.ItemOpeningCd == objOpeningstockHdr.Code).ToList();
                     objOpeningDtl.ForEach(a => a.ActiveYN = false);
                     SaveChanges();
+                    return objOpeningstockHdr.Code;
                 }
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
+                return 0;
             }
 
             return 0;
@@ -102,6 +105,7 @@ namespace DataAccessLayer
 
         }
         #endregion
+
         #region Bind Header Grid===
         public void BindList(int BranchID, DataGridView grd)
         {
@@ -120,6 +124,7 @@ namespace DataAccessLayer
                                 select new
                                 {
                                     code = p.Code,
+                                    ItemOpeningTranId = p.ItemOpeningTranId ,
                                     Brabchcd = p.BranchCd,
                                     Godowncd = p.GodownCd,
                                     BranchName = br.BranchName,
@@ -127,7 +132,8 @@ namespace DataAccessLayer
                                     Description = p.Description,
                                     TranDate = p.TranDate,
                                     TotalValue = p.TotValue,
-                                    ActiveYN = p.ActiveYN
+                                    HActiveYN = p.ActiveYN
+                                    
 
                                 }
                                 ).ToList();
@@ -171,6 +177,7 @@ namespace DataAccessLayer
             }
         }
         #endregion
+
         #region Bind detail grid
 
         public List<ItemOpeningStockEL> BindDtlList( int Code)
@@ -186,6 +193,9 @@ namespace DataAccessLayer
                            join Unt in tblunits on OpDtl.UnitCd equals Unt.Code
                               into t2
                            from Unt in t2.DefaultIfEmpty()
+                                   join Unt1 in tblunits on OpDtl.SubUnitCd equals Unt1.Code
+                                      into t3
+                                   from Unt1 in t3.DefaultIfEmpty()
                            where OpDtl.ItemOpeningCd == Code
                            orderby It.Description
                            select new ItemOpeningStockEL()
@@ -197,6 +207,7 @@ namespace DataAccessLayer
                                Unit = (Unt.Description ?? string.Empty),
                                ExpiryDt = OpDtl.ExpiryDt.Value, 
                                SubUnitCd = (OpDtl.SubUnitCd ?? 0),
+                               SubUnit = (Unt1.Description ?? string.Empty),
                                SubQty = OpDtl.SubQty,
                                Quantity = OpDtl.Qty,
                                Rate = OpDtl.value,
@@ -214,6 +225,7 @@ namespace DataAccessLayer
         }
 
         #endregion
+
         #region Insert  Update detail grid
         public int InsertUpdateBOMdetai(tblitemopeningdetail objItemopeningDtl, tblstock obkStockEntry)
         {
@@ -248,7 +260,7 @@ namespace DataAccessLayer
                     else
                     {
 
-                        var appOrg = tblitemopeningdetails.Find(objItemopeningDtl.Code);
+                        var appOrg = tblitemopeningdetails.Find(objItemopeningDtl.Code, objItemopeningDtl.ItemOpeningCd);
                         Entry(appOrg).CurrentValues.SetValues(objItemopeningDtl);
                         SaveChanges();
                         ObjStock.InsertUpdateStock(objItemopeningDtl.ItemOpeningCd, objItemopeningDtl.Code, obkStockEntry);

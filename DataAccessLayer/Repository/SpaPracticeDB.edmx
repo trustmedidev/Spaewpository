@@ -1753,8 +1753,8 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <EntitySet Name="tblpurchasedtls" EntityType="SpaPracticeModel.tblpurchasedtl" />
           <EntitySet Name="tblpurchasehdrs" EntityType="SpaPracticeModel.tblpurchasehdr" />
           <EntitySet Name="tblparameters" EntityType="SpaPracticeModel.tblparameter" />
-          <EntitySet Name="tbltaxcofigdetails" EntityType="SpaPracticeModel.tbltaxcofigdetail" />
           <EntitySet Name="tbltaxconfigheaders" EntityType="SpaPracticeModel.tbltaxconfigheader" />
+          <EntitySet Name="tbltaxcofigdetails" EntityType="SpaPracticeModel.tbltaxcofigdetail" />
           </EntityContainer>
         <ComplexType Name="GetReportData_Result" />
         <ComplexType Name="GetReportDataByReportId_Result" />
@@ -3086,6 +3086,19 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <Property Name="DayCloser" Type="Boolean" Nullable="false" />
           <Property Name="ID" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="tbltaxconfigheader">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RoundOffYN" Type="Boolean" Nullable="false" />
+          <Property Name="ActiveYN" Type="Boolean" Nullable="false" />
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" />
+          <Property Name="UserCode" Type="Int32" Nullable="false" />
+          <Property Name="BranchCd" Type="Int32" Nullable="false" />
+          <Property Name="Finyr" Type="Int32" />
+        </EntityType>
         <EntityType Name="tbltaxcofigdetail">
           <Key>
             <PropertyRef Name="Code" />
@@ -3103,19 +3116,6 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <Property Name="ActiveYN" Type="Boolean" Nullable="false" />
           <Property Name="EntryDate" Type="DateTime" Nullable="false" />
           <Property Name="UserCode" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="tbltaxconfigheader">
-          <Key>
-            <PropertyRef Name="Code" />
-          </Key>
-          <Property Name="Code" Type="Int32" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="RoundOffYN" Type="Boolean" Nullable="false" />
-          <Property Name="ActiveYN" Type="Boolean" Nullable="false" />
-          <Property Name="EntryDate" Type="DateTime" Nullable="false" />
-          <Property Name="UserCode" Type="Int32" Nullable="false" />
-          <Property Name="BranchCd" Type="Int32" Nullable="false" />
-          <Property Name="Finyr" Type="Int32" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -3881,6 +3881,20 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="tbltaxconfigheaders">
+            <EntityTypeMapping TypeName="SpaPracticeModel.tbltaxconfigheader">
+              <MappingFragment StoreEntitySet="tbltaxconfigheader">
+                <ScalarProperty Name="Finyr" ColumnName="Finyr" />
+                <ScalarProperty Name="BranchCd" ColumnName="BranchCd" />
+                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="ActiveYN" ColumnName="ActiveYN" />
+                <ScalarProperty Name="RoundOffYN" ColumnName="RoundOffYN" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="tbltaxcofigdetails">
             <EntityTypeMapping TypeName="SpaPracticeModel.tbltaxcofigdetail">
               <MappingFragment StoreEntitySet="tbltaxcofigdetail">
@@ -3895,20 +3909,6 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
                 <ScalarProperty Name="TaxYN" ColumnName="TaxYN" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="TaxConfigHdCd" ColumnName="TaxConfigHdCd" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tbltaxconfigheaders">
-            <EntityTypeMapping TypeName="SpaPracticeModel.tbltaxconfigheader">
-              <MappingFragment StoreEntitySet="tbltaxconfigheader">
-                <ScalarProperty Name="Finyr" ColumnName="Finyr" />
-                <ScalarProperty Name="BranchCd" ColumnName="BranchCd" />
-                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
-                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
-                <ScalarProperty Name="ActiveYN" ColumnName="ActiveYN" />
-                <ScalarProperty Name="RoundOffYN" ColumnName="RoundOffYN" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
               </MappingFragment>
             </EntityTypeMapping>

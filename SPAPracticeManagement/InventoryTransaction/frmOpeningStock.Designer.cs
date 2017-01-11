@@ -134,45 +134,46 @@
             this.pnlTabControlAdd.Controls.Add(this.txtActive);
             this.pnlTabControlAdd.Controls.Add(this.label7);
             this.pnlTabControlAdd.Controls.Add(this.label4);
-            this.pnlTabControlAdd.Location = new System.Drawing.Point(213, 258);
+            this.pnlTabControlAdd.Location = new System.Drawing.Point(213, 257);
             this.pnlTabControlAdd.Margin = new System.Windows.Forms.Padding(4);
             this.pnlTabControlAdd.Name = "pnlTabControlAdd";
-            this.pnlTabControlAdd.Size = new System.Drawing.Size(1561, 855);
+            this.pnlTabControlAdd.Size = new System.Drawing.Size(1655, 880);
             this.pnlTabControlAdd.TabIndex = 131;
             // 
             // ddlSecoUnit
             // 
-            this.ddlSecoUnit.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ddlSecoUnit.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ddlSecoUnit.FormattingEnabled = true;
             this.ddlSecoUnit.Location = new System.Drawing.Point(652, 114);
             this.ddlSecoUnit.Margin = new System.Windows.Forms.Padding(4);
             this.ddlSecoUnit.Name = "ddlSecoUnit";
-            this.ddlSecoUnit.Size = new System.Drawing.Size(125, 27);
+            this.ddlSecoUnit.Size = new System.Drawing.Size(125, 29);
             this.ddlSecoUnit.TabIndex = 147;
+            this.ddlSecoUnit.Enter += new System.EventHandler(this.ddlSecoUnit_Enter);
             this.ddlSecoUnit.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ddlSecoUnit_KeyUp);
+            this.ddlSecoUnit.Validated += new System.EventHandler(this.ddlSecoUnit_Validated);
             // 
             // txtSecoQty
             // 
-            this.txtSecoQty.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSecoQty.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSecoQty.Location = new System.Drawing.Point(777, 114);
             this.txtSecoQty.Margin = new System.Windows.Forms.Padding(4);
             this.txtSecoQty.MaxLength = 50;
             this.txtSecoQty.Name = "txtSecoQty";
-            this.txtSecoQty.Size = new System.Drawing.Size(113, 27);
+            this.txtSecoQty.Size = new System.Drawing.Size(113, 28);
             this.txtSecoQty.TabIndex = 148;
             this.txtSecoQty.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSecoQty_KeyUp);
             // 
             // label13
             // 
-            this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(776, 87);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(128, 21);
+            this.label13.Size = new System.Drawing.Size(123, 21);
             this.label13.TabIndex = 150;
-            this.label13.Text = "Secondary Qty :";
+            this.label13.Text = "Secondary Qty:";
             // 
             // label16
             // 
@@ -201,12 +202,13 @@
             // DtExp
             // 
             this.DtExp.CustomFormat = "dd/MM/yyyy";
-            this.DtExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DtExp.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DtExp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DtExp.Location = new System.Drawing.Point(890, 114);
             this.DtExp.Name = "DtExp";
-            this.DtExp.Size = new System.Drawing.Size(129, 27);
+            this.DtExp.Size = new System.Drawing.Size(129, 28);
             this.DtExp.TabIndex = 145;
+            this.DtExp.KeyUp += new System.Windows.Forms.KeyEventHandler(this.DtExp_KeyUp);
             // 
             // txtTotQty
             // 
@@ -381,6 +383,7 @@
             this.btnSubAdd.TabIndex = 5;
             this.btnSubAdd.Text = "Add";
             this.btnSubAdd.UseVisualStyleBackColor = false;
+            this.btnSubAdd.Click += new System.EventHandler(this.btnSubAdd_Click);
             this.btnSubAdd.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnSubAdd_KeyUp);
             // 
             // label6
@@ -403,12 +406,12 @@
             // 
             // ddlUnit
             // 
-            this.ddlUnit.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ddlUnit.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ddlUnit.FormattingEnabled = true;
             this.ddlUnit.Location = new System.Drawing.Point(414, 114);
             this.ddlUnit.Margin = new System.Windows.Forms.Padding(4);
             this.ddlUnit.Name = "ddlUnit";
-            this.ddlUnit.Size = new System.Drawing.Size(125, 27);
+            this.ddlUnit.Size = new System.Drawing.Size(125, 29);
             this.ddlUnit.TabIndex = 7;
             this.ddlUnit.Enter += new System.EventHandler(this.ddlUnit_Enter);
             this.ddlUnit.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ddlUnit_KeyUp);
@@ -416,23 +419,23 @@
             // 
             // txtAmount
             // 
-            this.txtAmount.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAmount.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAmount.Location = new System.Drawing.Point(1019, 114);
             this.txtAmount.Margin = new System.Windows.Forms.Padding(4);
             this.txtAmount.MaxLength = 50;
             this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Size = new System.Drawing.Size(149, 27);
+            this.txtAmount.Size = new System.Drawing.Size(149, 28);
             this.txtAmount.TabIndex = 9;
             this.txtAmount.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtAmount_KeyUp);
             // 
             // txtQty
             // 
-            this.txtQty.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQty.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQty.Location = new System.Drawing.Point(539, 114);
             this.txtQty.Margin = new System.Windows.Forms.Padding(4);
             this.txtQty.MaxLength = 50;
             this.txtQty.Name = "txtQty";
-            this.txtQty.Size = new System.Drawing.Size(113, 27);
+            this.txtQty.Size = new System.Drawing.Size(113, 28);
             this.txtQty.TabIndex = 8;
             this.txtQty.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtQty_KeyUp);
             // 
@@ -486,12 +489,12 @@
             // 
             // ddlItem
             // 
-            this.ddlItem.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ddlItem.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ddlItem.FormattingEnabled = true;
             this.ddlItem.Location = new System.Drawing.Point(12, 114);
             this.ddlItem.Margin = new System.Windows.Forms.Padding(4);
             this.ddlItem.Name = "ddlItem";
-            this.ddlItem.Size = new System.Drawing.Size(402, 27);
+            this.ddlItem.Size = new System.Drawing.Size(402, 29);
             this.ddlItem.TabIndex = 6;
             this.ddlItem.Enter += new System.EventHandler(this.ddlItem_Enter);
             this.ddlItem.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ddlItem_KeyUp);
@@ -555,12 +558,12 @@
             // txtActive
             // 
             this.txtActive.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtActive.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtActive.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtActive.Location = new System.Drawing.Point(1168, 114);
             this.txtActive.Margin = new System.Windows.Forms.Padding(4);
             this.txtActive.MaxLength = 1;
             this.txtActive.Name = "txtActive";
-            this.txtActive.Size = new System.Drawing.Size(100, 27);
+            this.txtActive.Size = new System.Drawing.Size(100, 28);
             this.txtActive.TabIndex = 10;
             this.txtActive.Text = "Y";
             this.txtActive.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtActive_KeyUp);
@@ -599,7 +602,7 @@
             this.pnlTabControlSearch.Location = new System.Drawing.Point(1319, 202);
             this.pnlTabControlSearch.Margin = new System.Windows.Forms.Padding(4);
             this.pnlTabControlSearch.Name = "pnlTabControlSearch";
-            this.pnlTabControlSearch.Size = new System.Drawing.Size(378, 84);
+            this.pnlTabControlSearch.Size = new System.Drawing.Size(472, 137);
             this.pnlTabControlSearch.TabIndex = 135;
             // 
             // txtSearchText
@@ -621,6 +624,7 @@
             this.grdSearch.RowTemplate.Height = 24;
             this.grdSearch.Size = new System.Drawing.Size(597, 322);
             this.grdSearch.TabIndex = 0;
+            this.grdSearch.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdSearch_CellDoubleClick);
             // 
             // txtHidCode
             // 
@@ -705,7 +709,6 @@
             // 
             this.SecondQty.HeaderText = "Second Qty";
             this.SecondQty.Name = "SecondQty";
-            this.SecondQty.Visible = false;
             // 
             // ExpiryDt
             // 
@@ -754,7 +757,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1820, 923);
+            this.ClientSize = new System.Drawing.Size(1914, 976);
             this.Controls.Add(this.txtGrdRowIndex);
             this.Controls.Add(this.lblTag);
             this.Controls.Add(this.pnlTabControlSearch);

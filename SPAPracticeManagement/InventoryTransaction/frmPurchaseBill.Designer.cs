@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPurchaseBill));
             this.lblTag = new System.Windows.Forms.Label();
             this.pnlTabControlAdd = new System.Windows.Forms.Panel();
+            this.DtExp = new System.Windows.Forms.DateTimePicker();
+            this.label24 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label23 = new System.Windows.Forms.Label();
             this.ddlBillType = new System.Windows.Forms.ComboBox();
@@ -66,7 +68,7 @@
             this.txtGrossAmount = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.ddlUser = new System.Windows.Forms.ComboBox();
+            this.ddlGodown = new System.Windows.Forms.ComboBox();
             this.txtIndentNo = new System.Windows.Forms.TextBox();
             this.StockDt = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
@@ -83,6 +85,7 @@
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItTaxPer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItTaxVal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExpiryDt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DActiveYN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
@@ -125,6 +128,7 @@
             this.lblTag.Name = "lblTag";
             this.lblTag.Size = new System.Drawing.Size(1853, 32);
             this.lblTag.TabIndex = 160;
+            this.lblTag.Click += new System.EventHandler(this.lblTag_Click);
             // 
             // pnlTabControlAdd
             // 
@@ -132,6 +136,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlTabControlAdd.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlTabControlAdd.Controls.Add(this.DtExp);
+            this.pnlTabControlAdd.Controls.Add(this.label24);
             this.pnlTabControlAdd.Controls.Add(this.panel4);
             this.pnlTabControlAdd.Controls.Add(this.label23);
             this.pnlTabControlAdd.Controls.Add(this.ddlBillType);
@@ -159,7 +165,7 @@
             this.pnlTabControlAdd.Controls.Add(this.txtGrossAmount);
             this.pnlTabControlAdd.Controls.Add(this.btnSave);
             this.pnlTabControlAdd.Controls.Add(this.label11);
-            this.pnlTabControlAdd.Controls.Add(this.ddlUser);
+            this.pnlTabControlAdd.Controls.Add(this.ddlGodown);
             this.pnlTabControlAdd.Controls.Add(this.txtIndentNo);
             this.pnlTabControlAdd.Controls.Add(this.StockDt);
             this.pnlTabControlAdd.Controls.Add(this.label10);
@@ -186,8 +192,30 @@
             this.pnlTabControlAdd.Location = new System.Drawing.Point(212, 234);
             this.pnlTabControlAdd.Margin = new System.Windows.Forms.Padding(4);
             this.pnlTabControlAdd.Name = "pnlTabControlAdd";
-            this.pnlTabControlAdd.Size = new System.Drawing.Size(1378, 934);
+            this.pnlTabControlAdd.Size = new System.Drawing.Size(1663, 934);
             this.pnlTabControlAdd.TabIndex = 161;
+            // 
+            // DtExp
+            // 
+            this.DtExp.CustomFormat = "dd/MM/yyyy";
+            this.DtExp.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DtExp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DtExp.Location = new System.Drawing.Point(1434, 78);
+            this.DtExp.Name = "DtExp";
+            this.DtExp.Size = new System.Drawing.Size(109, 28);
+            this.DtExp.TabIndex = 171;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.BackColor = System.Drawing.Color.Transparent;
+            this.label24.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(1332, 77);
+            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(107, 21);
+            this.label24.TabIndex = 170;
+            this.label24.Text = "Expiry Date :";
             // 
             // panel4
             // 
@@ -221,6 +249,8 @@
             this.ddlBillType.Name = "ddlBillType";
             this.ddlBillType.Size = new System.Drawing.Size(345, 27);
             this.ddlBillType.TabIndex = 167;
+            this.ddlBillType.Enter += new System.EventHandler(this.ddlBillType_Enter);
+            this.ddlBillType.Validated += new System.EventHandler(this.ddlBillType_Validated);
             // 
             // label22
             // 
@@ -393,6 +423,7 @@
             this.txtItTaxPer.Name = "txtItTaxPer";
             this.txtItTaxPer.Size = new System.Drawing.Size(77, 27);
             this.txtItTaxPer.TabIndex = 156;
+            this.txtItTaxPer.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtItTaxPer_KeyUp);
             // 
             // label18
             // 
@@ -414,6 +445,7 @@
             this.txtItTaxVal.Name = "txtItTaxVal";
             this.txtItTaxVal.Size = new System.Drawing.Size(149, 27);
             this.txtItTaxVal.TabIndex = 154;
+            this.txtItTaxVal.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtItTaxVal_KeyUp);
             // 
             // label17
             // 
@@ -435,6 +467,7 @@
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(180, 27);
             this.txtAmount.TabIndex = 152;
+            this.txtAmount.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtAmount_KeyUp);
             // 
             // label16
             // 
@@ -457,6 +490,7 @@
             this.txtRate.Name = "txtRate";
             this.txtRate.Size = new System.Drawing.Size(149, 27);
             this.txtRate.TabIndex = 150;
+            this.txtRate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtRate_KeyUp);
             // 
             // label14
             // 
@@ -491,6 +525,9 @@
             this.ddlTaxTerm.Name = "ddlTaxTerm";
             this.ddlTaxTerm.Size = new System.Drawing.Size(373, 27);
             this.ddlTaxTerm.TabIndex = 147;
+            this.ddlTaxTerm.Enter += new System.EventHandler(this.ddlTaxTerm_Enter);
+            this.ddlTaxTerm.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ddlTaxTerm_KeyUp);
+            this.ddlTaxTerm.Validated += new System.EventHandler(this.ddlTaxTerm_Validated);
             // 
             // label13
             // 
@@ -513,6 +550,9 @@
             this.ddlSupplier.Name = "ddlSupplier";
             this.ddlSupplier.Size = new System.Drawing.Size(373, 27);
             this.ddlSupplier.TabIndex = 146;
+            this.ddlSupplier.Enter += new System.EventHandler(this.ddlSupplier_Enter);
+            this.ddlSupplier.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ddlSupplier_KeyUp);
+            this.ddlSupplier.Validated += new System.EventHandler(this.ddlSupplier_Validated);
             // 
             // txtGrossAmount
             // 
@@ -530,13 +570,15 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnSave.Location = new System.Drawing.Point(1398, 643);
+            this.btnSave.Location = new System.Drawing.Point(1303, 643);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 32);
             this.btnSave.TabIndex = 17;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnSave_KeyUp);
             // 
             // label11
             // 
@@ -550,15 +592,18 @@
             this.label11.TabIndex = 142;
             this.label11.Text = "Godown :";
             // 
-            // ddlUser
+            // ddlGodown
             // 
-            this.ddlUser.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ddlUser.FormattingEnabled = true;
-            this.ddlUser.Location = new System.Drawing.Point(415, 41);
-            this.ddlUser.Margin = new System.Windows.Forms.Padding(4);
-            this.ddlUser.Name = "ddlUser";
-            this.ddlUser.Size = new System.Drawing.Size(345, 27);
-            this.ddlUser.TabIndex = 3;
+            this.ddlGodown.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ddlGodown.FormattingEnabled = true;
+            this.ddlGodown.Location = new System.Drawing.Point(415, 41);
+            this.ddlGodown.Margin = new System.Windows.Forms.Padding(4);
+            this.ddlGodown.Name = "ddlGodown";
+            this.ddlGodown.Size = new System.Drawing.Size(345, 27);
+            this.ddlGodown.TabIndex = 3;
+            this.ddlGodown.Enter += new System.EventHandler(this.ddlGodown_Enter);
+            this.ddlGodown.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ddlGodown_KeyUp);
+            this.ddlGodown.Validated += new System.EventHandler(this.ddlGodown_Validated);
             // 
             // txtIndentNo
             // 
@@ -569,6 +614,7 @@
             this.txtIndentNo.Name = "txtIndentNo";
             this.txtIndentNo.Size = new System.Drawing.Size(231, 27);
             this.txtIndentNo.TabIndex = 2;
+            this.txtIndentNo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtIndentNo_KeyUp);
             // 
             // StockDt
             // 
@@ -578,6 +624,7 @@
             this.StockDt.Name = "StockDt";
             this.StockDt.Size = new System.Drawing.Size(129, 22);
             this.StockDt.TabIndex = 0;
+            this.StockDt.KeyUp += new System.Windows.Forms.KeyEventHandler(this.StockDt_KeyUp);
             // 
             // label10
             // 
@@ -602,6 +649,7 @@
             this.txtHdActiveYN.Size = new System.Drawing.Size(29, 27);
             this.txtHdActiveYN.TabIndex = 4;
             this.txtHdActiveYN.Text = "Y";
+            this.txtHdActiveYN.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtHdActiveYN_KeyUp);
             // 
             // label8
             // 
@@ -621,13 +669,15 @@
             this.btnSubSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubSave.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubSave.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnSubSave.Location = new System.Drawing.Point(1528, 122);
+            this.btnSubSave.Location = new System.Drawing.Point(1547, 122);
             this.btnSubSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubSave.Name = "btnSubSave";
-            this.btnSubSave.Size = new System.Drawing.Size(100, 32);
+            this.btnSubSave.Size = new System.Drawing.Size(84, 32);
             this.btnSubSave.TabIndex = 11;
             this.btnSubSave.Text = "Save";
             this.btnSubSave.UseVisualStyleBackColor = false;
+            this.btnSubSave.Click += new System.EventHandler(this.btnSubSave_Click);
+            this.btnSubSave.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnSubSave_KeyUp);
             // 
             // grdDtl
             // 
@@ -643,6 +693,7 @@
             this.Amount,
             this.ItTaxPer,
             this.ItTaxVal,
+            this.ExpiryDt,
             this.DActiveYN,
             this.Edit,
             this.Delete,
@@ -653,6 +704,7 @@
             this.grdDtl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.grdDtl.Size = new System.Drawing.Size(1621, 306);
             this.grdDtl.TabIndex = 135;
+            this.grdDtl.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdDtl_CellContentClick);
             // 
             // ItemCd
             // 
@@ -721,6 +773,11 @@
             this.ItTaxVal.Name = "ItTaxVal";
             this.ItTaxVal.Width = 80;
             // 
+            // ExpiryDt
+            // 
+            this.ExpiryDt.HeaderText = "Expiry Dt.";
+            this.ExpiryDt.Name = "ExpiryDt";
+            // 
             // DActiveYN
             // 
             this.DActiveYN.HeaderText = "ActiveYN";
@@ -760,13 +817,14 @@
             this.btnSubAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubAdd.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubAdd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnSubAdd.Location = new System.Drawing.Point(1528, 83);
+            this.btnSubAdd.Location = new System.Drawing.Point(1547, 83);
             this.btnSubAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubAdd.Name = "btnSubAdd";
-            this.btnSubAdd.Size = new System.Drawing.Size(100, 32);
+            this.btnSubAdd.Size = new System.Drawing.Size(84, 32);
             this.btnSubAdd.TabIndex = 5;
             this.btnSubAdd.Text = "Add";
             this.btnSubAdd.UseVisualStyleBackColor = false;
+            this.btnSubAdd.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnSubAdd_KeyUp);
             // 
             // label6
             // 
@@ -793,6 +851,9 @@
             this.ddlUnit.Name = "ddlUnit";
             this.ddlUnit.Size = new System.Drawing.Size(169, 27);
             this.ddlUnit.TabIndex = 7;
+            this.ddlUnit.Enter += new System.EventHandler(this.ddlUnit_Enter);
+            this.ddlUnit.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ddlUnit_KeyUp);
+            this.ddlUnit.Validated += new System.EventHandler(this.ddlUnit_Validated);
             // 
             // txtQty
             // 
@@ -803,6 +864,7 @@
             this.txtQty.Name = "txtQty";
             this.txtQty.Size = new System.Drawing.Size(141, 27);
             this.txtQty.TabIndex = 8;
+            this.txtQty.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtQty_KeyUp);
             // 
             // label15
             // 
@@ -849,6 +911,9 @@
             this.ddlItem.Name = "ddlItem";
             this.ddlItem.Size = new System.Drawing.Size(548, 27);
             this.ddlItem.TabIndex = 6;
+            this.ddlItem.Enter += new System.EventHandler(this.ddlItem_Enter);
+            this.ddlItem.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ddlItem_KeyUp);
+            this.ddlItem.Validated += new System.EventHandler(this.ddlItem_Validated);
             // 
             // label3
             // 
@@ -871,6 +936,9 @@
             this.ddlBranch.Name = "ddlBranch";
             this.ddlBranch.Size = new System.Drawing.Size(345, 27);
             this.ddlBranch.TabIndex = 1;
+            this.ddlBranch.Enter += new System.EventHandler(this.ddlBranch_Enter);
+            this.ddlBranch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ddlBranch_KeyUp);
+            this.ddlBranch.Validated += new System.EventHandler(this.ddlBranch_Validated);
             // 
             // btnUpdate
             // 
@@ -912,13 +980,14 @@
             this.txtActive.Size = new System.Drawing.Size(100, 27);
             this.txtActive.TabIndex = 10;
             this.txtActive.Text = "Y";
+            this.txtActive.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtActive_KeyUp);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(1421, 101);
+            this.label7.Location = new System.Drawing.Point(1421, 102);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 21);
@@ -966,7 +1035,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlTabControlSearch.Controls.Add(this.txtSearchText);
             this.pnlTabControlSearch.Controls.Add(this.grdSearch);
-            this.pnlTabControlSearch.Location = new System.Drawing.Point(1617, 232);
+            this.pnlTabControlSearch.Location = new System.Drawing.Point(1617, 201);
             this.pnlTabControlSearch.Margin = new System.Windows.Forms.Padding(4);
             this.pnlTabControlSearch.Name = "pnlTabControlSearch";
             this.pnlTabControlSearch.Size = new System.Drawing.Size(284, 342);
@@ -997,19 +1066,19 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1914, 962);
-            this.Controls.Add(this.pnlTabControlSearch);
             this.Controls.Add(this.txtHidCode);
             this.Controls.Add(this.txtGrdRowIndex);
             this.Controls.Add(this.pnlTabControlAdd);
             this.Controls.Add(this.lblTag);
+            this.Controls.Add(this.pnlTabControlSearch);
             this.Name = "frmPurchaseBill";
             this.Text = "frmPurchaseBill";
             this.Load += new System.EventHandler(this.frmPurchaseBill_Load);
+            this.Controls.SetChildIndex(this.pnlTabControlSearch, 0);
             this.Controls.SetChildIndex(this.lblTag, 0);
             this.Controls.SetChildIndex(this.pnlTabControlAdd, 0);
             this.Controls.SetChildIndex(this.txtGrdRowIndex, 0);
             this.Controls.SetChildIndex(this.txtHidCode, 0);
-            this.Controls.SetChildIndex(this.pnlTabControlSearch, 0);
             this.pnlTabControlAdd.ResumeLayout(false);
             this.pnlTabControlAdd.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -1052,7 +1121,7 @@
         private System.Windows.Forms.TextBox txtGrossAmount;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox ddlUser;
+        private System.Windows.Forms.ComboBox ddlGodown;
         private System.Windows.Forms.TextBox txtIndentNo;
         private System.Windows.Forms.DateTimePicker StockDt;
         private System.Windows.Forms.Label label10;
@@ -1060,19 +1129,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnSubSave;
         private System.Windows.Forms.DataGridView grdDtl;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ItemCd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Item;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UnitCd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Rate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ItTaxPer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ItTaxVal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DActiveYN;
-        private System.Windows.Forms.DataGridViewImageColumn Edit;
-        private System.Windows.Forms.DataGridViewImageColumn Delete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn code;
         private System.Windows.Forms.Button btnSubAdd;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
@@ -1104,5 +1160,21 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.ComboBox ddlBillType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemCd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Item;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UnitCd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Rate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItTaxPer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItTaxVal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ExpiryDt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DActiveYN;
+        private System.Windows.Forms.DataGridViewImageColumn Edit;
+        private System.Windows.Forms.DataGridViewImageColumn Delete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn code;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.DateTimePicker DtExp;
     }
 }

@@ -256,6 +256,12 @@
     <Compile Include="Repository\tblsupplior.cs">
       <DependentUpon>SpaPracticeDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Repository\tbltaxcofigdetail.cs">
+      <DependentUpon>SpaPracticeDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\tbltaxconfigheader.cs">
+      <DependentUpon>SpaPracticeDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Repository\tbltaxlog.cs">
       <DependentUpon>SpaPracticeDB.tt</DependentUpon>
     </Compile>
@@ -275,6 +281,7 @@
     <Compile Include="SettingDAL.cs" />
     <Compile Include="StockDAL.cs" />
     <Compile Include="SuppliorDAL.cs" />
+    <Compile Include="TaxConfigDAL.cs" />
     <Compile Include="TaxConfigurationDAL.cs" />
     <Compile Include="UnitDAL.cs" />
     <Compile Include="UserDAL.cs">
