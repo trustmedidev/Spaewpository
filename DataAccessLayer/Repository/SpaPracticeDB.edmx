@@ -156,7 +156,7 @@
           <Property Name="UserCd" Type="int" Nullable="false" />
           <Property Name="BranchCd" Type="int" Nullable="false" />
           <Property Name="RoleCd" Type="int" Nullable="false" />
-          <Property Name="AllowYN" Type="char" MaxLength="1" />
+          <Property Name="AllowYN" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="tblbrand">
           <Key>
@@ -2773,7 +2773,7 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <Property Name="UserCd" Type="Int32" Nullable="false" />
           <Property Name="BranchCd" Type="Int32" Nullable="false" />
           <Property Name="RoleCd" Type="Int32" Nullable="false" />
-          <Property Name="AllowYN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="AllowYN" Type="Boolean" />
         </EntityType>
         <EntityType Name="tblcompanyright">
           <Key>

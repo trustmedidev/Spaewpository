@@ -18,6 +18,6 @@ namespace DataAccessLayer.Repository
         public int UserCd { get; set; }
         public int BranchCd { get; set; }
         public int RoleCd { get; set; }
-        public string AllowYN { get; set; }
+        public Nullable<bool> AllowYN { get; set; }
     }
 }
