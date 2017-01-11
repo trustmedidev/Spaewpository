@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTaxOrServicesConfig));
-            this.chkLsFormula = new System.Windows.Forms.Panel();
+            this.pnlTabControlAdd = new System.Windows.Forms.Panel();
             this.chkListFormula = new System.Windows.Forms.CheckedListBox();
             this.txtTnSname = new System.Windows.Forms.TextBox();
             this.txtFormula = new System.Windows.Forms.TextBox();
@@ -79,59 +79,59 @@
             this.grdSearch = new System.Windows.Forms.DataGridView();
             this.txtHidCode = new System.Windows.Forms.TextBox();
             this.txtGrdRowIndex = new System.Windows.Forms.TextBox();
-            this.chkLsFormula.SuspendLayout();
+            this.pnlTabControlAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdDtl)).BeginInit();
             this.pnlTabControlSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdSearch)).BeginInit();
             this.SuspendLayout();
             // 
-            // chkLsFormula
+            // pnlTabControlAdd
             // 
-            this.chkLsFormula.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pnlTabControlAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkLsFormula.BackColor = System.Drawing.SystemColors.Control;
-            this.chkLsFormula.Controls.Add(this.chkListFormula);
-            this.chkLsFormula.Controls.Add(this.txtTnSname);
-            this.chkLsFormula.Controls.Add(this.txtFormula);
-            this.chkLsFormula.Controls.Add(this.txtConfigNm);
-            this.chkLsFormula.Controls.Add(this.label11);
-            this.chkLsFormula.Controls.Add(this.label10);
-            this.chkLsFormula.Controls.Add(this.label5);
-            this.chkLsFormula.Controls.Add(this.ddlType);
-            this.chkLsFormula.Controls.Add(this.txtVal);
-            this.chkLsFormula.Controls.Add(this.txtPer);
-            this.chkLsFormula.Controls.Add(this.ddladdSub);
-            this.chkLsFormula.Controls.Add(this.ddlSTax);
-            this.chkLsFormula.Controls.Add(this.txtHdActiveYN);
-            this.chkLsFormula.Controls.Add(this.label8);
-            this.chkLsFormula.Controls.Add(this.btnSubSave);
-            this.chkLsFormula.Controls.Add(this.grdDtl);
-            this.chkLsFormula.Controls.Add(this.btnSubAdd);
-            this.chkLsFormula.Controls.Add(this.label6);
-            this.chkLsFormula.Controls.Add(this.label2);
-            this.chkLsFormula.Controls.Add(this.label14);
-            this.chkLsFormula.Controls.Add(this.label15);
-            this.chkLsFormula.Controls.Add(this.label9);
-            this.chkLsFormula.Controls.Add(this.label3);
-            this.chkLsFormula.Controls.Add(this.btnUpdate);
-            this.chkLsFormula.Controls.Add(this.btnClear);
-            this.chkLsFormula.Controls.Add(this.btnSave);
-            this.chkLsFormula.Controls.Add(this.txtActive);
-            this.chkLsFormula.Controls.Add(this.label7);
-            this.chkLsFormula.Controls.Add(this.label4);
-            this.chkLsFormula.Location = new System.Drawing.Point(218, 230);
-            this.chkLsFormula.Margin = new System.Windows.Forms.Padding(4);
-            this.chkLsFormula.Name = "chkLsFormula";
-            this.chkLsFormula.Size = new System.Drawing.Size(1281, 663);
-            this.chkLsFormula.TabIndex = 131;
+            this.pnlTabControlAdd.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlTabControlAdd.Controls.Add(this.chkListFormula);
+            this.pnlTabControlAdd.Controls.Add(this.txtTnSname);
+            this.pnlTabControlAdd.Controls.Add(this.txtFormula);
+            this.pnlTabControlAdd.Controls.Add(this.txtConfigNm);
+            this.pnlTabControlAdd.Controls.Add(this.label11);
+            this.pnlTabControlAdd.Controls.Add(this.label10);
+            this.pnlTabControlAdd.Controls.Add(this.label5);
+            this.pnlTabControlAdd.Controls.Add(this.ddlType);
+            this.pnlTabControlAdd.Controls.Add(this.txtVal);
+            this.pnlTabControlAdd.Controls.Add(this.txtPer);
+            this.pnlTabControlAdd.Controls.Add(this.ddladdSub);
+            this.pnlTabControlAdd.Controls.Add(this.ddlSTax);
+            this.pnlTabControlAdd.Controls.Add(this.txtHdActiveYN);
+            this.pnlTabControlAdd.Controls.Add(this.label8);
+            this.pnlTabControlAdd.Controls.Add(this.btnSubSave);
+            this.pnlTabControlAdd.Controls.Add(this.grdDtl);
+            this.pnlTabControlAdd.Controls.Add(this.btnSubAdd);
+            this.pnlTabControlAdd.Controls.Add(this.label6);
+            this.pnlTabControlAdd.Controls.Add(this.label2);
+            this.pnlTabControlAdd.Controls.Add(this.label14);
+            this.pnlTabControlAdd.Controls.Add(this.label15);
+            this.pnlTabControlAdd.Controls.Add(this.label9);
+            this.pnlTabControlAdd.Controls.Add(this.label3);
+            this.pnlTabControlAdd.Controls.Add(this.btnUpdate);
+            this.pnlTabControlAdd.Controls.Add(this.btnClear);
+            this.pnlTabControlAdd.Controls.Add(this.btnSave);
+            this.pnlTabControlAdd.Controls.Add(this.txtActive);
+            this.pnlTabControlAdd.Controls.Add(this.label7);
+            this.pnlTabControlAdd.Controls.Add(this.label4);
+            this.pnlTabControlAdd.Location = new System.Drawing.Point(218, 230);
+            this.pnlTabControlAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlTabControlAdd.Name = "pnlTabControlAdd";
+            this.pnlTabControlAdd.Size = new System.Drawing.Size(1281, 703);
+            this.pnlTabControlAdd.TabIndex = 131;
             // 
             // chkListFormula
             // 
             this.chkListFormula.FormattingEnabled = true;
             this.chkListFormula.Location = new System.Drawing.Point(482, 123);
             this.chkListFormula.Name = "chkListFormula";
-            this.chkListFormula.Size = new System.Drawing.Size(146, 38);
+            this.chkListFormula.Size = new System.Drawing.Size(146, 55);
             this.chkListFormula.TabIndex = 150;
             // 
             // txtTnSname
@@ -333,14 +333,14 @@
             this.Delete,
             this.code,
             this.DActiveYN});
-            this.grdDtl.Location = new System.Drawing.Point(9, 167);
+            this.grdDtl.Location = new System.Drawing.Point(9, 188);
             this.grdDtl.MultiSelect = false;
             this.grdDtl.Name = "grdDtl";
             this.grdDtl.ReadOnly = true;
             this.grdDtl.RowHeadersVisible = false;
             this.grdDtl.RowTemplate.Height = 24;
             this.grdDtl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.grdDtl.Size = new System.Drawing.Size(1244, 438);
+            this.grdDtl.Size = new System.Drawing.Size(1244, 424);
             this.grdDtl.TabIndex = 135;
             this.grdDtl.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdDtl_CellContentClick);
             // 
@@ -477,7 +477,7 @@
             // label6
             // 
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(34)))), ((int)(((byte)(94)))));
-            this.label6.Location = new System.Drawing.Point(0, 155);
+            this.label6.Location = new System.Drawing.Point(0, 181);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(1250, 5);
             this.label6.TabIndex = 133;
@@ -582,6 +582,7 @@
             this.btnSave.TabIndex = 17;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtActive
             // 
@@ -640,7 +641,7 @@
             this.pnlTabControlSearch.Location = new System.Drawing.Point(1543, 306);
             this.pnlTabControlSearch.Margin = new System.Windows.Forms.Padding(4);
             this.pnlTabControlSearch.Name = "pnlTabControlSearch";
-            this.pnlTabControlSearch.Size = new System.Drawing.Size(362, 216);
+            this.pnlTabControlSearch.Size = new System.Drawing.Size(362, 256);
             this.pnlTabControlSearch.TabIndex = 140;
             // 
             // txtSearchText
@@ -661,6 +662,7 @@
             this.grdSearch.RowTemplate.Height = 24;
             this.grdSearch.Size = new System.Drawing.Size(597, 323);
             this.grdSearch.TabIndex = 0;
+            this.grdSearch.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdSearch_CellDoubleClick);
             // 
             // txtHidCode
             // 
@@ -688,20 +690,22 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1855, 858);
+            this.ClientSize = new System.Drawing.Size(1855, 898);
             this.Controls.Add(this.txtGrdRowIndex);
             this.Controls.Add(this.txtHidCode);
             this.Controls.Add(this.pnlTabControlSearch);
             this.Controls.Add(this.lblTag);
-            this.Controls.Add(this.chkLsFormula);
+            this.Controls.Add(this.pnlTabControlAdd);
+            //this.Name = "frmTaxOrServicesConfig";
+            this.Text = "Tax Or Services Config";
             this.Load += new System.EventHandler(this.frmTaxOrServicesConfig_Load);
-            this.Controls.SetChildIndex(this.chkLsFormula, 0);
+            this.Controls.SetChildIndex(this.pnlTabControlAdd, 0);
             this.Controls.SetChildIndex(this.lblTag, 0);
             this.Controls.SetChildIndex(this.pnlTabControlSearch, 0);
             this.Controls.SetChildIndex(this.txtHidCode, 0);
             this.Controls.SetChildIndex(this.txtGrdRowIndex, 0);
-            this.chkLsFormula.ResumeLayout(false);
-            this.chkLsFormula.PerformLayout();
+            this.pnlTabControlAdd.ResumeLayout(false);
+            this.pnlTabControlAdd.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdDtl)).EndInit();
             this.pnlTabControlSearch.ResumeLayout(false);
             this.pnlTabControlSearch.PerformLayout();
@@ -713,7 +717,7 @@
 
         #endregion
 
-        public System.Windows.Forms.Panel chkLsFormula;
+        public System.Windows.Forms.Panel pnlTabControlAdd;
         private System.Windows.Forms.TextBox txtHdActiveYN;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnSubSave;

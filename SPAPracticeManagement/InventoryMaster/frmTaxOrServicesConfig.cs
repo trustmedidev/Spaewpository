@@ -18,7 +18,7 @@ namespace SPAPracticeManagement.InventoryMaster
 
         #region === Variables
         Boolean falag = true;
-        //BOMentryDAL objBOMentryDAL = new BOMentryDAL();
+        TaxConfigDAL objTaxConfigDAL = new TaxConfigDAL();
         //ItemDAL objItemDAL = new ItemDAL();
         //ServiceDAL objServiceDAL = new ServiceDAL();
         //UnitDAL objUnitDAL = new UnitDAL();
@@ -35,11 +35,12 @@ namespace SPAPracticeManagement.InventoryMaster
 
         private void frmTaxOrServicesConfig_Load(object sender, EventArgs e)
         {
-            CommonCL.PanelControlGotFocus(pnlTabControlSearch, chkLsFormula);
+            CommonCL.PanelControlGotFocus(pnlTabControlSearch, pnlTabControlAdd);
             objFrmName = "Tax / Charges configuration";
             SirchGridFormat();
             chkListFormula.Items.Clear();
             chkListFormula.Items.Add("Basic");
+            
         }
 
         #region Form Format
@@ -56,7 +57,7 @@ namespace SPAPracticeManagement.InventoryMaster
             btnClear.Visible = true;
             formCtrlClear();
 
-            CommonCL.PanelControlGotFocus(chkLsFormula, pnlTabControlSearch);
+            CommonCL.PanelControlGotFocus(pnlTabControlAdd, pnlTabControlSearch);
             formCtrlActiveY();
 
         }
@@ -73,7 +74,7 @@ namespace SPAPracticeManagement.InventoryMaster
             btnSave.Visible = true;
             btnClear.Visible = true;
 
-            CommonCL.PanelControlGotFocus(chkLsFormula, pnlTabControlSearch);
+            CommonCL.PanelControlGotFocus(pnlTabControlAdd, pnlTabControlSearch);
             formCtrlActiveY();
         }
         public void EditFormatActiveN()
@@ -182,17 +183,17 @@ namespace SPAPracticeManagement.InventoryMaster
         {
             try
             {
-                //objBOMentryDAL.BindList(grdSearch);
+                objTaxConfigDAL.BindList(Globalmethods.BranchCD, grdSearch);
 
                 txtSearchText.Width = 1050;
 
                 lblTag.Text = "All " + objFrmName.ToString() + "";
                 grdSearch.Width = 1100;
                 grdSearch.Height = 550;
-                CommonCL.PanelControlGotFocus(pnlTabControlSearch, chkLsFormula);
+                CommonCL.PanelControlGotFocus(pnlTabControlSearch, pnlTabControlAdd);
 
-                //grdSearch.Columns[0].Visible = false;
-
+                grdSearch.Columns[0].Visible = false;
+                grdSearch.Columns[1].Visible = false;
 
                 //grdSearch.Columns[1].Width = 100;
                 //grdSearch.Columns[2].Width = 150;
@@ -303,57 +304,57 @@ namespace SPAPracticeManagement.InventoryMaster
                 MessageBox.Show(e1.Message);
             }
         }
-        private bool ValidateSubForm()
-        {
+        //private bool ValidateSubForm()
+        //{
 
-            if (txtHidCode.Text == "")
-            {
-                txtHidCode.Text = "0";
-            }
+        //    if (txtHidCode.Text == "")
+        //    {
+        //        txtHidCode.Text = "0";
+        //    }
 
-            //if (TnSname.SelectedValue == null || TnSname.SelectedValue.ToString() == "")
-            //{
-            //    MessageBox.Show("Please enter Name.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    return false;
-            //}
-            //if (ddlSTax.SelectedValue == null || ddlSTax.SelectedValue.ToString() == "")
-            //{
-            //    MessageBox.Show("Please enter S. Tax.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    return false;
-            //}
-            if (ddladdSub.Text .ToString ()=="")
-            {
-                MessageBox.Show("Please enter S. Tax.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-            //if (ddlFormula.Text.ToString() == "")
-            //{
-            //    MessageBox.Show("Please enter Formula.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    return false;
-            //}
-            //if (txtPer.Text.Trim() == "")
-            //{
-            //    MessageBox.Show("Please enter Qty.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    return false;
-            //}
-            //if (txtVal.Text.Trim() == "")
-            //{
-            //    MessageBox.Show("Please enter Rate.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    return false;
-            //}
+        //    //if (TnSname.SelectedValue == null || TnSname.SelectedValue.ToString() == "")
+        //    //{
+        //    //    MessageBox.Show("Please enter Name.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //    //    return false;
+        //    //}
+        //    //if (ddlSTax.SelectedValue == null || ddlSTax.SelectedValue.ToString() == "")
+        //    //{
+        //    //    MessageBox.Show("Please enter S. Tax.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //    //    return false;
+        //    //}
+        //    if (ddladdSub.Text .ToString ()=="")
+        //    {
+        //        MessageBox.Show("Please enter S. Tax.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //        return false;
+        //    }
+        //    //if (ddlFormula.Text.ToString() == "")
+        //    //{
+        //    //    MessageBox.Show("Please enter Formula.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //    //    return false;
+        //    //}
+        //    //if (txtPer.Text.Trim() == "")
+        //    //{
+        //    //    MessageBox.Show("Please enter Qty.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //    //    return false;
+        //    //}
+        //    //if (txtVal.Text.Trim() == "")
+        //    //{
+        //    //    MessageBox.Show("Please enter Rate.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //    //    return false;
+        //    //}
 
-            if (txtHdActiveYN.Text.Trim() == "")
-            {
-                MessageBox.Show("Please enter activeYN", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
+        //    if (txtHdActiveYN.Text.Trim() == "")
+        //    {
+        //        MessageBox.Show("Please enter activeYN", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //        return false;
+        //    }
 
 
-            else
-            {
-                return true;
-            }
-        }
+        //    else
+        //    {
+        //        return true;
+        //    }
+        //}
 
         private void grdDtl_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -655,6 +656,264 @@ namespace SPAPracticeManagement.InventoryMaster
             //txtTotQty.Text = totQty.ToString();
             //txtTotAmount.Text = totAmt.ToString();
         }
+        #region Insert/Update
+        private bool ValidateForm()
+        {
 
+            if (txtHidCode.Text == "")
+            {
+                txtHidCode.Text = "0";
+            }
+
+            //if (ddlBranch.SelectedValue == null || ddlBranch.SelectedValue.ToString() == "")
+            //{
+            //    MessageBox.Show("Please enter Branch.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return false;
+            //}
+
+            //if (ddlGodown.SelectedValue == null || ddlGodown.SelectedValue.ToString() == "")
+            //{
+            //    MessageBox.Show("Please enter Godown.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return false;
+            //}
+
+            if (txtConfigNm.Text.Trim() == "")
+            {
+                MessageBox.Show("Please enter Tax Or Services Config Name", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (txtHdActiveYN.Text.Trim() == "")
+            {
+                MessageBox.Show("Please enter activeYN", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+
+            else
+            {
+                return true;
+            }
+        }
+        private bool ValidateSubForm()
+        {
+
+            if (txtHidCode.Text == "")
+            {
+                txtHidCode.Text = "0";
+            }
+
+            if (txtTnSname.Text.Trim() == "")
+            {
+                MessageBox.Show("Please enter Tax Or Services Name", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (ddlSTax.SelectedIndex == null || ddlSTax.SelectedIndex.ToString() == "")
+            {
+                MessageBox.Show("Please enter Service Tax.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (ddladdSub.SelectedIndex == null || ddladdSub.SelectedIndex.ToString() == "")
+            {
+                MessageBox.Show("Please enter +/-.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            //if (chkListFormula.Text.Trim() == "")
+            //{
+            //    MessageBox.Show("Please enter Qty.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return false;
+            //}
+            //if (txtPer.Text.Trim() == "")
+            //{
+            //    MessageBox.Show("Please enter (%).", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return false;
+            //}
+
+            //if (txtVal.Text.Trim() == "")
+            //{
+            //    MessageBox.Show("Please enter Value.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return false;
+            //}
+            if (ddlType.SelectedIndex == null || ddlSTax.SelectedIndex.ToString() == "")
+            {
+                MessageBox.Show("Please enter Type.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (txtActive.Text.Trim() == "")
+            {
+                MessageBox.Show("Please enter ActiveYN.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            else
+            {
+                return true;
+            }
+        }
+        #endregion
+
+        #region GridFunctions
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            int i = InsertUpdateDelete();
+
+            if (i > 0)
+            {
+                if (grdDtl.Rows.Count != 0)
+                {
+
+                    for (int j = 0; j < grdDtl.Rows.Count; j++)
+                    {
+
+                        tbltaxcofigdetail objtbltaxcofigdetail = new tbltaxcofigdetail();
+                        //tblstock objtblstock = new tblstock();
+                        objtbltaxcofigdetail.TaxConfigHdCd = Convert.ToInt32(i.ToString());
+                        //objtbltaxcofigdetail.Code = Convert.ToInt32(grdDtl.Rows[j].Cells["code"].Va
+                        objtbltaxcofigdetail.Code = 0;
+                        objtbltaxcofigdetail.Name = grdDtl.Rows[j].Cells["Name"].Value.ToString();
+                        bool STaxYN = false;
+                        if (grdDtl.Rows[j].Cells["STax"].Value.ToString() == "Y")
+                        { STaxYN = true; }
+                        objtbltaxcofigdetail.TaxYN = STaxYN;
+                        objtbltaxcofigdetail.AddSub = grdDtl.Rows[j].Cells["AddSub"].Value.ToString();
+                        objtbltaxcofigdetail.CalOn = grdDtl.Rows[j].Cells["Formula"].Value.ToString();
+                        objtbltaxcofigdetail.CalPer = Convert.ToDecimal(grdDtl.Rows[j].Cells["TaxPer"].Value.ToString());
+                        //objtbltaxcofigdetail.CalVal = Convert.ToDecimal(grdDtl.Rows[j].Cells["Val"].Value.ToString());
+                        objtbltaxcofigdetail.CalVal = 0;
+                        objtbltaxcofigdetail.TermsType = grdDtl.Rows[j].Cells["Type"].Value.ToString();
+                        
+                        bool valActiveYN = false;
+                        if (grdDtl.Rows[j].Cells["DActiveYN"].Value.ToString() == "Y")
+                        { valActiveYN = true; }
+                        objtbltaxcofigdetail.ActiveYN = valActiveYN;
+                        //objtbltaxcofigdetail.ExpiryDt = Convert.ToDateTime(grdDtl.Rows[j].Cells["ExpiryDt"].Value.ToString());
+
+                        objTaxConfigDAL.InsertUpdateDetai(objtbltaxcofigdetail);
+                    }
+
+                }
+            }
+        }
+
+        public int InsertUpdateDelete()
+        {
+            int r = 0;
+
+            try
+            {
+                //int i = default(int);
+                //bool IsValid = false;
+
+                tbltaxconfigheader objtbltaxconfigheader = new tbltaxconfigheader();
+                tbltaxcofigdetail objtbltaxcofigdetail = new tbltaxcofigdetail();
+
+                if (ValidateForm())
+                {
+
+
+                    objtbltaxconfigheader.Code = Convert.ToInt32(txtHidCode.Text.ToString());
+                    objtbltaxconfigheader.Description = txtConfigNm.Text.ToString();
+                    objtbltaxconfigheader.BranchCd = Globalmethods.BranchCD;
+                    //objtbltaxconfigheader.GodownCd = Convert.ToInt32(ddlGodown.SelectedValue.ToString());
+                    //objtbltaxconfigheader.ItemOpeningTranId = txtIndentNo.Text.ToString();
+                    //objtbltaxconfigheader.Description = "";
+                    //objtblitemopeningheader.TotValue = Convert.ToDecimal(txtTotAmount.Text.ToString());
+                    //objtbltaxconfigheader.TotValue = 0;
+                    objtbltaxconfigheader.Finyr = Globalmethods.FinYr;
+                    objtbltaxconfigheader.ActiveYN = true;
+                    objtbltaxconfigheader.EntryDate = DateTime.Now;
+                    objtbltaxconfigheader.UserCode = GlobalCL.UserCD;
+
+                    r = objTaxConfigDAL.InsertUpdateHdr(objtbltaxconfigheader, objtbltaxcofigdetail);
+
+                }
+                return r;
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error Occoured. Please enter correct data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+        }
+        #endregion
+
+        #region Search Effect
+        public void XGridValueJump()
+        {
+            try
+            {
+                int index5 = grdSearch.SelectedCells[0].RowIndex;
+                txtHidCode.Text = (String)grdSearch["Code", index5].Value.ToString();
+                int Rcode = Convert.ToInt32(grdSearch["Code", index5].Value.ToString());
+                //=======================Header data bind==========================
+                string ActYN = "N";
+                if ((bool)grdSearch["HActiveYN", index5].Value == true)
+                {
+                    ActYN = "Y";
+                }
+                txtHdActiveYN.Text = ActYN;
+                this.txtConfigNm.Text = grdSearch["Description", index5].Value.ToString();
+                //this.ddlBranch.SelectedValue = grdSearch["Brabchcd", index5].Value;
+                //=================================================================
+                //if (ddlBranch.SelectedValue != null || ddlBranch.SelectedValue.ToString() != "")
+                //{
+                //    int i = Convert.ToInt32(ddlBranch.SelectedValue.ToString());
+                //    objInventoryMasterDAL.BindDdlGodown(i, ddlGodown);
+                //    this.ddlGodown.SelectedValue = grdSearch["Godowncd", index5].Value;
+                //}
+                //=================================================================
+                //this.txtIndentNo.Text = grdSearch["ItemOpeningTranId", index5].Value.ToString();
+                //=============================End=================================
+                //=======================Detail data bind==========================
+
+
+                if (txtHidCode.Text == "")
+                {
+                    MessageBox.Show("Please Select Valid date.. !!");
+                    return;
+                }
+                else
+                {
+
+                    txtHidCode.Text = (String)grdSearch["Code", index5].Value.ToString();
+                    Rcode = Convert.ToInt32(txtHidCode.Text.ToString());
+                    grdDtl.Rows.Clear();
+                    List<TaxConfigurationEL> objTaxConfigurationEL = new List<TaxConfigurationEL>();
+
+                    objTaxConfigurationEL = objTaxConfigDAL.BindDtlList(Rcode);  //  (grdDtl, Rcode);
+                    for (var i = 0; i < objTaxConfigurationEL.Count; i++)
+                    {
+                        grdDtl.Rows.Add();
+                        grdDtl.Rows[i].Cells["code"].Value = objTaxConfigurationEL[i].DCode.ToString();
+                        grdDtl.Rows[i].Cells["Name"].Value = objTaxConfigurationEL[i].ConfigNm;
+                        grdDtl.Rows[i].Cells["STax"].Value = objTaxConfigurationEL[i].STax;
+                        grdDtl.Rows[i].Cells["AddSub"].Value = objTaxConfigurationEL[i].addSub;
+                        grdDtl.Rows[i].Cells["Formula"].Value = objTaxConfigurationEL[i].CalOn;
+                        grdDtl.Rows[i].Cells["TaxPer"].Value = objTaxConfigurationEL[i].CalPer;
+                        grdDtl.Rows[i].Cells["Val"].Value = objTaxConfigurationEL[i].CalVal;
+
+                        grdDtl.Rows[i].Cells["Type"].Value = objTaxConfigurationEL[i].TermsType;
+                        grdDtl.Rows[i].Cells["DActiveYN"].Value = objTaxConfigurationEL[i].IsActive;                       
+                    }
+
+
+                    //=================================================================
+
+                }
+
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.Message);
+            }
+        }
+        private void grdSearch_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            CommonCL.PanelControlGotFocus(pnlTabControlAdd, pnlTabControlSearch);
+            XGridValueJump();
+            EditFormatActiveN();
+        }
+
+        #endregion
     }
 }
