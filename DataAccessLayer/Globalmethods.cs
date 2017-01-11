@@ -41,6 +41,27 @@ namespace DataAccessLayer
             return prefix;
 
         }
+        public static string GetPurchaseBillPrefixforTran(int id)
+        {
+            string prefix = "N";
+            try
+            {
+                SpaPracticeEntities db = new SpaPracticeEntities();
+                var BNValue = db.tblparameters.Where(p => p.ID == 1).ToList(); ;
+                foreach (var pr in BNValue)
+                {
+                    prefix = pr.PurchaseBillTranPrefix.ToString();
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+
+            return prefix;
+
+        }
 
         public static void GetParameterValues()
         {

@@ -547,6 +547,7 @@
           <Property Name="AcgtiveYN" Type="bit" Nullable="false" />
           <Property Name="EntryDate" Type="datetime" Precision="0" Nullable="false" />
           <Property Name="UserCode" Type="int" Nullable="false" />
+          <Property Name="TaxConfigCd" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tblreport">
           <Key>
@@ -3055,6 +3056,7 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <Property Name="AcgtiveYN" Type="Boolean" Nullable="false" />
           <Property Name="EntryDate" Type="DateTime" Nullable="false" />
           <Property Name="UserCode" Type="Int32" Nullable="false" />
+          <Property Name="TaxConfigCd" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="tblparameter">
           <Key>
@@ -3830,6 +3832,7 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <EntitySetMapping Name="tblpurchasehdrs">
             <EntityTypeMapping TypeName="SpaPracticeModel.tblpurchasehdr">
               <MappingFragment StoreEntitySet="tblpurchasehdr">
+                <ScalarProperty Name="TaxConfigCd" ColumnName="TaxConfigCd" />
                 <ScalarProperty Name="UserCode" ColumnName="UserCode" />
                 <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
                 <ScalarProperty Name="AcgtiveYN" ColumnName="AcgtiveYN" />
