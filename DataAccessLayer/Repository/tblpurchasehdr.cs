@@ -31,5 +31,6 @@ namespace DataAccessLayer.Repository
         public bool AcgtiveYN { get; set; }
         public System.DateTime EntryDate { get; set; }
         public int UserCode { get; set; }
+        public int TaxConfigCd { get; set; }
     }
 }
