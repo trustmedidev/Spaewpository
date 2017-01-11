@@ -100,6 +100,7 @@
     <Compile Include="PackageBookingDAL.cs" />
     <Compile Include="PackageDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseBillDAL.cs" />
     <Compile Include="ReportDAL.cs" />
     <Compile Include="Repository\DailySalesReport_Result.cs">
       <DependentUpon>SpaPracticeDB.tt</DependentUpon>
