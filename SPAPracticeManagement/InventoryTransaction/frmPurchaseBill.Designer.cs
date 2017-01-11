@@ -192,7 +192,7 @@
             this.pnlTabControlAdd.Location = new System.Drawing.Point(212, 234);
             this.pnlTabControlAdd.Margin = new System.Windows.Forms.Padding(4);
             this.pnlTabControlAdd.Name = "pnlTabControlAdd";
-            this.pnlTabControlAdd.Size = new System.Drawing.Size(1663, 902);
+            this.pnlTabControlAdd.Size = new System.Drawing.Size(1663, 923);
             this.pnlTabControlAdd.TabIndex = 161;
             // 
             // DtExp
@@ -423,6 +423,7 @@
             this.txtItTaxPer.Name = "txtItTaxPer";
             this.txtItTaxPer.Size = new System.Drawing.Size(77, 27);
             this.txtItTaxPer.TabIndex = 156;
+            this.txtItTaxPer.TextChanged += new System.EventHandler(this.txtItTaxPer_TextChanged);
             this.txtItTaxPer.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtItTaxPer_KeyUp);
             // 
             // label18
@@ -490,6 +491,7 @@
             this.txtRate.Name = "txtRate";
             this.txtRate.Size = new System.Drawing.Size(149, 27);
             this.txtRate.TabIndex = 150;
+            this.txtRate.TextChanged += new System.EventHandler(this.txtRate_TextChanged);
             this.txtRate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtRate_KeyUp);
             // 
             // label14
@@ -824,6 +826,7 @@
             this.btnSubAdd.TabIndex = 5;
             this.btnSubAdd.Text = "Add";
             this.btnSubAdd.UseVisualStyleBackColor = false;
+            this.btnSubAdd.Click += new System.EventHandler(this.btnSubAdd_Click);
             this.btnSubAdd.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnSubAdd_KeyUp);
             // 
             // label6
@@ -1038,7 +1041,7 @@
             this.pnlTabControlSearch.Location = new System.Drawing.Point(1617, 201);
             this.pnlTabControlSearch.Margin = new System.Windows.Forms.Padding(4);
             this.pnlTabControlSearch.Name = "pnlTabControlSearch";
-            this.pnlTabControlSearch.Size = new System.Drawing.Size(284, 310);
+            this.pnlTabControlSearch.Size = new System.Drawing.Size(284, 331);
             this.pnlTabControlSearch.TabIndex = 164;
             // 
             // txtSearchText
@@ -1065,7 +1068,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1914, 930);
+            this.ClientSize = new System.Drawing.Size(1914, 951);
             this.Controls.Add(this.txtHidCode);
             this.Controls.Add(this.txtGrdRowIndex);
             this.Controls.Add(this.pnlTabControlAdd);

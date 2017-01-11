@@ -24,7 +24,9 @@ namespace SPAPracticeManagement.InventoryTransaction
         SuppliorDAL objSuppliorDAL = new SuppliorDAL();
         UnitDAL objUnitDAL = new UnitDAL();
         TaxConfigurationDAL objTaxConfigurationDAL = new TaxConfigurationDAL();
+        PurchaseBillDAL objPurchaseBillDAL = new PurchaseBillDAL();
         DataView dv;
+
         string objFrmName = string.Empty;
 
         #endregion
@@ -202,7 +204,7 @@ namespace SPAPracticeManagement.InventoryTransaction
             this.txtAmount.Text = "";
             this.txtItTaxPer.Text = "";
             this.txtItTaxVal.Text = "";
-            this.txtActive.Text = "";
+            this.txtActive.Text = "Y";
             this.txtTotAmount.Text = "";
             this.txtTotItTax.Text = "";
             this.ddlBillType.Text = "";
@@ -571,12 +573,12 @@ namespace SPAPracticeManagement.InventoryTransaction
 
                 if (ValidateForm())
                 {
-
-
                     objtblpurchasehdr.Code = Convert.ToInt32(txtHidCode.Text.ToString());
                     objtblpurchasehdr.TranDate = StockDt.Value;
                     objtblpurchasehdr.BranchCd = Convert.ToInt32(ddlBranch.SelectedValue.ToString());
                     objtblpurchasehdr.GodownCd = Convert.ToInt32(ddlGodown.SelectedValue.ToString());
+                    objtblpurchasehdr.SupplierCd = Convert.ToInt32(ddlSupplier.SelectedValue.ToString());
+                    objtblpurchasehdr.TaxConfigCd = Convert.ToInt32(ddlTaxTerm.SelectedValue.ToString());
                     objtblpurchasehdr.PurchaseTranID = txtIndentNo.Text.ToString();
                     objtblpurchasehdr.Description = "";
                     objtblpurchasehdr.TotValue = 0;
@@ -585,7 +587,7 @@ namespace SPAPracticeManagement.InventoryTransaction
                     objtblpurchasehdr.EntryDate = DateTime.Now;
                     objtblpurchasehdr.UserCode = GlobalCL.UserCD;
 
-                    //r = objItemOpeningstock.InsertUpdateOpeningstockHdr(objtblpurchasehdr, objtblitemopeningdetail);
+                    r = objPurchaseBillDAL.InsertUpdateHdr(objtblpurchasehdr, objtblpurchasedtl);
 
                 }
                 return r;
@@ -707,7 +709,8 @@ namespace SPAPracticeManagement.InventoryTransaction
 
 
             }
-
+            txtTotItTax.Text = "0";
+            txtTotAmount.Text = "0d";
             for (int i = 0; i < grdDtl.Rows.Count; i++)
             {
 
@@ -717,6 +720,14 @@ namespace SPAPracticeManagement.InventoryTransaction
             }
             txtTotItTax.Text = totTaxVal.ToString();
             txtTotAmount.Text = totAmt.ToString();
+
+            txtGrossAmount.Text = Convert.ToString(Convert.ToDecimal(txtTotItTax.Text.ToString()) + Convert.ToDecimal(txtTotAmount.Text.ToString()));
+            if (txtTaxTotal.Text == "")
+            {
+                txtTaxTotal.Text = "0";
+            }
+            txtNetTotal.Text = Convert.ToString(Convert.ToDecimal(txtGrossAmount.Text.ToString()) + Convert.ToDecimal(txtTaxTotal.Text.ToString()));
+            
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -749,7 +760,7 @@ namespace SPAPracticeManagement.InventoryTransaction
                         objtblpurchasedtl.ActiveYN = valActiveYN;
                         objtblpurchasedtl.ExpiryDt = Convert.ToDateTime(grdDtl.Rows[j].Cells["ExpiryDt"].Value.ToString());
 
-                        //objItemOpeningstock.InsertUpdateBOMdetai(objtblitemopeningdetail, objtblstock);
+                        objPurchaseBillDAL.InsertUpdateDetai(objtblpurchasedtl, objtblstock);
                     }
 
                 }
@@ -817,6 +828,28 @@ namespace SPAPracticeManagement.InventoryTransaction
         private void lblTag_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtRate_TextChanged(object sender, EventArgs e)
+        {
+            if (txtRate.Text != "" && txtQty .Text !="")
+            {
+                txtAmount .Text =Convert.ToString (Convert.ToDecimal (txtQty .Text .ToString ())*Convert.ToDecimal (txtRate .Text .ToString ()));
+            }
+        }
+
+        private void txtItTaxPer_TextChanged(object sender, EventArgs e)
+        {
+            if (txtAmount.Text != "" && txtItTaxPer.Text != "")
+            {
+                txtItTaxVal.Text = Convert.ToString(Convert.ToDecimal(txtAmount.Text.ToString()) * Convert.ToDecimal(txtItTaxPer.Text.ToString())/100);
+            }
+        }
+
+        private void btnSubAdd_Click(object sender, EventArgs e)
+        {
+            SubCtrlClear();
+            ActiveControl = ddlItem;
         }
     }
 }
