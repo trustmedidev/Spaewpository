@@ -16,6 +16,14 @@ namespace SPAPracticeManagement.CustomControls
         {
             InitializeComponent();
         }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
     }
         
 }

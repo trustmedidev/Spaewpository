@@ -31,6 +31,59 @@ namespace SPAPracticeManagement.InventoryMaster
             objSuppliorDAL.BindList(grdSearch);
             SirchGridFormat();
         }
+        #region Set Shortcut
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Escape))
+            {
+                falag = false;
+                return true;
+            }
+            if (keyData == Keys.F1)
+            {
+                AddFormat();
+                return true;
+            }
+            if (keyData == Keys.F2)
+            {
+                EditFormatActiveY();
+                return true;
+            }
+            if (keyData == Keys.F3)
+            {
+                SirchGridFormat();
+                return true;
+            }
+            if (keyData == (Keys.Control | Keys.A))
+            {
+                AddFormat();
+                return true;
+            }
+            if (keyData == (Keys.Alt | Keys.A))
+            {
+                AddFormat();
+                return true;
+            }
+            if (keyData == (Keys.Control | Keys.E))
+            {
+                EditFormatActiveY();
+                return true;
+            }
+            if (keyData == (Keys.Alt | Keys.E))
+            {
+                EditFormatActiveY();
+                return true;
+            }
+
+            if (keyData == (Keys.Escape))
+            {
+                falag = false;
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        #endregion
 
         #region KeybordControl
         private void txtName_KeyUp(object sender, KeyEventArgs e)
