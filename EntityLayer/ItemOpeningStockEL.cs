@@ -19,6 +19,12 @@ namespace EntityLayer
       public decimal Quantity { get; set; }
       public decimal Rate { get; set; }
       public bool ActiveYN { get; set; }
-   
+      public bool HActiveYN { get; set; }
+      
+      public string ItemOpeningTranId { get; set; }
+      public string SubUnit { get; set; }
+      
+
+
     }
 }
