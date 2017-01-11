@@ -31,6 +31,7 @@ namespace SPAPracticeManagement
     this.ClientSize.Width / 2 - panel3.Size.Width / 2,
     this.ClientSize.Height / 2 - panel3.Size.Height / 2);
             panel3.Anchor = AnchorStyles.None;
+            Globalmethods.GetParameterValues();
             //System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("en-CA");
         }
 
