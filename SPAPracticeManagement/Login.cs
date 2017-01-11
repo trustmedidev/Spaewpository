@@ -28,8 +28,8 @@ namespace SPAPracticeManagement
             this.Size = Screen.PrimaryScreen.WorkingArea.Size;
 
             panel3.Location = new Point(
-    this.ClientSize.Width / 2 - panel3.Size.Width / 2,
-    this.ClientSize.Height / 2 - panel3.Size.Height / 2);
+          this.ClientSize.Width / 2 - panel3.Size.Width / 2,
+         this.ClientSize.Height / 2 - panel3.Size.Height / 2);
             panel3.Anchor = AnchorStyles.None;
             Globalmethods.GetParameterValues();
             //System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("en-CA");
