@@ -410,7 +410,7 @@
             this.button2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.button2.Size = new System.Drawing.Size(140, 32);
             this.button2.TabIndex = 148;
-            this.button2.Text = "Branch Right";
+            this.button2.Text = "Right";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 

@@ -13,10 +13,13 @@ using EntityLayer;
 using SPAPracticeManagement.AppConstants;
 using System.Text.RegularExpressions;
 using DataAccessLayer.Repository;
- 
+using SPAPracticeManagement.Custom_Controls;
+using System.Windows.Forms;
+using SPAPracticeManagement.CustomControls.Register;
+
 namespace SPAPracticeManagement.Custom_Controls.Register
 {
-    public partial class AddUser : UserControl
+    public partial class AddUser : UserControl 
     {
         int? branchID = Convert.ToInt32(ConfigurationManager.AppSettings["BranchID"]);
         UserDAL objUserDAL = new UserDAL();
@@ -375,8 +378,7 @@ namespace SPAPracticeManagement.Custom_Controls.Register
 
         private void button2_Click(object sender, EventArgs e)
         {
-
-            panel3.Visible = false;
+            
         }
         
     }
