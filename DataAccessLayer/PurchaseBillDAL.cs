@@ -13,9 +13,11 @@ namespace DataAccessLayer
     public class PurchaseBillDAL : SpaPracticeEntities
     {
         StockDAL ObjStock = new StockDAL();
+        bool GRNYN = false;
         #region === Get tranID===
         public string GetTranId()
         {
+           
             string tranId = string.Empty;
             string Tempid = string.Empty;
             string prefix = string.Empty;
@@ -121,17 +123,25 @@ namespace DataAccessLayer
 
                             join gd in tblgodowns on p.GodownCd equals gd.Code
                             join br in tblbranches on p.BranchCd equals br.BranchID
-                            orderby br.BranchName, gd.Description
+                            join supp in tblsuppliors on p.SupplierCd equals supp.Code
+                            orderby br.BranchName, gd.Description, supp.Description
                             select new
                             {
                                 code = p.Code,
-                                ItemOpeningTranId = p.PurchaseTranID,
+                                PurchaseTranID = p.PurchaseTranID,
                                 Brabchcd = p.BranchCd,
                                 Godowncd = p.GodownCd,
                                 BranchName = br.BranchName,
                                 GodownName = gd.Description,
-                                Description = p.Description,
+                                SupplierCd=p.SupplierCd,
+                                SupplierNM = supp.Description,
+                                //Description = p.Description,
+                                TranId=p.TaxConfigCd,
                                 TranDate = p.TranDate,
+                                TotBasicValue=p.TotBasicValue,
+                                TotVal=p.TotVal,
+                                TotDisc=p.TotDisc,
+                                TotValue=p.TotValue,
                                 TotalValue = p.TotValue,
                                 HActiveYN = p.AcgtiveYN
 
@@ -147,8 +157,9 @@ namespace DataAccessLayer
 
                             join gd in tblgodowns on p.GodownCd equals gd.Code
                             join br in tblbranches on p.BranchCd equals br.BranchID
+                            join supp in tblsuppliors on p.SupplierCd equals supp.Code                            
                             where p.BranchCd == Globalmethods.BranchCD
-                            orderby br.BranchName, gd.Description
+                            orderby br.BranchName, gd.Description, supp.Description
                             select new
                             {
                                 code = p.Code,
@@ -156,7 +167,9 @@ namespace DataAccessLayer
                                 Godowncd = p.GodownCd,
                                 BranchName = br.BranchName,
                                 GodownName = gd.Description,
-                                Description = p.Description,
+                                SupplierCd = p.SupplierCd,
+                                SupplierNM = supp.Description,
+                                //Description = p.Description,
                                 TranDate = p.TranDate,
                                 TotalValue = p.TotValue,
                                 ActiveYN = p.AcgtiveYN
@@ -232,6 +245,109 @@ namespace DataAccessLayer
 
 
 
+        }
+
+        #endregion
+
+        #region === bind GRN No
+        public void BindDdlGRNNo(ComboBox ddl)
+        {
+            try
+            {
+                GRNYN = false;
+                GRNYN = Globalmethods.GetGRNYN(3);
+                if (GRNYN == true)
+                {
+                    var data = (from p in tblgrnhdrs
+                                where p.ActiveYN == true
+                                select new
+                                {
+                                    Code = p.Code,
+                                    Name = p.Description
+                                });
+                    var servicelist = data.ToList();
+                    if (servicelist != null)
+                    {
+                        ddl.DataSource = null;
+                        ddl.Items.Clear();
+
+                        ddl.ValueMember = "Code";
+                        ddl.DisplayMember = "Name";
+                        ddl.DataSource = servicelist;
+                        ddl.SelectedIndex = -1;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+        #endregion
+
+        #region Bind detail grid
+
+        public List<PurchaceBillEL> BindDtlList(int Code)
+        {
+            //  var Dtl=null;
+            try
+            {
+                List<PurchaceBillEL> objPurchaceBillEL = new List<PurchaceBillEL>();
+                objPurchaceBillEL = (from OpDtl in tblpurchasedtls
+                                   join It in tblitems on OpDtl.ItemCd equals It.Code
+                                      into t1
+                                   from It in t1.DefaultIfEmpty()
+                                   join Unt in tblunits on OpDtl.UnitCd equals Unt.Code
+                                      into t2
+                                   from Unt in t2.DefaultIfEmpty()
+                                     join btch in tblbatches on OpDtl.BatchCd equals btch.Code
+                                        into t3
+                                     from btch in t3.DefaultIfEmpty()
+                                   where OpDtl.PurchaseCd == Code
+                                   orderby It.Description
+                                     select new PurchaceBillEL()
+                                   {
+                                       //Code
+                                       // PurchaseCd
+                                       // ItemCd
+                                       // BatchCd
+                                       // Qty
+                                       // UnitCd
+                                       // Rate
+                                       // VatPer
+                                       // VatVal
+                                       // DiscPer
+                                       // Value
+                                       // ExpiryDt
+                                       // ActiveYN
+
+                                       DCode = OpDtl.Code,
+                                       ItemCd = OpDtl.ItemCd,
+                                       Item = (It.Description ?? string.Empty),
+                                       UnitCd = OpDtl.UnitCd,
+                                       Unit = (Unt.Description ?? string.Empty),
+                                       BatchCd = OpDtl.BatchCd,
+                                       BatchNo=(btch.BatchNo ?? string.Empty),
+                                       Qty = OpDtl.Qty,
+                                       Rate = OpDtl.Rate,
+                                       ExpiryDt = OpDtl.ExpiryDt,
+                                       //SubUnitCd = (OpDtl.SubUnitCd ?? 0),
+                                       //SubUnit = (Unt1.Description ?? string.Empty),
+                                       //Qty = OpDtl.SubQty,
+                                      
+                                       //Rate = OpDtl.Value,
+                                       ActiveYN = OpDtl.ActiveYN
+                                   }
+                         ).ToList();
+
+
+                return objPurchaceBillEL;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
 
         #endregion

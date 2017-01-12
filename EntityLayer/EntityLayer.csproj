@@ -58,6 +58,7 @@
     <Compile Include="PackageEL.cs" />
     <Compile Include="PaymentDtlEL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaceBillEL.cs" />
     <Compile Include="ReportEL.cs" />
     <Compile Include="ServiceEL.cs" />
     <Compile Include="TaxConfigurationEL.cs" />
