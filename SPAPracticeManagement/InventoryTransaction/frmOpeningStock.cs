@@ -738,9 +738,9 @@ namespace SPAPracticeManagement.InventoryTransaction
                     objInventoryMasterDAL.BindDdlGodown(i, ddlGodown);
                     this.ddlGodown.SelectedValue = grdSearch["Godowncd", index5].Value;
                 }
-                //=================================================================
-                this.txtIndentNo.Text = grdSearch["ItemOpeningTranId", index5].Value.ToString();
-                //=============================End=================================
+                ////=================================================================
+                //this.txtIndentNo.Text = grdSearch["ItemOpeningTranId", index5].Value.ToString();
+                ////=============================End=================================
                 //=======================Detail data bind==========================
 
 
