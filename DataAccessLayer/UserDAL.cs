@@ -100,6 +100,37 @@ namespace DataAccessLayer
             return objuser.UserId;
         }
 
+        public void InsertUpdateBranchRight(tblbranchright objBranchRight)
+        {
+            int code;
+            var BNValue = tblbranchrights.Max(i => (int?)i.Code).GetValueOrDefault();
+            if (BNValue == 0)
+            {
+                code = 1;
+            }
+            else
+            {
+                code = Int32.Parse(BNValue.ToString());
+                code = code + 1;
+            }
+
+            //new insert 
+            if (objBranchRight.Code == 0)
+            {
+                objBranchRight.Code = code;
+
+                tblbranchrights.Add(objBranchRight);
+                SaveChanges();
+               }
+            else
+            {
+                var appOrg = tblbranchrights.Where(p => p.BranchCd == objBranchRight.BranchCd && p.UserCd==objBranchRight.UserCd);
+                Entry(appOrg).CurrentValues.SetValues(objBranchRight);
+                SaveChanges();
+            }
+
+        }
+
         public bool CheckUserName(string userName, int? branchID)
         {
             var UserDetails = tblusers.Where(x => x.UserName.Trim().ToUpper() == userName && x.FK_BranchID == branchID).FirstOrDefault();
