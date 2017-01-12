@@ -84,6 +84,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\DoctorPractice\DoctorPracticeManagement\bin\Debug\MySql.Web.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -102,6 +104,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppConstants\AppsPropertise.cs" />
@@ -202,6 +205,12 @@
     </Compile>
     <Compile Include="CustomControls\Register\AddUser.designer.cs">
       <DependentUpon>AddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\Register\BranchModuleRights.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\Register\BranchModuleRights.Designer.cs">
+      <DependentUpon>BranchModuleRights.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomControls\VarticalMenu.cs">
       <SubType>UserControl</SubType>
@@ -356,6 +365,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registration\frmRights.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registration\frmRights.Designer.cs">
+      <DependentUpon>frmRights.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registration\UserRegistration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -537,6 +552,9 @@
     <EmbeddedResource Include="CustomControls\Register\AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\Register\BranchModuleRights.resx">
+      <DependentUpon>BranchModuleRights.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\VarticalMenu.resx">
       <DependentUpon>VarticalMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -619,6 +637,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Registration\frmRights.resx">
+      <DependentUpon>frmRights.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Registration\UserRegistration.resx">
       <DependentUpon>UserRegistration.cs</DependentUpon>
     </EmbeddedResource>
@@ -727,7 +748,6 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="Images\add.jpg" />
     <Content Include="Images\addIcon.jpg" />

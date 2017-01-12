@@ -268,5 +268,12 @@ namespace SPAPracticeManagement
         {
             btnPayment.ForeColor = Color.White;
         }
+
+        private void btnUserRights_Click(object sender, EventArgs e)
+        {
+            frmRights objAdd = new frmRights();
+            objAdd.Show();
+            this.Hide();
+        }
     }
 }

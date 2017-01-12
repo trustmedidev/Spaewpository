@@ -1,6 +1,6 @@
 ﻿namespace SPAPracticeManagement.Registration
 {
-    partial class UserRegistration
+    partial class frmRights
     {
         /// <summary>
         /// Required designer variable.
@@ -36,22 +36,21 @@
             this.pnlTab.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlTab.Location = new System.Drawing.Point(207, 166);
+            this.pnlTab.Location = new System.Drawing.Point(212, 168);
             this.pnlTab.Margin = new System.Windows.Forms.Padding(4);
             this.pnlTab.Name = "pnlTab";
             this.pnlTab.Size = new System.Drawing.Size(1296, 742);
-            this.pnlTab.TabIndex = 24;
+            this.pnlTab.TabIndex = 25;
             // 
-            // UserRegistration
+            // frmRights
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1592, 668);
+            this.ClientSize = new System.Drawing.Size(1206, 696);
             this.Controls.Add(this.pnlTab);
-            this.Margin = new System.Windows.Forms.Padding(5);
-            this.Name = "UserRegistration";
-            this.Text = "UserRegistration";
-            this.Load += new System.EventHandler(this.UserRegistration_Load);
+            this.Name = "frmRights";
+            this.Text = "User Rights";
+            this.Load += new System.EventHandler(this.frmRights_Load);
             this.Controls.SetChildIndex(this.pnlTab, 0);
             this.ResumeLayout(false);
 

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using SPAPracticeManagement.CustomControls.Register;
 namespace SPAPracticeManagement.Registration
 {
     public partial class UserRegistration : Dashboard
@@ -25,6 +25,13 @@ namespace SPAPracticeManagement.Registration
 
             this.Location = new Point(0, 0);
             this.Size = Screen.PrimaryScreen.WorkingArea.Size;
+
+            
+        }
+
+        private void UserRegistration_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
