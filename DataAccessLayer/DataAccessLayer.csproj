@@ -185,6 +185,12 @@
     <Compile Include="Repository\tblgodown.cs">
       <DependentUpon>SpaPracticeDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Repository\tblgrndtl.cs">
+      <DependentUpon>SpaPracticeDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\tblgrnhdr.cs">
+      <DependentUpon>SpaPracticeDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Repository\tblinventory.cs">
       <DependentUpon>SpaPracticeDB.tt</DependentUpon>
     </Compile>

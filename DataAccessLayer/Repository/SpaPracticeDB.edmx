@@ -270,6 +270,38 @@
           <Property Name="EntryDate" Type="timestamp" Precision="0" Nullable="false" />
           <Property Name="UserCode" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="tblgrndtl">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="GRNCd" />
+          </Key>
+          <Property Name="Code" Type="int" Nullable="false" />
+          <Property Name="GRNCd" Type="int" Nullable="false" />
+          <Property Name="ItemCd" Type="int" Nullable="false" />
+          <Property Name="BatchCd" Type="int" Nullable="false" />
+          <Property Name="Qty" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="UnitCd" Type="int" Nullable="false" />
+          <Property Name="ExpiryDt" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="ActiveYN" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblgrnhdr">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="int" Nullable="false" />
+          <Property Name="GRNTranID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="BranchCd" Type="int" Nullable="false" />
+          <Property Name="GodownCd" Type="int" Nullable="false" />
+          <Property Name="OrderYN" Type="bit" />
+          <Property Name="OrderCd" Type="int" Nullable="false" />
+          <Property Name="SupplierCd" Type="int" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="250" />
+          <Property Name="TranDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="FinYr" Type="int" Nullable="false" />
+          <Property Name="ActiveYN" Type="bit" Nullable="false" />
+          <Property Name="EntryDate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="UserCode" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="tblinventory">
           <Key>
             <PropertyRef Name="Id" />
@@ -1304,6 +1336,8 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <EntitySet Name="tbldocument" EntityType="Self.tbldocument" Schema="spamanagement" store:Type="Tables" />
           <EntitySet Name="tblfinancialyear" EntityType="Self.tblfinancialyear" Schema="spamanagement" store:Type="Tables" />
           <EntitySet Name="tblgodown" EntityType="Self.tblgodown" Schema="spamanagement" store:Type="Tables" />
+          <EntitySet Name="tblgrndtl" EntityType="Self.tblgrndtl" Schema="spamanagement" store:Type="Tables" />
+          <EntitySet Name="tblgrnhdr" EntityType="Self.tblgrnhdr" Schema="spamanagement" store:Type="Tables" />
           <EntitySet Name="tblinventory" EntityType="Self.tblinventory" Schema="spamanagement" store:Type="Tables" />
           <EntitySet Name="tblitem" EntityType="Self.tblitem" Schema="spamanagement" store:Type="Tables" />
           <EntitySet Name="tblitemmaingroup" EntityType="Self.tblitemmaingroup" Schema="spamanagement" store:Type="Tables" />
@@ -1756,6 +1790,8 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <EntitySet Name="tblparameters" EntityType="SpaPracticeModel.tblparameter" />
           <EntitySet Name="tbltaxconfigheaders" EntityType="SpaPracticeModel.tbltaxconfigheader" />
           <EntitySet Name="tbltaxcofigdetails" EntityType="SpaPracticeModel.tbltaxcofigdetail" />
+          <EntitySet Name="tblgrndtls" EntityType="SpaPracticeModel.tblgrndtl" />
+          <EntitySet Name="tblgrnhdrs" EntityType="SpaPracticeModel.tblgrnhdr" />
           </EntityContainer>
         <ComplexType Name="GetReportData_Result" />
         <ComplexType Name="GetReportDataByReportId_Result" />
@@ -2773,7 +2809,7 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <Property Name="UserCd" Type="Int32" Nullable="false" />
           <Property Name="BranchCd" Type="Int32" Nullable="false" />
           <Property Name="RoleCd" Type="Int32" Nullable="false" />
-          <Property Name="AllowYN" Type="Boolean" />
+          <Property Name="AllowYN" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="tblcompanyright">
           <Key>
@@ -3115,6 +3151,38 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
           <Property Name="CalPer" Type="Decimal" />
           <Property Name="CalVal" Type="Decimal" />
           <Property Name="TermsType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ActiveYN" Type="Boolean" Nullable="false" />
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" />
+          <Property Name="UserCode" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblgrndtl">
+          <Key>
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="GRNCd" />
+          </Key>
+          <Property Name="Code" Type="Int32" Nullable="false" />
+          <Property Name="GRNCd" Type="Int32" Nullable="false" />
+          <Property Name="ItemCd" Type="Int32" Nullable="false" />
+          <Property Name="BatchCd" Type="Int32" Nullable="false" />
+          <Property Name="Qty" Type="Decimal" Nullable="false" />
+          <Property Name="UnitCd" Type="Int32" Nullable="false" />
+          <Property Name="ExpiryDt" Type="DateTime" Nullable="false" />
+          <Property Name="ActiveYN" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblgrnhdr">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="Int32" Nullable="false" />
+          <Property Name="GRNTranID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BranchCd" Type="Int32" Nullable="false" />
+          <Property Name="GodownCd" Type="Int32" Nullable="false" />
+          <Property Name="OrderYN" Type="Boolean" />
+          <Property Name="OrderCd" Type="Int32" Nullable="false" />
+          <Property Name="SupplierCd" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="TranDate" Type="DateTime" Nullable="false" />
+          <Property Name="FinYr" Type="Int32" Nullable="false" />
           <Property Name="ActiveYN" Type="Boolean" Nullable="false" />
           <Property Name="EntryDate" Type="DateTime" Nullable="false" />
           <Property Name="UserCode" Type="Int32" Nullable="false" />
@@ -3912,6 +3980,39 @@ warning 6035: The relationship 'FK_id_tblpackagedtl' has columns that are not pa
                 <ScalarProperty Name="TaxYN" ColumnName="TaxYN" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="TaxConfigHdCd" ColumnName="TaxConfigHdCd" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblgrndtls">
+            <EntityTypeMapping TypeName="SpaPracticeModel.tblgrndtl">
+              <MappingFragment StoreEntitySet="tblgrndtl">
+                <ScalarProperty Name="ActiveYN" ColumnName="ActiveYN" />
+                <ScalarProperty Name="ExpiryDt" ColumnName="ExpiryDt" />
+                <ScalarProperty Name="UnitCd" ColumnName="UnitCd" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="BatchCd" ColumnName="BatchCd" />
+                <ScalarProperty Name="ItemCd" ColumnName="ItemCd" />
+                <ScalarProperty Name="GRNCd" ColumnName="GRNCd" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblgrnhdrs">
+            <EntityTypeMapping TypeName="SpaPracticeModel.tblgrnhdr">
+              <MappingFragment StoreEntitySet="tblgrnhdr">
+                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="ActiveYN" ColumnName="ActiveYN" />
+                <ScalarProperty Name="FinYr" ColumnName="FinYr" />
+                <ScalarProperty Name="TranDate" ColumnName="TranDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SupplierCd" ColumnName="SupplierCd" />
+                <ScalarProperty Name="OrderCd" ColumnName="OrderCd" />
+                <ScalarProperty Name="OrderYN" ColumnName="OrderYN" />
+                <ScalarProperty Name="GodownCd" ColumnName="GodownCd" />
+                <ScalarProperty Name="BranchCd" ColumnName="BranchCd" />
+                <ScalarProperty Name="GRNTranID" ColumnName="GRNTranID" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
               </MappingFragment>
             </EntityTypeMapping>
