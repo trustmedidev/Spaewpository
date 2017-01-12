@@ -56,9 +56,10 @@
             this.label10 = new System.Windows.Forms.Label();
             this.lblMobile = new System.Windows.Forms.Label();
             this.txtMobile = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.chkBranch = new System.Windows.Forms.CheckedListBox();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgUserList)).BeginInit();
             this.panel6.SuspendLayout();
@@ -69,7 +70,7 @@
             // 
             this.txtRole.Enabled = false;
             this.txtRole.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRole.Location = new System.Drawing.Point(175, 192);
+            this.txtRole.Location = new System.Drawing.Point(178, 257);
             this.txtRole.Margin = new System.Windows.Forms.Padding(4);
             this.txtRole.MaxLength = 150;
             this.txtRole.Name = "txtRole";
@@ -81,7 +82,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(69, 49);
+            this.label4.Location = new System.Drawing.Point(64, 118);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 21);
@@ -91,7 +92,7 @@
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(172, 46);
+            this.txtName.Location = new System.Drawing.Point(178, 111);
             this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.MaxLength = 150;
             this.txtName.Name = "txtName";
@@ -107,7 +108,7 @@
             this.btnSave.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(175, 425);
+            this.btnSave.Location = new System.Drawing.Point(176, 320);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(95, 32);
@@ -125,7 +126,7 @@
             this.btnClear.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
             this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClear.Location = new System.Drawing.Point(277, 425);
+            this.btnClear.Location = new System.Drawing.Point(279, 320);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(100, 32);
@@ -143,7 +144,7 @@
             this.panel2.Location = new System.Drawing.Point(-17, 9);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(934, 27);
+            this.panel2.Size = new System.Drawing.Size(1469, 27);
             this.panel2.TabIndex = 101;
             // 
             // label5
@@ -155,15 +156,15 @@
             this.label5.Location = new System.Drawing.Point(25, 2);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 23);
+            this.label5.Size = new System.Drawing.Size(171, 23);
             this.label5.TabIndex = 4;
-            this.label5.Text = "Add User";
+            this.label5.Text = "User Management";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(45, 119);
+            this.label1.Location = new System.Drawing.Point(51, 188);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 21);
@@ -173,7 +174,7 @@
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(173, 117);
+            this.txtPassword.Location = new System.Drawing.Point(177, 181);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.MaxLength = 8;
             this.txtPassword.Name = "txtPassword";
@@ -185,7 +186,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(72, 85);
+            this.label6.Location = new System.Drawing.Point(66, 156);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(76, 21);
@@ -195,7 +196,7 @@
             // txtEmail
             // 
             this.txtEmail.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(172, 81);
+            this.txtEmail.Location = new System.Drawing.Point(176, 146);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.MaxLength = 150;
             this.txtEmail.Name = "txtEmail";
@@ -206,7 +207,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(79, 193);
+            this.label3.Location = new System.Drawing.Point(74, 257);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 21);
@@ -219,7 +220,7 @@
             this.comboRole_.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboRole_.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboRole_.FormattingEnabled = true;
-            this.comboRole_.Location = new System.Drawing.Point(173, 192);
+            this.comboRole_.Location = new System.Drawing.Point(178, 254);
             this.comboRole_.Margin = new System.Windows.Forms.Padding(4);
             this.comboRole_.Name = "comboRole_";
             this.comboRole_.Size = new System.Drawing.Size(283, 27);
@@ -229,7 +230,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(289, 327);
+            this.label7.Location = new System.Drawing.Point(275, 398);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(16, 21);
@@ -259,13 +260,13 @@
             this.Delete});
             this.dgUserList.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgUserList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgUserList.Location = new System.Drawing.Point(4, 507);
+            this.dgUserList.Location = new System.Drawing.Point(4, 402);
             this.dgUserList.Margin = new System.Windows.Forms.Padding(4);
             this.dgUserList.MultiSelect = false;
             this.dgUserList.Name = "dgUserList";
             this.dgUserList.RowHeadersVisible = false;
             this.dgUserList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgUserList.Size = new System.Drawing.Size(917, 134);
+            this.dgUserList.Size = new System.Drawing.Size(1452, 208);
             this.dgUserList.TabIndex = 140;
             this.dgUserList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgUserList_CellContentClick);
             // 
@@ -337,10 +338,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(20)))), ((int)(((byte)(58)))));
             this.panel6.Controls.Add(this.label10);
-            this.panel6.Location = new System.Drawing.Point(-23, 465);
+            this.panel6.Location = new System.Drawing.Point(-23, 360);
             this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(940, 34);
+            this.panel6.Size = new System.Drawing.Size(1475, 34);
             this.panel6.TabIndex = 141;
             // 
             // label10
@@ -359,7 +360,7 @@
             // 
             this.lblMobile.AutoSize = true;
             this.lblMobile.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMobile.Location = new System.Drawing.Point(68, 158);
+            this.lblMobile.Location = new System.Drawing.Point(74, 222);
             this.lblMobile.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMobile.Name = "lblMobile";
             this.lblMobile.Size = new System.Drawing.Size(78, 21);
@@ -369,7 +370,7 @@
             // txtMobile
             // 
             this.txtMobile.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMobile.Location = new System.Drawing.Point(173, 155);
+            this.txtMobile.Location = new System.Drawing.Point(179, 216);
             this.txtMobile.Margin = new System.Windows.Forms.Padding(4);
             this.txtMobile.MaxLength = 10;
             this.txtMobile.Name = "txtMobile";
@@ -377,14 +378,50 @@
             this.txtMobile.TabIndex = 4;
             this.txtMobile.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMobile_KeyPress);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(34)))), ((int)(((byte)(94)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(78, 44);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(140, 32);
+            this.button1.TabIndex = 147;
+            this.button1.Text = "Create User";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(34)))), ((int)(((byte)(94)))));
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(321, 44);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.button2.Size = new System.Drawing.Size(140, 32);
+            this.button2.TabIndex = 148;
+            this.button2.Text = "Branch Right";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.chkBranch);
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.txtMobile);
             this.panel1.Controls.Add(this.lblMobile);
             this.panel1.Controls.Add(this.panel6);
@@ -402,31 +439,21 @@
             this.panel1.Controls.Add(this.txtName);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.txtRole);
-            this.panel1.Location = new System.Drawing.Point(9, 5);
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Location = new System.Drawing.Point(9, 3);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(921, 665);
+            this.panel1.Size = new System.Drawing.Size(1456, 1047);
             this.panel1.TabIndex = 113;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // label2
+            // panel3
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(60, 230);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 21);
-            this.label2.TabIndex = 145;
-            this.label2.Text = "* Branch :";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // chkBranch
-            // 
-            this.chkBranch.FormattingEnabled = true;
-            this.chkBranch.Location = new System.Drawing.Point(175, 230);
-            this.chkBranch.Name = "chkBranch";
-            this.chkBranch.Size = new System.Drawing.Size(291, 106);
-            this.chkBranch.TabIndex = 146;
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.Location = new System.Drawing.Point(0, 83);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1456, 547);
+            this.panel3.TabIndex = 149;
             // 
             // AddUser
             // 
@@ -435,7 +462,7 @@
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddUser";
-            this.Size = new System.Drawing.Size(934, 674);
+            this.Size = new System.Drawing.Size(1469, 1056);
             this.Load += new System.EventHandler(this.AddUser_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -465,11 +492,6 @@
         private System.Windows.Forms.ComboBox comboRole_;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dgUserList;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label lblMobile;
-        private System.Windows.Forms.TextBox txtMobile;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridViewTextBoxColumn UserId;
         private System.Windows.Forms.DataGridViewTextBoxColumn FullName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
@@ -478,8 +500,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckedListBox chkBranch;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblMobile;
+        private System.Windows.Forms.TextBox txtMobile;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel3;
+
 
 
     }

@@ -198,6 +198,18 @@ namespace DataAccessLayer
 
 
         #endregion
+
+        public List<tblbranch> GetAllBranch()
+        {
+
+            List<tblbranch> obltblBranch = (from th in tblbranches  select th).ToList();
+            return obltblBranch;
+            //List<tbltherapist>=
+
+            //List<tbltherapist> objtbltherapist = tbltherapists.Where(x => x.FK_BranchId == branchid).Select(x => x.Name,x=>x.t);
+            //var therepist = tbltherapists.Where(x => x.FK_BranchId == branchid).Select(x => x.Name).ToList();
+            //return therepist; 
+        }
         
 
     }

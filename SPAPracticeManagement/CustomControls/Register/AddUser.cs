@@ -39,7 +39,7 @@ namespace SPAPracticeManagement.Custom_Controls.Register
         {
             InitializeComponent();
             BindUserDropDown(UpdateUserId);
-            BindBranch();
+         //   BindBranch();
             var query = objUserDAL.GetUserList(branchID).UserList.ToList();
             if (query.Count > 0)
             {
@@ -70,10 +70,10 @@ namespace SPAPracticeManagement.Custom_Controls.Register
                 }
             }
         }
-        protected void BindBranch()
-        {
-            objBranchDAL.BindBranch(chkBranch);
-        }
+        //protected void BindBranch()
+        //{
+        //    objBranchDAL.BindBranch(chkBranch);
+        //}
         protected bool ValidateForm()
         {
             if (string.IsNullOrEmpty(txtName.Text.Trim()))
@@ -162,6 +162,7 @@ namespace SPAPracticeManagement.Custom_Controls.Register
                         string prevemail = "";
                         bool userchk = false;
                         tbluser tusr = objUserDAL.GetTableUserById(UpdateUserId, branchID);
+                        tblbranchright objBranchrights = new tblbranchright();
                         //tbl_user tusr = objUserDAL.GetTableUserById(UpdateUserId, branchID);
                         prevemail = tusr.Email;
                         newemail = txtEmail.Text.Trim();
@@ -187,6 +188,30 @@ namespace SPAPracticeManagement.Custom_Controls.Register
                         //else
                         //{
                         ret = objUserDAL.InsertUpdateUser(tusr);
+
+                        //for (int Checkeditem = 0; Checkeditem < chkBranch.Items.Count; Checkeditem++)
+                        //{
+                        //    objBranchrights.BranchCd = Convert.ToInt32((this.chkBranch.Items[Checkeditem] as ListBox).ValueMember);
+                        //    objBranchrights.RoleCd = Convert.ToInt32(comboRole_.SelectedValue);
+                        //    objBranchrights.UserCd = UpdateUserId;
+                          
+                        //    if (chkBranch.GetItemChecked(Checkeditem) == true)
+                        //    {
+                        //        objBranchrights.AllowYN = true;
+
+
+                        //    }
+                        //    else
+                        //    {
+                        //        objBranchrights.AllowYN = true;
+
+                        //    }
+                        //    //  bool allow = (bool)rownum.AllowYN;
+
+                        //    objUserDAL.InsertUpdateBranchRight(objBranchrights);
+                        //}
+                        // insert update in branch rights
+                       
                         if (ret > 0)
                         {
                             MessageBox.Show("User updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -208,6 +233,7 @@ namespace SPAPracticeManagement.Custom_Controls.Register
                     else
                     {
                         tbluser tu = new tbluser();
+                       
                         Common objCommon = new Common();
                         tu.Email = txtEmail.Text.Trim();
                         tu.Name = txtName.Text.Trim();
@@ -220,14 +246,28 @@ namespace SPAPracticeManagement.Custom_Controls.Register
                         tu.FK_BranchID = branchID;
 
                         bool userchk = objUserDAL.CheckUserName(txtEmail.Text.Trim(), branchID);
-
+                      
                         if (userchk)
                         {
                             MessageBox.Show("User already exist", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         else
                         {
+                         
+                           
                             ret = objUserDAL.InsertUpdateUser(tu);
+                            List<tblbranch> BranchList = objBranchDAL.GetAllBranch();
+                            foreach (tblbranch objBranch in BranchList)
+                            {
+                                tblbranchright objBranchright = new tblbranchright();
+                                objBranchright.BranchCd = Convert.ToInt32(objBranch.BranchID);
+                                objBranchright.RoleCd = Convert.ToInt32(comboRole_.SelectedValue);
+                                objBranchright.UserCd = ret;
+
+                                objBranchright.AllowYN = false;
+                                objBranchright.Code = 0;
+                                objUserDAL.InsertUpdateBranchRight(objBranchright);
+                            }
                             if (ret > 0)
                             {
                                 MessageBox.Show("User added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -321,6 +361,22 @@ namespace SPAPracticeManagement.Custom_Controls.Register
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void chkBranch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            panel3.Visible = false;
         }
         
     }
