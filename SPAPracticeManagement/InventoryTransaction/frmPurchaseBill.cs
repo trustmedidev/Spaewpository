@@ -1114,6 +1114,11 @@ namespace SPAPracticeManagement.InventoryTransaction
                 txtTaxTotal.Text = TaxTermTot.ToString();
             }
         }
+
+        private void ddlTaxTerm_TextChanged(object sender, EventArgs e)
+        {
+            LodeBillingTerm();
+        }
         //=======================================================
     }
 }
