@@ -985,7 +985,7 @@ namespace SPAPracticeManagement.InventoryTransaction
         }
         #endregion
 
-        //               turm related code=======================
+        #region  turm related code=======================
         public double billingTermCalculate()
         {
             double result1 = 0;
@@ -1066,7 +1066,7 @@ namespace SPAPracticeManagement.InventoryTransaction
             return result2;
         }
 
-        
+
         //===================================================================
         private void ddlTaxTerm_Leave(object sender, EventArgs e)
         {
@@ -1085,7 +1085,7 @@ namespace SPAPracticeManagement.InventoryTransaction
                         grdTaxTerm.Rows.Clear();
                         List<TaxConfigurationEL> objTaxConfigurationEL = new List<TaxConfigurationEL>();
 
-                        objTaxConfigurationEL = objTaxConfigDAL.BindDtlList(Rcode); 
+                        objTaxConfigurationEL = objTaxConfigDAL.BindDtlList(Rcode);
                         for (var i = 0; i < objTaxConfigurationEL.Count; i++)
                         {
                             grdTaxTerm.Rows.Add();
@@ -1107,13 +1107,19 @@ namespace SPAPracticeManagement.InventoryTransaction
 
         private void txtGrossAmount_TextChanged(object sender, EventArgs e)
         {
-            if ( txtGrossAmount.Text.ToString() != "")
+            if (txtGrossAmount.Text.ToString() != "")
             {
                 //Convert.ToDouble(txtGrossAmount.Text.ToString()) != 0
-                double TaxTermTot= billingTermCalculate();
+                double TaxTermTot = billingTermCalculate();
                 txtTaxTotal.Text = TaxTermTot.ToString();
             }
         }
+
+        private void ddlTaxTerm_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LodeBillingTerm();
+        }
         //=======================================================
+        #endregion
     }
 }

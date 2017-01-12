@@ -591,6 +591,7 @@
             this.ddlTaxTerm.Name = "ddlTaxTerm";
             this.ddlTaxTerm.Size = new System.Drawing.Size(373, 27);
             this.ddlTaxTerm.TabIndex = 147;
+            this.ddlTaxTerm.SelectedIndexChanged += new System.EventHandler(this.ddlTaxTerm_SelectedIndexChanged);
             this.ddlTaxTerm.Enter += new System.EventHandler(this.ddlTaxTerm_Enter);
             this.ddlTaxTerm.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ddlTaxTerm_KeyUp);
             this.ddlTaxTerm.Leave += new System.EventHandler(this.ddlTaxTerm_Leave);
