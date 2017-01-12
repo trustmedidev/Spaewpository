@@ -133,10 +133,10 @@ namespace SPAPracticeManagement.InventoryTransaction
         public override void EditFormatActiveY()
         {
             lblTag.Text = "Edit " + objFrmName.ToString() + " Detail";
-            btnUpdate.Top = 520;
-            btnUpdate.Left = 645;
-            btnClear.Top = 520;
-            btnClear.Left = 720;
+            btnSave.Top = 603;
+            btnSave.Left = 745;
+            btnClear.Top = 603;
+            btnClear.Left = 820;
             btnUpdate.Visible = false;
             btnSave.Visible = true;
             btnClear.Visible = true;
@@ -147,10 +147,10 @@ namespace SPAPracticeManagement.InventoryTransaction
         public void EditFormatActiveN()
         {
             lblTag.Text = "Edit " + objFrmName.ToString() + " Detail";
-            btnUpdate.Top = 520;
-            btnUpdate.Left = 645;
-            btnClear.Top = 520;
-            btnClear.Left = 720;
+            btnSave.Top = 603;
+            btnSave.Left = 745;
+            btnClear.Top = 603;
+            btnClear.Left = 820;
             btnUpdate.Visible = true;
             btnSave.Visible = false;
             btnClear.Visible = true;
@@ -802,6 +802,7 @@ namespace SPAPracticeManagement.InventoryTransaction
                         objtblpurchasedtl.ExpiryDt = Convert.ToDateTime(grdDtl.Rows[j].Cells["ExpiryDt"].Value.ToString());
 
                         objPurchaseBillDAL.InsertUpdateDetai(objtblpurchasedtl, objtblstock);
+                    
                     }
 
                 }
@@ -892,6 +893,7 @@ namespace SPAPracticeManagement.InventoryTransaction
             SubCtrlClear();
             ActiveControl = ddlItem;
         }
+
         #region Search Effect
         private void grdSearch_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {

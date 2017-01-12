@@ -200,7 +200,7 @@
             this.pnlTabControlAdd.Location = new System.Drawing.Point(212, 234);
             this.pnlTabControlAdd.Margin = new System.Windows.Forms.Padding(4);
             this.pnlTabControlAdd.Name = "pnlTabControlAdd";
-            this.pnlTabControlAdd.Size = new System.Drawing.Size(2119, 1057);
+            this.pnlTabControlAdd.Size = new System.Drawing.Size(2119, 1069);
             this.pnlTabControlAdd.TabIndex = 161;
             // 
             // label25
@@ -1113,7 +1113,7 @@
             this.pnlTabControlSearch.Location = new System.Drawing.Point(1617, 201);
             this.pnlTabControlSearch.Margin = new System.Windows.Forms.Padding(4);
             this.pnlTabControlSearch.Name = "pnlTabControlSearch";
-            this.pnlTabControlSearch.Size = new System.Drawing.Size(740, 465);
+            this.pnlTabControlSearch.Size = new System.Drawing.Size(740, 477);
             this.pnlTabControlSearch.TabIndex = 164;
             // 
             // txtSearchText
@@ -1141,7 +1141,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1827, 884);
+            this.ClientSize = new System.Drawing.Size(1827, 896);
             this.Controls.Add(this.txtHidCode);
             this.Controls.Add(this.txtGrdRowIndex);
             this.Controls.Add(this.pnlTabControlAdd);
