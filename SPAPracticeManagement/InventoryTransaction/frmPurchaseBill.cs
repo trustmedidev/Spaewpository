@@ -25,6 +25,7 @@ namespace SPAPracticeManagement.InventoryTransaction
         UnitDAL objUnitDAL = new UnitDAL();
         TaxConfigurationDAL objTaxConfigurationDAL = new TaxConfigurationDAL();
         PurchaseBillDAL objPurchaseBillDAL = new PurchaseBillDAL();
+        TaxConfigDAL objTaxConfigDAL = new TaxConfigDAL();
         DataView dv;
         bool GRNYN = false;
         string objFrmName = string.Empty;
@@ -284,10 +285,11 @@ namespace SPAPracticeManagement.InventoryTransaction
                 grdSearch.Height = 550;
                 CommonCL.PanelControlGotFocus(pnlTabControlSearch, pnlTabControlAdd);
 
-                //grdSearch.Columns[0].Visible = false;
-                //grdSearch.Columns[1].Visible = false;
-                //grdSearch.Columns[2].Visible = false;
-                //grdSearch.Columns[3].Visible = false;
+                grdSearch.Columns[0].Visible = false;
+                grdSearch.Columns[2].Visible = false;
+                grdSearch.Columns[3].Visible = false;
+                grdSearch.Columns[6].Visible = false;
+                grdSearch.Columns[8].Visible = false;
 
                 //grdSearch.Columns[3].Width = 270;
                 //grdSearch.Columns[4].Width = 150;
@@ -615,8 +617,12 @@ namespace SPAPracticeManagement.InventoryTransaction
                     objtblpurchasehdr.SupplierCd = Convert.ToInt32(ddlSupplier.SelectedValue.ToString());
                     objtblpurchasehdr.TaxConfigCd = Convert.ToInt32(ddlTaxTerm.SelectedValue.ToString());
                     objtblpurchasehdr.PurchaseTranID = txtIndentNo.Text.ToString();
+                    objtblpurchasehdr.TotBasicValue=Convert.ToDecimal(txtGrossAmount.Text.ToString());
+                    objtblpurchasehdr.TotVal = Convert.ToDecimal(txtTaxTotal.Text.ToString());
+                    //objtblpurchasehdr.TotDisc = Convert.ToDecimal(txtGrossAmount.Text.ToString());
+                    objtblpurchasehdr.TotValue = Convert.ToDecimal(txtNetTotal.Text.ToString());
                     objtblpurchasehdr.Description = "";
-                    objtblpurchasehdr.TotValue = 0;
+                    //objtblpurchasehdr.TotValue = 0;
                     objtblpurchasehdr.FinYr = Globalmethods.FinYr;
                     objtblpurchasehdr.AcgtiveYN = true;
                     objtblpurchasehdr.EntryDate = DateTime.Now;
@@ -784,7 +790,7 @@ namespace SPAPracticeManagement.InventoryTransaction
                         objtblpurchasedtl.ItemCd = Convert.ToInt32(grdDtl.Rows[j].Cells["ItemCd"].Value.ToString());
                         objtblpurchasedtl.UnitCd = Convert.ToInt32(grdDtl.Rows[j].Cells["UnitCd"].Value.ToString());
                         objtblpurchasedtl.Qty = Convert.ToDecimal(grdDtl.Rows[j].Cells["Qty"].Value.ToString());
-                        objtblpurchasedtl.Rate = Convert.ToInt32(grdDtl.Rows[j].Cells["Rate"].Value.ToString());
+                        objtblpurchasedtl.Rate = Convert.ToDecimal(grdDtl.Rows[j].Cells["Rate"].Value.ToString());
                         objtblpurchasedtl.Value = Convert.ToDecimal(grdDtl.Rows[j].Cells["Amount"].Value.ToString());
                         objtblpurchasedtl.VatPer = Convert.ToDecimal(grdDtl.Rows[j].Cells["ItTaxPer"].Value.ToString());
 
@@ -978,5 +984,136 @@ namespace SPAPracticeManagement.InventoryTransaction
             }
         }
         #endregion
+
+        //               turm related code=======================
+        public double billingTermCalculate()
+        {
+            double result1 = 0;
+            double result2 = 0;
+            double result3 = 0;
+            if (Convert.ToDouble(txtGrossAmount.Text.ToString()) > 0)
+            {
+                for (int i = 0; i < grdTaxTerm.Rows.Count; i++)
+                {
+                    result1 = billingTermCalculatePart2(i, result2);
+                    grdTaxTerm.Rows[i].Cells["TaxAmount"].Value = result1.ToString();
+                }
+                for (int i = 0; i < grdTaxTerm.Rows.Count; i++)
+                {
+                    if (grdTaxTerm.Rows[i].Cells["AddOrSub"].Value.ToString() == "+")
+                    {
+                        result3 = result3 + Convert.ToDouble(grdTaxTerm.Rows[i].Cells["TaxAmount"].Value);
+                    }
+                    if (grdTaxTerm.Rows[i].Cells["AddOrSub"].Value.ToString() == "-")
+                    {
+                        result3 = result3 - Convert.ToDouble(grdTaxTerm.Rows[i].Cells["TaxAmount"].Value);
+                    }
+                }
+            }
+            if (Convert.ToDouble(txtGrossAmount.Text.ToString()) <= 0)
+            {
+                for (int i = 0; i < grdTaxTerm.Rows.Count; i++)
+                {
+                    result1 = 0;
+                    grdTaxTerm.Rows[i].Cells["TaxAmount"].Value = result1.ToString();
+                }
+            }
+            return result3;
+
+        }
+        //============================test===================================
+        public double billingTermCalculatePart2(int i, double result2)
+        {
+            string BillingFormulaVal = "";
+            double subTotal = 0;
+            BillingFormulaVal = grdTaxTerm.Rows[i].Cells["Formula"].Value.ToString();
+            string[] Formulas = BillingFormulaVal.Split('+');
+            for (int p = 0; p <= Formulas.Length - 1; p++)
+            {
+                if (Formulas[p] == "B")
+                {
+                    subTotal = subTotal + Convert.ToDouble(txtGrossAmount.Text);
+                }
+                else
+                {
+
+                    int x = Convert.ToInt32(Formulas[p]) - 1;
+                    BillingFormulaVal = "";
+                    BillingFormulaVal = grdTaxTerm.Rows[x].Cells["Formula"].Value.ToString();
+                    if (BillingFormulaVal.Length > 0)
+                    {
+                        if (grdTaxTerm.Rows[x].Cells["AddOrSub"].Value.ToString() == "+")
+                        {
+                            subTotal = subTotal + Convert.ToDouble(grdTaxTerm.Rows[x].Cells["TaxAmount"].Value.ToString());
+                        }
+                        if (grdTaxTerm.Rows[x].Cells["AddOrSub"].Value.ToString() == "-")
+                        {
+                            subTotal = subTotal - Convert.ToDouble(grdTaxTerm.Rows[x].Cells["TaxAmount"].Value.ToString());
+                        }
+
+                    }
+                }
+
+            }
+            if (Convert.ToDouble(grdTaxTerm.Rows[i].Cells["TaxPer"].Value.ToString()) > 0)
+            {
+                result2 = subTotal * Convert.ToDouble(grdTaxTerm.Rows[i].Cells["TaxPer"].Value.ToString()) / 100;
+            }
+            else
+            {
+                result2 = Convert.ToDouble(grdTaxTerm.Rows[i].Cells["Amount"].Value.ToString());
+            }
+            return result2;
+        }
+
+        
+        //===================================================================
+        private void ddlTaxTerm_Leave(object sender, EventArgs e)
+        {
+            LodeBillingTerm();
+        }
+        public void LodeBillingTerm()
+        {
+            if (ddlTaxTerm.Text != "")
+            {
+                if (ddlTaxTerm.SelectedValue != null)
+                {
+                    //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    if (ddlTaxTerm.Text != "")
+                    {
+                        int Rcode = Convert.ToInt32(ddlTaxTerm.SelectedValue.ToString());
+                        grdTaxTerm.Rows.Clear();
+                        List<TaxConfigurationEL> objTaxConfigurationEL = new List<TaxConfigurationEL>();
+
+                        objTaxConfigurationEL = objTaxConfigDAL.BindDtlList(Rcode); 
+                        for (var i = 0; i < objTaxConfigurationEL.Count; i++)
+                        {
+                            grdTaxTerm.Rows.Add();
+                            grdTaxTerm.Rows[i].Cells["slCode"].Value = objTaxConfigurationEL[i].DCode.ToString();
+                            grdTaxTerm.Rows[i].Cells["TaxNm"].Value = objTaxConfigurationEL[i].ConfigNm;
+                            grdTaxTerm.Rows[i].Cells["STax"].Value = objTaxConfigurationEL[i].STax;
+                            grdTaxTerm.Rows[i].Cells["AddOrSub"].Value = objTaxConfigurationEL[i].addSub;
+                            grdTaxTerm.Rows[i].Cells["Formula"].Value = objTaxConfigurationEL[i].CalOn;
+                            grdTaxTerm.Rows[i].Cells["TaxPer"].Value = objTaxConfigurationEL[i].CalPer;
+                            grdTaxTerm.Rows[i].Cells["trnTaxVal"].Value = objTaxConfigurationEL[i].CalVal;
+
+                            grdTaxTerm.Rows[i].Cells["Type"].Value = objTaxConfigurationEL[i].TermsType;
+                        }
+                    }
+                    //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                }
+            }
+        }
+
+        private void txtGrossAmount_TextChanged(object sender, EventArgs e)
+        {
+            if ( txtGrossAmount.Text.ToString() != "")
+            {
+                //Convert.ToDouble(txtGrossAmount.Text.ToString()) != 0
+                double TaxTermTot= billingTermCalculate();
+                txtTaxTotal.Text = TaxTermTot.ToString();
+            }
+        }
+        //=======================================================
     }
 }
