@@ -26,7 +26,7 @@ namespace SPAPracticeManagement.InventoryTransaction
         TaxConfigurationDAL objTaxConfigurationDAL = new TaxConfigurationDAL();
         PurchaseBillDAL objPurchaseBillDAL = new PurchaseBillDAL();
         DataView dv;
-
+        bool GRNYN = false;
         string objFrmName = string.Empty;
 
         #endregion
@@ -44,6 +44,14 @@ namespace SPAPracticeManagement.InventoryTransaction
             objInventoryMasterDAL.BindDdlGodown(Globalmethods.BranchCD, ddlGodown);
             objInventoryMasterDAL.BindBranch(ddlBranch);
             objTaxConfigurationDAL.BindDdl(ddlTaxTerm);
+            objPurchaseBillDAL.BindDdlGRNNo(ddlGrnNo);
+            
+            GRNYN = Globalmethods.GetGRNYN(3);
+            if (GRNYN==true)
+            { ddlGrnNo.Enabled = true; }
+            else
+            { ddlGrnNo.Enabled = false; }
+
             objFrmName = "Purchase Bill";
             //AddFormat();
             SirchGridFormat();
@@ -151,7 +159,7 @@ namespace SPAPracticeManagement.InventoryTransaction
         public void formCtrlActiveY()
         {
             //=====================================================
-            this.txtIndentNo.Enabled = true;
+            //this.txtIndentNo.Enabled = true;
             this.StockDt.Enabled = true;
             this.ddlBranch.Enabled = true;
             this.ddlSupplier.Enabled = true;
@@ -232,7 +240,7 @@ namespace SPAPracticeManagement.InventoryTransaction
         public void formCtrlActiveN()
         {
             //=====================================================
-            this.txtIndentNo.Enabled = false;
+            //this.txtIndentNo.Enabled = false;
             this.StockDt.Enabled = false;
             this.ddlBranch.Enabled = false;
             this.ddlSupplier.Enabled = false;
@@ -267,7 +275,7 @@ namespace SPAPracticeManagement.InventoryTransaction
         {
             try
             {
-                //objItemOpeningstock.BindList(Globalmethods.BranchCD, grdSearch);
+                objPurchaseBillDAL.BindList(Globalmethods.BranchCD, grdSearch);
 
                 txtSearchText.Width = 1050;
 
@@ -310,12 +318,18 @@ namespace SPAPracticeManagement.InventoryTransaction
 
         private void ddlSupplier_KeyUp(object sender, KeyEventArgs e)
         {
-            CommonCL.TextBoxGotFocus(txtIndentNo, e);
+            if (GRNYN == true)
+            { CommonCL.ComboBoxGotFocus(ddlGrnNo, e); }
+            else
+            {
+                //CommonCL.TextBoxGotFocus(txtIndentNo, e);
+                CommonCL.ComboBoxGotFocus(ddlGodown, e);
+            }
         }
 
         private void txtIndentNo_KeyUp(object sender, KeyEventArgs e)
         {
-            CommonCL.ComboBoxGotFocus(ddlGodown, e);
+            //CommonCL.ComboBoxGotFocus(ddlGodown, e);
         }
 
         private void ddlGodown_KeyUp(object sender, KeyEventArgs e)
@@ -424,7 +438,15 @@ namespace SPAPracticeManagement.InventoryTransaction
         {
             falag = true;
         }
+        private void ddlGrnNo_Validated(object sender, EventArgs e)
+        {
+            CommonCL.cmbValidated(ddlGrnNo, falag);
+        }
 
+        private void ddlGrnNo_Enter(object sender, EventArgs e)
+        {
+            falag = true;
+        }
         private void ddlBranch_Validated(object sender, EventArgs e)
         {
             CommonCL.cmbValidated(ddlBranch, falag);
@@ -575,6 +597,19 @@ namespace SPAPracticeManagement.InventoryTransaction
                 {
                     objtblpurchasehdr.Code = Convert.ToInt32(txtHidCode.Text.ToString());
                     objtblpurchasehdr.TranDate = StockDt.Value;
+                    // check is it GRN or Order
+                    if (GRNYN == true)
+                    {
+                        objtblpurchasehdr.OrderYN = GRNYN;
+                        objtblpurchasehdr.OrderCd = Convert.ToInt32(ddlGrnNo.SelectedValue.ToString());
+                    }
+                    else
+                    {
+                        objtblpurchasehdr.OrderYN = GRNYN;
+                        objtblpurchasehdr.OrderCd = Convert.ToInt32("0");
+
+                    }
+                    //=====================================
                     objtblpurchasehdr.BranchCd = Convert.ToInt32(ddlBranch.SelectedValue.ToString());
                     objtblpurchasehdr.GodownCd = Convert.ToInt32(ddlGodown.SelectedValue.ToString());
                     objtblpurchasehdr.SupplierCd = Convert.ToInt32(ddlSupplier.SelectedValue.ToString());
@@ -851,5 +886,97 @@ namespace SPAPracticeManagement.InventoryTransaction
             SubCtrlClear();
             ActiveControl = ddlItem;
         }
+        #region Search Effect
+        private void grdSearch_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            CommonCL.PanelControlGotFocus(pnlTabControlAdd, pnlTabControlSearch);
+            XGridValueJump();
+            EditFormatActiveN();
+        }
+        public void XGridValueJump()
+        {
+            try
+            {
+                int index5 = grdSearch.SelectedCells[0].RowIndex;
+                txtHidCode.Text = (String)grdSearch["Code", index5].Value.ToString();
+                int Rcode = Convert.ToInt32(grdSearch["Code", index5].Value.ToString());
+                //=======================Header data bind==========================
+                string ActYN = "N";
+                if ((bool)grdSearch["HActiveYN", index5].Value == true)
+                {
+                    ActYN = "Y";
+                }
+                txtHdActiveYN.Text = ActYN;
+                this.ddlBranch.SelectedValue = grdSearch["Brabchcd", index5].Value;
+                //=================================================================
+                if (ddlBranch.SelectedValue != null || ddlBranch.SelectedValue.ToString() != "")
+                {
+                    int i = Convert.ToInt32(ddlBranch.SelectedValue.ToString());
+                    objInventoryMasterDAL.BindDdlGodown(i, ddlGodown);
+                    this.ddlGodown.SelectedValue = grdSearch["Godowncd", index5].Value;
+                }
+                //=================================================================
+                this.txtIndentNo.Text = grdSearch["PurchaseTranID", index5].Value.ToString();
+                this.ddlSupplier.SelectedValue = grdSearch["SupplierCd", index5].Value;
+                this.ddlTaxTerm.SelectedValue = grdSearch["TranId", index5].Value;
+                this.txtIndentNo.Text = grdSearch["TranId", index5].Value.ToString();
+                this.StockDt.Value = Convert.ToDateTime(grdSearch["TranDate", index5].Value);
+                this.txtGrossAmount.Text = grdSearch["TotBasicValue", index5].Value.ToString();
+                this.txtTaxTotal.Text = grdSearch["TotVal", index5].Value.ToString();
+                //this.txtIndentNo.Text = grdSearch["TotDisc", index5].Value.ToString();
+                this.txtNetTotal.Text = grdSearch["TotValue", index5].Value.ToString();
+                //=============================End=================================
+                //=======================Detail data bind==========================
+
+
+                if (txtHidCode.Text == "")
+                {
+                    MessageBox.Show("Please Select Valid date.. !!");
+                    return;
+                }
+                else
+                {
+
+                    txtHidCode.Text = (String)grdSearch["Code", index5].Value.ToString();
+                    Rcode = Convert.ToInt32(txtHidCode.Text.ToString());
+                    grdDtl.Rows.Clear();
+                    List<PurchaceBillEL> objPurchaceBillEL = new List<PurchaceBillEL>();
+
+                    objPurchaceBillEL = objPurchaseBillDAL.BindDtlList(Rcode);  //  (grdDtl, Rcode);
+                    for (var i = 0; i < objPurchaceBillEL.Count; i++)
+                    {
+                        grdDtl.Rows.Add();
+                        grdDtl.Rows[i].Cells["code"].Value = objPurchaceBillEL[i].DCode.ToString();
+                        grdDtl.Rows[i].Cells["ItemCd"].Value = objPurchaceBillEL[i].ItemCd;
+                        grdDtl.Rows[i].Cells["Item"].Value = objPurchaceBillEL[i].Item;
+                        grdDtl.Rows[i].Cells["Qty"].Value = objPurchaceBillEL[i].Qty;
+                        grdDtl.Rows[i].Cells["UnitCd"].Value = objPurchaceBillEL[i].UnitCd;
+                        grdDtl.Rows[i].Cells["Unit"].Value = objPurchaceBillEL[i].Unit;
+                        
+                        grdDtl.Rows[i].Cells["Rate"].Value = objPurchaceBillEL[i].Rate;
+                        grdDtl.Rows[i].Cells["Amount"].Value = objPurchaceBillEL[i].Amount;
+                        grdDtl.Rows[i].Cells["ItTaxPer"].Value = objPurchaceBillEL[i].TaxPer;
+
+                        grdDtl.Rows[i].Cells["ItTaxVal"].Value = objPurchaceBillEL[i].TaxVal;
+                        grdDtl.Rows[i].Cells["ExpiryDt"].Value = objPurchaceBillEL[i].ExpiryDt;
+                        grdDtl.Rows[i].Cells["DActiveYN"].Value = objPurchaceBillEL[i].ActiveYN;
+
+                        grdDtl.Rows[i].Cells["ExpiryDt"].Value = objPurchaceBillEL[i].ExpiryDt;
+                        grdDtl.Rows[i].Cells["Amount"].Value = objPurchaceBillEL[i].Rate;
+                        grdDtl.Rows[i].Cells["DActiveYN"].Value = objPurchaceBillEL[i].ActiveYN;
+                    }
+
+
+                    //=================================================================
+
+                }
+
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.Message);
+            }
+        }
+        #endregion
     }
 }
