@@ -62,6 +62,27 @@ namespace DataAccessLayer
             return prefix;
 
         }
+        public static bool GetGRNYN(int id)
+        {
+            bool GRNYN = false;
+            try
+            {
+                SpaPracticeEntities db = new SpaPracticeEntities();
+                var BNValue = db.tblparameters.Where(p => p.ID == 1).ToList(); ;
+                foreach (var pr in BNValue)
+                {
+                    GRNYN = pr.GRN;
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+
+            return GRNYN;
+
+        }
 
         public static void GetParameterValues()
         {
