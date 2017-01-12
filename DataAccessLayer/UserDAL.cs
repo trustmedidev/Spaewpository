@@ -45,8 +45,41 @@ namespace DataAccessLayer
                 return null;
             }
         }
+        #region Assign Branch rghts
+        public List <BranchRightEL> BranchRightsList(int UserID)
+        {
+            try
+            {
+                List<BranchRightEL> oblBr = new List<BranchRightEL>();
+                //var UserDetails = dbcontext.tblusers.Where(x => x.UserName.Trim().ToUpper() == userName && x.Password.Trim().ToUpper() == password).FirstOrDefault();
+                oblBr = (from objBranchright in tblbranchrights
+                         join br in tblbranches on objBranchright.BranchCd equals br.BranchID
+                                 into t1
+                         from br in t1.DefaultIfEmpty()
+                         where objBranchright.UserCd == UserID
+                         orderby br.BranchName
+                         select new BranchRightEL()
+                          {
+                              Code = objBranchright.Code,
+                              BranchCd = objBranchright.BranchCd,
+                              UserCD = objBranchright.UserCd,
+                              branchName = br.BranchName,
+                              AllowYN = objBranchright.AllowYN
+
+                          }
+                             ).ToList();
 
 
+                return oblBr;
+            }
+            catch (Exception ex)
+            {
+                return null;    
+            }
+           
+        }
+
+        #endregion
         public UserEL ForgotPassword(string email, int? branchID)
         {
             var UserDetails = dbcontext.tblusers.Where(x => x.Email.Trim().ToUpper() == email.Trim().ToUpper() && x.FK_BranchID == branchID).FirstOrDefault();
