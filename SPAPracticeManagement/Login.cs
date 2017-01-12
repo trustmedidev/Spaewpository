@@ -214,6 +214,7 @@ namespace SPAPracticeManagement
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             GetUserAuthentication();
+            //Globalmethods.GetParameterValues();
         }
 
         protected void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
