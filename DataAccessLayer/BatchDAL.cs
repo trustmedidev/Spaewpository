@@ -119,6 +119,40 @@ namespace DataAccessLayer
             }
         }
 
+        #region === bind Item Main Grp
+        public void BindDdl(ComboBox ddl)
+        {
+            try
+            {
+
+                var data = (from p in tblbatches
+                            where p.ActiveYN == true
+                            select new
+                            {
+                                Code = p.Code,
+                                Name = p.BatchNo
+
+
+                            });
+                var servicelist = data.ToList();
+                if (servicelist != null)
+                {
+                    ddl.DataSource = null;
+                    ddl.Items.Clear();
+
+                    ddl.ValueMember = "Code";
+                    ddl.DisplayMember = "Name";
+                    ddl.DataSource = servicelist;
+                    ddl.SelectedIndex = -1;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+        #endregion
         //public void BindList(DataGridView grd)
         //{
         //    try
